@@ -1,10 +1,10 @@
 CANIBALIZACION
-  grupos con mas de una pagina: 60
+  grupos con mas de una pagina: 72
     SEGURO     5
-    TITULO     0
-    REVISAR   13
-    SEPARAR    9
-    CRUZADO   33
+    TITULO     4
+    REVISAR   17
+    SEPARAR   12
+    CRUZADO   34
 
 
 SEGURO  SE FUSIONAN — sobra una pagina, 301 a la ganadora
@@ -31,6 +31,27 @@ SEGURO  SE FUSIONAN — sobra una pagina, 301 a la ganadora
       abacosoftware negocio_souvenirs_tienda.asp                     694 pal
 
 
+TITULO  CONFIRMADA — las dos paginas llevan el mismo <title>
+   No es el agrupador: el titulo lo escribio una persona, igual en las dos.
+
+   [colchoneria muebl]   !! mismo <title>
+      abacosoftware negocio_colchoneria.asp                          846 pal
+      abacosoftware negocio_muebles.asp                              848 pal
+
+   [complemento decoracion]   !! mismo <title>
+      abacosoftware negocio_complementos.asp                         790 pal
+      abacosoftware negocio_decoracion.asp                           790 pal
+
+   [perfumeria cosmetica]   !! mismo <title>
+      abacosoftware negocio_cosmetica.asp                            808 pal
+      abacosoftware negocio_perfumeria.asp                           809 pal
+
+   [telefonia]   !! mismo <title>
+      abacosoftware negocio_reparaciones.asp                         914 pal
+      abacosoftware negocio_telefonia.asp                            920 pal
+      abacosoftware negocio_telefonia_sat.asp                        769 pal
+
+
 REVISAR  HAY QUE DECIDIR — negocios parecidos, no identicos
    El agrupador los unio por vecindad. Fusionar es decision de negocio.
 
@@ -44,6 +65,7 @@ REVISAR  HAY QUE DECIDIR — negocios parecidos, no identicos
       abacosoftware comparativas-tpv.asp                             830 pal
 
    [frecuent pregunta verifactu]
+      carrito5     preguntas-frecuentes-operativa-caja-tienda.html     ? pal
       carrito5     preguntas-frecuentes-tpv-verifactu.html            ? pal
       carrito5     preguntas-frecuentes-verifactu-ley-antifraude.html     ? pal
 
@@ -51,9 +73,10 @@ REVISAR  HAY QUE DECIDIR — negocios parecidos, no identicos
       abacosoftware negocio_herbodietetica.asp                       696 pal
       abacosoftware negocio_herboristeria.asp                        918 pal
 
-   [infantil zapateria]
+   [infantil puericultura zapateria]
       abacosoftware negocio_calzado_infantil.asp                     735 pal
       abacosoftware negocio_infantil.asp                             934 pal
+      abacosoftware negocio_puericultura.asp                         759 pal
 
    [instrumentos]
       abacosoftware negocio_instrumentos.asp                         716 pal
@@ -71,6 +94,10 @@ REVISAR  HAY QUE DECIDIR — negocios parecidos, no identicos
       abacosoftware ley-antifraude-tpv.asp                          1016 pal
       abacosoftware sanciones-ley-antifraude.asp                    1220 pal
 
+   [local]
+      carrito5     software-tpv-comercio-local.html                   ? pal
+      carrito5     tpv-comercio.html                                  ? pal
+
    [mascotas]
       abacosoftware negocio_animales.asp                             918 pal
       abacosoftware negocio_petshop.asp                              753 pal
@@ -78,6 +105,14 @@ REVISAR  HAY QUE DECIDIR — negocios parecidos, no identicos
    [merceria]
       abacosoftware negocio_lenceria.asp                             872 pal
       abacosoftware negocio_merceria.asp                             824 pal
+
+   [segundamano mano]
+      abacosoftware negocio_segunda_mano.asp                         877 pal
+      abacosoftware negocio_vintage_segundamano.asp                  722 pal
+
+   [sexshop articulo erotico]
+      abacosoftware negocio_articulos_eroticos.asp                   812 pal
+      abacosoftware negocio_sexshop.asp                              692 pal
 
    [verifactu]
       abacosoftware que-es-verifactu.asp                            1023 pal
@@ -88,13 +123,29 @@ REVISAR  HAY QUE DECIDIR — negocios parecidos, no identicos
       carrito5     verifactu-aeat-descargar.html                      ? pal
       carrito5     verifactu-gratis.html                              ? pal
 
+   [zapateria]
+      carrito5     programa-stock-zapateria.html                      ? pal
+      carrito5     tpv-zapateria.html                                 ? pal
+
 
 SEPARAR  NO SE TOCAN — distinta etapa del embudo
    Comparten palabras pero no compiten. Enlazarlas entre si.
 
+   [colchoneria muebl]
+      carrito5     tpv-colchonerias-descanso.html                     ? pal
+      carrito5     tpv-tienda-muebles.html                            ? pal
+
+   [complemento decoracion]
+      carrito5     tpv-complementos.html                              ? pal
+      carrito5     tpv-tienda-decoracion.html                         ? pal
+
    [electrodomestico abrir]
       abacosoftware abrir-tienda-electrodomesticos.asp               974 pal
       abacosoftware negocio_electrodomesticos.asp                   1038 pal
+
+   [etiqueta barra codigo]
+      abacosoftware app_etiquetas_ql5.asp                           1051 pal
+      abacosoftware etiquetas-codigo-de-barras-tpv.asp               693 pal
 
    [ferreteria abrir]
       abacosoftware abrir-ferreteria.asp                            1035 pal
@@ -125,7 +176,7 @@ SEPARAR  NO SE TOCAN — distinta etapa del embudo
       abacosoftware abrir-peluqueria.asp                             988 pal
       abacosoftware negocio_peluqueria.asp                           918 pal
 
-   [zapateria abrir]
+   [zapateria]
       abacosoftware abrir-zapateria.asp                             1047 pal
       abacosoftware negocio_calzado.asp                             1260 pal
 
@@ -138,6 +189,10 @@ CRUZADO  DECIDE EL CLIENTE — dominios distintos
       abacosoftware negocio_antiguedades.asp                         992 pal
       carrito5     tpv-tienda-antiguedades.html                       ? pal
 
+   [armeria caza pesca]
+      abacosoftware negocio_armeria.asp                              834 pal
+      carrito5     tpv-tienda-pesca-caza.html                         ? pal
+
    [arqueo caja cierre]
       abacosoftware arqueo-de-caja-cierre-diario.asp                 720 pal
       carrito5     blog/como-hacer-arqueo-de-caja-cierre-z.html       ? pal
@@ -146,13 +201,21 @@ CRUZADO  DECIDE EL CLIENTE — dominios distintos
       abacosoftware negocio_bicicletas.asp                           849 pal
       carrito5     tpv-tienda-bicicletas.html                         ? pal
 
-   [colchoneria]
+   [colchoneria muebl]   !! mismo <title>
       abacosoftware negocio_colchoneria.asp                          846 pal
+      abacosoftware negocio_muebles.asp                              848 pal
       carrito5     tpv-colchonerias-descanso.html                     ? pal
+      carrito5     tpv-tienda-muebles.html                            ? pal
 
-   [complemento]
+   [comic manga]
+      abacosoftware negocio_comics.asp                               743 pal
+      carrito5     tpv-tienda-manga-comics.html                       ? pal
+
+   [complemento decoracion]   !! mismo <title>
       abacosoftware negocio_complementos.asp                         790 pal
+      abacosoftware negocio_decoracion.asp                           790 pal
       carrito5     tpv-complementos.html                              ? pal
+      carrito5     tpv-tienda-decoracion.html                         ? pal
 
    [condicion]
       abacosoftware condiciones.asp                                 1708 pal
@@ -161,10 +224,6 @@ CRUZADO  DECIDE EL CLIENTE — dominios distintos
    [cosmetica natural]
       abacosoftware negocio_cosmetica_natural.asp                    705 pal
       carrito5     tpv-tienda-cosmetica-natural.html                  ? pal
-
-   [decoracion]
-      abacosoftware negocio_decoracion.asp                           790 pal
-      carrito5     tpv-tienda-decoracion.html                         ? pal
 
    [deport]
       abacosoftware negocio_deportes.asp                             885 pal
@@ -180,6 +239,7 @@ CRUZADO  DECIDE EL CLIENTE — dominios distintos
       carrito5     tpv-floristeria.html                               ? pal
 
    [frecuent pregunta verifactu]
+      carrito5     preguntas-frecuentes-operativa-caja-tienda.html     ? pal
       carrito5     preguntas-frecuentes-tpv-verifactu.html            ? pal
       abacosoftware preguntas-frecuentes-tpv.asp                    1670 pal
       carrito5     preguntas-frecuentes-verifactu-ley-antifraude.html     ? pal
@@ -227,10 +287,6 @@ CRUZADO  DECIDE EL CLIENTE — dominios distintos
       abacosoftware negocio_merceria.asp                             824 pal
       carrito5     tpv-lenceria-merceria.html                         ? pal
 
-   [muebl]
-      abacosoftware negocio_muebles.asp                              848 pal
-      carrito5     tpv-tienda-muebles.html                            ? pal
-
    [optica]
       abacosoftware negocio_optica.asp                              1163 pal
       carrito5     tpv-tienda-optica.html                             ? pal
@@ -250,7 +306,8 @@ CRUZADO  DECIDE EL CLIENTE — dominios distintos
       carrito5     tpv-herboristeria-parafarmacia.html                ? pal
       carrito5     tpv-tienda-parafarmacia.html                       ? pal
 
-   [perfumeria]
+   [perfumeria cosmetica]   !! mismo <title>
+      abacosoftware negocio_cosmetica.asp                            808 pal
       abacosoftware negocio_perfumeria.asp                           809 pal
       carrito5     tpv-drogueria.html                                 ? pal
 
@@ -259,13 +316,20 @@ CRUZADO  DECIDE EL CLIENTE — dominios distintos
       abacosoftware guia-abrir-tienda-de-ropa.asp                    966 pal
       carrito5     tpv-tienda-ropa.html                               ? pal
 
-   [sexshop]
+   [sexshop articulo erotico]
+      abacosoftware negocio_articulos_eroticos.asp                   812 pal
       abacosoftware negocio_sexshop.asp                              692 pal
       carrito5     tpv-sexshop.html                                   ? pal
 
-   [telefonia informatica]
+   [telefonia]   !! mismo <title>
+      abacosoftware negocio_reparaciones.asp                         914 pal
       abacosoftware negocio_telefonia.asp                            920 pal
+      abacosoftware negocio_telefonia_sat.asp                        769 pal
       carrito5     tpv-informatica-telefonia.html                     ? pal
+
+   [termino uso]
+      carrito5     pg/terminos.asp                                    ? pal
+      abacosoftware terminos_uso.asp                                2397 pal
 
    [vapeo]
       abacosoftware negocio_vapeo.asp                               1072 pal
@@ -278,9 +342,10 @@ CRUZADO  DECIDE EL CLIENTE — dominios distintos
       carrito5     verifactu-gratis.html                              ? pal
       abacosoftware verifactu-tpv.asp                               1183 pal
 
-   [zapateria abrir]
+   [zapateria]
       abacosoftware abrir-zapateria.asp                             1047 pal
       abacosoftware negocio_calzado.asp                             1260 pal
+      carrito5     programa-stock-zapateria.html                      ? pal
       carrito5     tpv-zapateria.html                                 ? pal
 
 
@@ -292,12 +357,4 @@ TITULO  EL MISMO <title> FUERA DE TODO GRUPO
       abacosoftware tpv_consultas_desde_web.asp
       abacosoftware tpv_consultas_desde_web_med.asp
       abacosoftware tpv_pedir_caja5_gratis.asp
-
-   "software tpv para perfumerías, cosmética y droguerías | caja 5"
-      abacosoftware negocio_cosmetica.asp
-      abacosoftware negocio_perfumeria.asp
-
-   "software tpv para tiendas de telefonía, informática y sat"
-      abacosoftware negocio_reparaciones.asp
-      abacosoftware negocio_telefonia.asp
 

@@ -255,19 +255,55 @@ def leer(rutas):
 ORDEN = {"SEGURO": 0, "TITULO": 1, "REVISAR": 2, "SEPARAR": 3, "CRUZADO": 4}
 
 
+def unir(*agrupaciones):
+    """Funde varias agrupaciones: dos paginas juntas en cualquiera van juntas."""
+    padre = {}
+
+    def raiz(x):
+        padre.setdefault(x, x)
+        while padre[x] != x:
+            padre[x] = padre[padre[x]]
+            x = padre[x]
+        return x
+
+    for grupos in agrupaciones:
+        for g in grupos:
+            for k in g:
+                ra, rb = raiz(g[0]), raiz(k)
+                if ra != rb:
+                    padre[ra] = rb
+
+    fundidos = {}
+    for k in padre:
+        fundidos.setdefault(raiz(k), []).append(k)
+    return sorted(fundidos.values(), key=lambda g: (-len(g), sorted(g)[0]))
+
+
 def analizar(rutas):
     paginas = leer(rutas)
     indice = {p[1] + "\x00" + p[0]: p for p in paginas}
-    # El tema de una pagina es su SLUG, no su titulo. Es la trampa nº 5 de
-    # motor/README.md y aqui la tenia yo viva: pegarle el titulo al slug mete
-    # el detalle comercial en el nucleo, la cobertura asimetrica lee ese
-    # detalle como acotacion, y dos paginas que hablan de lo mismo dejan de
-    # agruparse. Medido con lavanderia: por slug se parecen 1,000 y con el
-    # titulo pegado 0,333, por debajo del umbral de 0,50.
+    # Ni el slug solo ni el slug con el titulo ven todo, asi que se usan los
+    # dos y se unen. Lo midio ALMA y esta comprobado aqui: sobre estos mismos
+    # inventarios, el slug solo gana 42 paginas que el otro no veia y pierde 12
+    # que si veia.
     #
-    # El titulo no se pierde: entra por titulo_repetido(), que es igualdad
-    # exacta y no similitud, y ahi si es la senal mas dura del analisis.
-    grupos, nuc = C.agrupar({k: v[1] for k, v in indice.items()})
+    # Los dos fallan por el MISMO mecanismo, cada uno por un lado. El agrupador
+    # descuenta al que parece mas especifico, asi que basta con que a una de las
+    # dos paginas le sobre una palabra para que la cobertura asimetrica las
+    # separe:
+    #
+    #   por el titulo   'negocio_lavanderia.asp' + "... y Arreglos de Ropa"
+    #                   da {lavanderia, arreglo, ropa} contra {lavanderia}
+    #   por el slug     'tpv-tienda-manga-comics' da {comic, manga}
+    #                   contra {comic} de 'negocio_comics.asp'
+    #
+    # Unir no infla el resultado: los dos criterios solo anaden aristas entre
+    # paginas que uno de ellos ya considera la misma intencion, y el veredicto
+    # que decide las 301 sigue exigiendo que los slugs sean variantes.
+    por_slug, nuc = C.agrupar({k: v[1] for k, v in indice.items()})
+    por_titulo, _ = C.agrupar({k: f"{v[1]} {C.sin_marca(v[2])}"
+                               for k, v in indice.items()})
+    grupos = unir(por_slug, por_titulo)
 
     salida = []
     for claves in grupos:

@@ -1,7 +1,7 @@
   paginas analizadas: 273  de 2 dominios
-  intenciones distintas: 210
-  intenciones con mas de una pagina: 44
-  de esas, repartidas entre dominios distintos: 33
+  intenciones distintas: 195
+  intenciones con mas de una pagina: 48
+  de esas, repartidas entre dominios distintos: 34
 
   A. LA MISMA INTENCION EN LOS DOS DOMINIOS
      (compites contra ti mismo: una de las dos no va a posicionar)
@@ -19,11 +19,41 @@
         abacosoftware   negocio_papeleria.asp
         carrito5        tpv-papeleria.html
 
+   !! [zapateria]
+        abacosoftware   abrir-zapateria.asp
+        abacosoftware   negocio_calzado.asp
+        carrito5        programa-stock-zapateria.html
+        carrito5        tpv-zapateria.html
+
+   !! [colchoneria muebl]
+        abacosoftware   negocio_colchoneria.asp
+        abacosoftware   negocio_muebles.asp
+        carrito5        tpv-colchonerias-descanso.html
+        carrito5        tpv-tienda-muebles.html
+
+   !! [complemento decoracion]
+        abacosoftware   negocio_complementos.asp
+        abacosoftware   negocio_decoracion.asp
+        carrito5        tpv-complementos.html
+        carrito5        tpv-tienda-decoracion.html
+
    !! [instrumentos]
         abacosoftware   negocio_instrumentos.asp
         abacosoftware   negocio_musica.asp
         carrito5        tpv-tienda-instrumentos-musica.html
         carrito5        tpv-tiendas-instrumentos-musica.html
+
+   !! [telefonia]
+        abacosoftware   negocio_reparaciones.asp
+        abacosoftware   negocio_telefonia.asp
+        abacosoftware   negocio_telefonia_sat.asp
+        carrito5        tpv-informatica-telefonia.html
+
+   !! [frecuent pregunta verifactu]
+        abacosoftware   preguntas-frecuentes-tpv.asp
+        carrito5        preguntas-frecuentes-operativa-caja-tienda.html
+        carrito5        preguntas-frecuentes-tpv-verifactu.html
+        carrito5        preguntas-frecuentes-verifactu-ley-antifraude.html
 
    !! [ropa abrir guia]
         abacosoftware   abrir-tienda-de-ropa.asp
@@ -34,11 +64,6 @@
         abacosoftware   abrir-tienda-electrodomesticos.asp
         abacosoftware   negocio_electrodomesticos.asp
         carrito5        tpv-tienda-electrodomesticos.html
-
-   !! [zapateria abrir]
-        abacosoftware   abrir-zapateria.asp
-        abacosoftware   negocio_calzado.asp
-        carrito5        tpv-zapateria.html
 
    !! [index]
         abacosoftware   index.asp
@@ -54,6 +79,16 @@
         abacosoftware   negocio_antiguedad.asp
         abacosoftware   negocio_antiguedades.asp
         carrito5        tpv-tienda-antiguedades.html
+
+   !! [sexshop articulo erotico]
+        abacosoftware   negocio_articulos_eroticos.asp
+        abacosoftware   negocio_sexshop.asp
+        carrito5        tpv-sexshop.html
+
+   !! [perfumeria cosmetica]
+        abacosoftware   negocio_cosmetica.asp
+        abacosoftware   negocio_perfumeria.asp
+        carrito5        tpv-drogueria.html
 
    !! [herboristeria]
         abacosoftware   negocio_herbodietetica.asp
@@ -75,11 +110,6 @@
         carrito5        tpv-herboristeria-parafarmacia.html
         carrito5        tpv-tienda-parafarmacia.html
 
-   !! [frecuent pregunta verifactu]
-        abacosoftware   preguntas-frecuentes-tpv.asp
-        carrito5        preguntas-frecuentes-tpv-verifactu.html
-        carrito5        preguntas-frecuentes-verifactu-ley-antifraude.html
-
    !! [arqueo caja cierre]
         abacosoftware   arqueo-de-caja-cierre-diario.asp
         carrito5        blog/como-hacer-arqueo-de-caja-cierre-z.html
@@ -88,25 +118,21 @@
         abacosoftware   condiciones.asp
         carrito5        pg/condiciones.asp
 
+   !! [armeria caza pesca]
+        abacosoftware   negocio_armeria.asp
+        carrito5        tpv-tienda-pesca-caza.html
+
    !! [bicicletas]
         abacosoftware   negocio_bicicletas.asp
         carrito5        tpv-tienda-bicicletas.html
 
-   !! [colchoneria]
-        abacosoftware   negocio_colchoneria.asp
-        carrito5        tpv-colchonerias-descanso.html
-
-   !! [complemento]
-        abacosoftware   negocio_complementos.asp
-        carrito5        tpv-complementos.html
+   !! [comic manga]
+        abacosoftware   negocio_comics.asp
+        carrito5        tpv-tienda-manga-comics.html
 
    !! [cosmetica natural]
         abacosoftware   negocio_cosmetica_natural.asp
         carrito5        tpv-tienda-cosmetica-natural.html
-
-   !! [decoracion]
-        abacosoftware   negocio_decoracion.asp
-        carrito5        tpv-tienda-decoracion.html
 
    !! [deport]
         abacosoftware   negocio_deportes.asp
@@ -124,10 +150,6 @@
         abacosoftware   negocio_lavanderia.asp
         carrito5        tpv-lavanderia-tintoreria.html
 
-   !! [muebl]
-        abacosoftware   negocio_muebles.asp
-        carrito5        tpv-tienda-muebles.html
-
    !! [optica]
         abacosoftware   negocio_optica.asp
         carrito5        tpv-tienda-optica.html
@@ -135,18 +157,6 @@
    !! [padel deport]
         abacosoftware   negocio_padel.asp
         carrito5        tpv-tienda-deportes-padel.html
-
-   !! [perfumeria]
-        abacosoftware   negocio_perfumeria.asp
-        carrito5        tpv-drogueria.html
-
-   !! [sexshop]
-        abacosoftware   negocio_sexshop.asp
-        carrito5        tpv-sexshop.html
-
-   !! [telefonia informatica]
-        abacosoftware   negocio_telefonia.asp
-        carrito5        tpv-informatica-telefonia.html
 
    !! [hogar textil]
         abacosoftware   negocio_textil_hogar.asp
@@ -156,12 +166,20 @@
         abacosoftware   negocio_vapeo.asp
         carrito5        tpv-tienda-vapeo.html
 
-  B. VARIAS PAGINAS DEL MISMO DOMINIO -> 11 grupos
+   !! [termino uso]
+        abacosoftware   terminos_uso.asp
+        carrito5        pg/terminos.asp
+
+  B. VARIAS PAGINAS DEL MISMO DOMINIO -> 14 grupos
 
    ?  [comparativa nube]  (abacosoftware)
         caja5_nube.asp
         comparativa_tpv_nube.asp
         comparativas-tpv.asp
+   ?  [infantil puericultura zapateria]  (abacosoftware)
+        negocio_calzado_infantil.asp
+        negocio_infantil.asp
+        negocio_puericultura.asp
    ?  [ferreteria abrir]  (abacosoftware)
         abrir-ferreteria.asp
         negocio_ferreteria.asp
@@ -177,12 +195,15 @@
    ?  [peluqueria abrir]  (abacosoftware)
         abrir-peluqueria.asp
         negocio_peluqueria.asp
+   ?  [etiqueta barra codigo]  (abacosoftware)
+        app_etiquetas_ql5.asp
+        etiquetas-codigo-de-barras-tpv.asp
    ?  [ley verifactu sancion]  (abacosoftware)
         ley-antifraude-tpv.asp
         sanciones-ley-antifraude.asp
-   ?  [infantil zapateria]  (abacosoftware)
-        negocio_calzado_infantil.asp
-        negocio_infantil.asp
+   ?  [segundamano mano]  (abacosoftware)
+        negocio_segunda_mano.asp
+        negocio_vintage_segundamano.asp
    ?  [souvenir]  (abacosoftware)
         negocio_souvenirs.asp
         negocio_souvenirs_tienda.asp
@@ -192,3 +213,6 @@
    ?  [barcelona instrumentos]  (carrito5)
         software-tpv-barcelona.html
         tpv-instrumentos-musica-barcelona.html
+   ?  [local]  (carrito5)
+        software-tpv-comercio-local.html
+        tpv-comercio.html

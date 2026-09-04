@@ -284,6 +284,46 @@ def agrupar(items, umbral=UMBRAL):
     return sorted(grupos.values(), key=lambda g: (-len(g), sorted(g)[0])), nuc
 
 
+def unir(*agrupaciones):
+    """Funde varias agrupaciones: dos claves juntas en cualquiera van juntas.
+
+    Existe porque ninguna forma de mirar una pagina las ve todas, y las dos que
+    se usan fallan por el mismo mecanismo, cada una por un lado. El agrupador
+    descuenta a la que parece mas especifica, asi que basta con que a una de las
+    dos le sobre una palabra para que la cobertura asimetrica las separe:
+
+      por el titulo   'negocio_lavanderia.asp' con "... y Arreglos de Ropa" da
+                      {lavanderia, arreglo, ropa} contra {lavanderia}
+      por el slug     'tpv-tienda-manga-comics' da {comic, manga} contra
+                      {comic} de 'negocio_comics.asp'
+
+    Medido sobre los inventarios reales: por slug se ganan 42 paginas que por
+    titulo no se veian, y se pierden 12 que si. Unir no infla nada, porque cada
+    criterio solo anade aristas entre paginas que el ya considera la misma
+    intencion.
+    """
+    padre = {}
+
+    def raiz(x):
+        padre.setdefault(x, x)
+        while padre[x] != x:
+            padre[x] = padre[padre[x]]
+            x = padre[x]
+        return x
+
+    for grupos in agrupaciones:
+        for g in grupos:
+            for k in g:
+                ra, rb = raiz(g[0]), raiz(k)
+                if ra != rb:
+                    padre[ra] = rb
+
+    fundidos = {}
+    for k in padre:
+        fundidos.setdefault(raiz(k), []).append(k)
+    return sorted(fundidos.values(), key=lambda g: (-len(g), sorted(g)[0]))
+
+
 def etiqueta(claves, nuc):
     """Nombre legible del grupo: las palabras que comparte la mayoria."""
     if not claves:

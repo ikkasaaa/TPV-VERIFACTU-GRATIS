@@ -112,8 +112,12 @@ def items_de_paginas(paginas):
 
 def modo_paginas(rutas):
     paginas = leer_inventarios(rutas)
+    # Los dos criterios, unidos: ninguno ve todo. Ver C.unir().
     items = items_de_paginas(paginas)
-    grupos, nuc = C.agrupar(items)
+    grupos_slug, nuc = C.agrupar(items)
+    grupos_tit, _ = C.agrupar({f"{s}|{sl}": f"{sl} {C.sin_marca(ti)}"
+                               for s, sl, ti in paginas})
+    grupos = C.unir(grupos_slug, grupos_tit)
 
     multi = [g for g in grupos if len(g) > 1]
     cruzados = [g for g in multi if len({k.split("|")[0] for k in g}) > 1]

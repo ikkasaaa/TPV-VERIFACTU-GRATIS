@@ -133,6 +133,44 @@ def _():
         "las dos paginas de lavanderia no se agrupan: el titulo vuelve a acotar"
 
 
+@caso("la union recupera lo que cada criterio por separado deja fuera")
+def _():
+    # Ninguno de los dos criterios ve todo, y fallan por lados distintos:
+    #
+    #   solo el slug lo ve   lavanderia: los slugs coinciden, pero al titulo de
+    #                        abaco le sobran "arreglos" y "ropa" y lo separan.
+    #   solo el titulo lo ve colchoneria/muebles: los slugs no comparten nada,
+    #                        pero llevan el MISMO titulo, escrito por una
+    #                        persona, que es la senal mas dura que hay.
+    #
+    # Medido sobre los inventarios reales: el slug solo gana 42 paginas y
+    # pierde 12. Por eso la lista buena es la union.
+    sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+    import analizar_clusters as A
+    mismo = "Software TPV para Mueblerias, Colchonerias y Decoracion"
+    paginas = [
+        ("abacosoftware", "negocio_lavanderia.asp",
+         "Software TPV para Lavanderias, Tintorerias y Arreglos de Ropa"),
+        ("carrito5", "tpv-lavanderia-tintoreria.html", "TPV lavanderia"),
+        ("abacosoftware", "negocio_colchoneria.asp", mismo),
+        ("abacosoftware", "negocio_muebles.asp", mismo),
+    ]
+
+    def pares(grupos):
+        return {frozenset(g) for g in grupos if len(g) > 1}
+
+    por_slug, _ = C.agrupar(A.items_de_paginas(paginas))
+    por_tit, _ = C.agrupar({f"{s}|{sl}": f"{sl} {C.sin_marca(ti)}"
+                            for s, sl, ti in paginas})
+    unidos = pares(C.unir(por_slug, por_tit))
+
+    assert len(pares(por_slug)) == 1, "el caso ya no distingue: el slug ve %d pares" % len(pares(por_slug))
+    assert len(pares(por_tit)) == 1, "el caso ya no distingue: el titulo ve %d pares" % len(pares(por_tit))
+    assert pares(por_slug) != pares(por_tit), "los dos criterios ven el mismo par"
+    assert unidos == pares(por_slug) | pares(por_tit), \
+        "la union no recupera los dos pares: %s" % sorted(map(sorted, unidos))
+
+
 def main():
     fallos = 0
     for nombre, f in CASOS:

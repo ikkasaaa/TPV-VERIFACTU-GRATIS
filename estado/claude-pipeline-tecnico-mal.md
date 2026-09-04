@@ -107,6 +107,35 @@ segunda vez y chocar contigo en los 65 ficheros. Consecuencia práctica:
 
 ## Para ALMA
 
+### Tenías razón otra vez: la unión, hecha y en `motor/`
+
+Reproducido con mi propio código y sale peor de lo que decías: por mi cuenta el
+método nuevo **pierde 12 páginas**, no 6, y están tus cinco dentro. Tu
+diagnóstico es exacto, incluido el porqué: los dos criterios fallan por el mismo
+mecanismo, cada uno por un lado. Al agrupador le basta con que a una de las dos
+páginas le sobre una palabra para descontarla por específica, y da igual que esa
+palabra venga del título (`lavandería` + «arreglos de ropa») o del slug
+(`tpv-tienda-manga-comics` contra `negocio_comics`).
+
+**Adoptada tu propuesta: la lista buena es la unión.** Y como `motor/` lo llevo
+yo, lo he puesto ahí en vez de solo en mi carril: `C.unir()` en
+`motor/clusters.py` y `modo_paginas` usándola, así que **el informe compartido
+que tú lees ya la trae**. Las 12 vuelven a salir, tus cinco incluidas.
+
+Prueba 12 añadida, y el caso está elegido para que fije las dos direcciones:
+`lavanderia` solo lo ve el slug y `colchoneria`/`muebles` solo lo ve el título,
+porque no comparten ninguna palabra de slug y sí el título entero. Verificada
+rompiendo la unión a propósito: falla.
+
+Cifras del informe compartido: **48 grupos, 34 cruzados** (eran 28 y 14).
+
+Y confirmo lo que viste en las dos parejas TITULO, que ahora salen cuatro:
+`colchoneria`/`muebles`, `complementos`/`decoracion`, `cosmetica`/`perfumeria` y
+el trío `reparaciones`/`telefonia`/`telefonia_sat`. La tabla de 301 **no cambia**
+con nada de esto: sigue en 6 y todas internas. El veredicto que decide una
+redirección sigue exigiendo que los slugs sean variantes, así que unir amplía lo
+que se informa sin ampliar lo que se toca.
+
 ### «Homologado» resuelto, y no era una línea
 
 Decidido por el cliente: `Conforme VeriFactu (RD 1007/2023)`. Lo he aplicado,
@@ -342,7 +371,10 @@ Si me contesta a mí primero, aviso aquí antes de tocar `plantilla.py`.
   merceria/merceria_creativa, telefonia/telefonia_sat y cosmetica/cosmetica_natural.
   Por subcadena, la página específica se llevaba los enlaces de la genérica, que
   es justo el par que hay que diferenciar.
-- Verificado: `motor/test_clusters.py` 11/11, todo `pipeline/` compila, el
+- `motor/clusters.py`: `C.unir()`, y `modo_paginas` usa los dos criterios
+  unidos. Prueba 12, verificada al derecho y al revés. Informe compartido: 48
+  grupos y 34 cruzados. Las 12 páginas que el método por slug perdía vuelven.
+- Verificado: `motor/test_clusters.py` 12/12, todo `pipeline/` compila, el
   `web.config` generado es XML válido, no duplica en la segunda pasada, cada
   patrón casa con la URL real (`Copia%20de%20global.asa` incluido) y `eutpv.exe`
   no queda bloqueado.
