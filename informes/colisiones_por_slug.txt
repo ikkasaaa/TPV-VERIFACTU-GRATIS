@@ -1,0 +1,159 @@
+COLISIONES ENTRE DOMINIOS COMPARANDO SOLO POR SLUG
+
+  Que es esto
+  -----------
+  informes/clusters_cruzados.txt declara 14 intenciones servidas por los dos
+  dominios. Esa cifra sale de agrupar por slug MAS titulo. El propio
+  motor/README.md, en la trampa numero 5, dice que el tema de una pagina es su
+  slug y no su titulo, porque el titulo anade detalle comercial que actua de
+  acotacion. Esa correccion se aplico al camino de keywords y no al de paginas.
+
+  Repitiendo el agrupamiento con el slug solo, sobre EXACTAMENTE los mismos
+  inventarios que ya estan en el repositorio:
+
+    grupos cruzados que se publican hoy (slug + titulo) : 14
+    grupos cruzados agrupando solo por slug            : 32
+    grupos que hoy no se ven                           : 26
+
+  Como leer esto, y que NO es
+  ---------------------------
+  32 no es la cifra buena, igual que 14 no lo era. Es la cota de arriba: el
+  slug solo pierde el matiz que a veces separa de verdad dos paginas. Hay ruido
+  evidente en la lista (las paginas legales, los indices) y hay pares que son
+  deliberados: una guia 'como abrir una papeleria' y la pagina de producto de
+  papeleria se dirigen a momentos distintos del embudo y deben convivir.
+
+  La cifra real esta entre 14 y 32. Lo que este informe demuestra es que 14 se
+  queda corto, no que 32 sea correcto. Cada grupo hay que mirarlo.
+
+  Ocho comprobados uno a uno en la pagina de resultados de Google, con los dos
+  dominios posicionando a la vez: lavanderia, merceria, padel, colchoneria,
+  muebles, decoracion, complementos y optica. Esos ocho son reales.
+
+  Y el que mas importa: el bloque VeriFactu. Las tres paginas de abacosoftware
+  y las dos de carrito5 caen en el mismo grupo. Es el nucleo comercial de los
+  dos sitios compitiendo entre si.
+
+
+  LOS GRUPOS QUE HOY NO SE VEN
+
+   !! [4 paginas]
+        abacosoftware   abrir-papeleria.asp
+        abacosoftware   negocio_libreria.asp
+        abacosoftware   negocio_papeleria.asp
+        carrito5        tpv-papeleria.html
+
+   !! [3 paginas]
+        abacosoftware   abrir-tienda-de-ropa.asp
+        abacosoftware   guia-abrir-tienda-de-ropa.asp
+        carrito5        tpv-tienda-ropa.html
+
+   !! [3 paginas]
+        abacosoftware   abrir-zapateria.asp
+        abacosoftware   negocio_calzado.asp
+        carrito5        tpv-zapateria.html
+
+   !! [2 paginas]
+        abacosoftware   condiciones.asp
+        carrito5        pg/condiciones.asp
+
+   !! [3 paginas]
+        abacosoftware   index.asp
+        abacosoftware   index.html
+        carrito5        index.html
+
+   !! [3 paginas]
+        abacosoftware   negocio_animales.asp
+        abacosoftware   negocio_petshop.asp
+        carrito5        tpv-tienda-mascotas.html
+
+   !! [3 paginas]
+        abacosoftware   negocio_antiguedad.asp
+        abacosoftware   negocio_antiguedades.asp
+        carrito5        tpv-tienda-antiguedades.html
+
+   !! [2 paginas]
+        abacosoftware   negocio_bicicletas.asp
+        carrito5        tpv-tienda-bicicletas.html
+
+   !! [2 paginas]
+        abacosoftware   negocio_colchoneria.asp
+        carrito5        tpv-colchonerias-descanso.html
+
+   !! [2 paginas]
+        abacosoftware   negocio_complementos.asp
+        carrito5        tpv-complementos.html
+
+   !! [2 paginas]
+        abacosoftware   negocio_decoracion.asp
+        carrito5        tpv-tienda-decoracion.html
+
+   !! [2 paginas]
+        abacosoftware   negocio_deportes.asp
+        carrito5        tpv-tienda-deportes.html
+
+   !! [2 paginas]
+        abacosoftware   negocio_floristeria.asp
+        carrito5        tpv-floristeria.html
+
+   !! [3 paginas]
+        abacosoftware   negocio_herbodietetica.asp
+        abacosoftware   negocio_herboristeria.asp
+        carrito5        tpv-herboristeria.html
+
+   !! [4 paginas]
+        abacosoftware   negocio_instrumentos.asp
+        abacosoftware   negocio_musica.asp
+        carrito5        tpv-tienda-instrumentos-musica.html
+        carrito5        tpv-tiendas-instrumentos-musica.html
+
+   !! [3 paginas]
+        abacosoftware   negocio_joyeria.asp
+        abacosoftware   negocio_relojeria.asp
+        carrito5        tpv-joyeria-relojeria.html
+
+   !! [2 paginas]
+        abacosoftware   negocio_lavanderia.asp
+        carrito5        tpv-lavanderia-tintoreria.html
+
+   !! [3 paginas]
+        abacosoftware   negocio_lenceria.asp
+        abacosoftware   negocio_merceria.asp
+        carrito5        tpv-lenceria-merceria.html
+
+   !! [2 paginas]
+        abacosoftware   negocio_muebles.asp
+        carrito5        tpv-tienda-muebles.html
+
+   !! [2 paginas]
+        abacosoftware   negocio_optica.asp
+        carrito5        tpv-tienda-optica.html
+
+   !! [2 paginas]
+        abacosoftware   negocio_perfumeria.asp
+        carrito5        tpv-drogueria.html
+
+   !! [2 paginas]
+        abacosoftware   negocio_sexshop.asp
+        carrito5        tpv-sexshop.html
+
+   !! [2 paginas]
+        abacosoftware   negocio_telefonia.asp
+        carrito5        tpv-informatica-telefonia.html
+
+   !! [2 paginas]
+        abacosoftware   negocio_vapeo.asp
+        carrito5        tpv-tienda-vapeo.html
+
+   !! [3 paginas]
+        abacosoftware   preguntas-frecuentes-tpv.asp
+        carrito5        preguntas-frecuentes-tpv-verifactu.html
+        carrito5        preguntas-frecuentes-verifactu-ley-antifraude.html
+
+   !! [5 paginas]
+        abacosoftware   que-es-verifactu.asp
+        abacosoftware   verifactu-gratis.asp
+        abacosoftware   verifactu-tpv.asp
+        carrito5        verifactu-aeat-descargar.html
+        carrito5        verifactu-gratis.html
+
