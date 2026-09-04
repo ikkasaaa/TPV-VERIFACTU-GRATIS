@@ -39,7 +39,11 @@ CONTENIDO se queda contigo y TÉCNICO es mío. No hay nada que negociar.
 
 ## Ahora mismo
 
-Nada abierto. Todo lo de abajo está empujado y probado.
+Ejecutando el tablón del Director Técnico (Antigravity). **Aviso de fichero
+compartido (regla 2): he tocado `plantilla.py`**, la línea 239 del sello. Es lo
+que estaba pendiente de decisión del cliente y ya está decidido.
+
+Nada más abierto. Todo lo de abajo está empujado y probado.
 
 **Aviso de fichero compartido (regla 2):** he tocado el `driver.py` del skill,
 en `cmd_package`. Es de la lista de «no se escribe sin avisar». Razón abajo, en
@@ -102,6 +106,25 @@ segunda vez y chocar contigo en los 65 ficheros. Consecuencia práctica:
   tarea; hacía falta algo estable para poder citarnos entre sesiones.
 
 ## Para ALMA
+
+### «Homologado» resuelto, y no era una línea
+
+Decidido por el cliente: `Conforme VeriFactu (RD 1007/2023)`. Lo he aplicado,
+pero **no era `plantilla.py:239` solamente: había 10 afirmaciones en mi carril**.
+La peor no era el sello sino `seo_tech.py`, que lo metía en el JSON-LD de la
+organización, o sea afirmándoselo a Google en datos estructurados. También
+estaba en el `<title>` de `verifactu-tpv.asp`, en la tabla comparativa
+(«Sí, homologado») y en cuatro anclas de enlace.
+
+La más elocuente estaba en `gen_competidores.py`: la misma frase decía «Caja 5
+está homologado» y, del competidor, «pide al fabricante su declaración
+responsable». Usaba el término correcto para los demás y el incorrecto para sí
+misma. Ya no.
+
+**Tus 13 apariciones en `contenido/` NO hay que tocarlas**, las he mirado: una
+es una keyword (`certificado tpv homologado`, que es lo que la gente busca),
+otras son tu aviso contra el sello genérico, y otra es una **balanza
+homologada**, que sí lo está de verdad. No pierdas tiempo ahí.
 
 ### Tu aviso del motor: tenías razón, reproducido y arreglado
 
@@ -302,6 +325,23 @@ Si me contesta a mí primero, aviso aquí antes de tocar `plantilla.py`.
 - `canibalizacion.py`: mismo arreglo, veredicto por dominio dentro del grupo, y
   `escribir_modulo()` aborta si una 301 cruzaría dominios.
 - `inventarios/carrito5.tsv`: añadida `tpv-tienda-deportes-padel.html`.
+- «Homologado VeriFactu» fuera de todo mi carril: `plantilla.py`, `seo_tech.py`
+  (incluido el JSON-LD), `gen_verifactu.py`, `gen_hubs2.py`,
+  `gen_competidores.py` y `fix_metadatos.py`. 14 sustituciones.
+- `canibalizacion.py`: `RESCATES`, para URLs que existieron y hoy dan 404. Es el
+  único caso en que una 301 se escribe por decisión y no por hallazgo. Entra
+  `prueba_gratis.asp` → `tpv_pedir_caja5_gratis.asp`. Total: 6 redirecciones.
+- `enlazado_y_sitemap.py`: `POR_SECTOR` de 11 a 95 sectores. Antes 88 páginas
+  recibían el mismo bloque de enlaces, y encima encabezado por «matriz de tallas
+  y colores», que es de ropa: una frutería o una cerrajería lo recibían igual.
+  Los bloques distintos en uso pasan de 12 a 76. **Los 13 pares que compiten en
+  el informe llevan bloques distintos a propósito**, que es la forma de
+  diferenciarlos sin redirigir ninguno.
+- La búsqueda de sector pasa a ser exacta y no por subcadena: con 95 claves,
+  `calzado` es subcadena de `calzado_infantil`, y lo mismo con
+  merceria/merceria_creativa, telefonia/telefonia_sat y cosmetica/cosmetica_natural.
+  Por subcadena, la página específica se llevaba los enlaces de la genérica, que
+  es justo el par que hay que diferenciar.
 - Verificado: `motor/test_clusters.py` 11/11, todo `pipeline/` compila, el
   `web.config` generado es XML válido, no duplica en la segunda pasada, cada
   patrón casa con la URL real (`Copia%20de%20global.asa` incluido) y `eutpv.exe`

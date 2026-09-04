@@ -31,19 +31,140 @@ NUEVOS_HUBS = [
      "Devoluciones, precios, cierres, informes"),
 ]
 
-# Enlaces contextuales: sector -> paginas de funcion relevantes
+# Enlaces contextuales: sector -> paginas de funcion que de verdad usa ese oficio.
+#
+# Antes habia once sectores aqui y los otros ochenta y ocho caian en GENERICO, o
+# sea que recibian los tres mismos enlaces. Dos problemas, y el segundo es peor:
+#
+#   1. Ochenta y ocho paginas con el bloque identico son una plantilla, y este
+#      bloque va al pie de la pagina de sector, donde mas se nota.
+#   2. GENERICO encabeza con "matriz de tallas y colores", que es de ropa y
+#      calzado. Una fruteria, una ferreteria o una cerrajeria lo recibian igual,
+#      enlazando a una funcion que su lector no usa.
+#
+# Y hay una razon de fondo: cuando dos paginas compiten por la misma busqueda,
+# el enlazado contextual es una de las dos formas de diferenciarlas sin
+# redirigir ninguna. Si las dos reciben los mismos tres enlaces, se parecen mas,
+# no menos. Por eso los pares que salen en informes/canibalizacion.txt llevan
+# aqui juegos distintos a proposito: animales/petshop, colchoneria/muebles,
+# complementos/decoracion, cosmetica/perfumeria, instrumentos/musica,
+# infantil/puericultura, lenceria/merceria y calzado/calzado_infantil.
 POR_SECTOR = {
+    # --- ropa, calzado y complementos: talla y color mandan
     "moda": ["matriz-tallas-y-colores", "rebajas-y-promociones-tpv", "vales-y-tarjetas-regalo-tpv"],
-    "calzado": ["matriz-tallas-y-colores", "control-de-stock-multialmacen"],
-    "joyeria": ["etiquetas-codigo-de-barras-tpv", "inventario-con-pda-lector-codigo-barras"],
-    "perfumeria": ["programa-fidelizacion-puntos", "gestion-de-proveedores-y-pedidos"],
-    "cosmetica": ["gestion-de-proveedores-y-pedidos", "control-de-stock-multialmacen"],
-    "telefonia": ["arqueo-de-caja-cierre-diario", "control-de-stock-multialmacen"],
-    "reparaciones": ["arqueo-de-caja-cierre-diario", "gestion-de-proveedores-y-pedidos"],
-    "muebles": ["gestion-de-proveedores-y-pedidos", "control-de-stock-multialmacen"],
-    "colchoneria": ["gestion-de-proveedores-y-pedidos", "arqueo-de-caja-cierre-diario"],
-    "decoracion": ["rebajas-y-promociones-tpv", "vales-y-tarjetas-regalo-tpv"],
-    "complementos": ["etiquetas-codigo-de-barras-tpv", "rebajas-y-promociones-tpv"],
+    "calzado": ["matriz-tallas-y-colores", "control-de-stock-multialmacen", "rebajas-y-promociones-tpv"],
+    "calzado_infantil": ["matriz-tallas-y-colores", "programa-fidelizacion-puntos", "gestion-de-proveedores-y-pedidos"],
+    "tallas_grandes": ["matriz-tallas-y-colores", "control-de-stock-multialmacen", "vales-y-tarjetas-regalo-tpv"],
+    "lenceria": ["matriz-tallas-y-colores", "control-de-stock-multialmacen", "etiquetas-codigo-de-barras-tpv"],
+    "ropa_laboral": ["matriz-tallas-y-colores", "gestion-de-proveedores-y-pedidos", "control-de-stock-multialmacen"],
+    "uniformes": ["matriz-tallas-y-colores", "gestion-de-proveedores-y-pedidos", "inventario-con-pda-lector-codigo-barras"],
+    "ropa_regional": ["matriz-tallas-y-colores", "vales-y-tarjetas-regalo-tpv", "gestion-de-proveedores-y-pedidos"],
+    "flamenca": ["matriz-tallas-y-colores", "vales-y-tarjetas-regalo-tpv", "rebajas-y-promociones-tpv"],
+    "novias": ["matriz-tallas-y-colores", "gestion-de-proveedores-y-pedidos", "programa-fidelizacion-puntos"],
+    "comunion": ["matriz-tallas-y-colores", "gestion-de-proveedores-y-pedidos", "vales-y-tarjetas-regalo-tpv"],
+    "infantil": ["matriz-tallas-y-colores", "rebajas-y-promociones-tpv", "control-de-stock-multialmacen"],
+    "puericultura": ["gestion-de-proveedores-y-pedidos", "vales-y-tarjetas-regalo-tpv", "control-de-stock-multialmacen"],
+    "sombreros": ["matriz-tallas-y-colores", "etiquetas-codigo-de-barras-tpv", "rebajas-y-promociones-tpv"],
+    "complementos": ["etiquetas-codigo-de-barras-tpv", "rebajas-y-promociones-tpv", "control-de-stock-multialmacen"],
+    "maletas": ["control-de-stock-multialmacen", "etiquetas-codigo-de-barras-tpv", "gestion-de-proveedores-y-pedidos"],
+    "bisuteria": ["etiquetas-codigo-de-barras-tpv", "inventario-con-pda-lector-codigo-barras", "rebajas-y-promociones-tpv"],
+    "merceria": ["inventario-con-pda-lector-codigo-barras", "etiquetas-codigo-de-barras-tpv", "gestion-de-proveedores-y-pedidos"],
+    "merceria_creativa": ["inventario-con-pda-lector-codigo-barras", "programa-fidelizacion-puntos", "rebajas-y-promociones-tpv"],
+    "textil_hogar": ["control-de-stock-multialmacen", "rebajas-y-promociones-tpv", "gestion-de-proveedores-y-pedidos"],
+    "alfombras": ["control-de-stock-multialmacen", "gestion-de-proveedores-y-pedidos", "etiquetas-codigo-de-barras-tpv"],
+
+    # --- articulo de valor y pieza pequena: etiqueta e inventario
+    "joyeria": ["etiquetas-codigo-de-barras-tpv", "inventario-con-pda-lector-codigo-barras", "vales-y-tarjetas-regalo-tpv"],
+    "relojeria": ["etiquetas-codigo-de-barras-tpv", "gestion-de-proveedores-y-pedidos", "arqueo-de-caja-cierre-diario"],
+    "compro_oro": ["arqueo-de-caja-cierre-diario", "inventario-con-pda-lector-codigo-barras", "etiquetas-codigo-de-barras-tpv"],
+    "oro": ["arqueo-de-caja-cierre-diario", "etiquetas-codigo-de-barras-tpv", "gestion-de-proveedores-y-pedidos"],
+    "optica": ["gestion-de-proveedores-y-pedidos", "programa-fidelizacion-puntos", "etiquetas-codigo-de-barras-tpv"],
+    "gafas_sol": ["etiquetas-codigo-de-barras-tpv", "rebajas-y-promociones-tpv", "control-de-stock-multialmacen"],
+    "fotografia": ["gestion-de-proveedores-y-pedidos", "etiquetas-codigo-de-barras-tpv", "control-de-stock-multialmacen"],
+
+    # --- alimentacion: caja diaria y proveedor
+    "alimentacion": ["arqueo-de-caja-cierre-diario", "gestion-de-proveedores-y-pedidos", "etiquetas-codigo-de-barras-tpv"],
+    "fruteria": ["arqueo-de-caja-cierre-diario", "gestion-de-proveedores-y-pedidos", "tpv-sin-internet-modo-offline"],
+    "carniceria": ["etiquetas-codigo-de-barras-tpv", "arqueo-de-caja-cierre-diario", "gestion-de-proveedores-y-pedidos"],
+    "pescaderia": ["etiquetas-codigo-de-barras-tpv", "arqueo-de-caja-cierre-diario", "tpv-sin-internet-modo-offline"],
+    "panaderia": ["arqueo-de-caja-cierre-diario", "tpv-sin-internet-modo-offline", "programa-fidelizacion-puntos"],
+    "supermercado": ["inventario-con-pda-lector-codigo-barras", "control-de-stock-multialmacen", "arqueo-de-caja-cierre-diario"],
+    "estanco": ["arqueo-de-caja-cierre-diario", "control-de-stock-multialmacen", "tpv-sin-internet-modo-offline"],
+    "quiosco": ["arqueo-de-caja-cierre-diario", "tpv-sin-internet-modo-offline", "gestion-de-proveedores-y-pedidos"],
+
+    # --- salud y bienestar: ficha de cliente y repeticion de compra
+    "herboristeria": ["gestion-de-proveedores-y-pedidos", "programa-fidelizacion-puntos", "etiquetas-codigo-de-barras-tpv"],
+    "herbodietetica": ["programa-fidelizacion-puntos", "control-de-stock-multialmacen", "gestion-de-proveedores-y-pedidos"],
+    "parafarmacia": ["gestion-de-proveedores-y-pedidos", "inventario-con-pda-lector-codigo-barras", "programa-fidelizacion-puntos"],
+    "ortopedia": ["gestion-de-proveedores-y-pedidos", "control-de-stock-multialmacen", "etiquetas-codigo-de-barras-tpv"],
+    "suplementacion": ["programa-fidelizacion-puntos", "gestion-de-proveedores-y-pedidos", "rebajas-y-promociones-tpv"],
+    "cosmetica": ["gestion-de-proveedores-y-pedidos", "control-de-stock-multialmacen", "etiquetas-codigo-de-barras-tpv"],
+    "cosmetica_natural": ["programa-fidelizacion-puntos", "gestion-de-proveedores-y-pedidos", "etiquetas-codigo-de-barras-tpv"],
+    "perfumeria": ["programa-fidelizacion-puntos", "vales-y-tarjetas-regalo-tpv", "rebajas-y-promociones-tpv"],
+    "estetica": ["programa-fidelizacion-puntos", "vales-y-tarjetas-regalo-tpv", "arqueo-de-caja-cierre-diario"],
+    "peluqueria": ["programa-fidelizacion-puntos", "arqueo-de-caja-cierre-diario", "vales-y-tarjetas-regalo-tpv"],
+    "peluqueria_canina": ["programa-fidelizacion-puntos", "arqueo-de-caja-cierre-diario", "gestion-de-proveedores-y-pedidos"],
+    "gimnasio": ["programa-fidelizacion-puntos", "arqueo-de-caja-cierre-diario", "tpv-sin-internet-modo-offline"],
+
+    # --- animales
+    "animales": ["gestion-de-proveedores-y-pedidos", "control-de-stock-multialmacen", "programa-fidelizacion-puntos"],
+    "petshop": ["etiquetas-codigo-de-barras-tpv", "rebajas-y-promociones-tpv", "inventario-con-pda-lector-codigo-barras"],
+    "acuarios": ["gestion-de-proveedores-y-pedidos", "etiquetas-codigo-de-barras-tpv", "control-de-stock-multialmacen"],
+    "hipica": ["control-de-stock-multialmacen", "gestion-de-proveedores-y-pedidos", "matriz-tallas-y-colores"],
+
+    # --- hogar, mueble y decoracion
+    "muebles": ["gestion-de-proveedores-y-pedidos", "control-de-stock-multialmacen", "vales-y-tarjetas-regalo-tpv"],
+    "colchoneria": ["gestion-de-proveedores-y-pedidos", "arqueo-de-caja-cierre-diario", "rebajas-y-promociones-tpv"],
+    "decoracion": ["rebajas-y-promociones-tpv", "vales-y-tarjetas-regalo-tpv", "gestion-de-proveedores-y-pedidos"],
+    "lamparas": ["gestion-de-proveedores-y-pedidos", "etiquetas-codigo-de-barras-tpv", "control-de-stock-multialmacen"],
+    "enmarcacion": ["gestion-de-proveedores-y-pedidos", "arqueo-de-caja-cierre-diario", "control-de-stock-multialmacen"],
+    "pinturas": ["gestion-de-proveedores-y-pedidos", "etiquetas-codigo-de-barras-tpv", "inventario-con-pda-lector-codigo-barras"],
+    "electrodomesticos": ["gestion-de-proveedores-y-pedidos", "control-de-stock-multialmacen", "etiquetas-codigo-de-barras-tpv"],
+
+    # --- ferreteria, oficio y taller
+    "ferreteria": ["inventario-con-pda-lector-codigo-barras", "gestion-de-proveedores-y-pedidos", "etiquetas-codigo-de-barras-tpv"],
+    "cerrajeria": ["arqueo-de-caja-cierre-diario", "gestion-de-proveedores-y-pedidos", "tpv-sin-internet-modo-offline"],
+    "repuestos": ["inventario-con-pda-lector-codigo-barras", "control-de-stock-multialmacen", "gestion-de-proveedores-y-pedidos"],
+    "reparaciones": ["arqueo-de-caja-cierre-diario", "gestion-de-proveedores-y-pedidos", "tpv-sin-internet-modo-offline"],
+    "telefonia": ["control-de-stock-multialmacen", "etiquetas-codigo-de-barras-tpv", "programa-fidelizacion-puntos"],
+    "telefonia_sat": ["arqueo-de-caja-cierre-diario", "inventario-con-pda-lector-codigo-barras", "gestion-de-proveedores-y-pedidos"],
+    "informatica": ["control-de-stock-multialmacen", "gestion-de-proveedores-y-pedidos", "inventario-con-pda-lector-codigo-barras"],
+    "lavanderia": ["arqueo-de-caja-cierre-diario", "programa-fidelizacion-puntos", "tpv-sin-internet-modo-offline"],
+
+    # --- ocio, cultura y coleccion
+    "libreria": ["inventario-con-pda-lector-codigo-barras", "gestion-de-proveedores-y-pedidos", "programa-fidelizacion-puntos"],
+    "papeleria": ["etiquetas-codigo-de-barras-tpv", "gestion-de-proveedores-y-pedidos", "arqueo-de-caja-cierre-diario"],
+    "comics": ["inventario-con-pda-lector-codigo-barras", "programa-fidelizacion-puntos", "gestion-de-proveedores-y-pedidos"],
+    "juegos_mesa": ["control-de-stock-multialmacen", "vales-y-tarjetas-regalo-tpv", "programa-fidelizacion-puntos"],
+    "jugueteria": ["vales-y-tarjetas-regalo-tpv", "rebajas-y-promociones-tpv", "control-de-stock-multialmacen"],
+    "modelismo": ["inventario-con-pda-lector-codigo-barras", "gestion-de-proveedores-y-pedidos", "control-de-stock-multialmacen"],
+    "bellas_artes": ["gestion-de-proveedores-y-pedidos", "inventario-con-pda-lector-codigo-barras", "etiquetas-codigo-de-barras-tpv"],
+    "instrumentos": ["control-de-stock-multialmacen", "gestion-de-proveedores-y-pedidos", "etiquetas-codigo-de-barras-tpv"],
+    "musica": ["inventario-con-pda-lector-codigo-barras", "programa-fidelizacion-puntos", "rebajas-y-promociones-tpv"],
+    "vinilos": ["inventario-con-pda-lector-codigo-barras", "etiquetas-codigo-de-barras-tpv", "programa-fidelizacion-puntos"],
+    "antiguedades": ["etiquetas-codigo-de-barras-tpv", "inventario-con-pda-lector-codigo-barras", "arqueo-de-caja-cierre-diario"],
+    "segunda_mano": ["etiquetas-codigo-de-barras-tpv", "arqueo-de-caja-cierre-diario", "inventario-con-pda-lector-codigo-barras"],
+    # Compite con segunda_mano en el informe, asi que lleva juego distinto.
+    "vintage_segundamano": ["inventario-con-pda-lector-codigo-barras", "rebajas-y-promociones-tpv", "control-de-stock-multialmacen"],
+    "souvenirs": ["arqueo-de-caja-cierre-diario", "tpv-sin-internet-modo-offline", "rebajas-y-promociones-tpv"],
+    "fiestas_disfraces": ["control-de-stock-multialmacen", "rebajas-y-promociones-tpv", "arqueo-de-caja-cierre-diario"],
+    "disfraces": ["matriz-tallas-y-colores", "control-de-stock-multialmacen", "rebajas-y-promociones-tpv"],
+    "floristeria": ["arqueo-de-caja-cierre-diario", "gestion-de-proveedores-y-pedidos", "tpv-sin-internet-modo-offline"],
+
+    # --- deporte y movilidad
+    "deportes": ["matriz-tallas-y-colores", "control-de-stock-multialmacen", "rebajas-y-promociones-tpv"],
+    "padel": ["control-de-stock-multialmacen", "programa-fidelizacion-puntos", "gestion-de-proveedores-y-pedidos"],
+    "montana": ["matriz-tallas-y-colores", "gestion-de-proveedores-y-pedidos", "inventario-con-pda-lector-codigo-barras"],
+    "bicicletas": ["gestion-de-proveedores-y-pedidos", "arqueo-de-caja-cierre-diario", "control-de-stock-multialmacen"],
+    "skate": ["control-de-stock-multialmacen", "rebajas-y-promociones-tpv", "etiquetas-codigo-de-barras-tpv"],
+    "motos_boutique": ["matriz-tallas-y-colores", "gestion-de-proveedores-y-pedidos", "control-de-stock-multialmacen"],
+    "armeria": ["inventario-con-pda-lector-codigo-barras", "gestion-de-proveedores-y-pedidos", "control-de-stock-multialmacen"],
+
+    # --- resto
+    "articulos_eroticos": ["control-de-stock-multialmacen", "etiquetas-codigo-de-barras-tpv", "arqueo-de-caja-cierre-diario"],
+    "sexshop": ["rebajas-y-promociones-tpv", "programa-fidelizacion-puntos", "control-de-stock-multialmacen"],
+    "vapeo": ["control-de-stock-multialmacen", "programa-fidelizacion-puntos", "gestion-de-proveedores-y-pedidos"],
+    "distribuidor": ["gestion-de-proveedores-y-pedidos", "control-de-stock-multialmacen", "inventario-con-pda-lector-codigo-barras"],
 }
 GENERICO = ["matriz-tallas-y-colores", "control-de-stock-multialmacen",
             "etiquetas-codigo-de-barras-tpv", "tpv-sin-internet-modo-offline"]
@@ -168,7 +289,20 @@ def enlaces_contextuales():
         if "bloque-funciones-rel" in s:
             continue
         base = os.path.basename(f)
-        clave = next((k for k in POR_SECTOR if k in base), None)
+        # Clave exacta y no "la primera que sea subcadena". Con once sectores
+        # daba igual; con noventa y tres no: 'calzado' es subcadena de
+        # 'calzado_infantil', y lo mismo pasa con merceria/merceria_creativa,
+        # telefonia/telefonia_sat, cosmetica/cosmetica_natural y
+        # souvenirs/souvenirs_tienda. Buscando por subcadena, la pagina mas
+        # especifica se llevaba los enlaces de la generica, que es justo el par
+        # que hay que diferenciar.
+        exacta = base[len("negocio_"):-len(".asp")] if base.startswith("negocio_") \
+            and base.endswith(".asp") else ""
+        if exacta in POR_SECTOR:
+            clave = exacta
+        else:                       # sectores que aun no estan en el mapa
+            clave = next((k for k in sorted(POR_SECTOR, key=len, reverse=True)
+                          if k in base), None)
         slugs = POR_SECTOR.get(clave, GENERICO)[:3]
         if len(slugs) < 3:
             slugs = slugs + [g for g in GENERICO if g not in slugs][:3 - len(slugs)]

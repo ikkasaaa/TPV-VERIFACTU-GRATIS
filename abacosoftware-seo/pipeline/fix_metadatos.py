@@ -15,7 +15,7 @@ FICHAS = {
  "politica_cookies.asp": ("Política de cookies de abacosoftware.com: qué cookies usamos, para qué sirven y cómo configurarlas o desactivarlas desde tu navegador.", "Política de cookies"),
  "terminos_uso.asp": ("Términos de uso del sitio web de Ábaco Software: propiedad intelectual, uso permitido de los contenidos y limitación de responsabilidad.", "Términos de uso"),
  "resolucion_litigios.asp": ("Resolución de litigios en línea: plataforma europea de resolución de conflictos para compras realizadas a través de la web de Ábaco Software.", "Resolución de litigios en línea"),
- "comprar_tpv.asp": ("Compra tu licencia de Caja 5 TPV: pago único de 333 € para PC, sin cuotas obligatorias, con soporte telefónico incluido y homologación VeriFactu.", "Comprar licencia Caja 5 TPV"),
+ "comprar_tpv.asp": ("Compra tu licencia de Caja 5 TPV: pago único de 333 € para PC, sin cuotas obligatorias, soporte telefónico incluido y adaptación VeriFactu conforme a ley.", "Comprar licencia Caja 5 TPV"),
  "album_caja5.asp": ("Galería de comercios que trabajan con Caja 5 TPV: tiendas de ropa, calzado, joyerías, perfumerías y más de 70 sectores del comercio minorista español.", "Comercios que trabajan con Caja 5"),
  "que_es_tpv.asp": ("Qué es un TPV y para qué sirve en una tienda: diferencia entre el software de punto de venta y el datáfono del banco, y qué necesitas de cada uno.", "Qué es un TPV y para qué sirve"),
  "descargar.asp": ("Descarga la demo gratuita de Caja 5 TPV y contacta con Ábaco Software: teléfono, WhatsApp y localización.", "Descargar Caja 5 y contacto"),
@@ -64,7 +64,7 @@ TITULOS = {
  "verifactu-gratis.asp": "VeriFactu gratis: qué opciones hay realmente",
  "tpv-software-o-datafono.asp": "TPV: ¿software o datáfono? Diferencias reales",
  "tpv-gratis-para-comercio.asp": "TPV gratis para comercio: opciones y letra pequeña",
- "verifactu-tpv.asp": "Software TPV homologado VeriFactu | Caja 5",
+ "verifactu-tpv.asp": "Software TPV conforme a VeriFactu | Caja 5",
 
  # Estas dos no son recortes: son titulos equivocados. Las tres paginas
  # tpv_pedir_caja5_gratis / tpv_consultas_desde_web / ..._med llevaban las tres

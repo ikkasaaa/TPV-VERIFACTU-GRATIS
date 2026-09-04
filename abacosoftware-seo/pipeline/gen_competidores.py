@@ -135,7 +135,7 @@ CAJA5 = {
     "Inventario PDA/Movil": "Sí",
     "Modo Offline": "Sí (Caja 5 PC trabaja en local)",
     "Comision Tarjeta": "0 % — usas el datáfono de tu banco",
-    "VeriFactu": "Sí, homologado",
+    "VeriFactu": "Sí, conforme",
     "ticketBAI": "Sí",
     "Sincronizacion Shopify": "Sí (Caja 5 Nube)",
     "Programa Puntos": "Sí",
@@ -244,13 +244,13 @@ def cuerpo(row, meta, nom):
 					<p style="font-size:15.5px; line-height:1.8; color:#3f3f46;">Recogido de opiniones públicas en portales de reseñas y foros de comerciantes, la crítica que más se repite sobre {nom} es: <em>«{queja.rstrip('.')}»</em>. Es la opinión de usuarios, no un juicio nuestro, y conviene que la contrastes tú mismo pidiendo referencias de comercios parecidos al tuyo.</p>
 
 					<h2 style="font-size:24px; font-weight:800; color:#1e293b; margin-top:34px;">Dónde encaja mejor Caja 5</h2>
-					<p style="font-size:15.5px; line-height:1.8; color:#3f3f46;">Caja 5 está pensado para la tienda independiente española que quiere <strong>comprar su programa una vez y dejar de pagar cuotas</strong>. La licencia de PC son 333 € y el software es tuyo: sigue funcionando aunque no renueves nada. Incluye matriz de tallas y colores, control de stock, etiquetas con código de barras, fidelización por puntos, vales regalo y emisión de tickets homologada VeriFactu.</p>
+					<p style="font-size:15.5px; line-height:1.8; color:#3f3f46;">Caja 5 está pensado para la tienda independiente española que quiere <strong>comprar su programa una vez y dejar de pagar cuotas</strong>. La licencia de PC son 333 € y el software es tuyo: sigue funcionando aunque no renueves nada. Incluye matriz de tallas y colores, control de stock, etiquetas con código de barras, fidelización por puntos, vales regalo y emisión de tickets conforme a VeriFactu.</p>
 					<ul class="lista-editorial" style="list-style:none; padding:0; margin:18px 0;">
 						<li style="padding:9px 0; border-bottom:1px solid #f0ebe2; font-size:14.5px;"><i class="fa-solid fa-check" style="color:#8c2d19; margin-right:9px;"></i><strong>Sin comisión por venta.</strong> Cobras con el datáfono de tu banco, al precio que hayas negociado con él.</li>
 						<li style="padding:9px 0; border-bottom:1px solid #f0ebe2; font-size:14.5px;"><i class="fa-solid fa-check" style="color:#8c2d19; margin-right:9px;"></i><strong>Funciona sin internet.</strong> Si se cae la línea, sigues cobrando: la base de datos es local.</li>
 						<li style="padding:9px 0; border-bottom:1px solid #f0ebe2; font-size:14.5px;"><i class="fa-solid fa-check" style="color:#8c2d19; margin-right:9px;"></i><strong>Soporte telefónico incluido</strong> y en español, sin ticket ni cola de chat.</li>
 						<li style="padding:9px 0; border-bottom:1px solid #f0ebe2; font-size:14.5px;"><i class="fa-solid fa-check" style="color:#8c2d19; margin-right:9px;"></i><strong>Hardware libre.</strong> Aprovechas el ordenador, la impresora y el lector que ya tengas.</li>
-						<li style="padding:9px 0; font-size:14.5px;"><i class="fa-solid fa-check" style="color:#8c2d19; margin-right:9px;"></i><strong>Homologado VeriFactu</strong> y adaptado a la Ley Antifraude 11/2021, con QR reglamentario.</li>
+						<li style="padding:9px 0; font-size:14.5px;"><i class="fa-solid fa-check" style="color:#8c2d19; margin-right:9px;"></i><strong>Conforme a VeriFactu</strong> y adaptado a la Ley Antifraude 11/2021, con QR reglamentario.</li>
 					</ul>
 					<p style="font-size:15.5px; line-height:1.8; color:#3f3f46;">Y donde <strong>no</strong> es la mejor opción, dicho igual de claro: si necesitas sincronización en tiempo real con marketplaces internacionales, contabilidad financiera completa dentro del mismo programa o gestionas decenas de tiendas con equipo de sistemas propio, hay soluciones más orientadas a ese escenario y {nom} puede ser una de ellas.</p>
 				</div>
@@ -280,7 +280,7 @@ def faqs_de(nom, row, meta):
         (f"¿Puedo pasar mis datos de {nom} a Caja 5?",
          f"Sí. Si puedes exportar desde {nom} el catálogo de artículos, el stock y la ficha de clientes a Excel o CSV, los importamos en Caja 5. Es el procedimiento habitual en una migración y te acompañamos por teléfono durante el proceso."),
         (f"¿{nom} y Caja 5 cumplen VeriFactu?",
-         f"Caja 5 está homologado para VeriFactu y emite facturas simplificadas con el QR reglamentario y registro inalterable, según exige la Ley Antifraude 11/2021. Sobre {nom}, nuestra información es «{limpia(row.get('VeriFactu',''))}», pero es un dato que cambia rápido: pide al fabricante su declaración responsable actualizada por escrito."),
+         f"Caja 5 es conforme a VeriFactu (RD 1007/2023), con declaración responsable de fabricante, y emite facturas simplificadas con el QR reglamentario y registro inalterable, según exige la Ley Antifraude 11/2021. Sobre {nom}, nuestra información es «{limpia(row.get('VeriFactu',''))}», pero es un dato que cambia rápido: pide al fabricante su declaración responsable actualizada por escrito."),
         ("¿Tengo que pagar comisión por cada venta con tarjeta?",
          f"Con Caja 5 no: cobras con el datáfono que tú contrates con tu banco, así que la comisión es la que negocies con él y no pasa por nosotros. En el caso de {nom}, la referencia que manejamos es «{limpia(row.get('Comision Tarjeta',''))}»."),
         ("¿Necesito internet para que funcione el TPV?",

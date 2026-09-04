@@ -236,7 +236,7 @@ End If
 						</div>
 						<div class="hero-puntos-clave">
 							<span><i class="fa-solid fa-check"></i> Pago único, sin cuotas obligatorias</span>
-							<span><i class="fa-solid fa-check"></i> Homologado VeriFactu</span>
+							<span><i class="fa-solid fa-check"></i> Conforme VeriFactu (RD 1007/2023)</span>
 							<span><i class="fa-solid fa-check"></i> Soporte telefónico en español</span>
 						</div>
 					</div>

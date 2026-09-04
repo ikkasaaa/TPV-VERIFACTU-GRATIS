@@ -86,7 +86,7 @@ def add_og(s, title, desc, canon):
 	<meta property="og:image" content="{OG_IMAGE}">
 	<meta property="og:image:width" content="1200">
 	<meta property="og:image:height" content="630">
-	<meta property="og:image:alt" content="Caja 5, software TPV homologado VeriFactu de Ábaco Software">
+	<meta property="og:image:alt" content="Caja 5, software TPV conforme a VeriFactu de Ábaco Software">
 	<meta name="twitter:card" content="summary_large_image">
 	<meta name="twitter:title" content="{esc(title)}">
 	<meta name="twitter:description" content="{esc(desc)}">
@@ -149,7 +149,7 @@ ORG_LD = {
     "logo": {"@type": "ImageObject", "url": BASE + "/Logos/Logo_6-2015TransPeque.png"},
     "image": OG_IMAGE,
     "description": ("Fabricante español de software TPV para comercio minorista. Caja 5, "
-                    "programa de punto de venta homologado VeriFactu, en licencia de pago "
+                    "programa de punto de venta conforme a VeriFactu, en licencia de pago "
                     "único para PC o en modalidad nube."),
     "telephone": "+34953050112",
     "email": "info@abacosoftware.com",

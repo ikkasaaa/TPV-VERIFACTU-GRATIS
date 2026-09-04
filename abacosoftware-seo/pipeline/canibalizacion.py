@@ -109,6 +109,22 @@ YA_DECIDIDO = {
     "index.html": "index.asp",
 }
 
+# URLs que existieron en produccion y hoy devuelven 404. Un 301 aqui no quita
+# nada a nadie: recupera los enlaces y el historial que apuntan a una direccion
+# muerta y los lleva a la pagina que hace ese trabajo ahora.
+#
+# No salen del analisis y no pueden salir, precisamente porque ya no existen:
+# si no estan en el arbol, no estan en el inventario. Se anotan a mano cuando
+# aparecen en el log del servidor o en Search Console como 404 con enlaces
+# entrantes.
+#
+# Es el unico caso en el que una 301 se escribe por decision y no por hallazgo.
+# Entre dos paginas que las dos responden 200 no se redirige: eso se resuelve
+# diferenciandolas, con enlazado interno y con su canonical.
+RESCATES = {
+    "prueba_gratis.asp": "tpv_pedir_caja5_gratis.asp",
+}
+
 
 def familia(slug):
     s = slug.lower()
@@ -363,9 +379,16 @@ PLANTILLA = '''#!/usr/bin/env python3
 No editar a mano: se regenera. Para cambiar una decision, cambia el criterio
 en canibalizacion.py y vuelve a ejecutarlo, para que quede razonado.
 
-Solo estan aqui los grupos SEGURO, donde los slugs son variantes del mismo y no
-hay juicio editorial que hacer. Los REVISAR, SEPARAR y CRUZADO se quedan fuera a
-proposito: ver informes/canibalizacion.txt.
+Aqui hay dos cosas y solo dos:
+
+  - Los grupos SEGURO, donde los slugs son variantes del mismo y no hay juicio
+    editorial que hacer.
+  - Los RESCATES: URLs que existieron y hoy dan 404.
+
+Los REVISAR, TITULO, SEPARAR y CRUZADO se quedan fuera a proposito. Entre dos
+paginas que responden 200 las dos no se redirige: eso se resuelve
+diferenciandolas, con enlazado interno contextual y con su canonical. Ver
+informes/canibalizacion.txt.
 """
 
 # origen -> destino
@@ -395,6 +418,7 @@ def escribir_modulo(grupos, destino):
         for sitio, slug, _, _ in pgs:
             if slug != gana[1]:
                 pares.append((slug, gana[1]))
+    pares.extend(RESCATES.items())
     pares.sort()
     cuerpo = "".join('    %-46s %s,\n' % ('"%s":' % o, '"%s"' % d) for o, d in pares)
     with open(destino, "w", encoding="utf-8") as fh:

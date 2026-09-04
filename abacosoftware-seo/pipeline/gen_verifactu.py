@@ -105,7 +105,7 @@ PAGINAS = {
   rel=[("Qué es VeriFactu, explicado sin tecnicismos", "/que-es-verifactu.asp"),
        ("VeriFactu para autónomos", "/verifactu-autonomos.asp"),
        ("Programas VeriFactu gratis: lo que hay de verdad", "/verifactu-gratis.asp"),
-       ("Software TPV homologado VeriFactu", "/verifactu-tpv.asp"),
+       ("Software TPV conforme a VeriFactu", "/verifactu-tpv.asp"),
        ("Ley Antifraude 11/2021 y TPV", "/ley-antifraude-tpv.asp"),
        ("Preguntas frecuentes sobre TPV", "/preguntas-frecuentes-tpv.asp")]),
 
@@ -152,7 +152,7 @@ PAGINAS = {
   rel=[("Cuándo entra en vigor VeriFactu", "/verifactu-cuando-entra-en-vigor.asp"),
        ("VeriFactu para autónomos", "/verifactu-autonomos.asp"),
        ("Programas VeriFactu gratis", "/verifactu-gratis.asp"),
-       ("Software TPV homologado VeriFactu", "/verifactu-tpv.asp"),
+       ("Software TPV conforme a VeriFactu", "/verifactu-tpv.asp"),
        ("Ley Antifraude 11/2021", "/ley-antifraude-tpv.asp"),
        ("Arqueo de caja y cierre diario", "/arqueo-de-caja-cierre-diario.asp")]),
 
@@ -200,7 +200,7 @@ PAGINAS = {
        ("Qué es VeriFactu", "/que-es-verifactu.asp"),
        ("Programas VeriFactu gratis", "/verifactu-gratis.asp"),
        ("TPV gratis para comercio: qué hay de verdad", "/tpv-gratis-para-comercio.asp"),
-       ("Software TPV homologado VeriFactu", "/verifactu-tpv.asp"),
+       ("Software TPV conforme a VeriFactu", "/verifactu-tpv.asp"),
        ("Pago único frente a cuotas mensuales", "/tpv-pago-unico-vs-cuotas-mensuales.asp")]),
 
 # ======================================================================= gratis
@@ -246,7 +246,7 @@ PAGINAS = {
        ("TPV gratis para comercio", "/tpv-gratis-para-comercio.asp"),
        ("Qué es VeriFactu", "/que-es-verifactu.asp"),
        ("Pago único frente a cuotas", "/tpv-pago-unico-vs-cuotas-mensuales.asp"),
-       ("Software TPV homologado VeriFactu", "/verifactu-tpv.asp")]),
+       ("Software TPV conforme a VeriFactu", "/verifactu-tpv.asp")]),
 
 # ============================================================ datafono vs software
 "tpv-software-o-datafono.asp": dict(
