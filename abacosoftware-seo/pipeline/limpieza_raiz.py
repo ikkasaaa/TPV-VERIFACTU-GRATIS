@@ -2,10 +2,17 @@
 # -*- coding: utf-8 -*-
 """Encuentra ficheros que no deberian estar publicados en la web.
 
-Uso: python3 limpieza_raiz.py <dir-web> [--aplicar]
+Uso: python3 limpieza_raiz.py <dir-web> [--aplicar] [--bloquear]
 
 Sin --aplicar solo informa. Con --aplicar los mueve a _retirados/ dentro del
 mismo directorio, para que se puedan recuperar si alguno hacia falta.
+
+Con --bloquear anade ademas al web.config una regla que devuelve 404 para cada
+uno. Hace falta porque retirarlos del ZIP no los borra del servidor: el cliente
+sube la web y los que ya estaban siguen ahi, servibles, hasta que alguien entre
+por FTP. El web.config viaja con la subida, asi que el bloqueo entra solo. Es un
+parche, no el arreglo: al final hay que borrarlos, y por eso el informe termina
+con la lista de lo que hay que borrar a mano.
 
 Que busca y por que:
 
@@ -86,10 +93,84 @@ def enlazado(rel, base):
     return None
 
 
-def main():
-    base = sys.argv[1] if len(sys.argv) > 1 else "."
-    aplicar = "--aplicar" in sys.argv
+_ESPECIALES = set(r".^$*+?()[]{}|\\")
 
+
+def _patron(ruta, es_dir=False):
+    """Patron de IIS para una ruta. No vale re.escape: el motor no es Python.
+
+    Dos cosas que re.escape hacia mal aqui, y las dos se veian en el fichero
+    que mas importa de todos:
+
+    - El espacio. re.escape lo dejaba como '\\ ', pero el navegador pide
+      'Copia%20de%20global.asa', no 'Copia de global.asa'. La regla no habria
+      disparado nunca, justo en el unico fichero del lote que expone codigo.
+      Se acepta cualquiera de las dos formas.
+    - El directorio. '^archivojs/copias$' bloquea la carpeta y deja servible
+      todo lo de dentro, que es lo que se queria bloquear. Se le anade el
+      subarbol.
+    """
+    fuera = []
+    for c in ruta:
+        if c == " ":
+            fuera.append("(?: |%20)")
+        elif c in _ESPECIALES:
+            fuera.append("\\" + c)
+        else:
+            fuera.append(c)
+    return "^" + "".join(fuera) + ("(?:/.*)?$" if es_dir else "$")
+
+
+def reglas_bloqueo(rutas):
+    """Reglas de IIS que devuelven 404 para cada ruta. Devuelve (xml, cuantas).
+
+    Retirar un fichero del ZIP no lo borra del servidor: el cliente sube la web
+    y los que ya estaban siguen ahi, servibles, hasta que alguien entre por FTP
+    y los borre a mano. Estas reglas viajan dentro del web.config, o sea con la
+    propia subida, y cierran el acceso sin depender de que nadie haga nada.
+
+    Va por ruta exacta y NO por extension, y esa decision tiene una razon con
+    nombre: la demo del producto es 'eutpv.exe' y esta enlazada desde todas las
+    paginas. Un '<add fileExtension=".exe" allowed="false" />' habria devuelto
+    404 en el boton de descargar, que es la conversion principal del sitio.
+    """
+    fuera = []
+    for rel in sorted(rutas):
+        es_dir = rel.endswith("/")
+        ruta = rel.rstrip("/").replace(os.sep, "/")
+        patron = _patron(ruta, es_dir)
+        fuera.append("""
+                <rule name="404 %s" stopProcessing="true">
+                    <match url="%s" />
+                    <action type="CustomResponse" statusCode="404"
+                            statusReason="Not Found" statusDescription="Not Found" />
+                </rule>""" % (ruta, patron))
+    return "".join(fuera), len(fuera)
+
+
+def bloquear(base, rutas):
+    """Mete las reglas en el web.config. Idempotente por regla."""
+    p = os.path.join(base, "web.config")
+    if not os.path.exists(p):
+        print("  no hay web.config en", base, "- no se puede bloquear")
+        return 0
+    with open(p, encoding="utf-8", errors="replace") as fh:
+        s = fh.read()
+    nuevas = [r for r in rutas
+              if 'name="404 %s"' % r.rstrip("/").replace(os.sep, "/") not in s]
+    if not nuevas:
+        return 0
+    xml, n = reglas_bloqueo(nuevas)
+    if "<rules>" not in s:
+        print("  el web.config no tiene <rules>: no se toca")
+        return 0
+    s = s.replace("<rules>", "<rules>" + xml, 1)
+    with open(p, "w", encoding="utf-8") as fh:
+        fh.write(s)
+    return n
+
+
+def escanear(base):
     hallazgos = []
     for raiz, dirs, ficheros in os.walk(base):
         dirs[:] = [d for d in dirs if d != "_retirados"]
@@ -106,19 +187,29 @@ def main():
             et = clasificar(n)
             if et:
                 hallazgos.append((et, rel, os.path.getsize(os.path.join(raiz, n))))
+    return hallazgos
 
+
+def main():
+    base = sys.argv[1] if len(sys.argv) > 1 else "."
+    aplicar = "--aplicar" in sys.argv
+    con_bloqueo = "--bloquear" in sys.argv
+
+    hallazgos = escanear(base)
     if not hallazgos:
         print("  la raiz esta limpia")
         return 0
 
     print(f"  ficheros que no deberian estar publicados: {len(hallazgos)}\n")
     movidos = 0
+    sueltos = []
     for et, n, tam in hallazgos:
         ref = enlazado(n, base)
         print(f"   {et:10} {n}   ({tam} bytes)")
         if ref:
             print(f"              enlazado desde {ref}: NO se toca")
             continue
+        sueltos.append(n)
         if aplicar:
             destino = os.path.join(base, "_retirados", os.path.dirname(n))
             os.makedirs(destino, exist_ok=True)
@@ -130,6 +221,18 @@ def main():
         print(f"\n  movidos a _retirados/: {movidos}")
     else:
         print("\n  (informe solamente; usa --aplicar para retirarlos)")
+
+    if con_bloqueo:
+        print(f"  reglas 404 anadidas al web.config: {bloquear(base, sueltos)}")
+    else:
+        print("  (usa --bloquear para cerrarlos tambien en el servidor)")
+
+    # Retirarlos del ZIP no los borra de produccion, y el bloqueo tampoco: solo
+    # los hace inalcanzables. Alguien tiene que entrar por FTP.
+    if sueltos:
+        print("\n  BORRAR A MANO EN EL SERVIDOR (el ZIP no los borra):")
+        for n in sueltos:
+            print("   ", n)
     return 0
 
 

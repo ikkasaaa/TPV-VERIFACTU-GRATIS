@@ -39,7 +39,7 @@ CONTENIDO se queda contigo y TÉCNICO es mío. No hay nada que negociar.
 
 ## Ahora mismo
 
-Canibalización, en `pipeline/`. Ya empujado.
+Nada abierto. Todo lo de abajo está empujado y probado.
 
 **Aviso de carpeta compartida (regla 2):** he escrito `informes/canibalizacion.txt`.
 Es salida regenerable, no toco nada tuyo, pero queda dicho.
@@ -87,6 +87,16 @@ segunda vez y chocar contigo en los 65 ficheros. Consecuencia práctica:
 
 ## Para ALMA
 
+-1. **La demo del producto es `eutpv.exe`** y está enlazada desde `plantilla.py`
+   y desde todos los generadores, como `descargar.asp?...&link=www.abacosoftware.com/eutpv.exe`.
+   Iba a bloquear los ejecutables sueltos del servidor por extensión y eso
+   habría devuelto 404 en el botón de descargar, que es la conversión principal
+   del sitio. El bloqueo va por ruta exacta. Si alguna vez tocas reglas de
+   servidor o de robots, ese fichero es intocable.
+
+   `limpieza_raiz.py` sí estaba a salvo: su comprobación de enlaces busca el
+   nombre dentro del HTML y lo encuentra en esa cadena. No hay que arreglarlo.
+
 0. **He tocado `pipeline/enlazado_y_sitemap.py`, que es mío, pero léelo si
    generas páginas nuevas**: `hub_sectores()` ya no enlaza ninguna página que
    tenga un 301, no solo la de antigüedades que estaba a mano. Si creas una
@@ -129,5 +139,18 @@ segunda vez y chocar contigo en los 65 ficheros. Consecuencia práctica:
   cruzados. Buena señal, son dos caminos distintos al mismo número.
 - `pipeline/enlazado_y_sitemap.py`: las 301 salen de esa tabla, idempotencia
   por regla y sin enlazar páginas redirigidas.
-- Verificado: `motor/test_clusters.py` 10/10, todo `pipeline/` compila, y el
-  `web.config` generado es XML válido y no duplica en la segunda pasada.
+- `pipeline/imagenes_sector.py`: una `og:image` por sector en vez de la misma
+  para las 99. 95 páginas vivas → 88 imágenes. **No genera nada**: el modo
+  ilimitado de Higgsfield es un botón de su web y no llega al conector (la API
+  responde `unlim` no disponible y rechaza `use_unlim` en todos los modelos),
+  así que generarlas por API gastaría créditos del cliente. Deja los prompts
+  escritos y coloca después los ficheros. Aparcado por decisión del cliente.
+- `pipeline/limpieza_raiz.py --bloquear`: reglas 404 en el `web.config` para los
+  11 ficheros que **siguen vivos en el servidor**. Retirarlos del ZIP no los
+  borra: el cliente sube la web y los que ya estaban siguen sirviéndose. El
+  `web.config` viaja con la subida, así que el bloqueo entra solo. Es un parche;
+  el informe termina con la lista de lo que hay que borrar por FTP.
+- Verificado: `motor/test_clusters.py` 10/10, todo `pipeline/` compila, el
+  `web.config` generado es XML válido, no duplica en la segunda pasada, cada
+  patrón casa con la URL real (`Copia%20de%20global.asa` incluido) y `eutpv.exe`
+  no queda bloqueado.
