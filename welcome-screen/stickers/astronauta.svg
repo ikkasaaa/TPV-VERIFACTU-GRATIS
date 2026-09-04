@@ -1,0 +1,84 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" aria-hidden="true">
+  <!-- astronauta: small round astronaut waving, front view, no face. Silhouette = hand-drawn union of helmet r40 @ (100,62),
+       body 72-128 x 96-154, boots to y174, resting sleeve (14 wide) + mitten r9 @ (63,146), raised sleeve to the wrist (152,98)
+       and the waving mitten (palm + thumb, 145-176 x 67-103), declared once as #sil-astronauta (the page's .st-shadow layer reuses it).
+       Die-cut border = Nata fill + 16-unit Nata stroke on that silhouette (8 units outside the art = the 4pt outer die-cut
+       at sticker size, same as the other six). Waving mitten lives in .part-mitten whose local origin (0,0) is the wrist;
+       inside it the hand is drawn upright and leaned 30deg so the fingers point up-right and the thumb toward the helmet. -->
+  <defs>
+    <path id="sil-astronauta" d="M81.5 97.4 A40 40 0 1 1 118.5 97.4 A16 16 0 0 1 125.6 103.5 Q135 96 144 93 L145.7 90.9 L150.2 83.1 Q146.4 79.7 146.8 73 Q147.5 67.7 152.4 69.3 Q155.8 71.3 155.4 78 Q158.1 71.5 163.5 70 Q172.5 70.6 175.7 77 Q176.3 82 171.4 88.4 Q166.4 97.1 160.4 99.4 L161.6 102.4 Q158 106 148 108 Q136 110 128 119.7 V166 Q128 174 120 174 H112 Q104 174 104 166 V154 H96 V166 Q96 174 88 174 H80 Q72 174 72 166 V150 A9.5 9.5 0 1 1 54.4 142 L57 134 Q62 112 75 104 A16 16 0 0 1 81.5 97.4 Z"/>
+  </defs>
+  <use href="#sil-astronauta" fill="#FFF6EA" stroke="#FFF6EA" stroke-width="16" stroke-linejoin="round" stroke-linecap="round"/>
+  <g id="astronauta-art">
+    <!-- boots (Albaricoque) -->
+    <g class="part-boots">
+      <path d="M74 146 H96 V166 Q96 174 88 174 H80 Q72 174 72 166 V148 Z" fill="#FFB067"/>
+      <path d="M72 162 H96 V166 Q96 174 88 174 H80 Q72 174 72 166 Z" fill="#D98A45"/>
+      <path d="M104 146 H126 V148 Q128 148 128 150 V166 Q128 174 120 174 H112 Q104 174 104 166 Z" fill="#FFB067"/>
+      <path d="M104 162 H128 V166 Q128 174 120 174 H112 Q104 174 104 166 Z" fill="#D98A45"/>
+      <path d="M74 146 H96 V166 Q96 174 88 174 H80 Q72 174 72 166 V148 Z" fill="none" stroke="#3B2A6B" stroke-opacity=".6" stroke-width="1.5" stroke-linejoin="round"/>
+      <path d="M104 146 H126 V148 Q128 148 128 150 V166 Q128 174 120 174 H112 Q104 174 104 166 Z" fill="none" stroke="#3B2A6B" stroke-opacity=".6" stroke-width="1.5" stroke-linejoin="round"/>
+    </g>
+    <!-- left arm, resting: Nata sleeve ~14 wide (same as the raised one) + Chicle mitten -->
+    <g class="part-arm-left">
+      <path d="M75 104 Q62 112 57 134 Q55 141 63 141 Q70 141 71 133 Q74 120 86 114 Z" fill="#FFF6EA"/>
+      <path d="M75 104 Q62 112 57 134 Q55 141 63 141 Q70 141 71 133 Q74 120 86 114 Z" fill="none" stroke="#3B2A6B" stroke-opacity=".6" stroke-width="1.5" stroke-linejoin="round"/>
+      <circle cx="63" cy="146" r="9" fill="#FF7BAC"/>
+      <path d="M69.4 139.6 A9 9 0 0 1 56.6 152.4 A11 11 0 0 0 69.4 139.6 Z" fill="#D95C8E"/>
+      <circle cx="63" cy="146" r="8.2" fill="none" stroke="#3B2A6B" stroke-opacity=".6" stroke-width="1.5"/>
+    </g>
+    <!-- right arm, raised (Nata sleeve), wrist at 152,98 -->
+    <g class="part-arm-right">
+      <path d="M120 108 Q134 96 148 92 Q156 92 156 100 Q155 106 148 108 Q136 110 126 122 Z" fill="#FFF6EA"/>
+      <path d="M148 92 Q156 92 156 100 Q155 106 148 108 Q150 100 148 92 Z" fill="#3B2A6B" fill-opacity=".15"/>
+      <path d="M120 108 Q134 96 148 92 Q156 92 156 100 Q155 106 148 108 Q136 110 126 122 Z" fill="none" stroke="#3B2A6B" stroke-opacity=".6" stroke-width="1.5" stroke-linejoin="round"/>
+    </g>
+    <!-- waving mitten: local origin = wrist (152,98); page rotates .part-mitten about 0,0.
+         Hand drawn upright (palm 21 x 31, thumb lobe 8 wide on the helmet side, V notch 6 deep) then leaned 30deg. -->
+    <g transform="translate(152 98)">
+      <g class="part-mitten">
+        <g transform="rotate(30)">
+          <path d="M-9 -3 L-9 -12 Q-14 -13 -17 -19 Q-19 -24 -14 -25 Q-10 -25 -7 -19 Q-8 -26 -4 -30 Q4 -34 10 -30 Q13 -26 12 -18 Q12 -8 8 -3 Z" fill="#FF7BAC"/>
+          <path d="M10 -30 Q13 -26 12 -18 Q12 -8 8 -3 Q5 -6 6 -14 Q7 -25 10 -30 Z" fill="#D95C8E"/>
+          <ellipse cx="-1" cy="-26" rx="5" ry="2.8" transform="rotate(-35 -1 -26)" fill="#FFF6EA" fill-opacity=".72"/>
+          <path d="M-9 -3 L-9 -12 Q-14 -13 -17 -19 Q-19 -24 -14 -25 Q-10 -25 -7 -19 Q-8 -26 -4 -30 Q4 -34 10 -30 Q13 -26 12 -18 Q12 -8 8 -3 Z" fill="none" stroke="#3B2A6B" stroke-opacity=".6" stroke-width="1.5" stroke-linejoin="round"/>
+          <ellipse cx="0" cy="-1" rx="10.5" ry="4.5" fill="#FFF6EA"/>
+          <ellipse cx="0" cy="-1" rx="10.5" ry="4.5" fill="none" stroke="#3B2A6B" stroke-opacity=".6" stroke-width="1.5"/>
+        </g>
+      </g>
+    </g>
+    <!-- body: Nata rounded rect with straps, chest patch, Uva 15% band lower-right -->
+    <g class="part-body">
+      <rect x="72" y="96" width="56" height="58" rx="16" fill="#FFF6EA"/>
+      <path d="M114 96 H112 Q128 96 128 112 V138 Q128 154 112 154 H88 Q84 154 82 152 Q100 152 112 150 Q118 148 118 140 V104 Q118 98 114 96 Z" fill="#3B2A6B" fill-opacity=".15"/>
+      <!-- backpack straps, kept inside the rx16 corners (y 99-151) -->
+      <rect x="80" y="99" width="7" height="52" fill="#FFB067"/>
+      <rect x="113" y="99" width="7" height="52" fill="#FFB067"/>
+      <rect x="118" y="99" width="2" height="52" fill="#D98A45"/>
+      <!-- chest patch (Chicle) -->
+      <rect x="90" y="114" width="20" height="16" rx="5" fill="#FF7BAC"/>
+      <path d="M110 122 V125 Q110 130 105 130 H95 Q92 130 91 128 Q100 128 104 124 Q106 122 110 122 Z" fill="#D95C8E"/>
+      <rect x="90" y="114" width="20" height="16" rx="5" fill="none" stroke="#3B2A6B" stroke-opacity=".6" stroke-width="1.5"/>
+      <!-- belt -->
+      <rect x="82" y="138" width="36" height="6" rx="3" fill="#FFB067"/>
+      <rect x="72" y="96" width="56" height="58" rx="16" fill="none" stroke="#3B2A6B" stroke-opacity=".6" stroke-width="1.5"/>
+      <rect x="74" y="98" width="52" height="54" rx="14" fill="none" stroke="#FFF6EA" stroke-opacity=".4" stroke-width="1"/>
+    </g>
+    <!-- collar ring (Albaricoque) -->
+    <rect x="80" y="94" width="40" height="10" rx="5" fill="#FFB067"/>
+    <rect x="80" y="94" width="40" height="10" rx="5" fill="none" stroke="#3B2A6B" stroke-opacity=".6" stroke-width="1.5"/>
+    <!-- helmet: Nata sphere, Uva 15% crescent lower-right (r40 outer arc, r43 return arc), Tinta visor,
+         Nata 55% reflection stripe, Nata 74% oval highlight straddling the visor rim upper-left -->
+    <g class="part-helmet">
+      <circle cx="100" cy="62" r="40" fill="#FFF6EA"/>
+      <path d="M128.3 33.7 A40 40 0 0 1 71.7 90.3 A43 43 0 0 0 128.3 33.7 Z" fill="#3B2A6B" fill-opacity=".15"/>
+      <circle cx="100" cy="64" r="31" fill="#17203D"/>
+      <path d="M80 54 Q83 46 90 42 Q85 50 83 58 Q81 64 80 72 Q77 63 80 54 Z" fill="#FFF6EA" fill-opacity=".55"/>
+      <circle cx="122" cy="76" r="4" fill="#FFF6EA" fill-opacity=".3"/>
+      <circle cx="100" cy="64" r="31" fill="none" stroke="#3B2A6B" stroke-opacity=".6" stroke-width="1.5"/>
+      <ellipse cx="85" cy="42" rx="9" ry="4.2" transform="rotate(-42 85 42)" fill="#FFF6EA" fill-opacity=".74"/>
+      <circle cx="100" cy="62" r="37.5" fill="none" stroke="#FFF6EA" stroke-opacity=".4" stroke-width="1"/>
+      <circle cx="100" cy="62" r="39.2" fill="none" stroke="#3B2A6B" stroke-opacity=".6" stroke-width="1.5"/>
+    </g>
+  </g>
+</svg>

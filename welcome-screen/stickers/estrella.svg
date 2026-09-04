@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" aria-hidden="true">
+  <!-- estrella: chunky four-point sparkle star (concave sides). Silhouette declared once as #sil-estrella; the page's
+       .st-shadow layer reuses it. Die-cut border = Nata fill + 8-unit Nata stroke on the silhouette (4-unit outer rim). -->
+  <defs>
+    <path id="sil-estrella" d="M100 22 Q116 84 178 100 Q116 116 100 178 Q84 116 22 100 Q84 84 100 22 Z"/>
+  </defs>
+  <use href="#sil-estrella" fill="#FFF6EA" stroke="#FFF6EA" stroke-width="8" stroke-linejoin="round" stroke-linecap="round"/>
+  <g id="estrella-art">
+    <g class="part-star">
+      <!-- base body: Albaricoque -->
+      <path d="M100 22 Q116 84 178 100 Q116 116 100 178 Q84 116 22 100 Q84 84 100 22 Z" fill="#FFB067"/>
+      <!-- lower-right half, split along the anti-diagonal (edge midpoints 127.5,72.5 and 72.5,127.5): Chicle -->
+      <path d="M127.5 72.5 Q147 92 178 100 Q116 116 100 178 Q92 147 72.5 127.5 Z" fill="#FF7BAC"/>
+      <!-- sombra band along the lower-right concave edge -->
+      <path d="M178 100 Q116 116 100 178 Q100 100 178 100 Z" fill="#D95C8E"/>
+      <!-- Nata highlight, upper-left -->
+      <ellipse cx="84" cy="84" rx="10" ry="5.5" transform="rotate(-45 84 84)" fill="#FFF6EA" fill-opacity=".75"/>
+      <!-- inner rim (thickness): 1pt Nata 40%, inset 2 -->
+      <path d="M100 24 Q115 85 176 100 Q115 115 100 176 Q85 115 24 100 Q85 85 100 24 Z" fill="none" stroke="#FFF6EA" stroke-opacity=".4" stroke-width="1" stroke-linejoin="round"/>
+      <!-- inner marker line -->
+      <path d="M100 22 Q116 84 178 100 Q116 116 100 178 Q84 116 22 100 Q84 84 100 22 Z" fill="none" stroke="#3B2A6B" stroke-opacity=".6" stroke-width="1.5" stroke-linejoin="round"/>
+    </g>
+  </g>
+</svg>

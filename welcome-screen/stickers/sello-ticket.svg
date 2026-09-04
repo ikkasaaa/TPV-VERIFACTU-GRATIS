@@ -1,0 +1,93 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200">
+  <!-- sello-ticket: thermal receipt with a Menta QR (the signature sticker). Die-cut border = Nata stroke on the art union. -->
+  <use href="#sello-ticket-art" stroke="#FFF6EA" stroke-width="16" stroke-linejoin="round" stroke-linecap="round" fill="#FFF6EA"/>
+  <g id="sello-ticket-art">
+    <!-- silhouette: receipt paper with teeth top and bottom, top-right corner folded -->
+    <g fill="#FFF6EA"><path id="sello-ticket-sil" d="M50,26 L55,20 L60,26 L65,20 L70,26 L75,20 L80,26 L85,20 L90,26 L95,20 L100,26 L105,20 L110,26 L115,20 L120,26 L125,20 L130,26 L135,20 L150,35 L150,174 L145,180 L140,174 L135,180 L130,174 L125,180 L120,174 L115,180 L110,174 L105,180 L100,174 L95,180 L90,174 L85,180 L80,174 L75,180 L70,174 L65,180 L60,174 L55,180 L50,174 Z"/></g>
+    <!-- two-tone: Chicle 12% band on the right third -->
+    <path fill="#FF7BAC" fill-opacity=".12" d="M120,26 L125,20 L130,26 L135,20 L150,35 L150,174 L145,180 L140,174 L135,180 L130,174 L125,180 L120,174 Z"/>
+
+    <!-- thermal print: header, items, separator, total (Uva marker 60%) -->
+    <g fill="#3B2A6B" fill-opacity=".6">
+      <rect x="72" y="34" width="56" height="7" rx="3.5"/>
+      <rect x="60" y="48" width="46" height="4" rx="2"/>
+      <rect x="126" y="48" width="14" height="4" rx="2"/>
+      <rect x="60" y="57" width="38" height="4" rx="2"/>
+      <rect x="126" y="57" width="14" height="4" rx="2"/>
+      <rect x="60" y="66" width="50" height="4" rx="2"/>
+      <rect x="126" y="66" width="14" height="4" rx="2"/>
+      <rect x="60" y="76" width="80" height="2.5" rx="1.25"/>
+      <rect x="60" y="84" width="30" height="6" rx="3"/>
+      <rect x="116" y="84" width="24" height="6" rx="3"/>
+      <rect x="82" y="164" width="36" height="4" rx="2"/>
+    </g>
+
+    <!-- Menta QR seal -->
+    <g class="part-qr">
+      <rect x="70" y="98" width="60" height="60" rx="5" fill="#7FE3C9"/>
+      <!-- Nata highlight, upper-left -->
+      <ellipse cx="90" cy="101.5" rx="16" ry="2.4" fill="#FFF6EA" fill-opacity=".72"/>
+      <!-- finder squares -->
+      <g class="part-qr-finders">
+        <rect x="75" y="103" width="15" height="15" rx="2" fill="#17203D"/>
+        <rect x="78" y="106" width="9" height="9" rx="1" fill="#7FE3C9"/>
+        <rect x="80" y="108" width="5" height="5" fill="#17203D"/>
+        <rect x="110" y="103" width="15" height="15" rx="2" fill="#17203D"/>
+        <rect x="113" y="106" width="9" height="9" rx="1" fill="#7FE3C9"/>
+        <rect x="115" y="108" width="5" height="5" fill="#17203D"/>
+        <rect x="75" y="138" width="15" height="15" rx="2" fill="#17203D"/>
+        <rect x="78" y="141" width="9" height="9" rx="1" fill="#7FE3C9"/>
+        <rect x="80" y="143" width="5" height="5" fill="#17203D"/>
+      </g>
+      <!-- data modules, grouped in five animatable rows -->
+      <g fill="#17203D">
+        <g class="part-qr-row-1">
+          <rect x="95" y="103" width="10" height="5"/>
+          <rect x="100" y="108" width="5" height="5"/>
+        </g>
+        <g class="part-qr-row-2">
+          <rect x="95" y="113" width="5" height="5"/>
+          <rect x="105" y="113" width="5" height="5"/>
+          <rect x="100" y="118" width="5" height="5"/>
+          <rect x="110" y="118" width="5" height="5"/>
+          <rect x="120" y="118" width="5" height="5"/>
+        </g>
+        <g class="part-qr-row-3">
+          <rect x="75" y="123" width="10" height="5"/>
+          <rect x="90" y="123" width="5" height="5"/>
+          <rect x="100" y="123" width="10" height="5"/>
+          <rect x="115" y="123" width="5" height="5"/>
+          <rect x="85" y="128" width="5" height="5"/>
+          <rect x="95" y="128" width="5" height="5"/>
+          <rect x="110" y="128" width="5" height="5"/>
+          <rect x="120" y="128" width="5" height="5"/>
+        </g>
+        <g class="part-qr-row-4">
+          <rect x="75" y="133" width="10" height="5"/>
+          <rect x="100" y="133" width="10" height="5"/>
+          <rect x="115" y="133" width="5" height="5"/>
+          <rect x="95" y="138" width="5" height="5"/>
+          <rect x="105" y="138" width="5" height="5"/>
+          <rect x="120" y="138" width="5" height="5"/>
+        </g>
+        <g class="part-qr-row-5">
+          <rect x="100" y="143" width="5" height="5"/>
+          <rect x="110" y="143" width="10" height="5"/>
+          <rect x="95" y="148" width="10" height="5"/>
+          <rect x="115" y="148" width="5" height="5"/>
+          <rect x="120" y="148" width="5" height="5"/>
+        </g>
+      </g>
+    </g>
+
+    <!-- inner marker line on the paper edge only -->
+    <use href="#sello-ticket-sil" fill="none" stroke="#3B2A6B" stroke-opacity=".6" stroke-width="1.5" stroke-linejoin="round"/>
+
+    <!-- corner curl: folded top-right corner showing its underside -->
+    <g class="part-curl">
+      <path fill="#FFF6EA" d="M135,20 L150,35 L135,35 Z"/>
+      <path fill="#3B2A6B" fill-opacity=".28" d="M135,20 L150,35 L135,35 Z"/>
+      <path fill="none" stroke="#3B2A6B" stroke-opacity=".6" stroke-width="1.5" stroke-linejoin="round" d="M135,20 L150,35 L135,35 Z"/>
+    </g>
+  </g>
+</svg>

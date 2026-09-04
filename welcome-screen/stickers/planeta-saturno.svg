@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" aria-hidden="true">
+  <!-- planeta-saturno: chunky candy Saturn. Silhouette = union of sphere r53 @ (100,100) and ring ellipse 78x24 rotated -12deg,
+       declared once as #sil-planeta-saturno (the page's .st-shadow layer reuses it). Die-cut border = Nata fill + 16-unit Nata stroke
+       on that silhouette (8 units outside the art = the 4pt outer die-cut at sticker size). -->
+  <defs>
+    <path id="sil-planeta-saturno" d="M144.73 71.57 A78 24 -12 0 1 152.43 107.78 A53 53 0 0 1 55.27 128.43 A78 24 -12 0 1 47.57 92.22 A53 53 0 0 1 144.73 71.57 Z"/>
+  </defs>
+  <use href="#sil-planeta-saturno" fill="#FFF6EA" stroke="#FFF6EA" stroke-width="16" stroke-linejoin="round" stroke-linecap="round"/>
+  <g id="planeta-saturno-art">
+    <!-- back half of the ring (behind the sphere) -->
+    <g class="part-ring-back" transform="translate(100 100) rotate(-12)">
+      <path d="M-78 0 A78 24 0 0 1 78 0 L48 0 A48 9 0 0 0 -48 0 Z" fill="#FFB067"/>
+      <path d="M-58 0 A58 13.5 0 0 1 58 0" fill="none" stroke="#FFF6EA" stroke-width="3"/>
+      <path d="M-77 0 A77 23 0 0 1 77 0" fill="none" stroke="#3B2A6B" stroke-opacity=".6" stroke-width="1.5"/>
+    </g>
+    <!-- sphere -->
+    <g class="part-sphere">
+      <circle cx="100" cy="100" r="53" fill="#FF7BAC"/>
+      <path d="M130.41 56.59 A53 53 0 1 1 56.59 130.41 A53 53 0 0 0 130.41 56.59 Z" fill="#D95C8E"/>
+      <circle cx="121" cy="80" r="9" fill="#3B2A6B" fill-opacity=".55"/>
+      <circle cx="73" cy="100" r="6" fill="#3B2A6B" fill-opacity=".55"/>
+      <ellipse cx="74" cy="72" rx="9" ry="5" transform="rotate(-42 74 72)" fill="#FFF6EA" fill-opacity=".75"/>
+      <circle cx="100" cy="100" r="51" fill="none" stroke="#FFF6EA" stroke-opacity=".4" stroke-width="1"/>
+      <circle cx="100" cy="100" r="52.2" fill="none" stroke="#3B2A6B" stroke-opacity=".6" stroke-width="1.5"/>
+    </g>
+    <!-- front half of the ring (in front of the sphere); sombra underside band 66x15 so it still reads at 96px -->
+    <g class="part-ring-front" transform="translate(100 100) rotate(-12)">
+      <path d="M-78 0 A78 24 0 0 0 78 0 L48 0 A48 9 0 0 1 -48 0 Z" fill="#FFB067"/>
+      <path d="M-78 0 A78 24 0 0 0 78 0 L66 0 A66 15 0 0 1 -66 0 Z" fill="#D98A45"/>
+      <path d="M-58 0 A58 13.5 0 0 0 58 0" fill="none" stroke="#FFF6EA" stroke-width="3"/>
+      <path d="M-77 0 A77 23 0 0 0 77 0" fill="none" stroke="#3B2A6B" stroke-opacity=".6" stroke-width="1.5"/>
+      <path d="M-48 0 A48 9 0 0 0 48 0" fill="none" stroke="#3B2A6B" stroke-opacity=".6" stroke-width="1.5"/>
+    </g>
+  </g>
+</svg>
