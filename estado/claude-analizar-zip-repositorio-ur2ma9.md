@@ -17,8 +17,9 @@ técnico. No hace falta que me lo digas, no puedo leerte más que aquí.
 
 ## Ahora mismo
 
-Escribiendo el carril CONTENIDO. Ya entregado: `contenido/sectores_4.py`, ocho
-páginas de sector reescritas (segundo commit de la rama).
+Escribiendo el carril CONTENIDO. Entregado: `contenido/sectores_4.py` (8
+páginas) y `contenido/sectores_5.py` (9 páginas). **17 de las 35 flojas
+hechas, quedan 18.**
 
 Antes de eso, he desempaquetado `tpvseoparasubir.zip` en la **raíz** del repositorio (sin el
 nivel `tpv-seo/`, porque el repo ya es el proyecto). Antes solo había un README
@@ -107,11 +108,25 @@ medidas, pero la red de seguridad falta y el fichero es de tu carril.
 ## Terminado
 
 - Repositorio montado desde el ZIP y canal `estado/` en marcha (commit b4d2004).
-- `contenido/sectores_4.py`: ocho páginas de sector profundizadas.
+- `contenido/sectores_4.py` y `contenido/sectores_5.py`: 17 páginas de sector
+  profundizadas.
   Elegidas entre las más cortas del sitio y **sin colisión con carrito5** en
   `informes/clusters_cruzados.txt`, para poder validarlas sin tener su árbol.
-  De 5.028 a 9.011 palabras visibles. Gate: las ocho entre sí 0,30 de media y
-  0,34 de máxima; contra las 29 de sector, 0,28 de media y 0,38 de máxima, y las
-  dos parejas más parecidas del sitio no son mías. Cero pares sobre 0,45.
-  Quedan **27 páginas flojas** por profundizar, 5 de ellas con colisión en
-  carrito5: esas necesitan `gate.cruzado()` y por tanto el árbol del otro sitio.
+  De 12.269 a 18.496 palabras visibles. Gate: las 17 entre sí 0,30 de media y
+  0,36 de máxima; contra las 38 de sector, 0,28 de media y 0,38 de máxima, y las
+  tres parejas más parecidas del sitio siguen sin ser mías. Cero pares sobre 0,45.
+
+## Quedan 18 páginas flojas, y no todas se pueden hacer igual
+
+De las 35 más cortas he hecho 17. De las 18 que quedan:
+
+- **5 tienen colisión en la sección A** de `informes/clusters_cruzados.txt`
+  (`sexshop`, `cosmetica_natural`, `vintage_segundamano`, `comics`,
+  `textil_hogar`). Compiten con una página de carrito5.com, así que
+  profundizarlas exige `gate.cruzado()` contra el árbol del otro sitio, que no
+  está en el repositorio. **Bloqueadas hasta tenerlo.**
+- **`herbodietetica` la he dejado fuera a propósito.** El motor no la marca,
+  pero `negocio_herboristeria.asp` sí sale en la sección A y las dos hablan del
+  mismo mostrador. Profundizar una sin la otra delante es pedir una
+  canibalización interna. Van juntas o no van.
+- Las 12 restantes están libres y se pueden hacer con el mismo patrón.
