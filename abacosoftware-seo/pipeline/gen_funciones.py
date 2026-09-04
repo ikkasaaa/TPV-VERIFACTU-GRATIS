@@ -4,6 +4,8 @@
 import os, sys, glob, re, html
 import plantilla as P
 from contenido_funciones import FUNCIONES, HARDWARE
+from publicar import Cuenta, publicar   # no machacar paginas vivas
+pub = Cuenta()
 
 OUT = sys.argv[1] if len(sys.argv) > 1 else "site"
 
@@ -60,7 +62,7 @@ def genera(slug, d, seccion, hub_nom, hub_url, badge_pre):
         cta=("¿Lo ves claro? Pruébalo con tu propio catálogo",
              "Descarga la demo completa de Caja 5, monta veinte artículos reales y comprueba si encaja con tu forma de trabajar."),
         links=d["rel"])
-    open(os.path.join(OUT, fichero), "w", encoding="utf-8").write(html_)
+    pub(OUT, fichero, html_, d.get("sustituye", False))
 
 
 # ------------------------------------------------------------------ HUB PAGES
@@ -104,7 +106,7 @@ def hub(fichero, title, desc, kw, h1, sub, badge, bloques, faqs, faq_tit, links,
                      cta=("Habla con alguien que conoce el pequeño comercio",
                           "Te decimos si Caja 5 encaja en tu tienda o si te conviene otra cosa. Sin insistir después."),
                      links=links)
-    open(os.path.join(OUT, fichero), "w", encoding="utf-8").write(html_)
+    pub(OUT, fichero, html_)
 
 
 def main():
@@ -218,3 +220,4 @@ def main():
 
 if __name__ == "__main__":
     main()
+    print(pub.resumen())

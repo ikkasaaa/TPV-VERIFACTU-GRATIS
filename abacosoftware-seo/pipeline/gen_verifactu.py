@@ -12,6 +12,8 @@ Todo el contenido remite al asesor fiscal para el caso concreto.
 """
 import os, sys
 import plantilla as P
+from publicar import Cuenta, publicar   # no machacar paginas vivas
+pub = Cuenta()
 
 OUT = sys.argv[1] if len(sys.argv) > 1 else "site"
 
@@ -357,8 +359,9 @@ def main():
             cta=("¿Dudas sobre cómo te afecta a ti?",
                  "Llámanos o escríbenos por WhatsApp y te decimos con franqueza qué necesitas y qué no. Sin vender miedo."),
             links=d["rel"])
-        open(os.path.join(OUT, fichero), "w", encoding="utf-8").write(html_)
+        pub(OUT, fichero, html_, d.get("sustituye", False))
     print(f"Cluster VeriFactu/gratis/datafono: {len(PAGINAS)} paginas")
+    print(pub.resumen())
 
 
 if __name__ == "__main__":

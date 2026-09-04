@@ -9,6 +9,8 @@ comparativa licita bajo el art. 10 de la Ley 3/1991 de Competencia Desleal.
 """
 import csv, os, sys, io, re
 import plantilla as P
+from publicar import Cuenta, publicar   # no machacar paginas vivas
+pub = Cuenta()
 
 CSV = sys.argv[1] if len(sys.argv) > 1 else ""
 OUT = sys.argv[2] if len(sys.argv) > 2 else "site"
@@ -320,9 +322,10 @@ def main():
                  f"Descarga la demo completa de Caja 5, pruébala con tus propios artículos y compárala con {nom} sin compromiso."),
             links=links)
 
-        open(os.path.join(OUT, fichero), "w", encoding="utf-8").write(html)
+        pub(OUT, fichero, html)
         n += 1
     print(f"Generadas {n} paginas de comparativa.")
+    print(pub.resumen())
 
 
 if __name__ == "__main__":

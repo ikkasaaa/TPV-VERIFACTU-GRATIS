@@ -8,6 +8,8 @@ la variable PREFIJO del propio modulo (o se detecta por el nombre de la variable
 """
 import os, sys, re, importlib, itertools, json
 import plantilla as P
+from publicar import Cuenta, publicar   # no machacar paginas vivas
+pub = Cuenta()
 
 OUT = "site"
 UMBRAL = 0.45
@@ -129,9 +131,10 @@ def main():
     for f, html in paginas.items():
         if f in malos:
             continue
-        open(os.path.join(OUT, f), "w", encoding="utf-8").write(html)
+        pub(OUT, f, html)
         n += 1
     print(f"\n  publicadas {n} / {len(paginas)}   rechazadas {len(malos)}   similitud maxima {peor:.2f}")
+    print(pub.resumen())
 
 
 if __name__ == "__main__":

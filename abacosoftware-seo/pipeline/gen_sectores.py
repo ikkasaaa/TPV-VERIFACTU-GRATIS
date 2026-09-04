@@ -7,6 +7,8 @@ escrito para su sector y no se comparte entre paginas.
 """
 import os, sys, importlib
 import plantilla as P
+from publicar import Cuenta, publicar   # no machacar paginas vivas
+pub = Cuenta()
 
 OUT = sys.argv[1] if len(sys.argv) > 1 else "site"
 MODULOS = sys.argv[2:] or ["sectores_1"]
@@ -73,10 +75,11 @@ def main():
                 cta=(f"¿Te encaja para tu {d['crumb'].lower().rstrip('s')}?",
                      "Descarga la demo y pruébala con tus propias referencias. Si vemos que no te sirve, te lo diremos."),
                 links=d["rel"])
-            open(os.path.join(OUT, fichero), "w", encoding="utf-8").write(html_)
+            pub(OUT, fichero, html_, d.get("sustituye", False))
             total += 1
         print(f"  {mod}: {len(data)} paginas")
     print("total generadas:", total)
+    print(pub.resumen())
 
 
 if __name__ == "__main__":

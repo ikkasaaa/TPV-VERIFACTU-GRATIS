@@ -7,6 +7,8 @@ la pagina puede posicionar por consultas de cola larga formuladas como pregunta.
 """
 import os, sys, json
 import plantilla as P
+from publicar import Cuenta, publicar   # no machacar paginas vivas
+pub = Cuenta()
 
 OUT = sys.argv[1] if len(sys.argv) > 1 else "site"
 
@@ -133,8 +135,9 @@ def main():
 
     # la FAQ visible ya esta maquetada arriba; quitamos el acordeon duplicado
     html_ = html_.replace(P.faq_block(faqs, ""), "")
-    open(os.path.join(OUT, "preguntas-frecuentes-tpv.asp"), "w", encoding="utf-8").write(html_)
+    pub(OUT, "preguntas-frecuentes-tpv.asp", html_)
     print(f"FAQ hub generado con {len(faqs)} preguntas.")
+    print(pub.resumen())
 
 
 if __name__ == "__main__":

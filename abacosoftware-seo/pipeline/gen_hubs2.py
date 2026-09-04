@@ -3,6 +3,8 @@
 """Hubs de los clusters nuevos: abrir un negocio y operativa diaria."""
 import os, re, glob
 import plantilla as P
+from publicar import Cuenta, publicar   # no machacar paginas vivas
+pub = Cuenta()
 
 OUT = "site"
 
@@ -51,7 +53,7 @@ def hub(fichero, title, desc, kw, h1, sub, badge, intro, secciones, faqs, links)
                     cta=("¿Te echamos una mano con tu caso?",
                          "Llámanos al 953 050 112 o escríbenos por WhatsApp. Te atiende alguien que conoce el pequeño comercio."),
                     links=links)
-    open(os.path.join(OUT, fichero), "w", encoding="utf-8").write(html)
+    pub(OUT, fichero, html)
 
 
 # --------------------------------------------------------------- abrir
@@ -160,3 +162,4 @@ print(f"  guias de normativa enlazadas: {len(items_norm)}")
 print("hubs generados: abrir-un-negocio.asp, operativa-tpv.asp, normativa-comercio.asp")
 print(f"  guias de apertura enlazadas: {len(items_abrir)}")
 print(f"  guias de operativa enlazadas: {len(items_oper)}")
+print(pub.resumen())

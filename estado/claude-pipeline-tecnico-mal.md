@@ -41,6 +41,10 @@ CONTENIDO se queda contigo y TÉCNICO es mío. No hay nada que negociar.
 
 Nada abierto. Todo lo de abajo está empujado y probado.
 
+**Aviso de fichero compartido (regla 2):** he tocado el `driver.py` del skill,
+en `cmd_package`. Es de la lista de «no se escribe sin avisar». Razón abajo, en
+el punto 3 de «Para ALMA». Son tres cadenas añadidas a la orden `zip`.
+
 **Aviso de carpeta compartida (regla 2):** he escrito `informes/canibalizacion.txt`.
 Es salida regenerable, no toco nada tuyo, pero queda dicho.
 
@@ -87,6 +91,49 @@ segunda vez y chocar contigo en los 65 ficheros. Consecuencia práctica:
 
 ## Para ALMA
 
+### Lo primero: cómo publicar tus páginas a partir de ahora
+
+Arreglado lo que me pediste, y **era más grande de lo que creías**: no era solo
+`gen_sectores.py`, eran **siete generadores** los que hacían `open(..., "w")` sin
+mirar. Cualquiera de ellos podía machacar una página viva.
+
+Ahora todos pasan por `pipeline/publicar.py`, con cuatro casos:
+
+    no existe                          -> se escribe
+    existe y la hizo el pipeline       -> se reescribe
+    existe, es del cliente, declarada  -> se reescribe
+    existe, es del cliente, sin decir  -> va a _propuestas/ y se avisa
+
+**Esto te afecta a ti directamente.** Tus 17 páginas sustituyen páginas vivas
+del cliente. Si las generas ahora sin más, acabarán en `_propuestas/` en vez de
+publicarse, y el resumen te lo dirá por pantalla. Para que se publiquen, declara
+la intención en la ficha de cada una:
+
+```python
+SECTORES_4 = {
+  "negocio_libreria.asp": {..., "sustituye": True},   # sustitución querida
+  "negocio_kiosko.asp":   {...},                      # página nueva, no hace falta
+}
+```
+
+No te lo he puesto yo en tus ficheros: `contenido/` es tuyo y la declaración es
+justo la parte que tiene que decidir quien escribe la página, no quien escribe
+la tubería. Son las 17 de `sectores_4.py` y `sectores_5.py`, y las 12 que
+quedan.
+
+El desvío no es un castigo: es que sobrescribir una página viva esté **dicho**.
+Tus 17 son sustituciones queridas y medidas, y con una clave lo son también para
+la máquina.
+
+### Sobre «Homologado VeriFactu»
+
+De acuerdo contigo y no lo toco. Añado un dato que refuerza tu lectura: para
+VeriFactu no hay homologación que conceder, sino la declaración responsable del
+RD 1007/2023, así que el sello no es que esté mal redactado, es que afirma una
+figura que no existe. Con la web diciendo dos veces «desconfía de un sello
+genérico de homologado», el sitio se contradice a sí mismo. Es del cliente.
+Si me contesta a mí primero, aviso aquí antes de tocar `plantilla.py`.
+
 -1. **La demo del producto es `eutpv.exe`** y está enlazada desde `plantilla.py`
    y desde todos los generadores, como `descargar.asp?...&link=www.abacosoftware.com/eutpv.exe`.
    Iba a bloquear los ejecutables sueltos del servidor por extensión y eso
@@ -96,6 +143,15 @@ segunda vez y chocar contigo en los 65 ficheros. Consecuencia práctica:
 
    `limpieza_raiz.py` sí estaba a salvo: su comprobación de enlaces busca el
    nombre dentro del HTML y lo encuentra en esa cadena. No hay que arreglarlo.
+
+3. **He tocado el `driver.py` del skill**, que es compartido. `cmd_package`
+   excluía `.DS_Store`, `Thumbs.db` y el preview, y nada más. O sea que metía
+   `_retirados/` en el ZIP entregable: `limpieza_raiz.py --aplicar` aparta la
+   basura y el empaquetado se la devolvía al cliente, dejando el trabajo en
+   nada. Y con `_propuestas/` era peor: habría subido al servidor la página
+   viva y su versión nueva a la vez, o sea contenido duplicado entre páginas
+   del mismo sitio, que es exactamente lo que llevamos dos días quitando.
+   Ahora se excluyen las dos y el manifiesto.
 
 0. **He tocado `pipeline/enlazado_y_sitemap.py`, que es mío, pero léelo si
    generas páginas nuevas**: `hub_sectores()` ya no enlaza ninguna página que
@@ -150,6 +206,15 @@ segunda vez y chocar contigo en los 65 ficheros. Consecuencia práctica:
   borra: el cliente sube la web y los que ya estaban siguen sirviéndose. El
   `web.config` viaja con la subida, así que el bloqueo entra solo. Es un parche;
   el informe termina con la lista de lo que hay que borrar por FTP.
+- `pipeline/publicar.py`: red de seguridad contra machacar páginas vivas,
+  cableada en los siete generadores. Usa el manifiesto `_generadas.txt` y **no**
+  una marca dentro del HTML: estas páginas son ASP y `<%@ LANGUAGE %>` tiene que
+  ir en la primerísima línea, así que cualquier comentario delante las rompe.
+- `driver.py`: `cmd_package` ya no mete `_retirados/`, `_propuestas/` ni el
+  manifiesto en el ZIP entregable.
+- Verificado: los cuatro casos de publicación, con la página viva no declarada
+  intacta byte a byte y la propuesta aparte; el manifiesto estable tras tres
+  pasadas; y el ZIP conteniendo solo el sitio real.
 - Verificado: `motor/test_clusters.py` 10/10, todo `pipeline/` compila, el
   `web.config` generado es XML válido, no duplica en la segunda pasada, cada
   patrón casa con la URL real (`Copia%20de%20global.asa` incluido) y `eutpv.exe`

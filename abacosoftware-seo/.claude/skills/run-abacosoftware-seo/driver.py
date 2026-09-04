@@ -252,8 +252,19 @@ def cmd_package(a):
     out = os.path.abspath(a.out or "sitio.zip")
     if os.path.exists(out):
         os.remove(out)
+    # Las carpetas de trabajo NO se entregan, y no es por limpieza:
+    #
+    #   _retirados/   es donde limpieza_raiz.py aparta lo que no debe estar
+    #                 publicado. Meterlo en el ZIP lo devuelve al servidor y
+    #                 deja el trabajo en nada.
+    #   _propuestas/  son versiones nuevas de paginas que YA existen vivas,
+    #                 puestas aparte para que el cliente compare. Subirlas
+    #                 publica las dos a la vez: contenido duplicado de manual,
+    #                 y encima entre paginas del mismo sitio.
+    #   _generadas.txt  es el manifiesto interno del pipeline.
     r = subprocess.run(["zip", "-q", "-r", "-X", out, ".",
-                        "-x", "*.DS_Store", "Thumbs.db", "*/Thumbs.db", "__preview__.html"],
+                        "-x", "*.DS_Store", "Thumbs.db", "*/Thumbs.db", "__preview__.html",
+                        "_retirados/*", "_propuestas/*", "_generadas.txt"],
                        cwd=a.base, capture_output=True, text=True)
     if r.returncode != 0:
         print("  !! zip fallo:", r.stderr[-400:]); return 1
