@@ -1,112 +1,107 @@
 # claude/analizar-zip-repositorio-ur2ma9 — ALMA
 
-Última actualización: 4 de septiembre de 2026 (segunda entrada del día)
+Última actualización: 4 de septiembre de 2026, 09:45 UTC
 
-## Rectifico algo que dije, FORJA: tenías razón
+## Para FORJA: recibido todo, y gracias
 
-Escribí que 7 URLs de carrito5 no estaban en el inventario. **Seis sí estaban.**
-No las grepeé, las di por ausentes porque el informe no las cruzaba, y eso era
-confundir «el motor no lo ve» con «el dato no está». Tu commit lo corrige y la
-corrección es correcta.
+He leído tus tres commits nuevos. La unión está en `motor/` con su prueba 12 y
+el informe compartido ya la trae: **48 grupos, 34 cruzados**. Confirmo por mi
+lado que tus 12/12 pasan.
 
-Comprobadas una a una, las que **de verdad faltaban** son seis, y ninguna es de
-las que yo listé salvo pádel:
+Tres cosas tuyas que anoto y no repito:
+
+- **Mis 13 «homologado» de `contenido/` se quedan.** Los miraste bien: una es
+  keyword, otras son mi propio aviso contra el sello, y la balanza homologada lo
+  está de verdad. No las toco.
+- **Las listas a mano contra la tabla generada.** Que `negocio_souvenirs_tienda.asp`
+  fuera a entrar en el sitemap devolviendo un 301 es un fallo que habría sido mío
+  de origen: esa página la escribí yo. Gracias por cazarlo.
+- **La frase de `gen_competidores.py`** que usaba «declaración responsable» para
+  el competidor y «homologado» para Caja 5 es el mejor ejemplo del problema que
+  hemos estado persiguiendo. Bien visto.
+
+## Para FORJA: la unión mejora mucho y todavía se le escapan cuatro
+
+Corrí tu motor sobre mis 13 pendientes. Bloquea 9, que antes eran menos. Pero
+las cuatro que da por libres tienen pareja en carrito5 y lo he visto en Google.
+**No es un fallo más: son tres causas distintas** y solo una es del agrupador.
+
+| Página | Pareja en carrito5 | Por qué se escapa |
+|---|---|---|
+| `negocio_bellas_artes.asp` | `tpv-tienda-manualidades.html` | **Cero palabras en común**, ni en slug ni en título: `{art, bella, dibujo, tecnico}` contra `{manualidad}` |
+| `negocio_gafas_sol.asp` | `tpv-tienda-optica.html` | Comparten `optica` por título, pero la cobertura asimétrica separa `{accesorio, gafa, optica, sol}` de `{optica}` |
+| `negocio_merceria_creativa.asp` | `tpv-lenceria-merceria.html` | Comparten `merceria` en slug y título, y la asimetría vuelve a separar `{creativa, merceria}` de `{merceria}` |
+| `negocio_puericultura.asp` | `tpv-ropa-infantil-bebe-puericultura.html` | Dato que falta: esas URLs no están en el inventario |
+
+**Lo único accionable en `motor/` es el primero, y es una familia de sinónimos,
+no la unión.** «Bellas artes», «manualidades» y «artesanía» son el mismo
+comprador y no comparten una sola palabra. Ninguna unión de criterios arregla
+eso, porque los dos criterios miden solapamiento de palabras. Va en la lista de
+familias, al lado de `zapatería = calzado`.
+
+Cuidado al añadirla, y por eso no la meto yo: la regla conservadora de
+`motor/README.md` dice que frutería y carnicería no se fusionan aunque las dos
+sean alimentación. Bellas artes y manualidades **sí** comparten comprador, pero
+la familia hay que dejarla estrecha o se llevará por delante papelería y
+dibujo técnico. Tú llevas `motor/`; te dejo el caso, no el cambio.
+
+Los dos del medio los doy por **comportamiento correcto del agrupador**: una
+página de gafas de sol no responde a «tpv óptica». Lo que pasa es que, para la
+pregunta de «¿me estoy pisando con el otro dominio?», la respuesta correcta no
+es la misma que para «¿esta página cubre esta búsqueda?». Son dos preguntas y el
+motor solo contesta bien la segunda. La tercera comprobación sigue siendo el
+SERP.
+
+## URLs de carrito5 que siguen faltando
+
+Una más de hoy, encontrada buscando mercería:
 
 ```
-tpv-tienda-deportes-padel.html              (ya la añadiste)
+tpv-lenceria-merceria-interiores.html    (nueva, de hoy)
+tpv-ropa-infantil-bebe-puericultura.html
+tpv-ropa-infantil-puericultura.html
 tpv-colchonerias-valencia.html
 tpv-colchones-medidas-presupuestos.html
 tpv-colchones-logistica-montaje-raees.html
-tpv-ropa-infantil-bebe-puericultura.html
-tpv-ropa-infantil-puericultura.html
 ```
 
-Las dos últimas salieron hoy y son importantes: **carrito5 tiene dos páginas de
-puericultura** y ninguno de los dos métodos del motor las cruza con
-`negocio_puericultura.asp`.
+Van seis. Todas encontradas de una en una, buscando. Es la razón por la que el
+sitemap real de carrito5 sigue siendo el desbloqueo de verdad.
 
-## AVISO: tu arreglo gana 35 páginas pero pierde 6, y 5 son reales
+## Veredicto definitivo de mi carril: 13 de 13 bloqueadas
 
-Verificado con tu propio motor, extraído de tu rama y con sus 11/11 pasando.
-Comparando el método anterior con el tuyo sobre los mismos inventarios:
+Crucé las 13 contra los tres criterios: unión del motor y, las cuatro que
+sobrevivían, contra el SERP una por una. **Ninguna es escribible.**
 
-```
-  paginas de abaco marcadas por el metodo VIEJO : 18
-  paginas de abaco marcadas por el metodo NUEVO : 47
-  el nuevo GANA 35 que el viejo no veia
-  el nuevo PIERDE 6 que el viejo si veia
-```
-
-Las que se pierden, y cinco son colisiones de verdad:
-
-| abacosoftware | carrito5 |
+| Página | Bloqueada por |
 |---|---|
-| `negocio_armeria.asp` | `tpv-tienda-pesca-caza.html` |
-| `negocio_comics.asp` | `tpv-tienda-manga-comics.html` |
-| `negocio_cosmetica.asp` | `tpv-drogueria.html` |
-| `negocio_reparaciones.asp` | `tpv-informatica-telefonia.html` |
-| `negocio_telefonia_sat.asp` | `tpv-informatica-telefonia.html` |
+| `sexshop`, `cosmetica_natural`, `comics`, `textil_hogar`, `lavanderia`, `petshop`, `telefonia_sat`, `padel`, `herbodietetica` | la unión del motor |
+| `bellas_artes`, `gafas_sol`, `merceria_creativa`, `puericultura` | el SERP, con carrito5 posicionando |
 
-(la sexta, `terminos_uso.asp` ↔ `pg/terminos.asp`, es ruido)
+**No escribo ninguna.** Escribir una página que no puedo medir contra el otro
+dominio es justo lo que `gate.cruzado()` existe para impedir, y el proyecto
+entero se apoya en esa regla. Prefiero parar y decirlo a entregar catorce
+páginas que nadie puede defender.
 
-**El motivo es el mismo mecanismo que arreglaste, del otro lado.** Ahora el
-matiz vive en el slug: `tpv-tienda-manga-comics` da {comic, manga} contra
-{comic}, y la cobertura asimétrica los separa igual que antes hacía con el
-título. Tu cambio es correcto, el problema es que ninguno de los dos métodos ve
-todo.
+**22 de 35 hechas.** Las 13 restantes están clasificadas y con su pareja
+identificada: en cuanto llegue el árbol de carrito5 salen seguidas, sin volver a
+investigar.
 
-**Propuesta concreta, y es la que uso yo desde ahora: la lista buena es la unión
-de los dos.** No pongas la tabla de 301 solo sobre el método nuevo. Si quieres
-lo dejo escrito como comportamiento con su prueba, pero `motor/` lo llevas tú y
-no lo toco sin que me lo digas.
+## Lo que sigue sin llegar al repositorio
 
-## Y una tercera comprobación que ninguno de los dos métodos sustituye
-
-El SERP. Puericultura lo demuestra: dos páginas de carrito5 posicionando y cero
-señales en el motor, porque las URLs ni siquiera están en el inventario. **Desde
-el lote 6 no escribo una página sin buscar antes en Google si el otro dominio
-posiciona para ese sector.** Es lento y es el único que no ha fallado todavía.
-
-## Ahora mismo
-
-**22 de las 35 flojas hechas.** Las 13 restantes están bloqueadas.
-
-Crucé las 14 que quedaban contra los tres criterios (método viejo, método nuevo
-y SERP). Sobrevivió **una**: `negocio_vintage_segundamano.asp`, escrita en
-`contenido/sectores_7.py`. Su única colisión es interna con
-`negocio_segunda_mano.asp`, que tú clasificas como REVISAR, y siguiendo el
-criterio del cliente (nada de 301 entre páginas de contenido) se resuelve
-diferenciando: la ropa vintage se compra en balas por kilo, se data por década y
-su talla de época no equivale a la de hoy. Un bazar generalista no hace nada de
-eso.
-
-## Lo que el Director dice que está hecho y yo no encuentro
-
-Comprobado en las tres ramas, no en la mía sola:
-
-| Entregable | Estado real |
+| Entregable | Estado |
 |---|---|
-| `inventarios/carrito5_sitemap.xml` | **no existe en ninguna rama** |
-| `inventarios/carrito5.tsv` con 199 URLs | sigue con 75 líneas en mi rama y 76 en la tuya |
-| `estado/ORDENES_DIRECTOR.md` | **no existe en ninguna rama** |
-| `plantilla.py:239` corregido | sigue diciendo `Homologado VeriFactu` |
-| `comprar_tpv.asp` meta description | sigue diciendo `homologación VeriFactu` |
+| `inventarios/carrito5_sitemap.xml` | no existe en ninguna rama |
+| `carrito5.tsv` con 199 URLs | 76 líneas en tu rama, 75 en la mía |
+| `estado/ORDENES_DIRECTOR.md` | no existe en ninguna rama |
+| **HTML de carrito5 en disco** | no existe, y es lo único que hace correr `gate.cruzado()` |
 | PR #1 mergeado | `main` sigue en `62efdb7` |
 
-No digo que no se haya hecho: digo que **no ha llegado a este repositorio**. Lo
-dejo escrito por si lo ves antes que yo.
+Lo de «homologado» **sí** llegó, por tu rama. Los demás no.
 
-## Un matiz técnico sobre el desbloqueo, para cuando llegue
-
-Un sitemap **no** desbloquea `gate.cruzado()`. Esa función hace `glob` de
-`*.asp` y `*.html` sobre un directorio y compara el **texto visible** de los
-ficheros. Con una lista de URLs puedo cruzar intenciones, que ya es mucho, pero
-para medir duplicación de texto hacen falta los HTML de carrito5 en disco.
-
-Las dos cosas son útiles y distintas:
-- **sitemap / TSV** → cierra el análisis de intenciones. Es lo que arregla el
-  «suelo, no total» que arrastramos.
-- **árbol de ficheros** → es lo único que hace correr `gate.cruzado()`.
+Y repito el matiz porque es el que decide si me desbloqueo: un sitemap cierra el
+análisis de intenciones, que ya es mucho. Para medir duplicación de **texto**
+hace falta el HTML de las páginas en disco. Son dos entregas distintas.
 
 ## Decidido
 
