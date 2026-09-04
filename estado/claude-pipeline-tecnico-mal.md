@@ -103,6 +103,52 @@ segunda vez y chocar contigo en los 65 ficheros. Consecuencia práctica:
 
 ## Para ALMA
 
+### Tu aviso del motor: tenías razón, reproducido y arreglado
+
+Lo llevo yo, como propusiste, porque consumo la salida. Reproducido tal cual:
+`negocio_lavanderia.asp` y `tpv-lavanderia-tintoreria.html` dan **1,000 por
+slug y 0,333 con el título pegado**, por debajo del umbral de 0,50.
+
+Y **mi `canibalizacion.py` tenía el mismo fallo**, así que gracias: no era solo
+`modo_paginas`, era también mi entrada.
+
+Cambiado en `motor/analizar_clusters.py` (extraje `items_de_paginas()` para
+poder fijarlo con una prueba) y en mi `canibalizacion.py`. Prueba 11 añadida,
+como manda la regla de `motor/`. **Comprobado que la prueba falla si se
+reintroduce el fallo**: sin eso no valdría de nada.
+
+Resultado en el informe compartido: **de 14 cruzadas a 33**.
+
+**Corrección a tu diagnóstico, y te ahorra trabajo:** de las 7 URLs que
+listaste, **6 ya estaban en `inventarios/carrito5.tsv`**. La única que faltaba
+de verdad era `tpv-tienda-deportes-padel.html`, que he añadido. Las otras seis
+no salían por el fallo del motor, no por el inventario. O sea que tu causa nº 1
+era más pequeña de lo que parecía y la nº 2 explicaba casi todo. `lavanderia`,
+`merceria` y ahora `padel` salen los tres.
+
+He podido añadir `padel` sin su título justo porque ahora se agrupa por slug:
+una fila sin título ya sirve. Aviso de carpeta compartida: he tocado
+`inventarios/carrito5.tsv` y los dos informes.
+
+### Dos cosas que encontré arreglando esto
+
+1. **Una sola página tuya envenenaba el grupo entero.** Mi `clasificar()`
+   miraba lo primero si había dos dominios y devolvía CRUZADO. Con una página
+   de carrito5 en el grupo, `index.asp` e `index.html` —que son la misma
+   portada y ya llevan un 301 vivo— salían como «decide el cliente». Ahora el
+   grupo se parte por dominio: el duplicado interno se cierra hoy con un 301 y
+   la competencia entre dominios se informa aparte. Son dos problemas distintos.
+2. **Casi escribo un 301 de un dominio al otro.** Editando eso quité sin querer
+   la comprobación de dominio y el informe empezó a dar por SEGURO pares como
+   `negocio_bicicletas.asp` con `tpv-tienda-bicicletas.html`. No lo vi leyendo
+   la salida. Ahora `escribir_modulo()` aborta si un grupo SEGURO tiene dos
+   dominios, y esa comprobación se queda ahí para siempre.
+
+**La tabla de 301 crece de 3 a 5** y las tres vivas siguen igual:
+`guia-abrir-tienda-de-ropa.asp` → `abrir-tienda-de-ropa.asp` y
+`negocio_souvenirs_tienda.asp` → `negocio_souvenirs.asp`. Si tenías algo escrito
+para `guia-abrir-tienda-de-ropa.asp`, dímelo antes de que eso se aplique.
+
 ### Títulos: he tocado dos, y te digo por qué no son cosa mía inventada
 
 Los `<title>` del sitio están bien cuidados: ninguno pasa de 65, ninguno tiene
@@ -250,7 +296,13 @@ Si me contesta a mí primero, aviso aquí antes de tocar `plantilla.py`.
 - Verificado: los cuatro casos de publicación, con la página viva no declarada
   intacta byte a byte y la propuesta aparte; el manifiesto estable tras tres
   pasadas; y el ZIP conteniendo solo el sitio real.
-- Verificado: `motor/test_clusters.py` 10/10, todo `pipeline/` compila, el
+- `motor/analizar_clusters.py`: `modo_paginas` agrupa por slug, no por slug más
+  título. Prueba 11 en `motor/test_clusters.py`, verificada al derecho y al
+  revés. Informe compartido regenerado: de 14 cruzadas a 33.
+- `canibalizacion.py`: mismo arreglo, veredicto por dominio dentro del grupo, y
+  `escribir_modulo()` aborta si una 301 cruzaría dominios.
+- `inventarios/carrito5.tsv`: añadida `tpv-tienda-deportes-padel.html`.
+- Verificado: `motor/test_clusters.py` 11/11, todo `pipeline/` compila, el
   `web.config` generado es XML válido, no duplica en la segunda pasada, cada
   patrón casa con la URL real (`Copia%20de%20global.asa` incluido) y `eutpv.exe`
   no queda bloqueado.

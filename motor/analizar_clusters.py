@@ -89,9 +89,30 @@ def leer_keywords(ruta):
     return out
 
 
+def items_de_paginas(paginas):
+    """{clave: texto que define el tema} para agrupar. paginas: [(sitio, slug, titulo)].
+
+    El tema de una pagina es su SLUG, no su titulo. Es la trampa nº 5 del
+    README de esta carpeta, y estaba viva aqui: pegarle el titulo al slug mete
+    el detalle comercial dentro del nucleo, la cobertura asimetrica lo lee
+    como acotacion, y dos paginas que hablan de lo mismo dejan de agruparse.
+   
+    Medido con lavanderia, que es el caso que lo destapo:
+      nucleo('negocio_lavanderia.asp')          -> {lavanderia}
+      nucleo('tpv-lavanderia-tintoreria.html')  -> {lavanderia}   parecido 1,000
+    y con el titulo de abaco pegado ("... Tintorerias y Arreglos de Ropa"):
+      -> {lavanderia, arreglo, ropa}  contra  {lavanderia}   parecido 0,333
+    que no llega al umbral de 0,50, asi que el informe no las veia competir.
+   
+    modo_keywords no tiene el problema porque compara la busqueda contra el
+    slug, que es justo lo que hay que hacer.
+    """
+    return {f"{s}|{sl}": sl for s, sl, ti in paginas}
+
+
 def modo_paginas(rutas):
     paginas = leer_inventarios(rutas)
-    items = {f"{s}|{sl}": f"{sl} {C.sin_marca(ti)}" for s, sl, ti in paginas}
+    items = items_de_paginas(paginas)
     grupos, nuc = C.agrupar(items)
 
     multi = [g for g in grupos if len(g) > 1]

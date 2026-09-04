@@ -1,125 +1,247 @@
 CANIBALIZACION
-  grupos con mas de una pagina: 28
-    SEGURO     3
-    TITULO     2
-    REVISAR    8
-    SEPARAR    1
-    CRUZADO   14
+  grupos con mas de una pagina: 60
+    SEGURO     5
+    TITULO     0
+    REVISAR   13
+    SEPARAR    9
+    CRUZADO   33
 
 
 SEGURO  SE FUSIONAN — sobra una pagina, 301 a la ganadora
    Los slugs son variantes del mismo. No hay decision editorial.
 
-   [almoneda antiguedad coleccionismo]   !! mismo <title>
+   [antiguedad]   !! mismo <title>
       abacosoftware negocio_antiguedad.asp                           992 pal
       abacosoftware negocio_antiguedades.asp                         992 pal  <- GANA
 
-   [consulta desde sugerencia]   !! mismo <title>
+   [consulta desde med]   !! mismo <title>
       abacosoftware tpv_consultas_desde_web.asp                      154 pal  <- GANA
       abacosoftware tpv_consultas_desde_web_med.asp                   10 pal
 
-   [homologado index nube]   !! mismo <title>
+   [index]   !! mismo <title>
       abacosoftware index.asp                                       3252 pal  <- GANA
       abacosoftware index.html                                      3245 pal
 
+   [ropa abrir guia]
+      abacosoftware abrir-tienda-de-ropa.asp                        1201 pal  <- GANA
+      abacosoftware guia-abrir-tienda-de-ropa.asp                    966 pal
 
-TITULO  CONFIRMADA — las dos paginas llevan el mismo <title>
-   No es el agrupador: el titulo lo escribio una persona, igual en las dos.
-
-   [colchoneria decoracion muebleria]   !! mismo <title>
-      abacosoftware negocio_colchoneria.asp                          846 pal
-      abacosoftware negocio_muebles.asp                              848 pal
-
-   [complemento decoracion regalo]   !! mismo <title>
-      abacosoftware negocio_complementos.asp                         790 pal
-      abacosoftware negocio_decoracion.asp                           790 pal
+   [souvenir]
+      abacosoftware negocio_souvenirs.asp                            818 pal  <- GANA
+      abacosoftware negocio_souvenirs_tienda.asp                     694 pal
 
 
 REVISAR  HAY QUE DECIDIR — negocios parecidos, no identicos
    El agrupador los unio por vecindad. Fusionar es decision de negocio.
 
-   [articulo erotico sex]
-      abacosoftware negocio_articulos_eroticos.asp                   812 pal
-      abacosoftware negocio_sexshop.asp                              692 pal
+   [barcelona instrumentos]
+      carrito5     software-tpv-barcelona.html                        ? pal
+      carrito5     tpv-instrumentos-musica-barcelona.html             ? pal
 
-   [bebe puericultura infantil]
-      abacosoftware negocio_infantil.asp                             934 pal
-      abacosoftware negocio_puericultura.asp                         759 pal
+   [comparativa nube]
+      abacosoftware caja5_nube.asp                                  1234 pal
+      abacosoftware comparativa_tpv_nube.asp                        1441 pal
+      abacosoftware comparativas-tpv.asp                             830 pal
 
-   [control stock zapateria]
-      carrito5     programa-stock-zapateria.html                      ? pal
-      carrito5     tpv-zapateria.html                                 ? pal
-
-   [faq frecuent pregunta]
-      carrito5     preguntas-frecuentes-operativa-caja-tienda.html     ? pal
+   [frecuent pregunta verifactu]
+      carrito5     preguntas-frecuentes-tpv-verifactu.html            ? pal
       carrito5     preguntas-frecuentes-verifactu-ley-antifraude.html     ? pal
+
+   [herboristeria]
+      abacosoftware negocio_herbodietetica.asp                       696 pal
+      abacosoftware negocio_herboristeria.asp                        918 pal
+
+   [infantil zapateria]
+      abacosoftware negocio_calzado_infantil.asp                     735 pal
+      abacosoftware negocio_infantil.asp                             934 pal
+
+   [instrumentos]
+      abacosoftware negocio_instrumentos.asp                         716 pal
+      abacosoftware negocio_musica.asp                               825 pal
 
    [instrumentos]
       carrito5     tpv-tienda-instrumentos-musica.html                ? pal
       carrito5     tpv-tiendas-instrumentos-musica.html               ? pal
 
-   [mano ocasion segundamano]
-      abacosoftware negocio_segunda_mano.asp                         877 pal
-      abacosoftware negocio_vintage_segundamano.asp                  722 pal
+   [joyeria]
+      abacosoftware negocio_joyeria.asp                             1182 pal
+      abacosoftware negocio_relojeria.asp                            835 pal
 
-   [mascotas pienso accesorio]
+   [ley verifactu sancion]
+      abacosoftware ley-antifraude-tpv.asp                          1016 pal
+      abacosoftware sanciones-ley-antifraude.asp                    1220 pal
+
+   [mascotas]
       abacosoftware negocio_animales.asp                             918 pal
       abacosoftware negocio_petshop.asp                              753 pal
 
-   [minorista local]
-      carrito5     software-tpv-comercio-local.html                   ? pal
-      carrito5     tpv-comercio.html                                  ? pal
+   [merceria]
+      abacosoftware negocio_lenceria.asp                             872 pal
+      abacosoftware negocio_merceria.asp                             824 pal
+
+   [verifactu]
+      abacosoftware que-es-verifactu.asp                            1023 pal
+      abacosoftware verifactu-gratis.asp                             986 pal
+      abacosoftware verifactu-tpv.asp                               1183 pal
+
+   [verifactu]
+      carrito5     verifactu-aeat-descargar.html                      ? pal
+      carrito5     verifactu-gratis.html                              ? pal
 
 
 SEPARAR  NO SE TOCAN — distinta etapa del embudo
    Comparten palabras pero no compiten. Enlazarlas entre si.
 
-   [barra codigo etiqueta]
-      abacosoftware app_etiquetas_ql5.asp                           1051 pal
-      abacosoftware etiquetas-codigo-de-barras-tpv.asp               693 pal
+   [electrodomestico abrir]
+      abacosoftware abrir-tienda-electrodomesticos.asp               974 pal
+      abacosoftware negocio_electrodomesticos.asp                   1038 pal
+
+   [ferreteria abrir]
+      abacosoftware abrir-ferreteria.asp                            1035 pal
+      abacosoftware negocio_ferreteria.asp                          1259 pal
+
+   [fruteria abrir]
+      abacosoftware abrir-fruteria.asp                              1010 pal
+      abacosoftware negocio_fruteria.asp                            1084 pal
+
+   [jugueteria abrir]
+      abacosoftware abrir-jugueteria.asp                             953 pal
+      abacosoftware negocio_jugueteria.asp                           712 pal
+
+   [panaderia abrir]
+      abacosoftware abrir-panaderia.asp                             1022 pal
+      abacosoftware negocio_panaderia.asp                           1096 pal
+
+   [papeleria]
+      abacosoftware abrir-papeleria.asp                              988 pal
+      abacosoftware negocio_libreria.asp                            1064 pal
+      abacosoftware negocio_papeleria.asp                           1166 pal
+
+   [parafarmacia herboristeria]
+      carrito5     tpv-herboristeria-parafarmacia.html                ? pal
+      carrito5     tpv-tienda-parafarmacia.html                       ? pal
+
+   [peluqueria abrir]
+      abacosoftware abrir-peluqueria.asp                             988 pal
+      abacosoftware negocio_peluqueria.asp                           918 pal
+
+   [zapateria abrir]
+      abacosoftware abrir-zapateria.asp                             1047 pal
+      abacosoftware negocio_calzado.asp                             1260 pal
 
 
 CRUZADO  DECIDE EL CLIENTE — dominios distintos
    Un 301 aqui regala un dominio al otro. Los dos son suyos.
 
-   [arqueo cierre diario]
+   [antiguedad]   !! mismo <title>
+      abacosoftware negocio_antiguedad.asp                           992 pal
+      abacosoftware negocio_antiguedades.asp                         992 pal
+      carrito5     tpv-tienda-antiguedades.html                       ? pal
+
+   [arqueo caja cierre]
       abacosoftware arqueo-de-caja-cierre-diario.asp                 720 pal
       carrito5     blog/como-hacer-arqueo-de-caja-cierre-z.html       ? pal
 
-   [caza pesca armeria]
-      abacosoftware negocio_armeria.asp                              834 pal
-      carrito5     tpv-tienda-pesca-caza.html                         ? pal
+   [bicicletas]
+      abacosoftware negocio_bicicletas.asp                           849 pal
+      carrito5     tpv-tienda-bicicletas.html                         ? pal
 
-   [comic manga]
-      abacosoftware negocio_comics.asp                               743 pal
-      carrito5     tpv-tienda-manga-comics.html                       ? pal
+   [colchoneria]
+      abacosoftware negocio_colchoneria.asp                          846 pal
+      carrito5     tpv-colchonerias-descanso.html                     ? pal
+
+   [complemento]
+      abacosoftware negocio_complementos.asp                         790 pal
+      carrito5     tpv-complementos.html                              ? pal
+
+   [condicion]
+      abacosoftware condiciones.asp                                 1708 pal
+      carrito5     pg/condiciones.asp                                 ? pal
 
    [cosmetica natural]
       abacosoftware negocio_cosmetica_natural.asp                    705 pal
       carrito5     tpv-tienda-cosmetica-natural.html                  ? pal
 
-   [ecotienda herboristeria]
-      abacosoftware negocio_herboristeria.asp                        918 pal
-      carrito5     tpv-herboristeria.html                             ? pal
+   [decoracion]
+      abacosoftware negocio_decoracion.asp                           790 pal
+      carrito5     tpv-tienda-decoracion.html                         ? pal
+
+   [deport]
+      abacosoftware negocio_deportes.asp                             885 pal
+      carrito5     tpv-tienda-deportes.html                           ? pal
 
    [electrodomestico abrir]
       abacosoftware abrir-tienda-electrodomesticos.asp               974 pal
       abacosoftware negocio_electrodomesticos.asp                   1038 pal
       carrito5     tpv-tienda-electrodomesticos.html                  ? pal
 
-   [frecuent pregunta sobre]
+   [floristeria]
+      abacosoftware negocio_floristeria.asp                          809 pal
+      carrito5     tpv-floristeria.html                               ? pal
+
+   [frecuent pregunta verifactu]
       carrito5     preguntas-frecuentes-tpv-verifactu.html            ? pal
       abacosoftware preguntas-frecuentes-tpv.asp                    1670 pal
+      carrito5     preguntas-frecuentes-verifactu-ley-antifraude.html     ? pal
 
-   [hogar textil cama]
+   [herboristeria]
+      abacosoftware negocio_herbodietetica.asp                       696 pal
+      abacosoftware negocio_herboristeria.asp                        918 pal
+      carrito5     tpv-herboristeria.html                             ? pal
+
+   [hogar textil]
       abacosoftware negocio_textil_hogar.asp                         745 pal
       carrito5     tpv-textil-hogar.html                              ? pal
+
+   [index]   !! mismo <title>
+      abacosoftware index.asp                                       3252 pal
+      abacosoftware index.html                                      3245 pal
+      carrito5     index.html                                         ? pal
 
    [informatica]
       abacosoftware negocio_informatica.asp                         1178 pal
       carrito5     tpv-electronica-informaticas.html                  ? pal
 
+   [instrumentos]
+      abacosoftware negocio_instrumentos.asp                         716 pal
+      abacosoftware negocio_musica.asp                               825 pal
+      carrito5     tpv-tienda-instrumentos-musica.html                ? pal
+      carrito5     tpv-tiendas-instrumentos-musica.html               ? pal
+
+   [joyeria]
+      abacosoftware negocio_joyeria.asp                             1182 pal
+      abacosoftware negocio_relojeria.asp                            835 pal
+      carrito5     tpv-joyeria-relojeria.html                         ? pal
+
+   [lavanderia]
+      abacosoftware negocio_lavanderia.asp                           749 pal
+      carrito5     tpv-lavanderia-tintoreria.html                     ? pal
+
+   [mascotas]
+      abacosoftware negocio_animales.asp                             918 pal
+      abacosoftware negocio_petshop.asp                              753 pal
+      carrito5     tpv-tienda-mascotas.html                           ? pal
+
+   [merceria]
+      abacosoftware negocio_lenceria.asp                             872 pal
+      abacosoftware negocio_merceria.asp                             824 pal
+      carrito5     tpv-lenceria-merceria.html                         ? pal
+
+   [muebl]
+      abacosoftware negocio_muebles.asp                              848 pal
+      carrito5     tpv-tienda-muebles.html                            ? pal
+
+   [optica]
+      abacosoftware negocio_optica.asp                              1163 pal
+      carrito5     tpv-tienda-optica.html                             ? pal
+
+   [padel deport]
+      abacosoftware negocio_padel.asp                                774 pal
+      carrito5     tpv-tienda-deportes-padel.html                     ? pal
+
    [papeleria]
+      abacosoftware abrir-papeleria.asp                              988 pal
+      abacosoftware negocio_libreria.asp                            1064 pal
       abacosoftware negocio_papeleria.asp                           1166 pal
       carrito5     tpv-papeleria.html                                 ? pal
 
@@ -128,20 +250,38 @@ CRUZADO  DECIDE EL CLIENTE — dominios distintos
       carrito5     tpv-herboristeria-parafarmacia.html                ? pal
       carrito5     tpv-tienda-parafarmacia.html                       ? pal
 
-   [perfumeria cosmetica]   !! mismo <title>
-      abacosoftware negocio_cosmetica.asp                            808 pal
+   [perfumeria]
       abacosoftware negocio_perfumeria.asp                           809 pal
       carrito5     tpv-drogueria.html                                 ? pal
 
-   [telefonia informatica sat]   !! mismo <title>
-      abacosoftware negocio_reparaciones.asp                         914 pal
+   [ropa abrir guia]
+      abacosoftware abrir-tienda-de-ropa.asp                        1201 pal
+      abacosoftware guia-abrir-tienda-de-ropa.asp                    966 pal
+      carrito5     tpv-tienda-ropa.html                               ? pal
+
+   [sexshop]
+      abacosoftware negocio_sexshop.asp                              692 pal
+      carrito5     tpv-sexshop.html                                   ? pal
+
+   [telefonia informatica]
       abacosoftware negocio_telefonia.asp                            920 pal
-      abacosoftware negocio_telefonia_sat.asp                        769 pal
       carrito5     tpv-informatica-telefonia.html                     ? pal
 
-   [termino uso]
-      carrito5     pg/terminos.asp                                    ? pal
-      abacosoftware terminos_uso.asp                                2397 pal
+   [vapeo]
+      abacosoftware negocio_vapeo.asp                               1072 pal
+      carrito5     tpv-tienda-vapeo.html                              ? pal
+
+   [verifactu]
+      abacosoftware que-es-verifactu.asp                            1023 pal
+      carrito5     verifactu-aeat-descargar.html                      ? pal
+      abacosoftware verifactu-gratis.asp                             986 pal
+      carrito5     verifactu-gratis.html                              ? pal
+      abacosoftware verifactu-tpv.asp                               1183 pal
+
+   [zapateria abrir]
+      abacosoftware abrir-zapateria.asp                             1047 pal
+      abacosoftware negocio_calzado.asp                             1260 pal
+      carrito5     tpv-zapateria.html                                 ? pal
 
 
 TITULO  EL MISMO <title> FUERA DE TODO GRUPO
@@ -152,4 +292,12 @@ TITULO  EL MISMO <title> FUERA DE TODO GRUPO
       abacosoftware tpv_consultas_desde_web.asp
       abacosoftware tpv_consultas_desde_web_med.asp
       abacosoftware tpv_pedir_caja5_gratis.asp
+
+   "software tpv para perfumerías, cosmética y droguerías | caja 5"
+      abacosoftware negocio_cosmetica.asp
+      abacosoftware negocio_perfumeria.asp
+
+   "software tpv para tiendas de telefonía, informática y sat"
+      abacosoftware negocio_reparaciones.asp
+      abacosoftware negocio_telefonia.asp
 

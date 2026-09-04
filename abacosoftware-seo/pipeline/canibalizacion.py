@@ -62,7 +62,15 @@ que tenga clics y esto pasa a ser el desempate.
 import difflib
 import os
 import re
+import signal
 import sys
+
+# Igual que en motor/analizar_clusters.py: sin esto, cortar la salida con
+# "| head" revienta con BrokenPipeError en vez de terminar en silencio.
+try:
+    signal.signal(signal.SIGPIPE, signal.SIG_DFL)
+except (AttributeError, ValueError):
+    pass                              # Windows no tiene SIGPIPE
 
 sys.path.insert(0, os.path.join(os.path.dirname(os.path.abspath(__file__)),
                                 "..", "..", "motor"))
@@ -139,9 +147,18 @@ def variante(a, b):
 
 
 def clasificar(paginas):
-    """paginas: [(sitio, slug, titulo, palabras)] de un mismo grupo."""
-    if len({p[0] for p in paginas}) > 1:
-        return "CRUZADO"
+    """Veredicto de un subgrupo de UN SOLO dominio.
+
+    Antes esto miraba lo primero si habia mas de un dominio y devolvia CRUZADO,
+    y era un error: una sola pagina del otro dominio envenenaba el grupo entero
+    y escondia un duplicado interno evidente. 'index.asp' e 'index.html', que
+    son la misma portada y ya llevan un 301 vivo, acababan clasificadas como
+    "decide el cliente" solo porque la portada de carrito5 caia en el grupo.
+
+    Son dos problemas independientes en el mismo grupo: uno se arregla con un
+    301 hoy y el otro es una decision de negocio. Asi que el grupo se parte por
+    dominio y cada parte tiene su veredicto.
+    """
     if len({familia(p[1]) for p in paginas}) > 1:
         return "SEPARAR"
     raices = [raiz_slug(p[1]) for p in paginas]
@@ -219,19 +236,49 @@ def leer(rutas):
     return out
 
 
+ORDEN = {"SEGURO": 0, "TITULO": 1, "REVISAR": 2, "SEPARAR": 3, "CRUZADO": 4}
+
+
 def analizar(rutas):
     paginas = leer(rutas)
     indice = {p[1] + "\x00" + p[0]: p for p in paginas}
-    grupos, nuc = C.agrupar({k: f"{v[1]} {v[2]}" for k, v in indice.items()})
+    # El tema de una pagina es su SLUG, no su titulo. Es la trampa nº 5 de
+    # motor/README.md y aqui la tenia yo viva: pegarle el titulo al slug mete
+    # el detalle comercial en el nucleo, la cobertura asimetrica lee ese
+    # detalle como acotacion, y dos paginas que hablan de lo mismo dejan de
+    # agruparse. Medido con lavanderia: por slug se parecen 1,000 y con el
+    # titulo pegado 0,333, por debajo del umbral de 0,50.
+    #
+    # El titulo no se pierde: entra por titulo_repetido(), que es igualdad
+    # exacta y no similitud, y ahi si es la senal mas dura del analisis.
+    grupos, nuc = C.agrupar({k: v[1] for k, v in indice.items()})
 
     salida = []
     for claves in grupos:
         if len(claves) < 2:
             continue
         pgs = sorted((indice[k] for k in claves), key=lambda p: p[1])
-        salida.append((C.etiqueta(claves, nuc), clasificar(pgs), pgs))
-    orden = {"SEGURO": 0, "TITULO": 1, "REVISAR": 2, "SEPARAR": 3, "CRUZADO": 4}
-    salida.sort(key=lambda x: (orden[x[1]], x[0]))
+        etiq = C.etiqueta(claves, nuc)
+
+        # Un grupo puede llevar dos problemas distintos a la vez, y se arreglan
+        # de forma distinta, asi que se informan por separado: el duplicado
+        # dentro de un dominio se cierra con un 301 hoy, y la competencia entre
+        # los dos dominios la decide el cliente. Mezclarlos escondia el
+        # primero: bastaba una pagina de carrito5 en el grupo para que
+        # 'index.asp' e 'index.html', que son la misma portada, salieran como
+        # "decide el cliente".
+        por_dominio = {}
+        for p in pgs:
+            por_dominio.setdefault(p[0], []).append(p)
+
+        for sitio in sorted(por_dominio):
+            sub = por_dominio[sitio]
+            if len(sub) >= 2:
+                salida.append((etiq, clasificar(sub), sub))
+        if len(por_dominio) > 1:
+            salida.append((etiq, "CRUZADO", pgs))
+
+    salida.sort(key=lambda x: (ORDEN[x[1]], x[0]))
     return salida
 
 
@@ -332,6 +379,18 @@ def escribir_modulo(grupos, destino):
     for _, tipo, pgs in grupos:
         if tipo != "SEGURO":
             continue
+        # Red de seguridad, no comprobacion defensiva de adorno: editando este
+        # fichero deje de mirar el dominio dentro de clasificar() y el informe
+        # empezo a dar por SEGURO pares como negocio_bicicletas.asp con
+        # tpv-tienda-bicicletas.html. Eso escrito en el web.config es un 301 de
+        # un dominio del cliente al otro, o sea regalarle un dominio entero al
+        # otro. No lo vi leyendo la salida; lo vio una comprobacion como esta.
+        dominios = {p[0] for p in pgs}
+        if len(dominios) > 1:
+            raise SystemExit(
+                "ABORTADO: el grupo SEGURO %r tiene paginas de %s. Un 301 entre\n"
+                "dominios distintos no se escribe nunca desde aqui." %
+                (pgs[0][1], " y ".join(sorted(dominios))))
         gana = ganadora(pgs)
         for sitio, slug, _, _ in pgs:
             if slug != gana[1]:

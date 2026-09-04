@@ -12,7 +12,9 @@ proposito: ver informes/canibalizacion.txt.
 
 # origen -> destino
 REDIRECCIONES = {
+    "guia-abrir-tienda-de-ropa.asp":               "abrir-tienda-de-ropa.asp",
     "index.html":                                  "index.asp",
     "negocio_antiguedad.asp":                      "negocio_antiguedades.asp",
+    "negocio_souvenirs_tienda.asp":                "negocio_souvenirs.asp",
     "tpv_consultas_desde_web_med.asp":             "tpv_consultas_desde_web.asp",
 }

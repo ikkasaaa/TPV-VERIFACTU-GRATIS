@@ -113,6 +113,26 @@ def _():
     assert not C.cubre(kw, con_titulo), \
         "el caso que motivo separar slug de titulo ya no se reproduce"
 
+@caso("dos dominios sobre el mismo negocio se agrupan pese al titulo largo")
+def _():
+    # La prueba de arriba fija el principio; esta fija que modo_paginas lo
+    # cumple, que es donde no se cumplia. El titulo de abaco anade "arreglos de
+    # ropa", y pegado al slug bajaba el parecido de 1,000 a 0,333, por debajo
+    # del umbral: el informe no veia competir a dos paginas del mismo dueno
+    # sobre el mismo negocio. Salio de tres casos reales comprobados en Google.
+    sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+    import analizar_clusters as A
+    paginas = [
+        ("abacosoftware", "negocio_lavanderia.asp",
+         "Software TPV para Lavanderias, Tintorerias y Arreglos de Ropa"),
+        ("carrito5", "tpv-lavanderia-tintoreria.html",
+         "TPV para lavanderia y tintoreria | Carrito5"),
+    ]
+    grupos, _ = C.agrupar(A.items_de_paginas(paginas))
+    assert len(grupos) == 1, \
+        "las dos paginas de lavanderia no se agrupan: el titulo vuelve a acotar"
+
+
 def main():
     fallos = 0
     for nombre, f in CASOS:
