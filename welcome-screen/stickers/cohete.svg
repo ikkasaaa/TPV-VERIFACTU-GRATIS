@@ -1,0 +1,47 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" aria-hidden="true">
+  <!-- cohete: stubby retro rocket, three fins, stacked teardrop flame. Die-cut border = stroked copy of the art group. Flame origin (nozzle mouth) at 100,148. -->
+  <use href="#cohete-art" stroke="#FFF6EA" stroke-width="16" stroke-linejoin="round" stroke-linecap="round" fill="#FFF6EA"/>
+  <g id="cohete-art">
+    <!-- flame: three stacked teardrops Albaricoque > Chicle > Nata core, behind everything -->
+    <g class="part-flame">
+      <path d="M100 184 C86 172 80 162 82 152 Q100 140 118 152 C120 162 114 172 100 184 Z" fill="#FFB067"/>
+      <path d="M100 174 C91 166 88 160 89 152 Q100 143 111 152 C112 160 109 166 100 174 Z" fill="#FF7BAC"/>
+      <path d="M100 165 C95.5 160 94 157 94.5 152 Q100 146 105.5 152 C106 157 104.5 160 100 165 Z" fill="#FFF6EA" fill-opacity=".8"/>
+    </g>
+    <!-- side fins -->
+    <g class="part-fins">
+      <path d="M70 92 L42 144 Q40 152 49 150 L70 138 Z" fill="#FFB067"/>
+      <path d="M70 122 L54 122 L42 144 Q40 152 49 150 L70 138 Z" fill="#D98A45"/>
+      <path d="M130 92 L158 144 Q160 152 151 150 L130 138 Z" fill="#FFB067"/>
+      <path d="M130 122 L146 122 L158 144 Q160 152 151 150 L130 138 Z" fill="#D98A45"/>
+      <path d="M70 92 L42 144 Q40 152 49 150 L70 138" fill="none" stroke="#3B2A6B" stroke-opacity=".6" stroke-width="1.5" stroke-linejoin="round"/>
+      <path d="M130 92 L158 144 Q160 152 151 150 L130 138" fill="none" stroke="#3B2A6B" stroke-opacity=".6" stroke-width="1.5" stroke-linejoin="round"/>
+    </g>
+    <!-- nozzle -->
+    <path d="M82 134 H118 L112 148 H88 Z" fill="#D95C8E"/>
+    <!-- body: Nata pill with Uva 15% band on the right -->
+    <g class="part-body">
+      <path d="M70 58 H130 V124 Q130 136 118 136 H82 Q70 136 70 124 Z" fill="#FFF6EA"/>
+      <path d="M116 58 H130 V124 Q130 136 118 136 H116 Z" fill="#3B2A6B" fill-opacity=".15"/>
+      <path d="M70 58 H130 V124 Q130 136 118 136 H82 Q70 136 70 124 Z" fill="none" stroke="#3B2A6B" stroke-opacity=".6" stroke-width="1.5" stroke-linejoin="round"/>
+      <!-- nose cone -->
+      <path d="M91 25 Q100 19 109 25 C122 35 130 47 130 60 L70 60 C70 47 78 35 91 25 Z" fill="#FF7BAC"/>
+      <path d="M109 25 C122 35 130 47 130 60 L114 60 C114 47 110 37 101 29 Z" fill="#D95C8E"/>
+      <ellipse cx="87" cy="42" rx="5" ry="10" transform="rotate(24 87 42)" fill="#FFF6EA" fill-opacity=".72"/>
+      <path d="M91 25 Q100 19 109 25 C122 35 130 47 130 60 L70 60 C70 47 78 35 91 25 Z" fill="none" stroke="#3B2A6B" stroke-opacity=".6" stroke-width="1.5" stroke-linejoin="round"/>
+      <path d="M92 28 Q100 22.5 108 28 C119 37.5 127 48 127 58 L73 58 C73 48 81 37.5 92 28 Z" fill="none" stroke="#FFF6EA" stroke-opacity=".4" stroke-width="1"/>
+      <!-- porthole: Chicle ring, Tinta glass, wide Nata reflection crescent (not a pupil) -->
+      <circle cx="100" cy="92" r="18" fill="#FF7BAC"/>
+      <path d="M112.73 79.27 A18 18 0 1 1 87.27 104.73 A18 18 0 0 0 112.73 79.27 Z" fill="#D95C8E"/>
+      <circle cx="100" cy="92" r="12" fill="#17203D"/>
+      <path d="M106.1 81.66 A12 12 0 0 0 101.94 80.16 L88.16 93.94 A12 12 0 0 0 89.66 98.1 Z" fill="#FFF6EA" fill-opacity=".5"/>
+      <circle cx="100" cy="92" r="18" fill="none" stroke="#3B2A6B" stroke-opacity=".6" stroke-width="1.5"/>
+    </g>
+    <!-- tail fin (front, centre) -->
+    <g class="part-tailfin">
+      <path d="M94 114 L90 146 Q90 152 100 152 Q110 152 110 146 L106 114 Z" fill="#FFB067"/>
+      <path d="M91.75 132 L90 146 Q90 152 100 152 Q110 152 110 146 L108.25 132 Z" fill="#D98A45"/>
+      <path d="M94 114 L90 146 Q90 152 100 152 Q110 152 110 146 L106 114 Z" fill="none" stroke="#3B2A6B" stroke-opacity=".6" stroke-width="1.5" stroke-linejoin="round"/>
+    </g>
+  </g>
+</svg>
