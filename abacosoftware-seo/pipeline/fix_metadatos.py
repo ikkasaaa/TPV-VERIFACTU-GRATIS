@@ -65,6 +65,22 @@ TITULOS = {
  "tpv-software-o-datafono.asp": "TPV: ¿software o datáfono? Diferencias reales",
  "tpv-gratis-para-comercio.asp": "TPV gratis para comercio: opciones y letra pequeña",
  "verifactu-tpv.asp": "Software TPV homologado VeriFactu | Caja 5",
+
+ # Estas dos no son recortes: son titulos equivocados. Las tres paginas
+ # tpv_pedir_caja5_gratis / tpv_consultas_desde_web / ..._med llevaban las tres
+ # el mismo <title>, "CAJA 5 TPV - Consultas y sugerencias", y no hablan de lo
+ # mismo. Alguien copio una pagina para hacer otra y se dejo el titulo puesto.
+ #
+ # Que la pagina es otra cosa no lo decido yo: lo dice el FICHAS de este mismo
+ # fichero, que ya le escribe a tpv_pedir_caja5_gratis el H1 "Pedir Caja 5
+ # gratis" y una description sobre la demo. O sea que la pagina venia diciendo
+ # una cosa en el H1 y otra en el titulo, que es el peor sitio para decirla,
+ # porque el titulo es lo unico que se lee en Google antes de entrar.
+ #
+ # La tercera, ..._med, no se toca: tiene 10 palabras y ya redirige a
+ # tpv_consultas_desde_web por canibalizacion.py.
+ "tpv_pedir_caja5_gratis.asp": "Pedir Caja 5 TPV gratis: demo sin tarjeta",
+ "tpv_consultas_desde_web.asp": "Consultas de stock y precios desde la web | Caja 5",
 }
 
 

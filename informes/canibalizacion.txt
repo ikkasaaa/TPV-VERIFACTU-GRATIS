@@ -1,7 +1,8 @@
 CANIBALIZACION
   grupos con mas de una pagina: 28
     SEGURO     3
-    REVISAR   10
+    TITULO     2
+    REVISAR    8
     SEPARAR    1
     CRUZADO   14
 
@@ -9,17 +10,29 @@ CANIBALIZACION
 SEGURO  SE FUSIONAN — sobra una pagina, 301 a la ganadora
    Los slugs son variantes del mismo. No hay decision editorial.
 
-   [almoneda antiguedad coleccionismo]
+   [almoneda antiguedad coleccionismo]   !! mismo <title>
       abacosoftware negocio_antiguedad.asp                           992 pal
       abacosoftware negocio_antiguedades.asp                         992 pal  <- GANA
 
-   [consulta desde sugerencia]
+   [consulta desde sugerencia]   !! mismo <title>
       abacosoftware tpv_consultas_desde_web.asp                      154 pal  <- GANA
       abacosoftware tpv_consultas_desde_web_med.asp                   10 pal
 
-   [homologado index nube]
+   [homologado index nube]   !! mismo <title>
       abacosoftware index.asp                                       3252 pal  <- GANA
       abacosoftware index.html                                      3245 pal
+
+
+TITULO  CONFIRMADA — las dos paginas llevan el mismo <title>
+   No es el agrupador: el titulo lo escribio una persona, igual en las dos.
+
+   [colchoneria decoracion muebleria]   !! mismo <title>
+      abacosoftware negocio_colchoneria.asp                          846 pal
+      abacosoftware negocio_muebles.asp                              848 pal
+
+   [complemento decoracion regalo]   !! mismo <title>
+      abacosoftware negocio_complementos.asp                         790 pal
+      abacosoftware negocio_decoracion.asp                           790 pal
 
 
 REVISAR  HAY QUE DECIDIR — negocios parecidos, no identicos
@@ -32,14 +45,6 @@ REVISAR  HAY QUE DECIDIR — negocios parecidos, no identicos
    [bebe puericultura infantil]
       abacosoftware negocio_infantil.asp                             934 pal
       abacosoftware negocio_puericultura.asp                         759 pal
-
-   [colchoneria decoracion muebleria]
-      abacosoftware negocio_colchoneria.asp                          846 pal
-      abacosoftware negocio_muebles.asp                              848 pal
-
-   [complemento decoracion regalo]
-      abacosoftware negocio_complementos.asp                         790 pal
-      abacosoftware negocio_decoracion.asp                           790 pal
 
    [control stock zapateria]
       carrito5     programa-stock-zapateria.html                      ? pal
@@ -123,12 +128,12 @@ CRUZADO  DECIDE EL CLIENTE — dominios distintos
       carrito5     tpv-herboristeria-parafarmacia.html                ? pal
       carrito5     tpv-tienda-parafarmacia.html                       ? pal
 
-   [perfumeria cosmetica]
+   [perfumeria cosmetica]   !! mismo <title>
       abacosoftware negocio_cosmetica.asp                            808 pal
       abacosoftware negocio_perfumeria.asp                           809 pal
       carrito5     tpv-drogueria.html                                 ? pal
 
-   [telefonia informatica sat]
+   [telefonia informatica sat]   !! mismo <title>
       abacosoftware negocio_reparaciones.asp                         914 pal
       abacosoftware negocio_telefonia.asp                            920 pal
       abacosoftware negocio_telefonia_sat.asp                        769 pal
@@ -137,4 +142,14 @@ CRUZADO  DECIDE EL CLIENTE — dominios distintos
    [termino uso]
       carrito5     pg/terminos.asp                                    ? pal
       abacosoftware terminos_uso.asp                                2397 pal
+
+
+TITULO  EL MISMO <title> FUERA DE TODO GRUPO
+   Temas distintos y titulo igual: alguien copio una pagina y se
+   dejo el titulo. Se arregla escribiendo el que le toca.
+
+   "caja 5 tpv - consultas y sugerencias"
+      abacosoftware tpv_consultas_desde_web.asp
+      abacosoftware tpv_consultas_desde_web_med.asp
+      abacosoftware tpv_pedir_caja5_gratis.asp
 

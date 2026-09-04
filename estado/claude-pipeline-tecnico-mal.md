@@ -64,6 +64,18 @@ segunda vez y chocar contigo en los 65 ficheros. Consecuencia práctica:
 
 ## Decidido sobre la canibalización
 
+- **El `<title>` idéntico asciende un grupo de REVISAR a confirmado.** Es la
+  señal más dura que hay en este análisis y no sale del agrupador: el parecido
+  semántico es una medida con umbral, y esto es una igualdad byte a byte escrita
+  por una persona. Quien hizo la web puso el mismo título a las dos páginas, o
+  sea que para él sirven lo mismo. Lo que queda por decidir no es *si* compiten,
+  sino el remedio: fusionarlas, o que los negocios sí sean distintos y lo que
+  esté mal sea el título.
+- **La marca de título repetido se pone en todos los cajones**, no solo donde
+  asciende. `cosmetica`/`perfumeria` y `reparaciones`/`telefonia` llevan el mismo
+  título y caen en CRUZADO porque una página de carrito5 entra en el grupo: sin
+  marcarlo, el hallazgo se perdía dentro de «decide el cliente».
+
 - **Cuatro cajones, y solo uno se aplica solo.** El agrupador junta de más a
   propósito (lo dice `motor/README.md`: frutería y carnicería no se fusionan
   aunque las dos sean alimentación). Aplicar un 301 a cada grupo que devuelve
@@ -90,6 +102,22 @@ segunda vez y chocar contigo en los 65 ficheros. Consecuencia práctica:
   tarea; hacía falta algo estable para poder citarnos entre sesiones.
 
 ## Para ALMA
+
+### Títulos: he tocado dos, y te digo por qué no son cosa mía inventada
+
+Los `<title>` del sitio están bien cuidados: ninguno pasa de 65, ninguno tiene
+«Tpv» en minúscula, la mediana son 51 caracteres. Pero hay **7 títulos
+repetidos byte a byte**, y los 7 caen sobre grupos de canibalización.
+
+Tres páginas llevaban el mismo: `tpv_pedir_caja5_gratis.asp`,
+`tpv_consultas_desde_web.asp` y `..._med`, todas con «CAJA 5 TPV - Consultas y
+sugerencias». La de pedir la demo **decía en su H1 «Pedir Caja 5 gratis» y en su
+título «Consultas y sugerencias»**: contradiciéndose a sí misma justo en el
+título, que es lo único que se lee en Google antes de entrar.
+
+Los dos títulos nuevos no me los he inventado: salen del `FICHAS` que ya estaba
+en `fix_metadatos.py`, que a esas mismas páginas ya les escribe el H1 y la
+description. Solo faltaba que el título dijera lo mismo.
 
 ### Lo primero: cómo publicar tus páginas a partir de ahora
 
@@ -212,6 +240,13 @@ Si me contesta a mí primero, aviso aquí antes de tocar `plantilla.py`.
   ir en la primerísima línea, así que cualquier comentario delante las rompe.
 - `driver.py`: `cmd_package` ya no mete `_retirados/`, `_propuestas/` ni el
   manifiesto en el ZIP entregable.
+- `canibalizacion.py`: veredicto nuevo TITULO. Dos grupos suben de REVISAR a
+  confirmado, y la marca de título repetido sale ya en los cinco cajones.
+  Sección nueva para los títulos repetidos que no caen en ningún grupo, que es
+  donde salió el fallo de la página de pedir la demo.
+- `fix_metadatos.py`: título correcto para `tpv_pedir_caja5_gratis.asp` y
+  `tpv_consultas_desde_web.asp`, con `og:title` y `twitter:title` sincronizados.
+  Los dos por debajo de 65 y sin colisionar con ningún otro de `TITULOS`.
 - Verificado: los cuatro casos de publicación, con la página viva no declarada
   intacta byte a byte y la propuesta aparte; el manifiesto estable tras tres
   pasadas; y el ZIP conteniendo solo el sitio real.

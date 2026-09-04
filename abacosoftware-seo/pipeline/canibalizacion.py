@@ -23,6 +23,15 @@ aplica solo:
             o extension ('index.asp' / 'index.html'). No hay juicio editorial
             que hacer: sobra una. 301 a la ganadora.
 
+  TITULO    Lo que seria REVISAR, pero las paginas llevan el MISMO <title>,
+            byte a byte. Eso ya no es una conjetura del agrupador: el titulo lo
+            escribio una persona, y escribir el mismo para dos paginas es
+            decir que sirven lo mismo. La canibalizacion esta confirmada; lo
+            que queda por decidir es el remedio, porque puede ser fusionarlas o
+            puede ser que los negocios si sean distintos y lo que este mal sea
+            el titulo. Lo que no puede quedarse es como esta: dos paginas vivas
+            compitiendo en la misma busqueda con el mismo titulo.
+
   REVISAR   Misma familia de pagina, pero negocios distintos ('colchoneria' /
             'muebles'). El agrupador los unio por vecindad semantica. Fusionar
             aqui es una decision de negocio, no tecnica: puede que sean dos
@@ -139,7 +148,29 @@ def clasificar(paginas):
     # Todas contra la primera: el grupo ya es una componente conexa.
     if all(variante(raices[0], r) for r in raices[1:]):
         return "SEGURO"
+    if titulo_repetido(paginas):
+        return "TITULO"
     return "REVISAR"
+
+
+def titulo_repetido(paginas):
+    """True si dos paginas del grupo llevan exactamente el mismo <title>.
+
+    Es la senal mas dura que hay aqui, y no sale del agrupador sino de una
+    persona: el parecido semantico es una medida con umbral y esto es una
+    igualdad. Quien escribio la web puso el mismo titulo a las dos paginas, o
+    sea que para el sirven lo mismo. En la SERP se ve todavia peor, porque el
+    usuario ve dos resultados con el mismo texto.
+    """
+    vistos = set()
+    for _, _, titulo, _ in paginas:
+        t = " ".join(titulo.split()).lower()
+        if not t:
+            continue
+        if t in vistos:
+            return True
+        vistos.add(t)
+    return False
 
 
 def ganadora(paginas):
@@ -199,7 +230,7 @@ def analizar(rutas):
             continue
         pgs = sorted((indice[k] for k in claves), key=lambda p: p[1])
         salida.append((C.etiqueta(claves, nuc), clasificar(pgs), pgs))
-    orden = {"SEGURO": 0, "REVISAR": 1, "SEPARAR": 2, "CRUZADO": 3}
+    orden = {"SEGURO": 0, "TITULO": 1, "REVISAR": 2, "SEPARAR": 3, "CRUZADO": 4}
     salida.sort(key=lambda x: (orden[x[1]], x[0]))
     return salida
 
@@ -207,6 +238,8 @@ def analizar(rutas):
 CABECERA = {
     "SEGURO":  ("SE FUSIONAN — sobra una pagina, 301 a la ganadora",
                 "Los slugs son variantes del mismo. No hay decision editorial."),
+    "TITULO":  ("CONFIRMADA — las dos paginas llevan el mismo <title>",
+                "No es el agrupador: el titulo lo escribio una persona, igual en las dos."),
     "REVISAR": ("HAY QUE DECIDIR — negocios parecidos, no identicos",
                 "El agrupador los unio por vecindad. Fusionar es decision de negocio."),
     "SEPARAR": ("NO SE TOCAN — distinta etapa del embudo",
@@ -216,6 +249,31 @@ CABECERA = {
 }
 
 
+def titulos_repetidos_sueltos(rutas, grupos):
+    """Paginas con el mismo <title> que NO salen en ningun grupo de arriba.
+
+    El agrupador mira el tema, asi que dos paginas de temas distintos con el
+    mismo titulo se le escapan, y ese caso no es menor: normalmente significa
+    que alguien copio una pagina para hacer otra y se dejo el titulo puesto.
+    En la SERP el usuario ve dos resultados con el mismo texto sin que las
+    paginas tengan nada que ver.
+    """
+    en_grupo = {p[1] for _, _, pgs in grupos for p in pgs}
+    por_titulo = {}
+    for sitio, slug, titulo, _ in leer(rutas):
+        t = " ".join(titulo.split()).lower()
+        if t:
+            por_titulo.setdefault(t, []).append((sitio, slug))
+    fuera = []
+    for t, pgs in sorted(por_titulo.items()):
+        if len(pgs) < 2:
+            continue
+        if all(s in en_grupo for _, s in pgs):
+            continue                      # ya sale arriba, no se repite
+        fuera.append((pgs[0][0], t, pgs))
+    return fuera
+
+
 def informe(grupos):
     L = []
     tot = {k: 0 for k in CABECERA}
@@ -223,7 +281,7 @@ def informe(grupos):
         tot[tipo] += 1
     L.append("CANIBALIZACION")
     L.append("  grupos con mas de una pagina: %d" % len(grupos))
-    for t in ("SEGURO", "REVISAR", "SEPARAR", "CRUZADO"):
+    for t in ("SEGURO", "TITULO", "REVISAR", "SEPARAR", "CRUZADO"):
         L.append("    %-8s %3d" % (t, tot[t]))
     L.append("")
 
@@ -237,7 +295,12 @@ def informe(grupos):
             L.append("   %s" % sub)
             L.append("")
         gana = ganadora(pgs) if tipo == "SEGURO" else None
-        L.append("   [%s]" % etiq)
+        # El titulo repetido se marca siempre, aunque el veredicto sea otro.
+        # Si un grupo es CRUZADO porque entra una pagina del otro dominio, el
+        # que dos paginas de este lleven el mismo titulo no deja de ser cierto,
+        # y sin marcarlo se perdia dentro del cajon de "decide el cliente".
+        marca_t = "   !! mismo <title>" if titulo_repetido(pgs) else ""
+        L.append("   [%s]%s" % (etiq, marca_t))
         for sitio, slug, titulo, palabras in pgs:
             marca = "  <- GANA" if gana and slug == gana[1] else ""
             cuenta = "    ? pal" if palabras is None else "%5d pal" % palabras
@@ -287,6 +350,18 @@ if __name__ == "__main__":
         sys.exit(1)
     g = analizar(args)
     print(informe(g))
+    sueltos = titulos_repetidos_sueltos(args, g)
+    if sueltos:
+        print("")
+        print("TITULO  EL MISMO <title> FUERA DE TODO GRUPO")
+        print("   Temas distintos y titulo igual: alguien copio una pagina y se")
+        print("   dejo el titulo. Se arregla escribiendo el que le toca.")
+        print("")
+        for _, titulo, pgs in sueltos:
+            print("   \"%s\"" % titulo)
+            for sitio, slug in pgs:
+                print("      %-12s %s" % (sitio, slug))
+            print("")
     if "--escribir" in sys.argv:
         d = os.path.join(os.path.dirname(os.path.abspath(__file__)),
                          "redirecciones_301.py")
