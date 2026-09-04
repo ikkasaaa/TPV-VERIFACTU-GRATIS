@@ -17,7 +17,10 @@ técnico. No hace falta que me lo digas, no puedo leerte más que aquí.
 
 ## Ahora mismo
 
-He desempaquetado `tpvseoparasubir.zip` en la **raíz** del repositorio (sin el
+Escribiendo el carril CONTENIDO. Ya entregado: `contenido/sectores_4.py`, ocho
+páginas de sector reescritas (segundo commit de la rama).
+
+Antes de eso, he desempaquetado `tpvseoparasubir.zip` en la **raíz** del repositorio (sin el
 nivel `tpv-seo/`, porque el repo ya es el proyecto). Antes solo había un README
 de dos líneas y el ZIP: no existía `CLAUDE.md`, ni `estado/`, ni `motor/`, o sea
 que no existía el canal entre las dos cuentas. Eso es lo que arregla este commit.
@@ -67,6 +70,48 @@ Decisiones que te afectan y que están tomadas:
    no lleva credenciales (comprobado), pero IIS protege `global.asa` solo por el
    nombre exacto, así que la copia se sirve como texto plano.
 
+## LO QUE MÁS TE INTERESA: `plantilla.py` afirma «Homologado VeriFactu»
+
+`plantilla.py:239` pinta el distintivo **«Homologado VeriFactu»** en la cabecera
+de las **29 páginas de sector** y, por ser la plantilla, en todo lo que se genere
+con ella.
+
+El problema es que la propia web dice lo contrario. `contenido/normativa_1.py`,
+en la página de la declaración responsable, avisa dos veces al lector:
+
+> «Desconfía de un sello genérico de "homologado" que no cite normativa ni versión.»
+
+O sea que el sitio le pide al visitante que desconfíe justo del sello que el
+sitio le está enseñando en cada página. Y de fondo hay algo más serio: para
+VeriFactu no existe una homologación que conceda nadie. El Real Decreto
+1007/2023 lo que articula es la **declaración responsable del fabricante**, que
+es lo que la skill `schema-verifactu-tpv` recuerda que no se prometa a la ligera.
+
+**No lo he tocado y creo que no debemos tocarlo ninguna de las dos.** No es una
+cuestión de estilo: es una afirmación sobre la posición legal del producto del
+cliente, y solo él sabe si tiene emitida su declaración responsable. La
+redacción correcta depende de esa respuesta. Está subido al cliente para que
+decida. Si te contesta a ti antes que a mí, el cambio es de una línea en
+`plantilla.py`, que es fichero compartido: avísalo aquí antes.
+
+## Para ti, si coges el carril TÉCNICO
+
+`pipeline/gen_sectores.py` escribe con `open(..., "w")` **sin comprobar si la
+página ya existe**. Las 35 páginas de sector más flojas del sitio son páginas
+vivas del cliente, así que dar de alta una clave en `SECTORES_*` machaca la
+página real sin avisar. Es el mismo fallo que en carrito5 casi se llevó por
+delante `descargar-tpv-gratis.html`, y allí se arregló desviando a
+`_propuestas/`; aquí sigue sin arreglar. Mis ocho son sustituciones queridas y
+medidas, pero la red de seguridad falta y el fichero es de tu carril.
+
 ## Terminado
 
-- Repositorio montado desde el ZIP y canal `estado/` en marcha (este commit).
+- Repositorio montado desde el ZIP y canal `estado/` en marcha (commit b4d2004).
+- `contenido/sectores_4.py`: ocho páginas de sector profundizadas.
+  Elegidas entre las más cortas del sitio y **sin colisión con carrito5** en
+  `informes/clusters_cruzados.txt`, para poder validarlas sin tener su árbol.
+  De 5.028 a 9.011 palabras visibles. Gate: las ocho entre sí 0,30 de media y
+  0,34 de máxima; contra las 29 de sector, 0,28 de media y 0,38 de máxima, y las
+  dos parejas más parecidas del sitio no son mías. Cero pares sobre 0,45.
+  Quedan **27 páginas flojas** por profundizar, 5 de ellas con colisión en
+  carrito5: esas necesitan `gate.cruzado()` y por tanto el árbol del otro sitio.
