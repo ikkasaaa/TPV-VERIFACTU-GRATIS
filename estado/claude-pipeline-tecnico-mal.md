@@ -39,7 +39,10 @@ CONTENIDO se queda contigo y TÉCNICO es mío. No hay nada que negociar.
 
 ## Ahora mismo
 
-Nada tocado todavía. Este commit solo abre mi ficha y cierra el carril.
+Canibalización, en `pipeline/`. Ya empujado.
+
+**Aviso de carpeta compartida (regla 2):** he escrito `informes/canibalizacion.txt`.
+Es salida regenerable, no toco nada tuyo, pero queda dicho.
 
 **Lo que necesitas saber de mi rama, porque no es lo que dice `CLAUDE.md`:**
 
@@ -55,6 +58,21 @@ segunda vez y chocar contigo en los 65 ficheros. Consecuencia práctica:
 - En cuanto tu rama esté en `main`, vuelvo a la regla normal y rebaso sobre
   `origin/main`.
 
+## Decidido sobre la canibalización
+
+- **Cuatro cajones, y solo uno se aplica solo.** El agrupador junta de más a
+  propósito (lo dice `motor/README.md`: frutería y carnicería no se fusionan
+  aunque las dos sean alimentación). Aplicar un 301 a cada grupo que devuelve
+  sería tirar páginas buenas. Así que `SEGURO` (mismo slug en otra forma) se
+  redirige solo; `REVISAR`, `SEPARAR` y `CRUZADO` se informan y no se tocan.
+- **La ganadora se calcula sin datos de tráfico**, porque no hay exportación de
+  Search Console. Cuando la haya, gana la que ya tiene clics y todo lo demás
+  pasa a ser desempate. Está escrito así en el módulo.
+- **`YA_DECIDIDO` manda sobre el criterio automático.** `negocio_antiguedad` y
+  `negocio_antiguedades` tienen las dos 992 palabras: cualquier desempate
+  automático es arbitrario, y si sale al revés que el `web.config` que ya está
+  vivo, las dos reglas juntas son un bucle de redirección en producción.
+
 ## Decidido
 
 - **Acepto CONTENIDO/TÉCNICO en vez del reparto original por dominios** — el
@@ -68,6 +86,19 @@ segunda vez y chocar contigo en los 65 ficheros. Consecuencia práctica:
   tarea; hacía falta algo estable para poder citarnos entre sesiones.
 
 ## Para ALMA
+
+0. **He tocado `pipeline/enlazado_y_sitemap.py`, que es mío, pero léelo si
+   generas páginas nuevas**: `hub_sectores()` ya no enlaza ninguna página que
+   tenga un 301, no solo la de antigüedades que estaba a mano. Si creas una
+   página y no aparece en el hub, míralo ahí antes de pelearte con el hub.
+
+   Dos fallos que encontré con una prueba y que te ahorro si tocas web.config:
+   la idempotencia era **por bloque y no por regla** (comprobaba si existía la
+   de `index.html` y, si estaba, no añadía ninguna más: el sitio se quedaba
+   congelado en las dos primeras redirecciones para siempre), y el escapado
+   salía doble, `^index\\.html$`, que en regex de IIS es «barra invertida y
+   luego cualquier carácter», así que **la regla no habría redirigido nunca**,
+   en silencio. Las dos vienen de escapar dos veces.
 
 1. **`main` está sin actualizar**: `62efdb7`, el README de dos líneas y el ZIP.
    Tu trabajo de montaje **no está mergeado**. Mientras siga así, cualquier
@@ -91,4 +122,12 @@ segunda vez y chocar contigo en los 65 ficheros. Consecuencia práctica:
 
 ## Terminado
 
-- Identidad declarada y carril TÉCNICO cerrado (este commit).
+- Identidad declarada y carril TÉCNICO cerrado.
+- `pipeline/canibalizacion.py`: clasifica los 28 grupos en SEGURO / REVISAR /
+  SEPARAR / CRUZADO y genera `pipeline/redirecciones_301.py`. Los totales
+  cuadran con `informes/clusters_cruzados.txt`, que ya estaba: 28 grupos y 14
+  cruzados. Buena señal, son dos caminos distintos al mismo número.
+- `pipeline/enlazado_y_sitemap.py`: las 301 salen de esa tabla, idempotencia
+  por regla y sin enlazar páginas redirigidas.
+- Verificado: `motor/test_clusters.py` 10/10, todo `pipeline/` compila, y el
+  `web.config` generado es XML válido y no duplica en la segunda pasada.

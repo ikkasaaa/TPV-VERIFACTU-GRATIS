@@ -3,6 +3,13 @@
 """Malla de enlazado interno, sitemap y redirecciones 301."""
 import re, os, sys, glob, datetime, json
 
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+try:
+    from redirecciones_301 import REDIRECCIONES
+except ImportError:                  # aun no se ha corrido canibalizacion.py
+    REDIRECCIONES = {"index.html": "index.asp",
+                     "negocio_antiguedad.asp": "negocio_antiguedades.asp"}
+
 OUT = sys.argv[1] if len(sys.argv) > 1 else "site"
 BASE = "https://www.abacosoftware.com"
 HOY = datetime.date.today().isoformat()
@@ -109,7 +116,10 @@ def hub_sectores():
     p = os.path.join(OUT, "tpv_negocios.asp")
     s = leer(p)
     todas = {os.path.basename(f) for f in glob.glob(os.path.join(OUT, "negocio_*.asp"))}
-    todas.discard("negocio_antiguedad.asp")          # duplicado canonicalizado
+    # Enlazar una pagina que redirige es tirar un enlace interno: el usuario
+    # y el robot acaban en otra. Se quitan todas las que tengan 301, no solo
+    # la de antiguedades que estaba a mano.
+    todas -= set(REDIRECCIONES)
     enlazadas = set(re.findall(r"negocio_[a-z_]+\.asp", s))
     faltan = sorted(todas - enlazadas)
     if not faltan:
@@ -223,22 +233,38 @@ def sitemap():
 
 # --------------------------------------------------------- 5. web.config 301
 def redirecciones():
+    """301 de las paginas canibalizadas, desde la tabla de redirecciones_301.py.
+
+    Idempotente por regla, no por bloque: la version anterior comprobaba si
+    existia la regla de index.html y, si estaba, no anadia ninguna mas. Eso
+    dejaba el sitio congelado en las dos primeras redirecciones, asi que
+    cualquier canibalizacion resuelta despues no llegaba nunca al web.config.
+    """
     p = os.path.join(OUT, "web.config")
     s = leer(p)
-    if "Redirect index.html" in s:
+    nuevas = []
+    for origen, destino in sorted(REDIRECCIONES.items()):
+        # Un solo patron para escribir la regla y para detectar si ya esta. Con
+        # dos expresiones distintas se escapaba de mas al escribir: salia
+        # '^index\\.html$', que en regex de IIS es 'barra invertida y luego
+        # cualquier caracter', asi que la regla no llegaba a redirigir nunca y
+        # ademas la deteccion fallaba y la duplicaba en cada pasada.
+        patron = "^" + origen.replace(".", r"\.") + "$"
+        if 'url="%s"' % patron in s:
+            continue                                   # ya esta, no duplicar
+        # index.asp es la raiz: redirigir a /index.asp dejaria dos URLs para
+        # la portada, que es justo lo que este 301 viene a cerrar.
+        url = "/" if destino == "index.asp" else "/" + destino
+        nuevas.append("""
+                <rule name="301 %s" stopProcessing="true">
+                    <match url="%s" />
+                    <action type="Redirect" url="%s" redirectType="Permanent" />
+                </rule>""" % (origen, patron, url))
+    if not nuevas:
         return 0
-    reglas = """
-                <rule name="Redirect index.html a raiz" stopProcessing="true">
-                    <match url="^index\\.html$" />
-                    <action type="Redirect" url="/" redirectType="Permanent" />
-                </rule>
-                <rule name="Redirect negocio_antiguedad duplicado" stopProcessing="true">
-                    <match url="^negocio_antiguedad\\.asp$" />
-                    <action type="Redirect" url="/negocio_antiguedades.asp" redirectType="Permanent" />
-                </rule>"""
-    s = s.replace("            <rules>", "            <rules>" + reglas, 1)
+    s = s.replace("            <rules>", "            <rules>" + "".join(nuevas), 1)
     escribir(p, s)
-    return 2
+    return len(nuevas)
 
 
 if __name__ == "__main__":

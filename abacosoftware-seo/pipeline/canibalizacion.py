@@ -1,0 +1,294 @@
+#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
+"""Resuelve la canibalizacion: dos paginas propias peleando por la misma busqueda.
+
+Uso:
+  python3 canibalizacion.py <inv.tsv> [<inv.tsv> ...]        informe
+  python3 canibalizacion.py <inv.tsv> [...] --escribir       + genera el modulo
+                                                               de redirecciones
+
+El agrupador de motor/ dice que dos paginas hablan de lo mismo. Eso NO basta
+para fusionarlas, y esa distincion es todo este fichero.
+
+motor/README.md ya lo avisa: fruteria y carniceria no se fusionan aunque las
+dos sean alimentacion, porque son paginas distintas con clientes distintos. El
+agrupador esta afinado para no separar de mas, asi que junta de mas. Aplicar un
+301 a cada grupo que devuelve seria tirar paginas buenas.
+
+Asi que aqui cada grupo cae en uno de cuatro cajones, y solo el primero se
+aplica solo:
+
+  SEGURO    Los slugs son variantes del mismo: plural ('negocio_antiguedad' /
+            'negocio_antiguedades'), sufijo ('..._telefonia' / '..._telefonia_sat')
+            o extension ('index.asp' / 'index.html'). No hay juicio editorial
+            que hacer: sobra una. 301 a la ganadora.
+
+  REVISAR   Misma familia de pagina, pero negocios distintos ('colchoneria' /
+            'muebles'). El agrupador los unio por vecindad semantica. Fusionar
+            aqui es una decision de negocio, no tecnica: puede que sean dos
+            clientes distintos. Se informa y no se toca.
+
+  SEPARAR   Distinta etapa del embudo: 'abrir-tienda-electrodomesticos' es una
+            guia para quien monta la tienda y 'negocio_electrodomesticos' es la
+            ficha del TPV para quien ya la tiene. Comparten palabras y no
+            compiten. Nunca se fusionan: se enlazan entre si.
+
+  CRUZADO   Las paginas son de dominios distintos. Un 301 aqui regala un
+            dominio entero al otro, y los dos son del mismo dueno pero son dos
+            negocios. Decision del cliente, no del pipeline.
+
+Criterio de ganadora dentro de un grupo SEGURO. Primero manda YA_DECIDIDO, o
+sea lo que el web.config del sitio ya redirige: si el criterio automatico saliera
+al reves, las dos reglas juntas serian un bucle de redireccion en produccion.
+Despues, en este orden y sin empates posibles: mas palabras, luego slug con
+guiones antes que con guion bajo (es la forma moderna del sitio), luego slug mas
+corto, luego alfabetico. Tiene que ser determinista: las dos cuentas que trabajan
+en este repositorio lo calculan por separado y deben llegar al mismo resultado
+sin hablarse.
+
+Sin exportacion de Search Console no se puede usar el unico criterio que de
+verdad manda, que es cual de las dos ya recibe trafico. Cuando la haya, gana la
+que tenga clics y esto pasa a ser el desempate.
+"""
+import difflib
+import os
+import re
+import sys
+
+sys.path.insert(0, os.path.join(os.path.dirname(os.path.abspath(__file__)),
+                                "..", "..", "motor"))
+import clusters as C                                          # noqa: E402
+
+# Paginas de sistema: no son contenido y no compiten por nada.
+NO_CONTENIDO = {
+    "conexion.asp", "conexion_visitas.asp", "menu_nav.asp", "footer_comun.asp",
+    "contenido_copyr-footer.html", "vercarrito.asp", "carrito5.asp",
+    "info_asp.aspx", "ventas.aspx",
+}
+
+# Familia = para que sirve la pagina. Dos familias distintas son dos etapas del
+# embudo, y esas nunca se fusionan.
+FAMILIAS = [
+    (re.compile(r"^blog/"),                    "articulo"),
+    (re.compile(r"^(abrir|guia-abrir)[-_]"),   "guia"),
+    (re.compile(r"^negocio[-_]"),              "sector"),
+    (re.compile(r"^tpv[-_](tienda|negocio)"),  "sector"),
+    (re.compile(r"^app[-_]"),                  "producto"),
+    (re.compile(r"^index\b"),                  "portada"),
+]
+
+PREFIJOS = ("negocio_", "negocio-", "tpv-tienda-", "tpv_tienda_", "tpv-", "tpv_",
+            "abrir-", "abrir_", "guia-abrir-", "app_", "app-")
+
+# Redirecciones que YA estan en el web.config que genera enlazado_y_sitemap.py,
+# o sea vivas en el sitio. Mandan sobre el criterio de abajo.
+#
+# No es una preferencia de estilo: 'negocio_antiguedad' y 'negocio_antiguedades'
+# tienen las dos 992 palabras, asi que cualquier desempate automatico es
+# arbitrario, y si sale al reves que el web.config las dos reglas juntas son un
+# bucle de redireccion en produccion. Ante un empate, manda lo que ya se envio.
+YA_DECIDIDO = {
+    "negocio_antiguedad.asp": "negocio_antiguedades.asp",
+    "index.html": "index.asp",
+}
+
+
+def familia(slug):
+    s = slug.lower()
+    for rx, nombre in FAMILIAS:
+        if rx.search(s):
+            return nombre
+    return "generica"
+
+
+def raiz_slug(slug):
+    """Slug sin carpeta, sin extension y sin el prefijo de familia."""
+    s = slug.lower().rsplit("/", 1)[-1]
+    s = re.sub(r"\.(asp|aspx|html?|php)$", "", s)
+    for p in PREFIJOS:
+        if s.startswith(p):
+            s = s[len(p):]
+            break
+    return re.sub(r"[-_]+", " ", s).strip()
+
+
+def _palabras(r):
+    return [C.singular(p) for p in r.split() if p]
+
+
+def variante(a, b):
+    """True si los dos slugs son la misma cosa escrita de otra forma."""
+    if a == b:
+        return True
+    pa, pb = _palabras(a), _palabras(b)
+    if pa == pb:                                   # singular / plural
+        return True
+    corto, largo = sorted((pa, pb), key=len)
+    if corto and largo[:len(corto)] == corto:      # '..._telefonia_sat'
+        return True
+    return difflib.SequenceMatcher(None, a, b).ratio() >= 0.86
+
+
+def clasificar(paginas):
+    """paginas: [(sitio, slug, titulo, palabras)] de un mismo grupo."""
+    if len({p[0] for p in paginas}) > 1:
+        return "CRUZADO"
+    if len({familia(p[1]) for p in paginas}) > 1:
+        return "SEPARAR"
+    raices = [raiz_slug(p[1]) for p in paginas]
+    # Todas contra la primera: el grupo ya es una componente conexa.
+    if all(variante(raices[0], r) for r in raices[1:]):
+        return "SEGURO"
+    return "REVISAR"
+
+
+def ganadora(paginas):
+    """Determinista a proposito: las dos cuentas deben calcular lo mismo."""
+    bases = {p[1].rsplit("/", 1)[-1]: p for p in paginas}
+    for origen, destino in YA_DECIDIDO.items():
+        if origen in bases and destino in bases:
+            return bases[destino]                  # manda el sitio, no el criterio
+    def clave(p):
+        _, slug, _, palabras = p
+        base = slug.rsplit("/", 1)[-1]
+        # -1 deja las no medibles al final sin reventar la comparacion.
+        return (-(palabras if palabras is not None else -1),
+                "_" in base, len(base), base)
+    return sorted(paginas, key=clave)[0]
+
+
+def leer(rutas):
+    out = []
+    for r in rutas:
+        with open(r, encoding="utf-8") as fh:
+            fh.readline()
+            for linea in fh:
+                c = linea.rstrip("\n").split("\t")
+                if len(c) < 5:
+                    continue
+                sitio, slug, titulo = c[0], c[1], c[2]
+                if slug.rsplit("/", 1)[-1] in NO_CONTENIDO:
+                    continue
+                # Ojo: columna vacia NO es "pagina vacia". El inventario de
+                # carrito5 se reconstruyo del indice de busqueda porque el
+                # proxy bloquea el dominio, asi que no trae recuento. Tratarlo
+                # como cero descartaba el dominio entero y con el las
+                # canibalizaciones cruzadas, que son las que mas duelen.
+                bruto = c[4].strip()
+                if bruto == "":
+                    palabras = None                       # no medible
+                else:
+                    try:
+                        palabras = int(bruto)
+                    except ValueError:
+                        palabras = None
+                    if palabras == 0:                     # medido y vacio
+                        continue
+                out.append((sitio, slug, titulo, palabras))
+    return out
+
+
+def analizar(rutas):
+    paginas = leer(rutas)
+    indice = {p[1] + "\x00" + p[0]: p for p in paginas}
+    grupos, nuc = C.agrupar({k: f"{v[1]} {v[2]}" for k, v in indice.items()})
+
+    salida = []
+    for claves in grupos:
+        if len(claves) < 2:
+            continue
+        pgs = sorted((indice[k] for k in claves), key=lambda p: p[1])
+        salida.append((C.etiqueta(claves, nuc), clasificar(pgs), pgs))
+    orden = {"SEGURO": 0, "REVISAR": 1, "SEPARAR": 2, "CRUZADO": 3}
+    salida.sort(key=lambda x: (orden[x[1]], x[0]))
+    return salida
+
+
+CABECERA = {
+    "SEGURO":  ("SE FUSIONAN — sobra una pagina, 301 a la ganadora",
+                "Los slugs son variantes del mismo. No hay decision editorial."),
+    "REVISAR": ("HAY QUE DECIDIR — negocios parecidos, no identicos",
+                "El agrupador los unio por vecindad. Fusionar es decision de negocio."),
+    "SEPARAR": ("NO SE TOCAN — distinta etapa del embudo",
+                "Comparten palabras pero no compiten. Enlazarlas entre si."),
+    "CRUZADO": ("DECIDE EL CLIENTE — dominios distintos",
+                "Un 301 aqui regala un dominio al otro. Los dos son suyos."),
+}
+
+
+def informe(grupos):
+    L = []
+    tot = {k: 0 for k in CABECERA}
+    for _, tipo, _ in grupos:
+        tot[tipo] += 1
+    L.append("CANIBALIZACION")
+    L.append("  grupos con mas de una pagina: %d" % len(grupos))
+    for t in ("SEGURO", "REVISAR", "SEPARAR", "CRUZADO"):
+        L.append("    %-8s %3d" % (t, tot[t]))
+    L.append("")
+
+    actual = None
+    for etiq, tipo, pgs in grupos:
+        if tipo != actual:
+            actual = tipo
+            tit, sub = CABECERA[tipo]
+            L.append("")
+            L.append("%s  %s" % (tipo, tit))
+            L.append("   %s" % sub)
+            L.append("")
+        gana = ganadora(pgs) if tipo == "SEGURO" else None
+        L.append("   [%s]" % etiq)
+        for sitio, slug, titulo, palabras in pgs:
+            marca = "  <- GANA" if gana and slug == gana[1] else ""
+            cuenta = "    ? pal" if palabras is None else "%5d pal" % palabras
+            L.append("      %-12s %-46s %s%s" % (sitio, slug, cuenta, marca))
+        L.append("")
+    return "\n".join(L)
+
+
+PLANTILLA = '''#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
+"""Redirecciones 301 de paginas canibalizadas. GENERADO por canibalizacion.py.
+
+No editar a mano: se regenera. Para cambiar una decision, cambia el criterio
+en canibalizacion.py y vuelve a ejecutarlo, para que quede razonado.
+
+Solo estan aqui los grupos SEGURO, donde los slugs son variantes del mismo y no
+hay juicio editorial que hacer. Los REVISAR, SEPARAR y CRUZADO se quedan fuera a
+proposito: ver informes/canibalizacion.txt.
+"""
+
+# origen -> destino
+REDIRECCIONES = {
+%s}
+'''
+
+
+def escribir_modulo(grupos, destino):
+    pares = []
+    for _, tipo, pgs in grupos:
+        if tipo != "SEGURO":
+            continue
+        gana = ganadora(pgs)
+        for sitio, slug, _, _ in pgs:
+            if slug != gana[1]:
+                pares.append((slug, gana[1]))
+    pares.sort()
+    cuerpo = "".join('    %-46s %s,\n' % ('"%s":' % o, '"%s"' % d) for o, d in pares)
+    with open(destino, "w", encoding="utf-8") as fh:
+        fh.write(PLANTILLA % cuerpo)
+    return len(pares)
+
+
+if __name__ == "__main__":
+    args = [a for a in sys.argv[1:] if a != "--escribir"]
+    if not args:
+        print(__doc__.split("\n\n")[1].strip())
+        sys.exit(1)
+    g = analizar(args)
+    print(informe(g))
+    if "--escribir" in sys.argv:
+        d = os.path.join(os.path.dirname(os.path.abspath(__file__)),
+                         "redirecciones_301.py")
+        print("redirecciones escritas en %s: %d" % (os.path.basename(d),
+                                                    escribir_modulo(g, d)))
