@@ -19,7 +19,35 @@ antes que la tuya**, como dices.
 Nada abierto. **21 de las 35 páginas flojas hechas** en `contenido/sectores_4.py`,
 `sectores_5.py` y `sectores_6.py`.
 
-## AVISO IMPORTANTE PARA FORJA: `informes/clusters_cruzados.txt` se queda corto
+## MEDIDO: el informe declara 14 colisiones y hay al menos el doble
+
+Ampliación de lo de abajo, ya con número. `informes/colisiones_por_slug.txt`
+repite el agrupamiento **con el slug solo**, sobre exactamente los mismos
+inventarios que ya están en el repositorio:
+
+```
+  grupos cruzados que se publican hoy (slug + titulo) : 14
+  grupos cruzados agrupando solo por slug             : 32
+  grupos que hoy no se ven                            : 26
+```
+
+**32 no es la cifra buena, igual que 14 no lo era.** Es la cota de arriba: hay
+ruido (páginas legales, índices) y hay pares deliberados, como la guía «cómo
+abrir una papelería» frente a la página de producto de papelería, que atacan
+momentos distintos del embudo. La cifra real está entre las dos. Lo que el
+informe demuestra es que **14 se queda corto**, no que 32 sea correcto.
+
+Ocho los he comprobado uno a uno en Google, con los dos dominios posicionando a
+la vez: lavandería, mercería, pádel, colchonería, muebles, decoración,
+complementos y óptica.
+
+**Y el que más importa, FORJA: el bloque VeriFactu.** `que-es-verifactu.asp`,
+`verifactu-gratis.asp` y `verifactu-tpv.asp` caen en el mismo grupo que
+`verifactu-gratis.html` y `verifactu-aeat-descargar.html` de carrito5. Es el
+núcleo comercial de los dos sitios compitiendo entre sí, y hoy no aparece en
+ningún informe.
+
+## AVISO PARA FORJA: `informes/clusters_cruzados.txt` se queda corto
 
 Tu `pipeline/canibalizacion.py` clasifica 28 grupos que salen de ese informe.
 **El informe no los ve todos**, y lo he comprobado de tres formas.
@@ -83,11 +111,19 @@ bloquea a los competidores, así que esto es lo que hay). **No las he metido en
 pisarte una regeneración. Ahí van para quien las quiera:
 
 ```
-tpv-tienda-deportes-padel.html      tpv-tienda-manualidades.html
-tpv-tienda-artesania.html           tpv-tienda-decoracion.html
-tpv-tienda-iluminacion.html         tpv-tienda-antiguedades.html
-tpv-tienda-optica.html
+tpv-tienda-deportes-padel.html          tpv-tienda-manualidades.html
+tpv-tienda-artesania.html               tpv-tienda-decoracion.html
+tpv-tienda-iluminacion.html             tpv-tienda-antiguedades.html
+tpv-tienda-optica.html                  tpv-colchonerias-valencia.html
+tpv-colchones-medidas-presupuestos.html tpv-colchones-logistica-montaje-raees.html
 ```
+
+Las tres últimas son de un **clúster de colchonería** que carrito5 está
+construyendo: cinco páginas contando las dos que sí teníamos
+(`tpv-colchonerias-descanso.html` y `tpv-colchones-financiacion-pagos.html`).
+Medidas, presupuestos, financiación, logística con retirada RAEE y una página
+local de Valencia. Es un sitio que se está desarrollando en paralelo al nuestro
+y nadie está mirando los dos a la vez.
 
 `tpv-tienda-manualidades.html` choca con `negocio_bellas_artes.asp` y
 `tpv-tienda-optica.html` con `negocio_optica.asp` y con `negocio_gafas_sol.asp`.
@@ -137,17 +173,50 @@ tpv-tienda-optica.html
   0,30 de media y 0,39 de máxima; las 42 de sector, 0,28 y 0,39. Cero pares
   sobre 0,45. `ld+json` válido en las 42. `motor/test_clusters.py` 10/10.
 
-## Lo que queda de mi carril
+## Lo que queda de mi carril: nada seguro, y esta vez está comprobado
 
-De las 35 flojas quedan 14, y **ninguna es de coger y escribir**:
+De las 35 flojas quedan 14. He cruzado las catorce contra los 32 grupos y
+contra el SERP: **las catorce están implicadas**. Ninguna es de coger y
+escribir.
 
-- 5 con colisión declarada en el informe (`sexshop`, `cosmetica_natural`,
-  `vintage_segundamano`, `comics`, `textil_hogar`).
-- 3 con colisión que descubrí por SERP (`lavanderia`, `merceria_creativa`,
-  `padel`).
-- 2 con colisión por las URLs nuevas (`bellas_artes`, `gafas_sol`).
-- `herbodietetica`, emparejada con `herboristeria`.
-- 3 más de la lista por revisar con el mismo criterio.
+También miré las dos parejas que clasificaste como TITULO, porque el arreglo es
+editorial y es mío. Son peor de lo que dice tu informe: **no solo comparten el
+`<title>`, comparten el `<h1>` entero**, y las palabras casi
+(`colchoneria` 846 / `muebles` 848; `complementos` 790 / `decoracion` 790). La
+página de colchonería lleva de H1 «Software TPV para Tiendas de Muebles» y no
+nombra un colchón.
 
-Todas necesitan `gate.cruzado()` contra el árbol de carrito5, que no está en el
-repositorio. **Sin él, mi carril está tocando techo.**
+Iba a reescribir `negocio_colchoneria.asp` y `negocio_complementos.asp`, que
+eran las dos que perdían su identidad. **Las cuatro colisionan con carrito5**, y
+colchonería es la peor: carrito5 tiene cinco páginas de descanso posicionando.
+Así que no he escrito ninguna.
+
+**Mi carril está bloqueado hasta que llegue el árbol de carrito5.com.** No es
+falta de trabajo: es que cualquier página que escriba ahora empuja a
+abacosoftware contra el otro dominio del mismo dueño sin poder medirlo.
+
+## Una petición concreta, FORJA
+
+Tres títulos se comen el tema de la página vecina y el arreglo es de una línea
+cada uno. La estructura ya existe en tu `fix_metadatos.py`, en el dict `FICHAS`.
+El texto lo pongo yo, lo aplicas tú si te parece bien:
+
+| Página | Título de hoy | Propuesta |
+|---|---|---|
+| `negocio_muebles.asp` | Software TPV para Mueblerías, Colchonerías y Decoración \| Caja 5 | Software TPV para Mueblerías: presupuestos y portes |
+| `negocio_decoracion.asp` | Software TPV para Tiendas de Decoración, Regalo y Complementos | Software TPV para Tiendas de Decoración y Regalo |
+| `negocio_infantil.asp` | Software TPV para Moda Infantil, Bebé y Puericultura \| Caja 5 | Software TPV para Tiendas de Moda Infantil y Bebé |
+
+Los tres van por debajo de 60 caracteres y ninguno invade ya el tema del vecino.
+Si prefieres que esto viva en `contenido/`, dilo y monto el módulo: existe el
+precedente de `carrito5-seo/contenido/titulos_reescritos.py`, aunque hoy no lo
+consume nadie.
+
+## Y un segundo sitio con la afirmación de «homologación»
+
+Además de `plantilla.py:239`, tu `pipeline/fix_metadatos.py` mete
+«homologación VeriFactu» en la **meta description de `comprar_tpv.asp`**, que es
+texto que se ve en el resultado de Google. Cuando el cliente conteste, hay que
+arreglar los dos sitios, no solo la plantilla. Dato verificado hoy que ayuda a
+decidir: el aplazamiento del RD-ley 15/2025 no alcanza a los fabricantes de
+software de facturación, obligados desde el 29 de julio de 2025.
