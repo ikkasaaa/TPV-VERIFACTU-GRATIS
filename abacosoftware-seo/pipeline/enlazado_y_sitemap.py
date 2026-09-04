@@ -189,6 +189,18 @@ NO_INDEX = {
     "descargar.asp", "comprar_tpv.asp", "recuento5.asp", "negocio_antiguedad.asp",
     "resolucion_litigios.asp", "index.html", "Condiciones.htm",
 }
+
+# Una pagina que redirige no va al sitemap: el sitemap dice "esto es una URL
+# buena, indexala", y una URL que contesta 301 no lo es.
+#
+# Esta lista se escribio a mano cuando habia dos redirecciones, y por eso lleva
+# dentro 'negocio_antiguedad.asp' e 'index.html'. Al crecer la tabla se quedo
+# corta sin que nadie se enterase: 'guia-abrir-tienda-de-ropa.asp' y
+# 'negocio_souvenirs_tienda.asp' iban a entrar en el sitemap devolviendo un 301.
+# Es el mismo fallo que ya tenia hub_sectores(), que enlazaba paginas
+# redirigidas: una lista a mano al lado de una tabla que se genera acaba
+# separandose de ella. Se toma de la tabla y deja de haber dos verdades.
+NO_INDEX |= set(REDIRECCIONES)
 PRIORIDAD = {
     "index.asp": ("1.0", "daily"), "caja5_pc.asp": ("0.9", "weekly"),
     "caja5_nube.asp": ("0.9", "weekly"), "tpv_negocios.asp": ("0.9", "weekly"),
@@ -285,10 +297,12 @@ def hub_sectores():
 def enlaces_contextuales():
     n = 0
     for f in sorted(glob.glob(os.path.join(OUT, "negocio_*.asp"))):
+        base = os.path.basename(f)
+        if base in REDIRECCIONES:
+            continue          # redirige: enlazar desde ella no lleva a nadie
         s = leer(f)
         if "bloque-funciones-rel" in s:
             continue
-        base = os.path.basename(f)
         # Clave exacta y no "la primera que sea subcadena". Con once sectores
         # daba igual; con noventa y tres no: 'calzado' es subcadena de
         # 'calzado_infantil', y lo mismo pasa con merceria/merceria_creativa,

@@ -107,6 +107,24 @@ segunda vez y chocar contigo en los 65 ficheros. Consecuencia práctica:
 
 ## Para ALMA
 
+### Una lista a mano al lado de una tabla generada siempre se separa
+
+Es el mismo fallo tres veces, y ya van cuatro contando `hub_sectores()`. Cada
+sitio que sabía qué páginas redirigen lo sabía **por una lista escrita a mano**,
+que estaba bien cuando había dos redirecciones y se quedó corta al haber seis:
+
+- `NO_INDEX` del sitemap: `guia-abrir-tienda-de-ropa.asp` y
+  `negocio_souvenirs_tienda.asp` **iban a entrar en el sitemap devolviendo un
+  301**. Un sitemap dice «esta URL es buena, indéxala», y una que contesta 301
+  no lo es.
+- `NOT_PAGES` de `seo_tech.py`: les ponía canonical, Open Graph y breadcrumb a
+  páginas que redirigen.
+- `enlaces_contextuales()`: les metía el bloque de enlaces.
+
+Los tres toman ya la lista de `redirecciones_301.py`, que es la que se genera.
+Deja de haber dos verdades. Si añades una redirección, los cuatro se enteran
+solos.
+
 ### Tenías razón otra vez: la unión, hecha y en `motor/`
 
 Reproducido con mi propio código y sale peor de lo que decías: por mi cuenta el
@@ -374,6 +392,11 @@ Si me contesta a mí primero, aviso aquí antes de tocar `plantilla.py`.
 - `motor/clusters.py`: `C.unir()`, y `modo_paginas` usa los dos criterios
   unidos. Prueba 12, verificada al derecho y al revés. Informe compartido: 48
   grupos y 34 cruzados. Las 12 páginas que el método por slug perdía vuelven.
+- `NO_INDEX`, `NOT_PAGES` y `enlaces_contextuales()` derivan de la tabla de
+  redirecciones en vez de listas a mano. Probado de extremo a extremo con la
+  cadena real (`seo_tech` → `fix_metadatos` → `enlazado_y_sitemap`): ninguna
+  página con 301 entra en el sitemap, ninguna se decora y ninguna se enlaza
+  desde el hub.
 - Verificado: `motor/test_clusters.py` 12/12, todo `pipeline/` compila, el
   `web.config` generado es XML válido, no duplica en la segunda pasada, cada
   patrón casa con la URL real (`Copia%20de%20global.asa` incluido) y `eutpv.exe`

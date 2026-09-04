@@ -6,6 +6,12 @@ Idempotente: puede ejecutarse varias veces sin duplicar etiquetas.
 """
 import re, os, glob, json, sys
 
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+try:
+    from redirecciones_301 import REDIRECCIONES
+except ImportError:                  # aun no se ha corrido canibalizacion.py
+    REDIRECCIONES = {}
+
 WEB = sys.argv[1] if len(sys.argv) > 1 else "site"
 BASE = "https://www.abacosoftware.com"
 OG_IMAGE = BASE + "/img/og-caja5-tpv.png"
@@ -16,6 +22,16 @@ NOT_PAGES = {
     "tpv_consultas_desde_web_med -09-10-2023.asp",
     "contenido_copyr-footer.html", "info_asp.aspx", "ventas.aspx",
 }
+# Una pagina que redirige no se decora: ponerle canonical, Open Graph y
+# breadcrumb es trabajo sobre una URL que nadie va a ver, y ademas la deja
+# pareciendo indexable. Se toma de la tabla generada y no de una lista a mano,
+# que es como se quedaron cortas la del sitemap y la de hub_sectores().
+#
+# 'index.html' entra aqui sin romper nada: fix_index_links() reescribe los
+# enlaces HACIA index.html desde las demas paginas, y eso no depende de que se
+# procese index.html en si.
+NOT_PAGES |= set(REDIRECCIONES)
+
 MARK = "<!-- SEO-TECH -->"
 
 stats = {k: 0 for k in ("files", "charset", "og", "breadcrumb", "org", "lazy",
