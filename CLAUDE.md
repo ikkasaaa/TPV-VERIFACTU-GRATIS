@@ -95,6 +95,16 @@ otro no la tenga ya.
 5. **El `aggregateRating` de 4,9 sobre 318 valoraciones** se declara sin reseñas
    visibles. Es riesgo de acción manual de Google. Decisión pendiente del
    cliente: no tocarlo por cuenta propia.
+6. **Solo se afirman las funciones que el cliente ha confirmado.** El 5-9-2026
+   dijo «mi TPV no tiene capacidades para esos modelos de negocio, no inventes»
+   y hubo que retirar dos páginas ya escritas (ferretería, supermercado).
+   Confirmadas: tallas y colores; clientes con historial, devoluciones y vales;
+   códigos de barras con lector, código propio y etiquetas. Más lo que la web
+   viva publica (catálogo, stock, ticket con QR, sin internet, Windows).
+   **No confirmadas**: cierre o arqueo de caja, turnos, stock mínimo, ticket
+   regalo, rebajas por familia, factura completa, exportar datos, balanza,
+   varias cajas, hostelería. La lista vive en `PLAN_MAESTRO_SEO_GEO.md`,
+   sección 4; se amplía ahí primero y en el texto después.
 
 ### La regla de calidad
 

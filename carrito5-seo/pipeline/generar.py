@@ -26,7 +26,8 @@ def construir(fichero, d):
         bloques=d["bloques"], faqs=d["faqs"],
         faq_titulo=d.get("faq_titulo", f"Preguntas frecuentes sobre {d['crumb'].lower()}"),
         aside=d["aside"], satelites=d.get("satelites", []), cta=d["cta"],
-        extra_ld=d.get("extra_ld"))
+        extra_ld=d.get("extra_ld"), resumen=d.get("resumen"),
+        soft=d.get("soft", False), fecha=d.get("fecha"))
 
 
 def main():

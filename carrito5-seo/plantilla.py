@@ -20,6 +20,68 @@ TEL = "611 500 052"
 WA = "https://wa.me/34611500052"
 OG = DOMINIO + "/og_image_carrito5.jpg"
 
+# Entidad unica y estable para toda la web. Los motores generativos (ChatGPT,
+# Perplexity, Gemini, AI Overviews) resuelven "quien es Carrito5" a partir de
+# esto: mismo @id en todas las paginas, mismos datos que en abacosoftware.com
+# (misma empresa) y sameAs cruzado entre los dos dominios.
+ORG_LD = {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "@id": DOMINIO + "/#organization",
+    "name": "Carrito5",
+    "legalName": "Ábaco Infoelectrónica S.L.",
+    "alternateName": ["Carrito5 TPV", "Carrito 5"],
+    "url": DOMINIO + "/",
+    "logo": {"@type": "ImageObject", "url": OG},
+    "description": ("Software TPV gratuito para Windows, adaptado a VeriFactu, del "
+                    "fabricante español Ábaco Infoelectrónica S.L. (Jaén), que desarrolla "
+                    "programas de punto de venta para el comercio minorista desde hace más "
+                    "de 28 años."),
+    "telephone": "+34611500052",
+    "address": {"@type": "PostalAddress", "addressLocality": "Jaén",
+                "addressRegion": "Jaén", "addressCountry": "ES"},
+    "areaServed": {"@type": "Country", "name": "España"},
+    "knowsLanguage": "es-ES",
+    "parentOrganization": {"@type": "Organization", "name": "Ábaco Software",
+                           "url": "https://www.abacosoftware.com/"},
+    "sameAs": ["https://www.abacosoftware.com/", "https://www.abacosoftware.com/carrito5.asp"],
+    "contactPoint": {"@type": "ContactPoint", "telephone": "+34611500052",
+                     "contactType": "customer support", "availableLanguage": "es",
+                     "areaServed": "ES"},
+}
+
+# Sin aggregateRating a proposito: sin reseñas visibles en la pagina es riesgo
+# de accion manual de Google (ver CLAUDE.md, trampa 5).
+SOFT_LD = {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "@id": DOMINIO + "/#software",
+    "name": "Carrito5 TPV",
+    "applicationCategory": "BusinessApplication",
+    "applicationSubCategory": "Software TPV / Punto de venta",
+    "operatingSystem": "Windows 7, 8, 10, 11",
+    "softwareVersion": "5",
+    "inLanguage": "es",
+    "url": DOMINIO + "/",
+    "downloadUrl": DOMINIO + "/descargar-tpv-gratis.html",
+    "isAccessibleForFree": True,
+    "offers": [
+        {"@type": "Offer", "name": "Plan Inicio", "price": "0", "priceCurrency": "EUR",
+         "description": "Gratuito de forma indefinida hasta 1.000 artículos en catálogo. Sin tarjeta y sin caducidad.",
+         "availability": "https://schema.org/InStock", "url": DOMINIO + "/descargar-tpv-gratis.html"},
+    ],
+    # Solo funciones confirmadas por el cliente (5-9-2026) o publicadas en su web.
+    "featureList": ["Catálogo de artículos con códigos de barras y lector",
+                    "Impresión de etiquetas con código de barras",
+                    "Control de stock",
+                    "Matriz de tallas y colores",
+                    "Tickets (factura simplificada) con QR VeriFactu",
+                    "Ficha de clientes, historial y devoluciones",
+                    "Funciona sin conexión a internet"],
+    "publisher": {"@id": DOMINIO + "/#organization"},
+    "countriesSupported": "ES",
+}
+
 
 def esc(t):
     return (t.replace("&", "&amp;").replace('"', "&quot;")
@@ -97,12 +159,25 @@ img{max-width:100%;height:auto}
 .c5-puntos{display:flex;gap:20px;flex-wrap:wrap;font-size:.88rem;color:#cbd5e1}
 .c5-puntos span::before{content:"\\2713";color:var(--c5-azul);font-weight:800;margin-right:6px}
 
+.c5-resumen{background:#fff7fb;border:1px solid #f0c6d8;border-left:5px solid var(--c5-rosa);
+  border-radius:10px;padding:18px 22px;margin:0 0 26px}
+.c5-resumen h2{font-size:1.02rem;font-weight:800;margin:0 0 8px;text-transform:uppercase;
+  letter-spacing:.04em;color:var(--c5-rosa-osc)}
+.c5-resumen p{margin:0 0 8px;font-size:.98rem}
+.c5-resumen p:last-child{margin-bottom:0}
+.c5-fecha{font-size:.8rem;color:var(--c5-suave);margin:0 0 18px}
 .c5-seccion{padding:44px 0}
 .c5-seccion.gris{background:var(--c5-fondo);border-top:1px solid var(--c5-borde);
   border-bottom:1px solid var(--c5-borde)}
 .c5-seccion h2{font-size:1.55rem;font-weight:800;margin:30px 0 12px}
 .c5-seccion h2:first-child{margin-top:0}
 .c5-seccion p{margin:0 0 14px}
+.c5-tabla{width:100%;border-collapse:collapse;margin:14px 0 22px;font-size:.92rem}
+.c5-tabla th,.c5-tabla td{border:1px solid var(--c5-borde);padding:9px 11px;text-align:left;vertical-align:top}
+.c5-tabla th{background:var(--c5-fondo);font-weight:700;color:var(--c5-slate)}
+.c5-tabla-wrap{overflow-x:auto}
+.c5-pasos{padding-left:22px;margin:12px 0 20px}
+.c5-pasos li{padding:5px 0}
 .c5-lista{list-style:none;padding:0;margin:16px 0}
 .c5-lista li{padding:10px 0;border-bottom:1px solid var(--c5-borde);font-size:.96rem}
 .c5-lista li::before{content:"\\2713";color:var(--c5-rosa);font-weight:800;margin-right:9px}
@@ -180,6 +255,8 @@ PIE = f"""<footer>
           <li><a href="descargar-tpv-gratis.html">Descargar gratis</a></li>
           <li><a href="tallas-y-colores.html">Tallas y colores</a></li>
           <li><a href="software-tpv-comercio-local.html">Para comercio local</a></li>
+          <li><a href="mejor-tpv-gratis-2026.html">Comparativa de TPV gratis</a></li>
+          <li><a href="sobre-carrito5.html">Quién está detrás</a></li>
         </ul>
       </div>
       <div>
@@ -188,6 +265,7 @@ PIE = f"""<footer>
           <li><a href="sectores-y-negocios.html">Todos los sectores</a></li>
           <li><a href="tpv-tienda-ropa.html">Tiendas de ropa</a></li>
           <li><a href="tpv-zapateria.html">Zapaterías</a></li>
+          <li><a href="tpv-madrid.html">TPV en Madrid</a></li>
         </ul>
       </div>
       <div>
@@ -202,11 +280,8 @@ PIE = f"""<footer>
     <div class="c5-legal">
       <div>&copy; 2026 Carrito5 &middot; Ábaco Infoelectrónica S.L.</div>
       <div>
-        <a href="aviso-legal.html">Aviso legal</a> &middot;
-        <a href="politica-de-privacidad.html">Privacidad</a> &middot;
-        <a href="cookies.html">Cookies</a> &middot;
-        <a href="condiciones-de-contratacion.html">Condiciones</a> &middot;
-        <a href="terminos-de-uso.html">Términos</a>
+        <a href="pg/terminos.asp">Términos de uso</a> &middot;
+        <a href="pg/condiciones.asp">Condiciones</a>
       </div>
     </div>
   </div>
@@ -214,11 +289,23 @@ PIE = f"""<footer>
 """
 
 
+MESES = ["enero", "febrero", "marzo", "abril", "mayo", "junio", "julio", "agosto",
+         "septiembre", "octubre", "noviembre", "diciembre"]
+
+
+def fecha_legible(iso):
+    a, m, d = iso.split("-")
+    return f"{int(d)} de {MESES[int(m) - 1]} de {a}"
+
+
 def bloques_html(bloques):
     out = []
     for t, ps, *extra in bloques:
         out.append(f"<h2>{t}</h2>")
-        out += [f"<p>{p}</p>" for p in ps]
+        # Un parrafo que ya viene como bloque HTML (tabla, lista ordenada)
+        # se emite tal cual: <p><table> no es HTML valido.
+        out += [p if p.lstrip().startswith(("<table", "<ol", "<ul", "<div"))
+                else f"<p>{p}</p>" for p in ps]
         if extra and extra[0]:
             out.append('<ul class="c5-lista">'
                        + "".join(f"<li>{x}</li>" for x in extra[0]) + "</ul>")
@@ -248,19 +335,51 @@ def faq_html(faqs, titulo):
             f'<h2>{titulo}</h2>{items}</div></section>')
 
 
+def resumen_html(resumen):
+    """Bloque de respuesta directa bajo el H1.
+
+    Es la parte que citan los motores generativos y la que Google usa para el
+    fragmento destacado: dos o tres frases que contestan la busqueda sin rodeos,
+    antes del desarrollo. Se escribe a mano por pagina, nunca se deriva del
+    resto del texto.
+    """
+    if not resumen:
+        return ""
+    ps = "".join(f"<p>{p}</p>" for p in resumen)
+    return f'<div class="c5-resumen"><h2>Respuesta rápida</h2>{ps}</div>\n'
+
+
 def pagina(fichero, title, description, keywords, h1, sub, badge, trail,
-           bloques, faqs, faq_titulo, aside, satelites, cta, extra_ld=None):
-    """Genera el HTML completo de una pagina de carrito5.com."""
+           bloques, faqs, faq_titulo, aside, satelites, cta, extra_ld=None,
+           resumen=None, soft=False, fecha=None):
+    """Genera el HTML completo de una pagina de carrito5.com.
+
+    resumen: lista de 1-3 parrafos de respuesta directa (GEO).
+    soft:    True en las paginas de producto para emitir SoftwareApplication.
+    fecha:   'AAAA-MM-DD' de ultima revision; se muestra y va al WebPage.
+    """
     canon = f"{DOMINIO}/{fichero}"
     migas = " &rsaquo; ".join(
         [f'<a href="{u.lstrip("/") or "index.html"}">{n}</a>' for n, u in trail[:-1]]
         + [f"<span>{trail[-1][0]}</span>"])
 
-    lds = ld(breadcrumb_ld(trail))
+    lds = ld(ORG_LD) + ld(breadcrumb_ld(trail))
+    if soft:
+        lds += ld(SOFT_LD)
+    web = {"@context": "https://schema.org", "@type": "WebPage", "@id": canon + "#webpage",
+           "url": canon, "name": title, "description": description, "inLanguage": "es-ES",
+           "isPartOf": {"@type": "WebSite", "@id": DOMINIO + "/#website", "url": DOMINIO + "/",
+                        "name": MARCA + " TPV", "publisher": {"@id": DOMINIO + "/#organization"}},
+           "about": {"@id": DOMINIO + "/#organization"}}
+    if fecha:
+        web["dateModified"] = fecha
+    lds += ld(web)
     if faqs:
         lds += ld(faq_ld(faqs))
     if extra_ld:
         lds += ld(extra_ld)
+    fecha_html = (f'<p class="c5-fecha">Revisado el {fecha_legible(fecha)}. '
+                  f'Información general, no asesoramiento fiscal.</p>' if fecha else "")
 
     aside_t, aside_p = aside
     cta_t, cta_p = cta
@@ -316,6 +435,8 @@ def pagina(fichero, title, description, keywords, h1, sub, badge, trail,
 <section class="c5-seccion">
   <div class="c5-wrap c5-cols">
     <div class="c5-prosa">
+{fecha_html}
+{resumen_html(resumen)}
 {bloques_html(bloques)}
     </div>
     <aside class="c5-aside">

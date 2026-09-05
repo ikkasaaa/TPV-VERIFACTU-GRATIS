@@ -7,7 +7,22 @@ Sitio estático, distinto de abacosoftware (ASP). Comparte con él el motor de
 entre sitios**: los dos dominios son del mismo dueño, así que reutilizar texto
 entre ellos crea contenido duplicado que perjudica a ambos.
 
-    python3 pipeline/generar.py <dir-salida> nucleo verifactu
+    python3 pipeline/generar.py <dir-salida> nucleo verifactu ciudades sectores_hueco pilar
+    python3 pipeline/validar.py <dir-salida>        # title, description, H1, JSON-LD, enlaces, FAQ
+    python3 pipeline/seo_tecnico.py <dir-salida>    # web.config (301), .htaccess, robots, sitemap, llms.txt
+
+Módulos de `contenido/`:
+
+| Módulo | Páginas |
+|---|---|
+| `nucleo` | descargar, hub de sectores, comercio local (ya existen vivas: van a `_propuestas/`) |
+| `verifactu` | verifactu-gratis (viva), entrada en vigor, autónomos, AEAT, Crea y Crece |
+| `ciudades` | Madrid. Patrón `tpv-<ciudad>.html`; barrios como secciones |
+| `sectores_hueco` | boutique, tallas y colores (las enlazaba el menú y no existían) |
+| `pilar` | mejor TPV gratis 2026, autónomos, caja registradora, sobre Carrito5 (entidad) |
+
+Solo se afirman las funciones confirmadas por el cliente: ver `CLAUDE.md`,
+trampa 6, y `PLAN_MAESTRO_SEO_GEO.md`, sección 4.
 
 Comprobar duplicación entre los dos sitios:
 

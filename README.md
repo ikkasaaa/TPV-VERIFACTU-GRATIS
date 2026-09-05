@@ -7,9 +7,13 @@ los informes. **No contiene los ficheros de las webs**: esos se entregan aparte.
 Trabajan aquí dos cuentas de Claude a la vez. **Lee `CLAUDE.md` antes de tocar
 nada**, y después `estado/`.
 
+**Plan de posicionamiento**: `PLAN_MAESTRO_SEO_GEO.md` (diagnóstico, reparto
+entre dominios, arquitectura, GEO, nichos, ciudades, calendario 30/60/90).
+
 ## Qué hay
 
 ```
+PLAN_MAESTRO_SEO_GEO.md   el plan: qué está hecho, qué necesita el cliente, qué es criterio
 motor/               herramientas compartidas por los dos sitios
 abacosoftware-seo/   generadores y contenido de abacosoftware.com
 carrito5-seo/        generadores y contenido de carrito5.com
@@ -35,7 +39,7 @@ aprendieron rompiéndolo.
 | | abacosoftware.com | carrito5.com |
 |---|---|---|
 | Tecnología | ASP clásico | HTML estático + algo de ASP |
-| Páginas | 198 (184 en sitemap) | 74 conocidas |
+| Páginas | 198 (184 en sitemap) | 74 vivas + 11 generadas (78 en el sitemap propuesto) |
 | Inventario | completo | **suelo, no total** (el proxy bloquea el dominio) |
 
 ### Lo que está pendiente y por qué

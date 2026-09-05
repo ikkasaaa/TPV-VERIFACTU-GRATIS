@@ -127,7 +127,6 @@ NUCLEO = {
   ],
   satelites=[("Tiendas de ropa y boutiques", "tpv-tienda-ropa.html", "Matriz de tallas y colores"),
              ("Zapaterías y calzado", "tpv-zapateria.html", "Números EU/UK y pares"),
-             ("Ferreterías", "tpv-ferreteria.html", "Miles de referencias y venta suelta"),
              ("Papelerías", "tpv-papeleria.html", "Campaña escolar y copistería"),
              ("Joyerías y relojerías", "tpv-joyeria-relojeria.html", "Piezas de valor y etiquetas pequeñas"),
              ("Jugueterías y regalos", "tpv-jugueteria-regalos.html", "Campaña y reservas"),
@@ -138,7 +137,6 @@ NUCLEO = {
              ("Tiendas de deportes", "tpv-tienda-deportes.html", "Tallas técnicas y temporada"),
              ("Tiendas de muebles", "tpv-tienda-muebles.html", "Pedidos a medida y entregas"),
              ("Electrónica e informática", "tpv-electronica-informaticas.html", "Números de serie y garantías"),
-             ("Supermercados de barrio", "tpv-supermercado-barrio.html", "Peso, IVA y varias cajas"),
              ("Sexshop", "tpv-sexshop.html", "Discreción en ticket y catálogo"),
              ("Comercio local en general", "software-tpv-comercio-local.html", "Si no encaja en ninguno")]),
 

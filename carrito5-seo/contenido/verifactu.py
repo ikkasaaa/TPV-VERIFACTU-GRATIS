@@ -26,7 +26,7 @@ VERIFACTU = {
   crumb="VeriFactu gratis",
   trail=[("Inicio", "index.html"), ("VeriFactu gratis", "verifactu-gratis.html")],
   aside=("Carrito5 ya está adaptado",
-         "El plan gratuito emite tickets conformes hasta 50 al mes. Descarga, pruébalo y sal de dudas sin poner tarjeta."),
+         "El plan Inicio es gratuito hasta 1.000 artículos en catálogo y emite tickets conformes. Descarga, pruébalo y sal de dudas sin poner tarjeta."),
   cta=("Sal de dudas descargando",
        "Instala Carrito5, emite un ticket de prueba y comprueba tú mismo cómo sale el QR."),
   bloques=[
@@ -134,7 +134,7 @@ VERIFACTU = {
              ("Ley Crea y Crece", "ley-crea-y-crece-facturacion.html", "No la confundas")]),
 
 "verifactu-autonomos.html": dict(
-  title="VeriFactu para Autónomos: tu fecha es julio de 2027 | Carrito5",
+  title="VeriFactu Autónomos: tu fecha es julio de 2027 | Carrito5",
   desc="Qué te obliga VeriFactu si eres autónomo, desde cuándo, qué necesitas exactamente y cuánto cuesta adaptarse. Sin alarmismo y con opciones gratuitas.",
   kw="verifactu autonomos, verifactu para autonomos, autonomos verifactu obligatorio, factura autonomo verifactu, tpv autonomo gratis",
   h1="VeriFactu para autónomos",
@@ -252,7 +252,7 @@ VERIFACTU = {
 
 "ley-crea-y-crece-facturacion.html": dict(
   title="Ley Crea y Crece: ¿te afecta a ti? | Carrito5",
-  desc="La factura electrónica entre empresas no es VeriFactu y probablemente no te afecta si vendes a particulares. Comprueba en un minuto en cuál de las dos estás.",
+  desc="La factura electrónica entre empresas no es VeriFactu y seguramente no te afecta si vendes a particulares. Comprueba en un minuto en cuál de las dos estás.",
   kw="ley crea y crece factura electronica, factura electronica obligatoria, crea y crece me afecta, factura electronica comercio minorista",
   h1="Ley Crea y Crece: comprueba si te afecta",
   sub="Antes de que te vendan nada: si tu tienda cobra con tickets a particulares, esta obligación probablemente no va contigo. Aquí lo compruebas en un minuto.",
