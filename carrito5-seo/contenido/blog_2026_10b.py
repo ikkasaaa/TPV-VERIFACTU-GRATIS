@@ -1,0 +1,116 @@
+# -*- coding: utf-8 -*-
+"""Blog de carrito5.com: segunda capa de octubre de 2026.
+
+Halloween visto desde la cosmetica y la jugueteria con el catalogo de
+Navidad. Mismas reglas de funciones confirmadas que blog_2026_09.py.
+"""
+
+BLOG_2026_10B = {
+
+# ------------------------------------------------------------------ 8 oct
+"halloween-cosmetica-maquillaje-tienda": dict(
+  title="Halloween en la Tienda de Cosmética: Maquillaje, Uñas y Colas",
+  desc="Halloween 2026 es sábado y la tienda de cosmética y droguería vende maquillaje de fantasía, uñas y lentillas de color la última semana de octubre. Qué traer, cómo etiquetar y cobrar sin cola.",
+  kw="halloween cosmetica tienda, maquillaje halloween drogueria, vender maquillaje halloween, tienda cosmetica octubre, halloween perfumeria drogueria",
+  h1="Halloween en cosmética: una semana de maquillaje de fantasía",
+  sub="Es una campaña corta que la droguería y la perfumería de barrio suelen dejar pasar. Con el 31 en sábado, la semana del 26 al 30 vende pintura, uñas y fijador a gente que no compra maquillaje el resto del año.",
+  publicado="2026-10-08",
+  para="Cosmética, perfumería, droguería",
+  resumen=[
+    "Halloween 2026 cae en sábado y la venta de maquillaje de fantasía, esmalte de uñas negro, sangre artificial, fijador y lentillas de color se concentra del lunes 26 al viernes 30 de octubre. Es género de bajo importe que se vende en cantidad y casi siempre sin código de barras: lo que decide la campaña es tenerlo etiquetado y en un expositor junto a la caja.",
+    "Con un TPV que asigna código propio e imprime etiquetas, el expositor de Halloween se monta en una hora y la caja cobra pasando el lector, aunque el ticket lleve seis artículos de dos euros.",
+  ],
+  cuerpo=[
+    ("Una campaña que casi nadie hace",
+     ["La tienda de disfraces vende Halloween; la droguería y la perfumería de barrio, casi nunca, y pierden una semana buena. La gente que va a una fiesta el sábado 31 busca maquillaje blanco, sombras oscuras, esmalte negro, purpurina, sangre artificial y lentillas de color, y lo busca el jueves y el viernes, cerca de casa, no en el centro comercial. Con un expositor pequeño en la caja y un cartel en el escaparate desde el 15 de octubre, la tienda de barrio se lleva esa venta.",
+      "El género se pide a principios de octubre a los proveedores de cosmética de fantasía; llega en diez días y sobra poco, porque lo que no se vende en Halloween se vende en Carnaval."],
+     None),
+    ("Etiquetar lo que llega sin código",
+     ["Buena parte del maquillaje de fantasía llega en blísteres sin código de barras, o con un código de importación que no está en ninguna base. Cada referencia recibe un código propio en el programa y su etiqueta, y va al expositor ya etiquetada. Son treinta o cuarenta referencias: una hora.",
+      "Sin eso, el viernes 30 por la tarde cada ticket de seis artículos son seis búsquedas, y la cola de una droguería a las siete de la tarde de un viernes de octubre ya es larga sin Halloween."],
+     ["<strong>Treinta o cuarenta referencias</strong>, etiquetadas el día que llegan.",
+      "<strong>Expositor junto a la caja</strong>, para la venta de impulso.",
+      "<strong>Cartel desde el 15</strong> para que sepan que lo hay."]),
+    ("Lo que la cosmética puede aportar que la tienda de disfraces no",
+     ["Consejo. Quien compra maquillaje de fantasía no sabe qué base usar para que aguante la noche, ni cómo se quita la sangre artificial de la piel. La perfumería sí, y con la respuesta vende además el desmaquillante y la crema. Es la diferencia entre vender el bote de pintura y vender el ticket completo.",
+      "Y la ficha de cliente: quien compra en Halloween es a menudo una clienta habitual de la tienda que viene por otra cosa. Registrar la venta a su nombre sirve para Carnaval, que en 2027 es el 6 de febrero, y para avisarla."],
+     None),
+    ("Después del 31",
+     ["Lo que sobre se guarda con su código y su stock, y en enero se saca para Carnaval sin dar de alta nada. Y la cifra de lo vendido por referencia dice cuánto pedir el año que viene, que será algo más, porque la segunda vez el barrio ya sabe que la tienda lo tiene."],
+     None),
+  ],
+  cierre=("Un expositor etiquetado en una hora",
+          ["Carrito5 asigna código propio a cada referencia sin código de barras, imprime la etiqueta y cobra pasando el lector. Guarda cada venta en la ficha de la clienta y lleva el stock de lo que sobre para Carnaval. Es gratuito hasta 1.000 artículos, para Windows. Instalado esta semana, el expositor de Halloween se monta etiquetado el día que llega el género."],
+          "Descargar Carrito5 gratis", "/descargar-tpv-gratis.html"),
+  faqs=[
+    ("¿Merece la pena Halloween en una droguería o perfumería de barrio?",
+     "Sí. Maquillaje de fantasía, esmalte, sangre artificial y lentillas de color se buscan cerca de casa el jueves y el viernes antes del 31. Con un expositor pequeño y un cartel, la tienda de barrio se lleva esa venta."),
+    ("¿Cuándo pido el género?",
+     "A principios de octubre. Llega en unos diez días y lo que sobre sirve para Carnaval."),
+    ("El maquillaje de fantasía no trae código de barras. ¿Cómo lo cobro?",
+     "Con un código propio por referencia y su etiqueta impresa desde el programa. Treinta o cuarenta referencias se etiquetan en una hora."),
+    ("¿Qué hago con lo que sobra?",
+     "Guardarlo con su código y su stock para Carnaval, del 6 al 9 de febrero de 2027. No hay que darlo de alta otra vez."),
+    ("¿Cómo vendo más que el bote de pintura?",
+     "Con consejo: la base para que aguante, el desmaquillante para quitarlo. Es lo que la perfumería sabe y la tienda de disfraces no."),
+  ],
+  relacionadas=[("Halloween en la tienda de disfraces", "blog/halloween-tienda-disfraces-tres-semanas.html", "La otra cara de la campaña"),
+                ("TPV para droguerías y perfumerías", "tpv-drogueria.html", "El sector"),
+                ("TPV para cosmética natural", "tpv-tienda-cosmetica-natural.html", "Granel y cosmética"),
+                ("Etiquetar antes de la campaña", "blog/etiquetar-genero-antes-de-campana.html", "Códigos y etiquetas")]),
+
+# ------------------------------------------------------------------ 22 oct
+"jugueteria-catalogo-navidad-reservas-reyes": dict(
+  title="Juguetería en Octubre: el Catálogo de Navidad y las Reservas de Reyes",
+  desc="En octubre llegan los catálogos de juguetes y los niños empiezan a señalar. La juguetería que apunta las reservas a nombre de la familia desde octubre sabe en noviembre qué va a vender en Reyes y no se queda sin el juguete del año.",
+  kw="jugueteria navidad reservas, catalogo juguetes navidad tienda, reservar juguetes reyes tienda, jugueteria octubre preparar navidad, juguete del año stock",
+  h1="Juguetería en octubre: reservas de Reyes desde el catálogo",
+  sub="El catálogo llega, el niño señala y la madre pregunta si lo van a tener. La respuesta que vende es «te lo reservo ahora», y para eso hay que poder apuntarlo.",
+  publicado="2026-10-22",
+  para="Jugueterías y tiendas de regalo infantil",
+  resumen=[
+    "En la segunda quincena de octubre los fabricantes y las grandes cadenas reparten los catálogos de juguetes de Navidad, y las familias empiezan a decidir. La juguetería de barrio gana esa campaña reservando: el juguete que el niño señala se apunta a nombre de la familia, con o sin señal, y se pide al proveedor en noviembre con la lista de reservas delante, antes de que el juguete del año se agote en el mayorista.",
+    "Las reservas se apuntan en la ficha de cliente, no en una libreta, para saber en cada momento qué hay comprometido, qué falta por pedir y a quién avisar cuando llega.",
+  ],
+  cuerpo=[
+    ("El juguete del año se agota en noviembre, en el mayorista",
+     ["Cada Navidad hay dos o tres juguetes que se agotan en toda España a finales de noviembre, y la juguetería pequeña que los pide en diciembre no los recibe. La única forma de tenerlos en Reyes es pedirlos en octubre o principios de noviembre, y para pedirlos con cabeza hace falta saber cuántos van a hacer falta. Las reservas de octubre son esa cifra.",
+      "Por eso el catálogo en el mostrador desde el 15 de octubre, con un cartel: «reserva ahora lo que quieras tener en Reyes». Cada reserva es una venta casi segura y un dato para el pedido."],
+     None),
+    ("Cómo se apunta una reserva",
+     ["A nombre de la familia, con el juguete, la referencia del catálogo, el precio de ese día y la fecha límite de recogida (el 3 de enero, para que dé tiempo a devolver a la venta lo no recogido). Con señal o sin ella, según la política de la tienda; con señal la reserva es más firme y la tienda puede pedir con menos riesgo.",
+      "El sitio donde se apunta importa. En una libreta, en diciembre nadie sabe cuántas reservas hay del mismo juguete ni a quién avisar. En la ficha de cliente del programa, cada reserva está en su familia, con su fecha, y la lista de reservas por referencia sale sola para el pedido."],
+     ["<strong>Familia, juguete, referencia, precio y fecha</strong> en cada reserva.",
+      "<strong>Señal</strong> según la política, anunciada en el cartel.",
+      "<strong>Lista por referencia</strong> el 5 de noviembre para el pedido al proveedor.",
+      "<strong>Aviso</strong> por WhatsApp cuando llega, y el 3 de enero como tope."]),
+    ("El pedido del 5 de noviembre",
+     ["Con la lista de reservas por referencia y lo vendido la Navidad pasada, el pedido de noviembre tiene dos partes. Lo reservado, entero, más un margen para la venta de mostrador. Y lo que se vendió el año pasado sin reserva, ajustado por lo que se agotó pronto y lo que sobró. El resto del catálogo se pide poco: en juguetería lo que no está reservado ni se vendió el año pasado suele quedarse.",
+      "Con el pedido en tienda a finales de noviembre, cada juguete se da de alta leyendo su código de barras, y los reservados se apartan con el nombre de la familia."],
+     None),
+    ("Reyes y después",
+     ["Del 26 de diciembre al 5 de enero se recogen las reservas y se vende lo de mostrador. Del 7 al 10 de enero vienen los cambios: el juguete repetido, el que no era la edad. Cada cambio sobre el ticket original, localizado por la ficha de la familia aunque venga el abuelo sin ticket, y el vale de devolución apuntado.",
+      "Y con la campaña cerrada, la lista de familias que reservaron es la lista a la que avisar en octubre de 2027 de que el catálogo ha llegado."],
+     None),
+  ],
+  cierre=("Reservas en la ficha, no en la libreta",
+          ["Carrito5 guarda cada reserva y cada venta en la ficha de la familia, da de alta cada juguete leyendo su código de barras y hace los cambios de enero sobre el ticket original. Es gratuito hasta 1.000 artículos, para Windows. Instalado antes del 15 de octubre, el catálogo sale al mostrador con las reservas apuntándose desde el primer día."],
+          "Descargar Carrito5 gratis", "/descargar-tpv-gratis.html"),
+  faqs=[
+    ("¿Cuándo empiezan las reservas de juguetes para Reyes?",
+     "En cuanto llegan los catálogos, en la segunda quincena de octubre. Un cartel en el mostrador basta para que las familias empiecen."),
+    ("¿Pido señal por la reserva?",
+     "Lo decide la tienda y se anuncia en el cartel. Con señal la reserva es más firme y el pedido al proveedor tiene menos riesgo."),
+    ("¿Cuándo hago el pedido de Navidad al proveedor?",
+     "A principios de noviembre, con la lista de reservas por referencia y lo vendido el año pasado. El juguete del año se agota en el mayorista a finales de noviembre."),
+    ("¿Dónde apunto las reservas?",
+     "En la ficha de cliente de cada familia, con el juguete, el precio y la fecha tope. Así la lista por referencia sale sola y se sabe a quién avisar."),
+    ("¿Qué pasa con las reservas que no se recogen?",
+     "Se avisa a la familia y el 3 de enero vuelven a la venta, como decía el cartel."),
+  ],
+  relacionadas=[("TPV para jugueterías y regalos", "tpv-jugueteria-regalos.html", "El sector"),
+                ("La Navidad se prepara en septiembre", "blog/campana-navidad-tienda-preparar-en-septiembre.html", "Pedidos y entrada de género"),
+                ("Cambios después de Reyes", "blog/cambios-despues-de-reyes-semana-del-7-de-enero.html", "La semana del 7"),
+                ("Cyber Monday sin web: reservas", "blog/cyber-monday-tienda-sin-venta-online.html", "La misma idea, para todo el comercio")]),
+
+}

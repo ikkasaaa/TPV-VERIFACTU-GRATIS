@@ -32,8 +32,9 @@ Escribe `blog/<slug>.html` (plantilla `plantilla_blog.py`: Article, fecha de
 publicación, respuesta rápida, FAQ, cierre comercial propio de cada post),
 `blog/calendario-editorial.tsv` con la fecha de publicación de cada post y
 `blog/_indice-fragmento.html` con las tarjetas para `blog.html`. Un módulo por
-mes, `blog_AAAA_MM.py`, de septiembre de 2026 a junio de 2027: 35 posts, uno
-por campaña comercial o fecha fiscal, con su fecha de publicación. El
+mes, `blog_AAAA_MM.py`, más una segunda capa de sector `blog_AAAA_MMb.py`, de
+septiembre de 2026 a junio de 2027: 57 posts, dos por semana, con su fecha de
+publicación. El
 calendario está copiado en `inventario/calendario-editorial-blog.tsv`.
 
 Comprobar duplicación entre los dos sitios:

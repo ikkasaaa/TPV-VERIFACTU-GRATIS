@@ -1,0 +1,115 @@
+# -*- coding: utf-8 -*-
+"""Blog de carrito5.com: segunda capa de enero de 2027.
+
+El mes del blanco en textil hogar y la lenceria de San Valentin. Mismas
+reglas de funciones confirmadas que blog_2026_09.py.
+"""
+
+BLOG_2027_01B = {
+
+# ------------------------------------------------------------------ 7 ene
+"mes-del-blanco-textil-hogar-enero-2027": dict(
+  title="El Mes del Blanco: Enero en la Tienda de Textil Hogar",
+  desc="Enero es el mes del blanco desde hace décadas: sábanas, toallas y edredones a precio de campaña. Cómo llevar la ropa de cama por medida, rebajar sin equivocarse de precio anterior y no quedarse con el 105 de un juego que ya no se hace.",
+  kw="mes del blanco enero, mes del blanco textil hogar, rebajas ropa de cama enero, tienda textil hogar enero, sabanas medidas stock, tpv textil hogar",
+  h1="El mes del blanco: enero en textil hogar",
+  sub="La tradición viene de los grandes almacenes y la tienda de barrio la aprovecha igual: en enero la gente renueva sábanas y toallas. El problema no es vender, es saber qué medidas quedan.",
+  publicado="2027-01-07",
+  para="Textil hogar, ropa de cama, mercería con hogar",
+  resumen=[
+    "El mes del blanco es la campaña de enero del textil hogar: sábanas, toallas, edredones y cortinas con descuento, que arranca con las rebajas del 7 de enero y dura todo el mes. Para una tienda de barrio es la mejor ocasión de mover el fondo de armario de la temporada pasada y de vender la ropa de cama de invierno que en marzo ya no se vende.",
+    "Lo que lo hace difícil es la variante: la misma sábana en 90, 105, 135, 150 y 180, en cuatro colores. Con la matriz de medidas y colores del programa se sabe qué queda de cada juego sin abrir el armario, se rebaja con el precio anterior correcto en la etiqueta, y las medidas sueltas salen antes de que el modelo se descatalogue.",
+  ],
+  cuerpo=[
+    ("De dónde viene y por qué funciona en la tienda pequeña",
+     ["El mes del blanco nació en los grandes almacenes hace décadas, cuando la ropa de cama era blanca y se vendía con descuento en enero para mover almacén tras la Navidad. La costumbre se quedó, y en enero la gente busca sábanas y toallas con descuento en cualquier tienda. La de barrio tiene una ventaja: sabe qué medida de cama tiene cada clienta, porque se lo ha vendido antes.",
+      "Por eso el mes del blanco en una tienda pequeña es una campaña de ficha de cliente: avisar a quien compró un juego de 150 en 2025 de que hay rebaja en su medida vende más que el cartel."],
+     None),
+    ("La variante en textil hogar: la medida",
+     ["Un juego de sábanas es un modelo con cinco medidas y varios colores: veinte variantes con su stock cada una. Sin matriz, o se da de alta cada variante como artículo (y no se mantiene) o se lleva de cabeza (y no se sabe qué queda). Con la matriz de tallas y colores, donde la «talla» es la medida de cama, cada juego es un alta y el stock se ve por medida y color.",
+      "En el mes del blanco eso sirve para tres cosas: saber si queda el 150 en gris antes de prometerlo, rebajar por modelo con el precio anterior que sale del histórico, y ver qué medidas sueltas quedan de juegos que ya no se van a reponer."],
+     ["<strong>Un alta por juego</strong>, con sus medidas y colores.",
+      "<strong>Stock por medida y color</strong> en pantalla.",
+      "<strong>Rebaja con precio anterior</strong> desde el histórico de la referencia.",
+      "<strong>Medidas sueltas</strong> de juegos descatalogados: al escaparate con descuento fuerte."]),
+    ("Las medidas sueltas: el 105 que nadie pide",
+     ["Como en calzado con los números, en textil hogar sobran las medidas raras: el 105 de un juego del que se ha vendido el 135 y el 150. Si el proveedor ha descatalogado el modelo, ese 105 no se va a completar nunca; en enero se saca con un 40 % y sale. La lista de medidas sueltas por modelo es un filtro en el stock del programa, no una tarde de abrir estanterías."],
+     None),
+    ("Toallas, edredones y lo que se vende por metro",
+     ["Las toallas van por tamaño y color como las sábanas. Los edredones y nórdicos, por medida. Y el tejido por metro, en las tiendas que lo tienen, se cobra indicando la cantidad. Todo con su etiqueta, porque en el mes del blanco el ticket lleva cuatro o cinco líneas y la caja no puede buscar.",
+      "Al terminar enero, lo vendido por medida es el pedido de septiembre: las medidas que faltan son las que hay que reponer, y las que sobran, las que no."],
+     None),
+  ],
+  cierre=("Cada juego con sus medidas, en un alta",
+          ["Carrito5 da de alta cada juego de sábanas con su matriz de medidas y colores, lleva el stock por variante, imprime la etiqueta de rebaja con el precio anterior y guarda cada venta en la ficha de la clienta con su medida de cama. Es gratuito hasta 1.000 artículos, para Windows. Instalado esta semana, el mes del blanco se lleva con el stock por medida en pantalla."],
+          "Descargar Carrito5 gratis", "/descargar-tpv-gratis.html"),
+  faqs=[
+    ("¿Qué es el mes del blanco?",
+     "La campaña de enero del textil hogar, con sábanas, toallas y edredones a precio de rebaja. Viene de los grandes almacenes y la gente la espera en cualquier tienda."),
+    ("¿Cómo llevo las medidas de cama en el programa?",
+     "Con la matriz de tallas y colores: cada juego es un modelo, la medida hace de talla y el color de color. El stock se ve por variante."),
+    ("¿Qué precio anterior pongo en la etiqueta de rebaja?",
+     "El más bajo aplicado en los treinta días anteriores, que sale del histórico de la referencia en el programa."),
+    ("¿Qué hago con las medidas sueltas de juegos descatalogados?",
+     "Sacarlas en enero con descuento fuerte. No se van a completar. La lista sale del stock por medida."),
+    ("¿A quién aviso del mes del blanco?",
+     "A las clientas que compraron ropa de cama antes, con su medida en la ficha: «hay rebaja en tu 150»."),
+  ],
+  relacionadas=[("TPV para textil hogar", "tpv-textil-hogar.html", "Medidas de cama y juegos"),
+                ("Matriz de tallas y colores", "tallas-y-colores.html", "Medidas como tallas"),
+                ("Rebajas de enero 2027", "blog/rebajas-enero-2027-fechas-ley-preparar.html", "Las reglas de la rebaja"),
+                ("TPV para lencería y mercería", "tpv-lenceria-merceria.html", "Mercería con hogar")]),
+
+# ------------------------------------------------------------------ 28 ene
+"lenceria-san-valentin-tallas-copas-cambio": dict(
+  title="Lencería en San Valentín: Talla, Copa y el Cambio del Lunes",
+  desc="En lencería San Valentín lo compra quien no lo va a llevar y no sabe la talla ni la copa. La tienda vende si tiene el stock por talla y copa en pantalla, una política de cambio clara y la ficha de la clienta que sí sabe su talla.",
+  kw="lenceria san valentin, regalar lenceria talla, tienda lenceria febrero ventas, tallas copas stock lenceria, cambio lenceria higiene, tpv lenceria",
+  h1="Lencería en San Valentín: vender a quien no sabe la talla",
+  sub="El viernes 12 y el sábado 13 de febrero entran hombres con una foto en el móvil y ninguna idea de la copa. La tienda que resuelve eso en cinco minutos vende; la que dice «tráigala», no.",
+  publicado="2027-01-28",
+  para="Lencería, corsetería y mercería",
+  resumen=[
+    "San Valentín de 2027 cae en domingo y la lencería vende el viernes 12 y el sábado 13 de febrero, casi todo regalo comprado por la pareja, que no sabe la talla ni la copa. Tres cosas hacen la venta: la ficha de la clienta, si ella ha comprado antes en la tienda; el stock por talla, copa y color en pantalla para elegir entre lo que hay; y una política de cambio de talla escrita, con condiciones de higiene, que quite el miedo a equivocarse.",
+    "El lunes 15 vienen los cambios: sobre el ticket original, con la talla devuelta a su stock y la buena entregada, en dos minutos.",
+  ],
+  cuerpo=[
+    ("El comprador que no sabe, y cómo se le vende",
+     ["Un hombre entra con una idea vaga y una foto. Preguntarle la talla es inútil. Lo que funciona es preguntar por la altura y la constitución, proponer dos conjuntos en una talla probable y decir la frase que cierra la venta: «si no es su talla, la cambia hasta el 21». Con eso compra. Sin eso, dice que volverá con ella, y no vuelve.",
+      "Y si ella ya ha comprado en la tienda, la pregunta es otra: su nombre. La ficha de la clienta tiene su talla y su copa, y la venta se hace en la talla correcta a la primera."],
+     None),
+    ("Talla y copa: la matriz en lencería",
+     ["Un sujetador es un modelo con tallas (85 a 100) y copas (A a E), y el conjunto lleva además la braguita con su talla. Con la matriz de tallas y colores, donde la talla es la combinación de contorno y copa, cada modelo es un alta y el stock se ve por variante. En la venta de San Valentín eso significa proponer entre lo que hay: si del conjunto rojo quedan 90B y 95C, se proponen esos, y no se promete un 90C que no está.",
+      "Al llegar la colección de febrero, cada modelo se da de alta con su matriz y su etiqueta, y las copas se ven en pantalla sin abrir cajones."],
+     ["<strong>Modelo con contorno y copa</strong> como talla, y color.",
+      "<strong>Stock por variante</strong> para proponer entre lo que hay.",
+      "<strong>Ficha de la clienta</strong> con su talla, para la venta a la primera."]),
+    ("La política de cambio, escrita y con higiene",
+     ["En lencería el cambio tiene condiciones que hay que escribir: sin usar, con etiquetas y protector, hasta una fecha (el 21 de febrero, una semana después). Es una política de la tienda, no una obligación legal, y por eso tiene que estar en el cartel y en el ticket antes de la compra. Con ella escrita, el comprador se atreve y la clienta que viene el lunes a cambiar no discute."],
+     None),
+    ("El lunes 15: cambios en dos minutos",
+     ["Viene ella, con el conjunto y sin ticket. La venta se localiza por la ficha de él, por fecha y artículo. Se devuelve el 90B a su stock, se entrega el 90C, y si hay diferencia, vale. Dos minutos y una clienta nueva con su talla apuntada, que es la que va a comprar en marzo para ella misma.",
+      "Al cerrar la semana, lo vendido por modelo, talla y copa es el pedido de San Valentín de 2028, y las clientas nuevas, con su talla en la ficha, son las que reciben el aviso de la colección de primavera."],
+     None),
+  ],
+  cierre=("La talla y la copa de cada clienta, en su ficha",
+          ["Carrito5 da de alta cada modelo con su matriz de tallas y colores, lleva el stock por variante en pantalla, guarda cada venta en la ficha de la clienta con su talla y hace el cambio del lunes sobre el ticket original. Es gratuito hasta 1.000 artículos, para Windows. Instalado esta semana, la colección de San Valentín entra con sus copas y el viernes 12 se vende entre lo que hay."],
+          "Descargar Carrito5 gratis", "/descargar-tpv-gratis.html"),
+  faqs=[
+    ("¿Cómo vendo lencería a alguien que no sabe la talla?",
+     "Con dos propuestas en una talla probable, la ficha de la clienta si ha comprado antes, y una frase: «si no es su talla, la cambia hasta el 21». La política escrita quita el miedo."),
+    ("¿Cómo llevo tallas y copas en el programa?",
+     "Con la matriz de tallas y colores: la talla es la combinación de contorno y copa. Cada modelo es un alta y el stock se ve por variante."),
+    ("¿Qué condiciones de cambio pongo?",
+     "Sin usar, con etiquetas y protector, hasta una fecha. En el cartel y en el ticket antes de la compra. Es política de la tienda, no obligación legal."),
+    ("¿Qué pasa el lunes después de San Valentín?",
+     "Cambios de talla: se localiza la venta por la ficha de quien compró, se devuelve la talla al stock y se entrega la buena. Dos minutos."),
+    ("¿Carrito5 sirve para una tienda de lencería?",
+     "Sí: matriz de tallas y colores, ficha de cliente con historial y devoluciones, códigos de barras y etiquetas. Plan gratuito hasta 1.000 artículos."),
+  ],
+  relacionadas=[("TPV para lencería y mercería", "tpv-lenceria-merceria.html", "Tallas, copas y colores"),
+                ("San Valentín 2027", "blog/san-valentin-2027-tienda-tres-semanas.html", "La campaña general"),
+                ("Matriz de tallas y colores", "tallas-y-colores.html", "Cómo funciona"),
+                ("TPV para boutiques", "tpv-boutique.html", "Ficha de clienta y devoluciones")]),
+
+}

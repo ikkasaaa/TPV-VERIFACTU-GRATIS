@@ -1,0 +1,168 @@
+# -*- coding: utf-8 -*-
+"""Blog de carrito5.com: segunda capa de noviembre de 2026.
+
+Black Friday en la zapateria, la joyeria en Navidad y el puente de la
+Constitucion. Mismas reglas de funciones confirmadas que blog_2026_09.py.
+
+Puente de diciembre de 2026: el 6 (Constitucion) cae en domingo y el 8
+(Inmaculada) en martes; el lunes 7 muchos lo cogen, asi que el fin de semana
+largo va del sabado 5 al martes 8.
+"""
+
+BLOG_2026_11B = {
+
+# ------------------------------------------------------------------ 5 nov
+"black-friday-zapateria-numeros-sueltos": dict(
+  title="Black Friday en la Zapatería: Liquidar Números Sueltos, no Modelos",
+  desc="El 27 de noviembre la zapatería no tiene que rebajar la tienda: tiene que sacar los números sueltos de la temporada anterior antes de que la Navidad los tape. Cómo encontrarlos en el stock y etiquetarlos.",
+  kw="black friday zapateria, rebajar zapatos black friday, numeros sueltos calzado liquidar, zapateria noviembre descuentos, stock calzado temporada anterior",
+  h1="Black Friday en la zapatería: los números sueltos, al escaparate",
+  sub="Un modelo del que quedan un 36 y un 44 no se va a vender a precio nunca. El 27 de noviembre es el día de sacarlos, y para eso hay que saber cuáles son.",
+  publicado="2026-11-05",
+  para="Zapaterías y tiendas de calzado",
+  resumen=[
+    "En calzado el Black Friday tiene un uso concreto: liquidar los números sueltos de la temporada anterior, los pares que quedan de un modelo cuando ya se han vendido las tallas centrales. Son dinero parado que no se venderá a precio, y el 27 de noviembre de 2026 hay gente en la calle dispuesta a llevárselos con un 40 % si encuentra su número.",
+    "La lista sale del stock por número del programa: modelos con menos de tres pares y sin las tallas centrales. Se etiquetan con los dos precios, se ponen en una mesa a la entrada ordenados por número, y el resto de la tienda sigue a su precio.",
+  ],
+  cuerpo=[
+    ("Por qué los números sueltos y no la tienda",
+     ["Una zapatería no puede permitirse un 20 % sobre todo el género en noviembre: el margen del calzado no lo aguanta y diciembre vende a precio. Lo que sí puede es convertir en dinero los pares que ya no van a venderse solos. Cada modelo de la temporada pasada del que quedan el 36, el 37 y el 44 es un modelo muerto: nadie lo pide, y ocupa caja en el almacén.",
+      "El Black Friday es el día en que esos pares tienen comprador, porque la gente entra buscando ganga y se prueba lo que hay en su número. Con un 40 % o un 50 %, el par sale, la caja del almacén se libera y la tienda entra en diciembre sin el peso de la temporada anterior."],
+     None),
+    ("Encontrarlos: la lista del stock por número",
+     ["A mano es imposible: hay que abrir caja por caja. Con el stock por modelo, número y color en el programa, la lista es un filtro: modelos de la temporada pasada con tres pares o menos, y de esos, los que no tienen el 38, el 39 y el 40 en mujer o el 41, el 42 y el 43 en hombre. Esa es la mesa del Black Friday.",
+      "Cada par de la lista se etiqueta con el precio anterior (el más bajo de los treinta días previos, que es obligación legal) y el rebajado. La etiqueta se imprime desde el programa con el número bien visible, porque en la mesa el cliente busca por número."],
+     ["<strong>Filtro</strong>: temporada pasada, tres pares o menos, sin tallas centrales.",
+      "<strong>Etiqueta con dos precios</strong> y el número grande.",
+      "<strong>Mesa a la entrada</strong>, ordenada por número, no por modelo.",
+      "<strong>El resto de la tienda</strong> a su precio."]),
+    ("La mesa, por número",
+     ["En una mesa de números sueltos el cliente no busca un modelo: busca su número. Ordenar la mesa por número, del 35 al 46, con el precio en cada par, hace que se pruebe tres pares en dos minutos y se lleve uno. Ordenada por modelo, se va. Es un detalle de escaparate que en calzado vale más que el descuento."],
+     None),
+    ("El sábado 28 y lo que no se vende",
+     ["Lo que salga de la mesa se descuenta del stock al cobrar, y el domingo el programa dice qué pares quedan. Los que no se han vendido ni al 40 % en un Black Friday no se van a vender: se devuelven al proveedor si lo admite, se venden a un saldista o se donan, y salen del stock con su motivo. El almacén entra en diciembre con cajas de la temporada actual y nada más."],
+     None),
+  ],
+  cierre=("La lista de números sueltos, en un filtro",
+          ["Carrito5 lleva el stock por modelo, número y color, imprime la etiqueta con el precio anterior y el rebajado, y descuenta cada par al cobrarlo. Es gratuito hasta 1.000 artículos, para Windows. Si hoy no sabes qué números sueltos tienes sin abrir cajas, instálalo esta semana y da de alta la temporada pasada por modelo y número: el 27 la mesa sale sola."],
+          "Descargar Carrito5 gratis", "/descargar-tpv-gratis.html"),
+  faqs=[
+    ("¿Tengo que rebajar toda la zapatería el Black Friday?",
+     "No. En calzado lo útil es liquidar los números sueltos de la temporada pasada con un descuento fuerte, y dejar el resto a su precio."),
+    ("¿Qué es un número suelto?",
+     "Un par de un modelo del que ya se han vendido las tallas centrales. Quedan el 36 o el 44, nadie los pide y ocupan almacén."),
+    ("¿Cómo los encuentro sin abrir cajas?",
+     "Con el stock por modelo y número del programa: modelos de la temporada pasada con tres pares o menos y sin las tallas centrales."),
+    ("¿Qué precio anterior pongo en la etiqueta?",
+     "El más bajo aplicado en los treinta días anteriores. Es obligación legal y sale del histórico de la referencia."),
+    ("¿Qué hago con lo que no se vende ni rebajado?",
+     "Sale: devolución al proveedor, saldista o donación. Lo que no se vende en un Black Friday al 40 % no se va a vender después."),
+  ],
+  relacionadas=[("TPV para zapaterías", "tpv-zapateria.html", "Números, pares y stock"),
+                ("Programa de control de stock para zapaterías", "programa-stock-zapateria.html", "El stock por número"),
+                ("Black Friday en la tienda de barrio", "blog/black-friday-comercio-local-participar-o-no.html", "La decisión general"),
+                ("La semana del Black Friday día a día", "blog/black-friday-27-noviembre-2026-semana-dia-a-dia.html", "La ejecución")]),
+
+# ------------------------------------------------------------------ 19 nov
+"joyeria-navidad-grabados-ficha-cliente": dict(
+  title="Joyería en Navidad: Grabados, Tallas de Anillo y la Ficha del Cliente",
+  desc="Para la joyería la Navidad son cinco semanas de regalo comprado por otra persona: la talla del anillo, la inicial del colgante, el grabado con fecha. Lo que la ficha de cliente evita y cómo llevar los encargos de grabado sin perderlos.",
+  kw="joyeria navidad ventas, grabado joyeria navidad, talla anillo regalo, joyeria ficha cliente, joyeria diciembre campaña, tpv joyeria",
+  h1="Joyería en Navidad: la talla, el grabado y quién compró qué",
+  sub="Casi ningún regalo de joyería lo compra quien lo va a llevar. El vendedor tiene que saber la talla de una persona que no está, y recordar en enero qué compró quien viene a cambiar.",
+  publicado="2026-11-19",
+  para="Joyerías y relojerías",
+  resumen=[
+    "En joyería la campaña de Navidad va del 20 de noviembre al 5 de enero y tiene tres problemas propios: la talla del anillo de alguien que no está en la tienda, los grabados con fecha que hay que entregar antes del 24, y los cambios de enero de una pieza que compró otra persona. Los tres se resuelven con la ficha de cliente: la talla de la pareja apuntada en compras anteriores, el grabado anotado en la venta con su fecha de entrega, y la venta localizable en enero por quien la compró.",
+    "Con el género etiquetado con su código, la caja va rápida en un sector donde cada ticket es una conversación larga y un cobro corto.",
+  ],
+  cuerpo=[
+    ("La talla del anillo de quien no está",
+     ["Entra un hombre a comprar un anillo para su mujer y no sabe la talla. Si ella ha comprado antes en la tienda, o si él le compró el año pasado, la talla está en la ficha. Si no, se vende con la política de cambio de talla clara y en el ticket, y se anota la talla que se lleva para que el año que viene sí esté. En joyería la ficha de cliente es de la pareja, y conviene anotarla así: quién compra y para quién.",
+      "Lo mismo con el estilo: oro amarillo o blanco, plata, la marca de reloj que lleva. Lo que se apunta este año es la venta fácil del que viene."],
+     None),
+    ("Los grabados: una fecha de entrega por venta",
+     ["Los colgantes con inicial, las pulseras con fecha y los relojes grabados tienen un plazo: el taller tarda, y el cliente lo quiere el 24. Cada venta con grabado lleva anotado el texto exacto, la fecha prometida y el teléfono para avisar. En una libreta, en la tercera semana de diciembre hay cuarenta grabados y no se sabe cuáles están hechos. En la ficha del cliente, con la anotación en la venta, cada uno está donde tiene que estar.",
+      "Carrito5 no gestiona el taller de grabado, pero la ficha de cliente con la venta y su nota sí está en el plan gratuito, y es donde se apunta el texto y la fecha."],
+     ["<strong>Texto exacto</strong> del grabado en la venta, revisado con el cliente.",
+      "<strong>Fecha prometida</strong> y teléfono.",
+      "<strong>Sin cambio</strong> en artículos grabados, en el ticket."]),
+    ("Etiquetas pequeñas, códigos grandes",
+     ["La joyería tiene el problema de etiquetar piezas pequeñas: la etiqueta colgante de un anillo no cabe un código de barras grande. La solución habitual es un código propio corto impreso en la etiqueta de joya, o la referencia tecleada. Lo importante es que cada pieza tenga su código en el programa y que al cobrar no haya que buscar en un listado con el cliente delante, porque en joyería el momento del cobro tiene que ser breve y discreto."],
+     None),
+    ("Enero: cambios de una pieza que compró otro",
+     ["Del 7 al 15 de enero viene la persona que recibió el regalo, sin ticket, a cambiar la talla o la pieza. La venta se localiza por la ficha de quien compró, con la fecha y el artículo, y el cambio se hace sobre ella. Si hay diferencia, vale de devolución apuntado. Y lo grabado no se cambia, como decía el ticket: por eso el texto se revisó antes de mandarlo al taller."],
+     None),
+  ],
+  cierre=("La talla de la pareja, apuntada desde esta Navidad",
+          ["Carrito5 guarda cada venta en la ficha del cliente con el artículo y la nota que la tienda añada, hace los cambios de enero sobre el ticket original y deja el vale registrado. Cada pieza con su código propio. Es gratuito hasta 1.000 artículos, para Windows. Instalado antes del 20 de noviembre, esta Navidad queda apuntada y la de 2027 empieza con las tallas sabidas."],
+          "Descargar Carrito5 gratis", "/descargar-tpv-gratis.html"),
+  faqs=[
+    ("¿Cómo vendo un anillo a alguien que no sabe la talla de su pareja?",
+     "Mirando la ficha de cliente, si la pareja o él mismo compraron antes. Si no, con una política de cambio de talla clara en el ticket, y anotando la talla para el año que viene."),
+    ("¿Cómo llevo los grabados de Navidad sin perder ninguno?",
+     "Anotando en la venta de cada cliente el texto exacto, la fecha prometida y el teléfono. La ficha de cliente lo guarda; el taller se lleva aparte."),
+    ("¿Cómo etiqueto piezas tan pequeñas?",
+     "Con un código propio corto en la etiqueta de joya, o tecleando la referencia. Lo importante es que cada pieza tenga su código en el programa."),
+    ("¿Qué hago cuando en enero viene quien recibió el regalo, sin ticket?",
+     "Localizar la venta por la ficha de quien compró, por fecha y artículo, y hacer el cambio sobre ella. Lo grabado no se cambia, y así lo dice el ticket."),
+    ("¿Carrito5 sirve para una joyería?",
+     "Sí: ficha de cliente con historial, devoluciones y vales, códigos propios y etiquetas, stock. Plan gratuito hasta 1.000 artículos."),
+  ],
+  relacionadas=[("TPV para joyerías y relojerías", "tpv-joyeria-relojeria.html", "El sector"),
+                ("Política de devoluciones para Navidad", "blog/politica-devoluciones-campana-navidad.html", "La regla antes de la campaña"),
+                ("San Valentín 2027", "blog/san-valentin-2027-tienda-tres-semanas.html", "La siguiente campaña de joyería"),
+                ("El vale de devolución", "blog/vale-de-devolucion-tienda-como-funciona.html", "Cómo llevarlo")]),
+
+# ------------------------------------------------------------------ 26 nov
+"puente-de-diciembre-2026-tienda-5-al-8": dict(
+  title="Puente de Diciembre 2026: del Sábado 5 al Martes 8 en la Tienda",
+  desc="El 6 de diciembre cae en domingo y el 8 en martes: cuatro días de puente justo después del Black Friday. Es el primer gran fin de semana de compras de Navidad y muchas tiendas lo tratan como un festivo cualquiera.",
+  kw="puente diciembre 2026 tienda, puente constitucion comercio, 8 diciembre abrir tienda, puente diciembre compras navidad, primer fin de semana navidad tienda",
+  h1="El puente de diciembre de 2026: cuatro días que abren la Navidad",
+  sub="Después del Black Friday la gente ya ha empezado a comprar regalos, y el puente del 5 al 8 es el primer fin de semana largo con esa intención. Quien abre con la Navidad montada vende; quien lo trata como un puente, descansa.",
+  publicado="2026-11-26",
+  para="Todo el comercio de regalo y de centro",
+  resumen=[
+    "En 2026 el Día de la Constitución, 6 de diciembre, es domingo y la Inmaculada, 8 de diciembre, martes, así que el puente va del sábado 5 al martes 8 para mucha gente. Es el primer fin de semana largo de compras de Navidad, con el escaparate recién montado y la gente de vacaciones cortas en la ciudad o en su pueblo.",
+    "Para la tienda: comprobar en su comunidad si el lunes 7 y el martes 8 puede abrir, tener la Navidad montada y etiquetada el viernes 4, y cobrar rápido, porque el sábado 5 por la tarde se parece más a un sábado de diciembre que de noviembre.",
+  ],
+  cuerpo=[
+    ("Un puente que cae en el sitio justo",
+     ["Hay años en que el puente de diciembre cae demasiado pronto y la gente aún no piensa en regalos. En 2026 cae ocho días después del Black Friday, con el escaparate de Navidad recién puesto y la campaña ya en marcha. Mucha gente aprovecha el puente para comprar regalos con calma, sin el atasco del 19, y las ciudades con mercadillos navideños y luces encendidas se llenan.",
+      "Para el comercio de centro y de zonas turísticas es un fin de semana de venta alta. Para la tienda de barrio, un fin de semana en que el barrio está en casa y pasea."],
+     None),
+    ("Abrir o no el 7 y el 8",
+     ["El 8 de diciembre es festivo nacional y la apertura en festivo depende de cada comunidad autónoma, que publica su calendario de domingos y festivos de apertura autorizada; en zonas de gran afluencia turística la apertura es libre. El lunes 7 no es festivo nacional, aunque algunas comunidades lo declaran, y ahí se abre con normalidad salvo que lo haya trasladado la comunidad.",
+      "Antes de decidir, la tienda mira el calendario de su comunidad para 2026. Y si puede abrir el 8, lo anuncia en el escaparate desde el 1: «abrimos el puente», porque la gente da por hecho que no."],
+     ["<strong>Calendario de aperturas</strong> de tu comunidad para el 8 de diciembre.",
+      "<strong>Cartel «abrimos el puente»</strong> desde el 1 de diciembre.",
+      "<strong>Horario del 7</strong> como un lunes normal, salvo festivo autonómico."]),
+    ("La Navidad, montada y etiquetada el viernes 4",
+     ["El puente es el primer examen del género de Navidad. Lo que llegó en noviembre tiene que estar dado de alta, con su código y su etiqueta, en el escaparate y en los expositores el viernes 4 por la tarde. Lo que se quede en cajas hasta el 9 se pierde el primer fin de semana grande. Y las reservas del Cyber Monday, si la tienda las hizo, avisadas de que su artículo está y se puede recoger en el puente."],
+     None),
+    ("El sábado 5: cobrar como en diciembre",
+     ["El sábado 5 por la tarde la tienda se parece a un sábado de diciembre: gente con prisa, tickets de varios artículos, preguntas de talla. Dos personas si se puede, la impresora con rollo nuevo, el lector probado y las tallas en pantalla. Y las ventas de regalo a nombre de quien compra, cuando lo da, porque en enero los cambios del puente son los primeros en llegar."],
+     None),
+  ],
+  cierre=("Etiquetado el viernes 4, cobrando el sábado 5",
+          ["Carrito5 da de alta el género de Navidad leyendo su código de barras o imprimiendo etiqueta propia, lleva las tallas en pantalla y guarda cada venta en la ficha del cliente para los cambios de enero. Es gratuito hasta 1.000 artículos, para Windows. Instalado esta semana, el género de noviembre entra etiquetado antes del puente."],
+          "Descargar Carrito5 gratis", "/descargar-tpv-gratis.html"),
+  faqs=[
+    ("¿Cuándo es el puente de diciembre de 2026?",
+     "El 6 de diciembre es domingo y el 8 es martes. Con el lunes 7, el puente va del sábado 5 al martes 8."),
+    ("¿Puedo abrir la tienda el 8 de diciembre?",
+     "Depende del calendario de aperturas en festivo de tu comunidad autónoma para 2026. En zonas de gran afluencia turística, la apertura es libre."),
+    ("¿El lunes 7 es festivo?",
+     "No es festivo nacional. Algunas comunidades lo declaran; mira la tuya."),
+    ("¿Merece la pena tener la Navidad montada para el puente?",
+     "Sí. Es el primer fin de semana largo de compras de Navidad y la gente pasea con esa intención. Lo que esté en cajas hasta el 9 se pierde ese fin de semana."),
+    ("¿Cómo preparo la caja para el sábado 5?",
+     "Género etiquetado, lector probado, rollo nuevo en la impresora, tallas en pantalla y ventas de regalo a nombre del cliente para los cambios de enero."),
+  ],
+  relacionadas=[("La semana del Black Friday día a día", "blog/black-friday-27-noviembre-2026-semana-dia-a-dia.html", "La semana anterior"),
+                ("Navidad: las tres semanas", "blog/navidad-tres-semanas-que-deciden-el-ano.html", "Lo que viene después"),
+                ("Cyber Monday sin web: reservas", "blog/cyber-monday-tienda-sin-venta-online.html", "Las reservas se recogen en el puente"),
+                ("TPV en Madrid", "tpv-madrid.html", "Sol y Gran Vía en el puente")]),
+
+}
