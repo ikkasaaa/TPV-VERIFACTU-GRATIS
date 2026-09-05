@@ -95,10 +95,10 @@ def validar(f, existentes):
             continue
         if h.endswith((".css", ".js", ".png", ".jpg", ".svg", ".ico", ".webp")):
             continue
-        destino = h.split("?")[0]
-        if destino in ("", "/"):
+        destino = h.split("?")[0].lstrip("/")
+        if destino in ("",):
             continue
-        if destino not in existentes:
+        if destino not in existentes and "blog/" + destino not in existentes:
             err(f, f"enlace a pagina inexistente: {destino}")
 
     vis = texto_visible(s)
@@ -119,8 +119,14 @@ def main():
     salida = sys.argv[1]
     vivas_f = sys.argv[2] if len(sys.argv) > 2 else os.path.join(
         os.path.dirname(os.path.dirname(os.path.abspath(__file__))), "inventario", "urls_descubiertas.txt")
-    ficheros = sorted(glob.glob(os.path.join(salida, "*.html")))
-    existentes = vivas(vivas_f) | {os.path.basename(f) for f in ficheros} | {"index.html"}
+    ficheros = sorted(glob.glob(os.path.join(salida, "*.html"))
+                      + [f for f in glob.glob(os.path.join(salida, "blog", "*.html"))
+                         if not os.path.basename(f).startswith("_")])
+    existentes = vivas(vivas_f) | {"index.html", "blog.html"}
+    for f in ficheros:
+        rel = os.path.relpath(f, salida).replace(os.sep, "/")
+        existentes.add(rel)
+        existentes.add(os.path.basename(f))
     total = 0
     for f in ficheros:
         total += validar(f, existentes)
