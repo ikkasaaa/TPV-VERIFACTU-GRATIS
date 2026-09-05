@@ -211,6 +211,39 @@ Agente:
 
 ---
 
+## 8 bis. El blog: 35 posts con fecha, de septiembre de 2026 a junio de 2027
+
+Un post por campaña comercial o fecha fiscal, escrito a mano y publicado
+cuando la gente empieza a buscar esa fecha, no cuando llega. Cada uno enlaza a
+las páginas de sector y de producto que le tocan y cierra con una salida
+comercial hacia la descarga escrita para ese post. El calendario completo, con
+la fecha de publicación de cada uno, está en
+`carrito5-seo/inventario/calendario-editorial-blog.tsv`; el índice para
+`blog.html` se genera en `blog/_indice-fragmento.html`.
+
+| Mes | Posts |
+|---|---|
+| Septiembre 2026 | Vuelta al cole en la papelería · Calendario comercial 2026-2027 · Cien días de VeriFactu para sociedades · La Navidad se prepara en septiembre |
+| Octubre | Halloween en disfraces · Black Friday: participar o no · Etiquetar antes de la campaña · Todos los Santos en floristería |
+| Noviembre | El 11 del 11 en tienda física · La semana del Black Friday día a día · Política de devoluciones para Navidad · Cyber Monday sin web |
+| Diciembre | Navidad, las tres semanas · El vale de devolución · VeriFactu el 1 de enero · Inventario de fin de año · Cambios después de Reyes |
+| Enero 2027 | Rebajas de enero · Primera semana con VeriFactu · Cuesta de enero: costes fijos · San Valentín en tres semanas |
+| Febrero | Carnaval · Día del Padre con un mes · Cambio de temporada |
+| Marzo | Semana Santa en zona turística · Cien días de VeriFactu para autónomos · Día de la Madre con un mes |
+| Abril | Sant Jordi y Día del Libro · Comuniones |
+| Mayo | Verano en la tienda de costa · VeriFactu: el último mes para autónomos |
+| Junio | Rebajas de verano · Campaña escolar: el pedido en junio · VeriFactu: lista final · Balance del primer semestre |
+
+Reglas del blog: sin bloque de venta común (cada cierre es distinto), solo
+funciones confirmadas, fechas verificadas (Black Friday 27-11-2026, Reyes en
+miércoles, Carnaval 6 al 9-2-2027, Semana Santa 21 al 28-3-2027, Día de la
+Madre 2-5-2027, VeriFactu 1-1-2027 y 1-7-2027), y aviso de «información
+general, no asesoramiento» en todo lo legal y fiscal. Gate interno de los 47
+ficheros generados: media 0,24, máximo 0,42.
+
+Lo que necesita el cliente: subir `blog/*.html`, pegar el fragmento de tarjetas
+en `blog.html`, y publicar cada post en su fecha o antes (no después).
+
 ## 9. Mapa de palabras clave objetivo (carrito5)
 
 | Búsqueda | Página | Nota |

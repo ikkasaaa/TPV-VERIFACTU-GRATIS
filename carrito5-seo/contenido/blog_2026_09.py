@@ -151,7 +151,7 @@ BLOG_2026_09 = {
 # ------------------------------------------------------------------ 22 sep
 "verifactu-100-dias-sociedades-1-enero-2027": dict(
   title="VeriFactu: 100 Días para las Sociedades (1 de Enero de 2027)",
-  desc="El 23 de septiembre quedan cien días para que las sociedades facturen con un programa adaptado a VeriFactu. Qué comprobar, en qué orden y qué no hace falta.",
+  desc="El 23 de septiembre quedan cien días para que las sociedades facturen con VeriFactu. Qué comprobar, en qué orden y qué no hace falta comprar.",
   kw="verifactu 1 enero 2027, verifactu sociedades, verifactu quedan dias, verifactu empresas 2027, adaptar tpv verifactu, verifactu sl tienda",
   h1="Quedan cien días: VeriFactu para sociedades, el 1 de enero de 2027",
   sub="Cien días parecen muchos hasta que se descuentan el Black Friday, la Navidad y las vacaciones. Lo que se pueda comprobar en octubre, mejor en octubre.",
@@ -217,7 +217,7 @@ BLOG_2026_09 = {
 # ------------------------------------------------------------------ 29 sep
 "campana-navidad-tienda-preparar-en-septiembre": dict(
   title="La Navidad de tu Tienda se Prepara en Septiembre",
-  desc="Una tienda de regalo, juguetería o moda decide su Navidad en septiembre: plazos de proveedor, qué pedir con datos y cómo entrar el género sin etiquetar en diciembre.",
+  desc="La Navidad de una tienda de regalo, juguetería o moda se decide en septiembre: plazos del proveedor, pedido con datos y género etiquetado en noviembre.",
   kw="preparar navidad tienda, campaña navidad comercio, pedidos navidad proveedor, stock navidad tienda, jugueteria navidad preparar, tienda regalo navidad",
   h1="La Navidad de tu tienda se decide en septiembre",
   sub="En diciembre ya no se puede pedir, solo vender. Lo que llegue a la tienda en noviembre es lo que se pidió ahora, y se pide bien o se pide a ojo.",

@@ -1,0 +1,237 @@
+# -*- coding: utf-8 -*-
+"""Blog de carrito5.com: noviembre de 2026.
+
+El 11 del 11, la semana del Black Friday dia a dia, la politica de
+devoluciones antes de Navidad y el Cyber Monday para quien no vende online.
+Mismas reglas de funciones confirmadas que blog_2026_09.py.
+
+Dato legal que se usa: al anunciar una rebaja hay que indicar el precio
+anterior, que es el mas bajo aplicado en los 30 dias previos (Real Decreto-ley
+7/2021, que traspuso la directiva Omnibus). Devoluciones en tienda fisica:
+solo obligatorias por defecto; el desistimiento de 14 dias es para venta a
+distancia. Todo con remision al asesor.
+"""
+
+BLOG_2026_11 = {
+
+# ------------------------------------------------------------------ 3 nov
+"11-del-11-tienda-fisica-merece-la-pena": dict(
+  title="El 11 del 11 en una Tienda Física: ¿Merece la Pena?",
+  desc="El Día del Soltero, 11 de noviembre, mueve millones online y casi nada en la calle. Cuándo sumarse desde una tienda física y cuándo guardar la pólvora.",
+  kw="11 del 11 tienda, dia del soltero comercio, singles day españa tienda fisica, 11 noviembre ofertas tienda, 11.11 comercio local",
+  h1="El 11 del 11 en una tienda de calle: cuándo sí y cuándo no",
+  sub="Es la fecha de descuentos más grande del mundo y casi nadie la busca en una tienda de barrio. Eso puede ser una razón para ignorarla o una razón para aprovecharla.",
+  publicado="2026-11-03",
+  para="Moda, complementos, electrónica, cosmética",
+  resumen=[
+    "El 11 de noviembre, el Día del Soltero, es una campaña nacida en el comercio online chino y trasladada a España por las grandes plataformas. En una tienda física el cliente no la espera, así que no hay que competir con nadie ese día. Merece la pena si vendes moda, complementos, electrónica o cosmética a público joven y quieres un ensayo pequeño dos semanas antes del Black Friday.",
+    "No merece la pena si tu clientela es de proximidad y mayor, o si tu campaña fuerte es Navidad: cada descuento de noviembre es margen que no se recupera en diciembre.",
+  ],
+  cuerpo=[
+    ("De dónde viene y por qué te llega",
+     ["El 11 del 11 empezó como broma universitaria en China y lo convirtió en campaña una plataforma de venta online. Hoy es el día de mayor facturación del comercio electrónico del mundo, y en España lo empujan las grandes plataformas y algunas cadenas de moda. En la calle, en cambio, casi nadie lo celebra. El cliente que entra en tu tienda el 11 de noviembre no viene por eso.",
+      "Y ahí está la decisión. Para una tienda física es una fecha sin expectativa: si no haces nada, nadie lo nota. Si haces algo, eres el único del barrio que lo hace."],
+     None),
+    ("Cuándo sí: un ensayo pequeño",
+     ["Si tienes público joven, vendes moda, complementos, electrónica o cosmética y estás dudando qué hacer el Black Friday, el 11 del 11 es un ensayo barato con dos semanas de margen. Eliges diez referencias, las etiquetas con precio de un día, y miras qué pasa. Lo que aprendas, sobre qué se mueve con descuento y qué no, lo aplicas el 27 de noviembre con más referencias.",
+      "La regla de las referencias es la de siempre: las que interesa liquidar antes de Navidad, temporada anterior y tallas sueltas. Nunca lo que se va a vender igual en diciembre. Y con etiqueta nueva ese día, que al día siguiente se retira."],
+     ["<strong>Diez referencias</strong>, no la tienda entera.",
+      "<strong>Un solo día</strong>, con etiqueta del 11 y vuelta al precio normal el 12.",
+      "<strong>Apuntar qué se vendió</strong>: es la información para el Black Friday."]),
+    ("Cuándo no: cuando cada descuento de noviembre sale de diciembre",
+     ["Si tu campaña es Navidad y tu clientela es de barrio, el 11 del 11 no aporta nada y quita margen. La persona que compra el regalo en tu joyería en diciembre no lo va a adelantar al 11 de noviembre por un 15 %; lo que hará es comprarlo con un 15 % menos. Y la señora de setenta años que compra en tu mercería no sabe qué es el Día del Soltero ni tiene por qué.",
+      "En esos casos, el 11 se deja pasar y se guarda la pólvora para la decisión del Black Friday, que también puede ser no participar."],
+     None),
+    ("Lo legal, que se olvida",
+     ["Cualquier descuento que anuncies, el 11, el 27 o en rebajas, tiene que indicar el precio anterior, y el precio anterior es el más bajo que hayas aplicado a ese artículo en los treinta días previos. Es la norma que llegó con la directiva europea de 2021, y la inspección de consumo la mira. Con las etiquetas impresas desde el programa, el precio anterior y el nuevo salen en la misma etiqueta y no hay que escribirlo a mano. Esto es información general; para tu caso, tu asesor."],
+     None),
+  ],
+  cierre=("Un día de prueba con etiquetas nuevas",
+          ["Para hacer un ensayo del 11 del 11 hace falta poder cambiar el precio de diez referencias, imprimir su etiqueta con el precio anterior y el nuevo, y saber al día siguiente qué se ha vendido. Carrito5 hace las tres cosas, es gratuito hasta 1.000 artículos y se instala en tu ordenador con Windows en unos minutos. Instalado esta semana, el 11 tienes el ensayo hecho y el 27 el Black Friday decidido con datos."],
+          "Descargar Carrito5 gratis", "/descargar-tpv-gratis.html"),
+  faqs=[
+    ("¿Qué es el 11 del 11 o Día del Soltero?",
+     "Una campaña de descuentos nacida en el comercio online chino, celebrada el 11 de noviembre, que en España empujan las grandes plataformas. En tienda física el cliente no la espera."),
+    ("¿Tiene sentido hacer algo en una tienda de barrio?",
+     "Solo como ensayo pequeño antes del Black Friday, con diez referencias y un solo día, si vendes moda, complementos, electrónica o cosmética a público joven."),
+    ("¿Qué referencias pongo en oferta?",
+     "Las que interesa liquidar antes de Navidad: temporada anterior y tallas sueltas. Nunca lo que se venderá igual en diciembre."),
+    ("¿Hay que poner el precio anterior en la etiqueta?",
+     "Sí. Al anunciar una rebaja hay que indicar el precio anterior, que es el más bajo aplicado en los treinta días previos. Consúltalo con tu asesor para tu caso."),
+    ("¿Y si mi clientela es mayor y de proximidad?",
+     "Déjalo pasar. Cada descuento de noviembre es margen que no vuelve en diciembre, y tu cliente no espera esta fecha."),
+  ],
+  relacionadas=[("Black Friday en la tienda de barrio", "blog/black-friday-comercio-local-participar-o-no.html", "La decisión grande"),
+                ("Etiquetar antes de la campaña", "blog/etiquetar-genero-antes-de-campana.html", "Etiqueta con precio anterior"),
+                ("TPV para tiendas de ropa", "tpv-tienda-ropa.html", "Donde más se usa el 11 del 11"),
+                ("Calendario comercial 2026-2027", "blog/calendario-comercial-2026-2027-fechas-clave.html", "Todas las fechas")]),
+
+# ------------------------------------------------------------------ 10 nov
+"black-friday-27-noviembre-2026-semana-dia-a-dia": dict(
+  title="Black Friday 27 de Noviembre de 2026: la Semana, Día a Día",
+  desc="Del lunes 23 al domingo 29 de noviembre de 2026, qué hacer cada día en la tienda: cartel, etiquetas con precio anterior, reposición, caja y qué retirar.",
+  kw="black friday 2026, black friday 27 noviembre, semana black friday tienda, black friday tienda fisica que hacer, black friday comercio 2026 españa",
+  h1="La semana del Black Friday 2026, día a día en la tienda",
+  sub="Si ya decidiste qué hacer el 27 de noviembre, esto es la ejecución. Si no lo has decidido, hay un artículo antes que este y todavía llegas.",
+  publicado="2026-11-10",
+  para="Todo el comercio de calle que participa",
+  resumen=[
+    "El Black Friday es el viernes 27 de noviembre de 2026 y en la calle dura de jueves a sábado. La semana se organiza así: el lunes 23 se imprimen las etiquetas con el precio anterior y el rebajado y se coloca el cartel; el miércoles 25 se repone lo que se prevé agotar; el jueves 26 se abre con todo puesto; el sábado 28 por la tarde se decide qué se queda rebajado y qué vuelve a su precio; el domingo se apunta lo vendido.",
+    "Con las referencias de la campaña ya en el programa, cada uno de esos pasos es cuestión de minutos.",
+  ],
+  cuerpo=[
+    ("Lunes 23: etiquetas y cartel",
+     ["Las referencias con descuento ya están decididas desde octubre: temporada anterior, tallas sueltas, lo que no se movió. El lunes se imprimen sus etiquetas nuevas con dos precios, el anterior y el del Black Friday. El anterior tiene que ser el más bajo aplicado en los treinta días previos; es obligación legal desde 2021, y con la etiqueta impresa desde el programa sale sola.",
+      "El cartel del escaparate va ese mismo día, aunque el descuento empiece el jueves: la gente pasa por delante toda la semana y decide el viernes."],
+     None),
+    ("Martes 24 y miércoles 25: reposición y prueba de caja",
+     ["Lo que se prevé agotar, se pide el martes para tenerlo el jueves. Lo que se prevé agotar es lo que se agotó el año pasado, si quedó apuntado, o lo que ha bajado más en el stock en las últimas dos semanas.",
+      "El miércoles se hace una venta de prueba con tres artículos: uno rebajado, uno a precio normal y una prenda con talla. Se comprueba que el ticket sale con el precio correcto y con el QR de VeriFactu, y que el lector lee las etiquetas nuevas. Si algo falla, hay un día para arreglarlo."],
+     ["<strong>Pedido de reposición</strong> el martes, con lo que más ha bajado en stock.",
+      "<strong>Venta de prueba</strong> el miércoles: rebajado, normal, con talla.",
+      "<strong>Cambio de rollo</strong> de la impresora de tickets y uno de repuesto a mano."]),
+    ("Jueves 26 a sábado 28: cobrar",
+     ["Estos tres días no se toca nada. Se cobra pasando el lector, se contesta «¿lo tienes en la 40?» mirando la pantalla, y se registra cada venta en la ficha del cliente cuando el cliente ya es conocido, porque en diciembre esa información vale. Si la tienda ha optado por el vale para diciembre en vez del descuento, el vale se apunta en la ficha del cliente en el momento.",
+      "Un consejo de caja que se olvida: el jueves por la tarde y el sábado por la mañana son los picos en la calle, no el viernes por la mañana. Mejor no quedarse solo en la tienda esas dos franjas."],
+     None),
+    ("Sábado 28 por la tarde: qué se queda y qué vuelve",
+     ["Lo que se haya vendido bien con descuento y siga habiendo stock puede quedarse rebajado hasta Navidad como saldo. Lo que no se haya movido ni con descuento vuelve a su precio o se saca del escaparate: si no se ha vendido rebajado un viernes de noviembre, no se va a vender rebajado un martes de diciembre, y ocupa sitio.",
+      "Las etiquetas se reimprimen para lo que cambia de precio, y el domingo la tienda está lista para diciembre."],
+     None),
+    ("Domingo 29: la cifra que decide el año que viene",
+     ["Lo vendido de jueves a sábado por referencia, comparado con lo del año pasado si existe, es lo que dirá en octubre de 2027 si participar y con qué. Si las ventas están en el programa, la cifra está ahí. Si están en una libreta, este es el último año de libreta."],
+     None),
+  ],
+  cierre=("La semana entera en un programa gratuito",
+          ["Etiquetas con dos precios, lector, stock por referencia y por talla, ficha de cliente para los vales y ticket con QR: todo lo que hace falta esta semana está en el plan Inicio de Carrito5, gratuito hasta 1.000 artículos. Hoy es 10 de noviembre. Instalado hoy, con las referencias de campaña dadas de alta el fin de semana, el lunes 23 se imprimen las etiquetas."],
+          "Descargar Carrito5 gratis", "/descargar-tpv-gratis.html"),
+  faqs=[
+    ("¿Qué día es el Black Friday de 2026?",
+     "El viernes 27 de noviembre. En la calle se vende de jueves 26 a sábado 28; los picos son el jueves por la tarde y el sábado por la mañana."),
+    ("¿Cuándo pongo el cartel?",
+     "El lunes 23, aunque el descuento empiece el jueves. La gente pasa por delante toda la semana."),
+    ("¿Qué precio anterior tengo que poner en la etiqueta?",
+     "El más bajo que hayas aplicado a ese artículo en los treinta días anteriores. Es obligación legal al anunciar una rebaja. Con la etiqueta impresa desde el programa sale sola."),
+    ("¿Qué hago el sábado con lo que no se ha vendido?",
+     "Volverlo a su precio o sacarlo del escaparate. Lo que sí se ha vendido y aún queda puede seguir rebajado hasta Navidad como saldo."),
+    ("¿Cómo sé si ha ido bien?",
+     "Comparando lo vendido de jueves a sábado, por referencia, con el año pasado. Si está en el programa, es un vistazo."),
+  ],
+  relacionadas=[("Participar o no en el Black Friday", "blog/black-friday-comercio-local-participar-o-no.html", "La decisión, con cuentas"),
+                ("Etiquetar antes de la campaña", "blog/etiquetar-genero-antes-de-campana.html", "Códigos y etiquetas"),
+                ("Política de devoluciones para la campaña", "blog/politica-devoluciones-campana-navidad.html", "Antes de que empiecen los cambios"),
+                ("Descargar Carrito5", "descargar-tpv-gratis.html", "Antes del lunes 23")]),
+
+# ------------------------------------------------------------------ 17 nov
+"politica-devoluciones-campana-navidad": dict(
+  title="Devoluciones de Navidad: la Política se Escribe en Noviembre",
+  desc="Qué obliga la ley en tienda física, qué decide la tienda, cómo escribirlo en el ticket y cómo registrar cada cambio y vale para que enero no sea un caos.",
+  kw="politica devoluciones tienda, devoluciones navidad tienda fisica, vale devolucion tienda, cambios navidad comercio, ley devoluciones tienda fisica, devoluciones reyes",
+  h1="Devoluciones de Navidad: la política se escribe en noviembre",
+  sub="Entre el 26 de diciembre y el 10 de enero una tienda de regalo hace más cambios que ventas. Si la regla no está escrita antes, cada cambio es una discusión.",
+  publicado="2026-11-17",
+  para="Regalo, moda, juguetería, joyería, perfumería",
+  resumen=[
+    "En una tienda física la ley solo obliga a devolver o cambiar un producto defectuoso; el derecho a desistir en 14 días es para compras a distancia. Todo lo demás, cambios de regalo, plazos, vales o dinero, lo decide la tienda, con la condición de que lo anuncie y lo aplique igual a todos.",
+    "La política de Navidad se decide en noviembre, se imprime en el ticket y en un cartel junto a la caja, y cada cambio se registra sobre el ticket original en la ficha del cliente, con el vale apuntado. Esto es información general, no asesoramiento legal.",
+  ],
+  cuerpo=[
+    ("Lo que dice la ley y lo que no",
+     ["Conviene tener claro el punto de partida, porque el cliente suele creer que tiene un derecho que no tiene, y el comerciante a veces también. En tienda física, si el producto está bien, no hay obligación legal de aceptar una devolución ni un cambio. La garantía cubre defectos. El plazo de 14 días para devolver sin dar explicaciones existe, pero para las compras online, por teléfono o fuera del establecimiento.",
+      "Lo que sí exige la ley es que, si la tienda anuncia una política de devoluciones, la cumpla. Y que las condiciones estén a la vista del cliente antes de comprar. Un cartel junto a la caja y una línea en el ticket cumplen las dos cosas. Para tu caso concreto, tu asesor o la oficina de consumo de tu comunidad."],
+     None),
+    ("Las cuatro decisiones",
+     ['<div class="c5-tabla-wrap"><table class="c5-tabla"><thead><tr><th>Decisión</th><th>Lo habitual en Navidad</th><th>Por qué</th></tr></thead><tbody>'
+      '<tr><td>Plazo</td><td>Hasta el 10 o el 15 de enero para lo comprado desde el 1 de diciembre</td><td>Cubre los regalos de Reyes con margen y cierra antes de que las rebajas lo compliquen</td></tr>'
+      '<tr><td>Cambio, vale o dinero</td><td>Cambio por otro artículo o vale; dinero solo por defecto</td><td>El vale mantiene la venta en la tienda; el dinero la deshace</td></tr>'
+      '<tr><td>Condiciones</td><td>Con ticket o localizable en la ficha del cliente, sin usar, con etiqueta</td><td>Evita el disfraz usado y la prenda lavada</td></tr>'
+      '<tr><td>Excepciones</td><td>Lencería, cosmética abierta, artículos personalizados, rebajados</td><td>Higiene y porque un artículo grabado no se revende</td></tr>'
+      '</tbody></table></div>',
+      "Decidido esto, se escribe en dos frases, se imprime en el pie del ticket y en un cartel a la altura de los ojos junto a la caja. Sin letra pequeña: si hace falta un párrafo, la política es demasiado complicada."],
+     None),
+    ("El ticket regalo: qué es y qué no",
+     ["Muchas tiendas entregan con el regalo un segundo ticket sin precio, para que quien lo recibe pueda cambiarlo sin ver lo que costó. Es una práctica de la tienda, no una obligación, y cada programa la resuelve a su manera. Lo importante para la tienda no es el papel sino poder localizar la venta original cuando venga la persona que recibió el regalo: por fecha, por artículo, por el nombre de quien lo compró.",
+      "Ahí es donde la ficha de cliente hace el trabajo. Si la venta de diciembre se registró en la ficha del comprador, el 8 de enero se localiza aunque el ticket se haya perdido con el papel de regalo."],
+     None),
+    ("Registrar cada cambio: el vale en la ficha",
+     ["Un cambio bien hecho deja rastro: se localiza la venta original, se devuelve el artículo al stock, y si hay diferencia a favor del cliente se emite un vale con su importe, que queda en la ficha del cliente. Sin papeles sueltos, sin sello, sin libreta.",
+      "En enero eso permite dos cosas: saber cuántos vales hay en circulación y por cuánto, y que cuando el cliente vuelva en marzo con el vale, aparezca en su ficha aunque haya perdido el papel. En Carrito5 la devolución sobre el ticket original y el vale en la ficha del cliente están en el plan gratuito."],
+     ["<strong>Localizar</strong> la venta original por ticket o por ficha del cliente.",
+      "<strong>Devolver</strong> el artículo al stock con su talla y color.",
+      "<strong>Emitir el vale</strong> con su importe y dejarlo en la ficha.",
+      "<strong>Nada de dinero</strong> salvo defecto, si esa es la política."]),
+  ],
+  cierre=("Para que enero sea solo cambiar, no discutir",
+          ["Carrito5 registra cada venta de diciembre en la ficha del cliente, localiza la venta original en enero y deja el vale de devolución apuntado. Es gratuito hasta 1.000 artículos y se instala en tu ordenador con Windows. Escribe la política esta semana, instala el programa la que viene, y la campaña empieza con las reglas claras."],
+          "Descargar Carrito5 gratis", "/descargar-tpv-gratis.html"),
+  faqs=[
+    ("¿Estoy obligado a aceptar devoluciones en mi tienda?",
+     "Solo por producto defectuoso. Si el producto está bien, en tienda física no hay obligación legal de cambio ni devolución; lo decide la tienda. El plazo de 14 días es para compras a distancia. Confírmalo con tu asesor."),
+    ("¿Qué plazo de cambio pongo para los regalos de Navidad?",
+     "Lo habitual es hasta el 10 o el 15 de enero para lo comprado desde el 1 de diciembre. Cubre Reyes y cierra antes de que las rebajas lo compliquen."),
+    ("¿Vale o dinero?",
+     "Lo habitual es cambio o vale, y dinero solo por defecto. El vale mantiene la venta en la tienda."),
+    ("¿Cómo localizo una venta si el cliente no trae el ticket?",
+     "Por la ficha del cliente que compró: fecha y artículo. Por eso conviene registrar las ventas de diciembre a nombre del comprador cuando se conoce."),
+    ("¿Dónde tiene que estar escrita la política?",
+     "En un cartel visible junto a la caja y en el pie del ticket, antes de que el cliente compre. Dos frases, sin letra pequeña."),
+  ],
+  relacionadas=[("La Navidad se prepara en septiembre", "blog/campana-navidad-tienda-preparar-en-septiembre.html", "Pedidos y entrada de género"),
+                ("Cambios después de Reyes", "blog/cambios-despues-de-reyes-semana-del-7-de-enero.html", "La semana de los cambios"),
+                ("TPV para boutiques", "tpv-boutique.html", "Ficha de clienta y devoluciones"),
+                ("TPV para jugueterías y regalos", "tpv-jugueteria-regalos.html", "El sector con más cambios")]),
+
+# ------------------------------------------------------------------ 24 nov
+"cyber-monday-tienda-sin-venta-online": dict(
+  title="Cyber Monday sin Tienda Online: Qué Hacer el 30 de Noviembre",
+  desc="El Cyber Monday, 30 de noviembre de 2026, es de internet. Una tienda sin web puede usarlo para reservar diciembre por WhatsApp y llenar fichas de clientes.",
+  kw="cyber monday tienda fisica, cyber monday 2026, cyber monday sin tienda online, cyber monday comercio local, reservar por whatsapp tienda",
+  h1="Cyber Monday sin web: el lunes 30 también sirve para algo",
+  sub="El Cyber Monday es de las plataformas. Pero el lunes después del Black Friday la gente sigue con ganas de comprar y tu tienda está abierta. Se puede aprovechar sin vender online.",
+  publicado="2026-11-24",
+  para="Comercio de calle sin tienda online",
+  resumen=[
+    "El Cyber Monday, lunes 30 de noviembre de 2026, es la versión online del Black Friday y una tienda de calle sin web no compite en ella. Lo que sí puede hacer ese día es captar la reserva de diciembre: anunciar por WhatsApp o en el escaparate que se reservan los artículos de regalo hasta el 20 de diciembre, y apuntar cada reserva a nombre del cliente.",
+    "El resultado no es venta del lunes, es venta asegurada de diciembre y una ficha de clientes con nombre y teléfono para el resto del año.",
+  ],
+  cuerpo=[
+    ("Lo que es el Cyber Monday y lo que no",
+     ["Nació en Estados Unidos como el día en que la gente volvía al trabajo tras el puente de Acción de Gracias y compraba online desde la oficina. En España es el lunes 30 de noviembre de 2026, y lo mueven las plataformas y las cadenas con web. Una tienda de barrio sin venta online no tiene nada que hacer en esa carrera y no pasa nada.",
+      "Pero el lunes 30 la tienda abre, la gente ya ha decidido que este año compra, y todavía no ha comprado lo de diciembre. Ese hueco es el que se puede usar."],
+     None),
+    ("La reserva de diciembre",
+     ["La idea es sencilla: el lunes 30 se anuncia que la tienda reserva. El cliente elige el regalo esta semana, lo deja apartado a su nombre, y lo recoge y lo paga cuando quiera hasta el 20 de diciembre. Para el cliente resuelve el miedo a que se agote. Para la tienda convierte una intención en una venta casi segura y descubre qué va a vender en diciembre antes de que llegue.",
+      "Se anuncia por WhatsApp a los clientes que ya se tienen, en el escaparate y en el mostrador. No hace falta web, ni pasarela de pago, ni nada más que un teléfono y una libreta de reservas, o mejor que una libreta, la ficha del cliente en el programa."],
+     ["<strong>Qué se reserva</strong>: artículos de regalo con stock limitado, no todo el catálogo.",
+      "<strong>Hasta cuándo</strong>: 20 de diciembre; lo no recogido vuelve a la venta.",
+      "<strong>Sin señal o con señal</strong>: la tienda decide; con señal, la reserva es más firme.",
+      "<strong>A nombre de quién</strong>: siempre con nombre y teléfono, apuntados en su ficha."]),
+    ("La ficha de cliente que se llena sola",
+     ["Aquí está el valor real del lunes 30 para una tienda pequeña. Cada reserva es un cliente con nombre y teléfono que ha dicho qué le interesa. Apuntado en su ficha, en febrero sabes a quién avisar del Día del Padre, en abril de la Madre y en noviembre de 2027 de que vuelven las reservas.",
+      "Una tienda de barrio con doscientas fichas de cliente con teléfono tiene más capacidad de vender en diciembre que una con un perfil de Instagram con dos mil seguidores. Es la lista propia, y se construye en días como este."],
+     None),
+    ("Lo que no se puede prometer",
+     ["No hay que inventar un servicio que la tienda no puede dar. Si no se puede enviar a domicilio, no se ofrece. Si no se puede cobrar a distancia, se cobra en tienda al recoger. La reserva es una promesa de guardar, no un pedido online, y así se dice. Y si un artículo reservado no llega del proveedor, se avisa al cliente antes del 20, no el 23."],
+     None),
+  ],
+  cierre=("Las reservas, en la ficha y no en la libreta",
+          ["Para reservar hace falta saber qué stock hay de cada artículo y apuntar cada reserva a nombre de un cliente con su teléfono. Carrito5 lleva el stock por referencia y la ficha de clientes con su historial, y es gratuito hasta 1.000 artículos. El lunes 30 anuncias las reservas; en diciembre las recoges desde la ficha, y en enero tienes la lista de clientes del año que viene."],
+          "Descargar Carrito5 gratis", "/descargar-tpv-gratis.html"),
+  faqs=[
+    ("¿Qué día es el Cyber Monday de 2026?",
+     "El lunes 30 de noviembre de 2026, tres días después del Black Friday."),
+    ("¿Puede una tienda sin web hacer algo el Cyber Monday?",
+     "Sí: anunciar reservas de artículos de regalo hasta el 20 de diciembre, por WhatsApp y en el escaparate, y apuntarlas a nombre del cliente."),
+    ("¿Cobro señal por la reserva?",
+     "Lo decide la tienda. Con señal la reserva es más firme; sin señal es más fácil de aceptar. En ambos casos, lo no recogido el 20 vuelve a la venta."),
+    ("¿Para qué sirve apuntar la reserva en la ficha del cliente?",
+     "Para recogerla sin papeles y para tener nombre y teléfono de cada cliente de cara a las campañas de 2027: Día del Padre, Día de la Madre y la Navidad siguiente."),
+    ("¿Carrito5 permite vender online?",
+     "No. Carrito5 es un programa de caja para la tienda física. Las reservas se gestionan con el stock y la ficha de clientes, y se cobran en tienda."),
+  ],
+  relacionadas=[("La semana del Black Friday día a día", "blog/black-friday-27-noviembre-2026-semana-dia-a-dia.html", "La semana anterior"),
+                ("Navidad: las tres semanas que deciden el año", "blog/navidad-tres-semanas-que-deciden-el-ano.html", "Lo que viene después"),
+                ("TPV para comercio local", "software-tpv-comercio-local.html", "Pensado para la tienda de barrio"),
+                ("Sobre Carrito5", "sobre-carrito5.html", "Quién está detrás")]),
+
+}

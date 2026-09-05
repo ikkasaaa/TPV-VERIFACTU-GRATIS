@@ -67,7 +67,7 @@ BLOG_2026_10 = {
 # ------------------------------------------------------------------ 13 oct
 "black-friday-comercio-local-participar-o-no": dict(
   title="Black Friday 2026 en la Tienda de Barrio: Cómo Hacerlo",
-  desc="El Black Friday es el 27 de noviembre de 2026. Una tienda pequeña puede no participar, hacer descuento acotado o participar sin descuento. Las tres, con cuentas.",
+  desc="Black Friday, 27 de noviembre de 2026. Una tienda pequeña puede no participar, hacer descuento acotado o participar sin descuento. Las tres, con cuentas.",
   kw="black friday comercio local, black friday tienda pequeña, black friday 2026 españa, black friday tienda fisica, participar black friday tienda, black friday comercio barrio",
   h1="Black Friday 2026 en una tienda de barrio: tres formas de hacerlo",
   sub="El 27 de noviembre no es obligatorio. Pero si no decides ahora qué vas a hacer ese día, lo decidirá la tienda de al lado con un cartel del 50 %.",
@@ -123,7 +123,7 @@ BLOG_2026_10 = {
 # ------------------------------------------------------------------ 20 oct
 "etiquetar-genero-antes-de-campana": dict(
   title="Etiquetar el Género antes de la Campaña, sin Colas",
-  desc="Cómo dar de alta y etiquetar el género de campaña en una tarde: lo que trae código de barras, lo que no, y que en diciembre cobrar sea solo pasar el lector.",
+  desc="Cómo dar de alta y etiquetar el género de campaña en una tarde: lo que trae código de barras, lo que no, y que en diciembre cobrar sea pasar el lector.",
   kw="etiquetar productos tienda, codigo de barras tienda pequeña, imprimir etiquetas codigo barras, lector codigo barras tpv, etiquetas precio tienda, como poner codigo de barras a mis productos",
   h1="Etiquetar antes de la campaña: que cobrar sea pasar el lector",
   sub="Cada artículo que hay que buscar en una lista en diciembre son treinta segundos de cola. Multiplicado por cada ticket, es la diferencia entre una tienda que fluye y una que se atasca.",
@@ -183,7 +183,7 @@ BLOG_2026_10 = {
 # ------------------------------------------------------------------ 27 oct
 "todos-los-santos-floristeria-semana-grande": dict(
   title="Todos los Santos en la Floristería: la Semana Grande",
-  desc="El 1 de noviembre de 2026 es domingo: la floristería vende del jueves al sábado lo que no vende en dos meses. Flor fresca, merma, clientes que repiten y cobrar sin cola.",
+  desc="El 1 de noviembre de 2026 es domingo: la floristería vende de jueves a sábado lo de dos meses. Flor fresca, merma, clientes que repiten y cobrar sin cola.",
   kw="todos los santos floristeria, floristeria 1 noviembre ventas, flores todos los santos, floristeria campaña noviembre, tpv floristeria",
   h1="Todos los Santos: la semana grande de la floristería",
   sub="Crisantemos, claveles y la misma señora que viene cada año el 31 por la mañana. Es la campaña donde más se pierde por merma y donde más vale acordarse del cliente.",

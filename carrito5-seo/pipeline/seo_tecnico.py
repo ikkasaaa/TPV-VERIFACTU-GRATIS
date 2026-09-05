@@ -79,6 +79,9 @@ def paginas_generadas(salida):
     out = []
     for p in glob.glob(os.path.join(salida, "*.html")):
         out.append(os.path.basename(p))
+    for p in glob.glob(os.path.join(salida, "blog", "*.html")):
+        if not os.path.basename(p).startswith("_"):
+            out.append("blog/" + os.path.basename(p))
     return out
 
 
@@ -243,6 +246,12 @@ def llms(rutas, salida, titulos_vivos):
     out.append("")
     out += [linea(r) for r in sectores]
     out.append("")
+    posts = sorted(r for r in rutas if r.startswith("blog/") and r not in usadas)
+    if posts:
+        out.append("## Blog: campañas del comercio, mes a mes")
+        out.append("")
+        out += [linea(r) for r in posts]
+        out.append("")
     return "\n".join(out) + "\n"
 
 

@@ -24,6 +24,18 @@ Módulos de `contenido/`:
 Solo se afirman las funciones confirmadas por el cliente: ver `CLAUDE.md`,
 trampa 6, y `PLAN_MAESTRO_SEO_GEO.md`, sección 4.
 
+## Blog
+
+    python3 pipeline/generar_blog.py <dir-salida>          # todos los contenido/blog_*.py
+
+Escribe `blog/<slug>.html` (plantilla `plantilla_blog.py`: Article, fecha de
+publicación, respuesta rápida, FAQ, cierre comercial propio de cada post),
+`blog/calendario-editorial.tsv` con la fecha de publicación de cada post y
+`blog/_indice-fragmento.html` con las tarjetas para `blog.html`. Un módulo por
+mes, `blog_AAAA_MM.py`, de septiembre de 2026 a junio de 2027: 35 posts, uno
+por campaña comercial o fecha fiscal, con su fecha de publicación. El
+calendario está copiado en `inventario/calendario-editorial-blog.tsv`.
+
 Comprobar duplicación entre los dos sitios:
 
     python3 -c "import sys; sys.path.insert(0,'../motor'); import gate; \
