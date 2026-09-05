@@ -11,8 +11,8 @@ BLOG_2027_02B = {
 
 # ------------------------------------------------------------------ 11 feb
 "tienda-bicicletas-primavera-preparar-marzo": dict(
-  title="Tienda de Bicicletas: la Temporada Empieza en Marzo y se Prepara en Febrero",
-  desc="Con el primer fin de semana de sol de marzo, la tienda de bicicletas se llena de gente que saca la bici del trastero. Recambios etiquetados, cascos y luces por talla y color, y la ficha del cliente con su bici para vender lo que le toca.",
+  title="Tienda de Bicicletas: la Temporada Arranca en Marzo",
+  desc="El primer sábado de sol de marzo la tienda de bicicletas se llena. Recambios etiquetados, cascos y textil por talla y la ficha del cliente con su bici.",
   kw="tienda bicicletas primavera, temporada bicicletas marzo, recambios bicicleta tienda stock, tienda ciclismo preparar temporada, tpv tienda bicicletas",
   h1="Tienda de bicicletas: la temporada arranca el primer sábado de sol",
   sub="En febrero la tienda está tranquila y en marzo, el primer fin de semana que hace bueno, entran veinte personas con la bici del año pasado. Lo que se prepare ahora es lo que se vende entonces.",
@@ -63,8 +63,8 @@ BLOG_2027_02B = {
 
 # ------------------------------------------------------------------ 25 feb
 "fallas-2027-valencia-comercio-15-19-marzo": dict(
-  title="Fallas 2027 en Valencia: el Comercio del Centro del 15 al 19 de Marzo",
-  desc="Del 15 al 19 de marzo de 2027 el centro de Valencia se llena y se cierra al tráfico. Para el comercio de Ciutat Vella, Ruzafa y el Eixample es una semana de turismo, horarios raros, red saturada y ticket al cliente de paso.",
+  title="Fallas 2027: el Comercio del Centro de Valencia, 15 al 19",
+  desc="Del 15 al 19 de marzo de 2027 el centro de Valencia se llena y se corta. Para el comercio de Ciutat Vella y Ruzafa: horarios, red saturada y ticket rápido.",
   kw="fallas 2027 comercio valencia, fallas tienda centro valencia, abrir tienda fallas, comercio ruzafa fallas, vender turistas fallas valencia, tpv valencia",
   h1="Fallas 2027: la semana del comercio del centro de Valencia",
   sub="Del lunes 15 al viernes 19 de marzo las calles se cortan, las mascletàs paran la ciudad a las dos y la gente de paso compra entre una y otra. Es la primera gran campaña de turismo del año en Valencia.",

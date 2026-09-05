@@ -10,7 +10,7 @@ BLOG_2026_12B = {
 # ------------------------------------------------------------------ 3 dic
 "perfumeria-navidad-cofres-fragancia-de-siempre": dict(
   title="Perfumería en Navidad: Cofres, Fragancias y Quién Usa Cuál",
-  desc="En diciembre la perfumería vende cofres y fragancias a gente que no sabe cuál usa la persona a la que regala. La ficha de cliente con la fragancia habitual, los cofres con código propio y el cambio de enero sin abrir.",
+  desc="La perfumería vende cofres en diciembre a quien no sabe qué fragancia usa a quien regala. La ficha con la fragancia habitual y cada cofre con su código.",
   kw="perfumeria navidad ventas, cofres navidad perfumeria, regalar perfume navidad tienda, perfumeria diciembre campaña, tpv perfumeria",
   h1="Perfumería en Navidad: la fragancia de siempre y el cofre de este año",
   sub="«¿Cuál usa mi madre?» es la pregunta de diciembre en una perfumería. Si su madre compra ahí, la respuesta está en la ficha. Si no, este es el año de apuntarlo.",
@@ -60,8 +60,8 @@ BLOG_2026_12B = {
 
 # ------------------------------------------------------------------ 17 dic
 "tienda-mascotas-navidad-regalos-y-comida": dict(
-  title="Tienda de Mascotas en Navidad: Regalos, Comida y el Cliente que Repite",
-  desc="En diciembre la tienda de mascotas vende regalos para el perro y comida para las fiestas a clientes que vienen cada mes por el saco de pienso. La ficha con lo que come cada animal, el expositor de regalo etiquetado y enero sin sorpresas.",
+  title="Mascotas en Navidad: el Regalo y el Pienso de Siempre",
+  desc="En diciembre la tienda de mascotas vende regalos para el perro a clientes que vienen cada mes por el saco. La ficha con lo que come cada animal.",
   kw="tienda mascotas navidad, regalos perros navidad tienda, tienda animales diciembre ventas, pienso cliente habitual ficha, tpv tienda mascotas",
   h1="Tienda de mascotas en Navidad: el regalo del perro y el pienso de siempre",
   sub="El cliente de una tienda de mascotas es el más fiel del comercio: viene cada mes por el mismo saco. En diciembre, además, compra regalo. Hay que saber qué come su animal y tener el regalo etiquetado.",
@@ -111,8 +111,8 @@ BLOG_2026_12B = {
 
 # ------------------------------------------------------------------ 30 dic
 "herboristeria-enero-propositos-clientes-que-vuelven": dict(
-  title="Herboristería en Enero: los Propósitos de Año Nuevo Entran por la Puerta",
-  desc="La segunda semana de enero la herboristería y la parafarmacia reciben a quien quiere adelgazar, dejar de fumar o dormir mejor. Cómo atender esa ola con la ficha de cliente, el consejo que fideliza y el stock que no se queda de un año a otro.",
+  title="Herboristería en Enero: la Ola de los Propósitos",
+  desc="La segunda semana de enero entra quien quiere adelgazar, dejar de fumar o dormir mejor. Atender esa ola con consejo, ficha de cliente y stock justo.",
   kw="herboristeria enero ventas, propositos año nuevo herboristeria, parafarmacia enero dietas, herboristeria clientes que repiten, tpv herboristeria",
   h1="Herboristería en enero: la ola de los propósitos",
   sub="Del 7 al 31 de enero entra gente nueva con una intención concreta y poca idea. La herboristería que la atiende con calma y la apunta la tiene de clienta todo el año.",

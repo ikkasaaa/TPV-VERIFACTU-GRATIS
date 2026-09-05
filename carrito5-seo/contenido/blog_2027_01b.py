@@ -10,7 +10,7 @@ BLOG_2027_01B = {
 # ------------------------------------------------------------------ 7 ene
 "mes-del-blanco-textil-hogar-enero-2027": dict(
   title="El Mes del Blanco: Enero en la Tienda de Textil Hogar",
-  desc="Enero es el mes del blanco desde hace décadas: sábanas, toallas y edredones a precio de campaña. Cómo llevar la ropa de cama por medida, rebajar sin equivocarse de precio anterior y no quedarse con el 105 de un juego que ya no se hace.",
+  desc="Enero es el mes del blanco: sábanas, toallas y edredones a precio de campaña. Ropa de cama por medida, rebaja con precio anterior y medidas sueltas fuera.",
   kw="mes del blanco enero, mes del blanco textil hogar, rebajas ropa de cama enero, tienda textil hogar enero, sabanas medidas stock, tpv textil hogar",
   h1="El mes del blanco: enero en textil hogar",
   sub="La tradición viene de los grandes almacenes y la tienda de barrio la aprovecha igual: en enero la gente renueva sábanas y toallas. El problema no es vender, es saber qué medidas quedan.",
@@ -63,7 +63,7 @@ BLOG_2027_01B = {
 # ------------------------------------------------------------------ 28 ene
 "lenceria-san-valentin-tallas-copas-cambio": dict(
   title="Lencería en San Valentín: Talla, Copa y el Cambio del Lunes",
-  desc="En lencería San Valentín lo compra quien no lo va a llevar y no sabe la talla ni la copa. La tienda vende si tiene el stock por talla y copa en pantalla, una política de cambio clara y la ficha de la clienta que sí sabe su talla.",
+  desc="En lencería San Valentín lo compra quien no sabe la talla ni la copa. Stock por talla y copa en pantalla, cambio claro y la ficha de la clienta.",
   kw="lenceria san valentin, regalar lenceria talla, tienda lenceria febrero ventas, tallas copas stock lenceria, cambio lenceria higiene, tpv lenceria",
   h1="Lencería en San Valentín: vender a quien no sabe la talla",
   sub="El viernes 12 y el sábado 13 de febrero entran hombres con una foto en el móvil y ninguna idea de la copa. La tienda que resuelve eso en cinco minutos vende; la que dice «tráigala», no.",

@@ -11,8 +11,8 @@ BLOG_2027_03B = {
 
 # ------------------------------------------------------------------ 9 mar
 "optica-gafas-de-sol-primavera-2027": dict(
-  title="Gafas de Sol en la Óptica: la Temporada Empieza con el Cambio de Hora",
-  desc="El último domingo de marzo se cambia la hora, anochece a las ocho y media y la gente entra a por gafas de sol. Cómo montar el expositor con las monturas etiquetadas, llevar la ficha del cliente con su graduación de sol y no quedarse con los modelos del año pasado.",
+  title="Gafas de Sol en la Óptica: Temporada desde el Cambio de Hora",
+  desc="Con el cambio de hora del 28 de marzo la óptica vende gafas de sol. Monturas etiquetadas, aviso a los clientes con graduación y las del año pasado fuera.",
   kw="optica gafas de sol primavera, temporada gafas de sol optica, vender gafas de sol tienda, optica marzo abril ventas, tpv optica gafas",
   h1="Gafas de sol en la óptica: la temporada arranca con el cambio de hora",
   sub="El 28 de marzo de 2027 se adelanta la hora y la tarde se alarga. Esa semana la óptica vende más gafas de sol que en todo febrero. El expositor tiene que estar puesto el 20.",
@@ -63,7 +63,7 @@ BLOG_2027_03B = {
 # ------------------------------------------------------------------ 23 mar
 "moda-flamenca-feria-abril-2027-tienda": dict(
   title="Moda Flamenca antes de la Feria: las Cuatro Semanas de Abril",
-  desc="La Feria de Abril de Sevilla y las ferias de toda Andalucía se visten en tiendas de moda flamenca que hacen el año entre marzo y mayo. Trajes por talla, complementos etiquetados, reservas a nombre de la clienta y los arreglos apuntados en su ficha.",
+  desc="La Feria de Sevilla y las de Andalucía se visten en tiendas que hacen el año de marzo a mayo. Trajes por talla, complementos etiquetados y arreglos.",
   kw="moda flamenca feria abril 2027, tienda trajes de flamenca temporada, vender trajes flamenca feria, complementos flamenca tienda, tpv moda flamenca",
   h1="Moda flamenca: las cuatro semanas antes de la Feria",
   sub="Un traje de flamenca se elige en marzo, se prueba, se arregla y se recoge la semana de la Feria. Entre medias hay tallas, reservas, mantones, flores y pendientes, y una tienda que no puede perder ni un encargo.",

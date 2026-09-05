@@ -9,8 +9,8 @@ BLOG_2026_10B = {
 
 # ------------------------------------------------------------------ 8 oct
 "halloween-cosmetica-maquillaje-tienda": dict(
-  title="Halloween en la Tienda de Cosmética: Maquillaje, Uñas y Colas",
-  desc="Halloween 2026 es sábado y la tienda de cosmética y droguería vende maquillaje de fantasía, uñas y lentillas de color la última semana de octubre. Qué traer, cómo etiquetar y cobrar sin cola.",
+  title="Halloween en Cosmética: Maquillaje de Fantasía sin Colas",
+  desc="Halloween 2026 es sábado: droguería y perfumería venden maquillaje de fantasía, uñas y lentillas la última semana de octubre. Qué traer y cómo etiquetar.",
   kw="halloween cosmetica tienda, maquillaje halloween drogueria, vender maquillaje halloween, tienda cosmetica octubre, halloween perfumeria drogueria",
   h1="Halloween en cosmética: una semana de maquillaje de fantasía",
   sub="Es una campaña corta que la droguería y la perfumería de barrio suelen dejar pasar. Con el 31 en sábado, la semana del 26 al 30 vende pintura, uñas y fijador a gente que no compra maquillaje el resto del año.",
@@ -61,8 +61,8 @@ BLOG_2026_10B = {
 
 # ------------------------------------------------------------------ 22 oct
 "jugueteria-catalogo-navidad-reservas-reyes": dict(
-  title="Juguetería en Octubre: el Catálogo de Navidad y las Reservas de Reyes",
-  desc="En octubre llegan los catálogos de juguetes y los niños empiezan a señalar. La juguetería que apunta las reservas a nombre de la familia desde octubre sabe en noviembre qué va a vender en Reyes y no se queda sin el juguete del año.",
+  title="Juguetería en Octubre: Reservas de Reyes desde el Catálogo",
+  desc="En octubre llegan los catálogos y los niños señalan. La juguetería que apunta las reservas por familia sabe qué pedir y no se queda sin el juguete del año.",
   kw="jugueteria navidad reservas, catalogo juguetes navidad tienda, reservar juguetes reyes tienda, jugueteria octubre preparar navidad, juguete del año stock",
   h1="Juguetería en octubre: reservas de Reyes desde el catálogo",
   sub="El catálogo llega, el niño señala y la madre pregunta si lo van a tener. La respuesta que vende es «te lo reservo ahora», y para eso hay que poder apuntarlo.",

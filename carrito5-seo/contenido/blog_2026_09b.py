@@ -12,8 +12,8 @@ BLOG_2026_09B = {
 
 # ------------------------------------------------------------------ 10 sep
 "vuelta-al-cole-zapateria-infantil-numeros": dict(
-  title="Vuelta al Cole en la Zapatería Infantil: el Número Cambia Cada Año",
-  desc="En septiembre la zapatería infantil vende el zapato de colegio a niños que han crecido un número desde junio. Ficha del niño con su último número, stock por número y colegial en tres semanas.",
+  title="Vuelta al Cole en la Zapatería Infantil: un Número Más",
+  desc="En septiembre la zapatería infantil vende el colegial a niños que han crecido un número. Ficha del niño con su último número y stock por número.",
   kw="zapateria infantil vuelta al cole, zapato colegial septiembre, calzado infantil campaña escolar, tpv zapateria infantil, numeros calzado niños stock",
   h1="Zapatería infantil en septiembre: el mismo niño, un número más",
   sub="El zapato de colegio se compra la primera semana de septiembre, con prisa, y el niño ha crecido desde junio. La tienda que sabe qué número llevaba en marzo vende en dos minutos.",
@@ -65,7 +65,7 @@ BLOG_2026_09B = {
 # ------------------------------------------------------------------ 24 sep
 "otono-boutique-cambio-de-armario-nueva-temporada": dict(
   title="Otoño en la Boutique: la Nueva Temporada Entra en Septiembre",
-  desc="La colección de otoño llega a la boutique a lo largo de septiembre y la clienta que hizo el cambio de armario quiere verla ya. Entrar cada modelo con sus tallas y colores y avisar a quien compró la primavera.",
+  desc="La colección de otoño llega en septiembre y la clienta la quiere el día que refresca. Entrar cada modelo con tallas y colores y avisar a quien compró.",
   kw="boutique otoño nueva temporada, cambio de armario tienda ropa, coleccion otoño boutique septiembre, tpv boutique tallas colores, avisar clientas nueva coleccion",
   h1="Otoño en la boutique: entrar la colección y avisar a quien la espera",
   sub="La primera semana fresca de septiembre la clienta abre el armario, ve que no tiene nada y viene a la tienda. Si la colección aún está en cajas, vuelve otro día o no vuelve.",

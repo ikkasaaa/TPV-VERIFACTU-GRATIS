@@ -13,8 +13,8 @@ BLOG_2026_11B = {
 
 # ------------------------------------------------------------------ 5 nov
 "black-friday-zapateria-numeros-sueltos": dict(
-  title="Black Friday en la Zapatería: Liquidar Números Sueltos, no Modelos",
-  desc="El 27 de noviembre la zapatería no tiene que rebajar la tienda: tiene que sacar los números sueltos de la temporada anterior antes de que la Navidad los tape. Cómo encontrarlos en el stock y etiquetarlos.",
+  title="Black Friday en la Zapatería: los Números Sueltos, Fuera",
+  desc="El 27 de noviembre la zapatería no rebaja la tienda: saca los números sueltos de la temporada anterior. Cómo encontrarlos en el stock y etiquetarlos.",
   kw="black friday zapateria, rebajar zapatos black friday, numeros sueltos calzado liquidar, zapateria noviembre descuentos, stock calzado temporada anterior",
   h1="Black Friday en la zapatería: los números sueltos, al escaparate",
   sub="Un modelo del que quedan un 36 y un 44 no se va a vender a precio nunca. El 27 de noviembre es el día de sacarlos, y para eso hay que saber cuáles son.",
@@ -65,8 +65,8 @@ BLOG_2026_11B = {
 
 # ------------------------------------------------------------------ 19 nov
 "joyeria-navidad-grabados-ficha-cliente": dict(
-  title="Joyería en Navidad: Grabados, Tallas de Anillo y la Ficha del Cliente",
-  desc="Para la joyería la Navidad son cinco semanas de regalo comprado por otra persona: la talla del anillo, la inicial del colgante, el grabado con fecha. Lo que la ficha de cliente evita y cómo llevar los encargos de grabado sin perderlos.",
+  title="Joyería en Navidad: Grabados, Tallas de Anillo y Ficha",
+  desc="En joyería la Navidad es regalo comprado por otro: la talla del anillo, el grabado con fecha, el cambio de enero. Lo que la ficha de cliente resuelve.",
   kw="joyeria navidad ventas, grabado joyeria navidad, talla anillo regalo, joyeria ficha cliente, joyeria diciembre campaña, tpv joyeria",
   h1="Joyería en Navidad: la talla, el grabado y quién compró qué",
   sub="Casi ningún regalo de joyería lo compra quien lo va a llevar. El vendedor tiene que saber la talla de una persona que no está, y recordar en enero qué compró quien viene a cambiar.",
@@ -116,8 +116,8 @@ BLOG_2026_11B = {
 
 # ------------------------------------------------------------------ 26 nov
 "puente-de-diciembre-2026-tienda-5-al-8": dict(
-  title="Puente de Diciembre 2026: del Sábado 5 al Martes 8 en la Tienda",
-  desc="El 6 de diciembre cae en domingo y el 8 en martes: cuatro días de puente justo después del Black Friday. Es el primer gran fin de semana de compras de Navidad y muchas tiendas lo tratan como un festivo cualquiera.",
+  title="Puente de Diciembre 2026: del Sábado 5 al Martes 8",
+  desc="El 6 de diciembre cae en domingo y el 8 en martes: cuatro días de puente tras el Black Friday, el primer fin de semana grande de Navidad. Cómo abrirlo.",
   kw="puente diciembre 2026 tienda, puente constitucion comercio, 8 diciembre abrir tienda, puente diciembre compras navidad, primer fin de semana navidad tienda",
   h1="El puente de diciembre de 2026: cuatro días que abren la Navidad",
   sub="Después del Black Friday la gente ya ha empezado a comprar regalos, y el puente del 5 al 8 es el primer fin de semana largo con esa intención. Quien abre con la Navidad montada vende; quien lo trata como un puente, descansa.",

@@ -9,8 +9,8 @@ BLOG_2027_04B = {
 
 # ------------------------------------------------------------------ 6 abr
 "floristeria-primavera-plantas-terraza-balcon": dict(
-  title="Floristería en Primavera: la Planta de Terraza Vende Más que el Ramo",
-  desc="De abril a junio la floristería con planta vende geranios, aromáticas y macetas a gente que arregla el balcón. Es venta de volumen, con referencias sin código y clientes que vuelven cada año en la misma semana. Cómo llevarla.",
+  title="Floristería en Primavera: la Planta de Balcón Vende Más",
+  desc="De abril a junio la floristería con planta vende geranios, aromáticas y macetas a quien arregla el balcón. Volumen sin código y clientes que vuelven.",
   kw="floristeria primavera plantas, vender plantas balcon terraza tienda, floristeria abril mayo ventas, planta temporada floristeria stock, tpv floristeria plantas",
   h1="Floristería en primavera: geranios, aromáticas y el balcón del vecino",
   sub="El primer fin de semana de abril con buen tiempo, el barrio entero decide arreglar el balcón. La floristería con planta hace en ese mes lo que no hace en tres de ramos.",
@@ -60,8 +60,8 @@ BLOG_2027_04B = {
 
 # ------------------------------------------------------------------ 20 abr
 "bodas-2027-regalo-tienda-ficha-de-la-pareja": dict(
-  title="Bodas 2027: el Regalo de Boda en la Tienda de Barrio, de Mayo a Octubre",
-  desc="La temporada de bodas va de mayo a octubre y el regalo de boda vuelve a comprarse en tiendas: joyería, hogar, decoración, viaje. Cómo llevar la lista de la pareja en su ficha, evitar el regalo repetido y vender a los invitados que vienen uno a uno.",
+  title="Bodas 2027: el Regalo de Boda en la Tienda de Barrio",
+  desc="La temporada de bodas va de mayo a octubre y el regalo vuelve a la tienda. La lista de la pareja en su ficha, sin regalo repetido, y el invitado atendido.",
   kw="regalo de boda tienda, lista de boda tienda barrio, temporada bodas 2027 comercio, joyeria bodas regalo, tienda decoracion regalo boda, tpv regalo",
   h1="Bodas 2027: la lista de la pareja, en su ficha",
   sub="Los invitados entran uno a uno durante tres meses preguntando «¿qué les falta?». La tienda que tiene la lista de la pareja en su ficha contesta; la que la tiene en un cuaderno, busca.",

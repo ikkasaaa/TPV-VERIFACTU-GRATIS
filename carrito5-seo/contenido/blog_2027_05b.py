@@ -10,8 +10,8 @@ BLOG_2027_05B = {
 
 # ------------------------------------------------------------------ 27 abr (se publica antes del 2 de mayo)
 "dia-de-la-madre-floristeria-ultima-semana": dict(
-  title="Día de la Madre en la Floristería: la Última Semana y el Puente",
-  desc="El 2 de mayo de 2027 es domingo y el 1 festivo: la floristería vende el jueves 29 y el viernes 30 de abril, con el sábado 1 según el barrio. Flor fresca justa, ramos con precio cerrado, ficha de los hijos que vienen cada año y la cola del viernes.",
+  title="Día de la Madre en la Floristería: Última Semana y Puente",
+  desc="El 2 de mayo de 2027 es domingo y el 1 festivo: la floristería vende el jueves y el viernes. Flor justa, ramos con precio cerrado y los hijos en su ficha.",
   kw="dia de la madre floristeria, flores dia de la madre ventas, floristeria 2 mayo 2027, ramos dia de la madre precio, floristeria puente mayo",
   h1="Día de la Madre en la floristería: viernes 30 de abril y un puente",
   sub="Con el 1 de mayo en sábado, la gente compra el ramo el jueves y el viernes y se va de puente, o se queda y compra el sábado por la mañana. Las dos cosas a la vez, y la flor no aguanta el error.",
@@ -60,8 +60,8 @@ BLOG_2027_05B = {
 
 # ------------------------------------------------------------------ 18 may
 "tienda-deportes-verano-2027-tallas-tecnicas": dict(
-  title="Tienda de Deportes antes del Verano: Baño, Running y Tallas Técnicas",
-  desc="De mediados de mayo a julio la tienda de deportes vende bañadores, zapatillas de correr, ropa técnica y material de playa a gente que empieza el verano con propósito. Tallas técnicas que no son las de calle, stock por número y el cliente que repite cada año.",
+  title="Tienda de Deportes: el Verano Empieza a Mediados de Mayo",
+  desc="De mayo a julio la tienda de deportes vende baño, running y ropa técnica con tallas que no son las de calle. Matriz por modelo y zapatillas por número.",
   kw="tienda deportes verano ventas, bañadores tallas tienda deportes, zapatillas running tallas stock, tienda deportes mayo junio, tpv tienda deportes",
   h1="Tienda de deportes: el verano empieza a mediados de mayo",
   sub="Con el calor llegan dos clientes: el que va a la piscina y quiere bañador, y el que se ha propuesto correr y quiere zapatillas. Los dos preguntan por una talla que no es la de su ropa de calle.",

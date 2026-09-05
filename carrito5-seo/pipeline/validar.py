@@ -13,7 +13,10 @@ escritura de IA (rayas em) y el dato falso del «50 tickets al mes».
 Sale con codigo 1 si hay errores. Los avisos (title largo, description larga)
 no hacen fallar: se listan para revisarlos.
 """
-import glob, html, json, os, re, sys
+import glob, html, json, os, re, signal, sys
+
+# `validar.py dir | head` no debe reventar con BrokenPipeError
+signal.signal(signal.SIGPIPE, signal.SIG_DFL)
 
 ERRORES, AVISOS = [], []
 

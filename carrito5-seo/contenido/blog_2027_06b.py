@@ -10,8 +10,8 @@ BLOG_2027_06B = {
 
 # ------------------------------------------------------------------ 1 jun
 "fin-de-curso-regalos-profesores-papeleria-libreria": dict(
-  title="Fin de Curso: los Regalos a Profesores en la Papelería y la Librería",
-  desc="La última semana de junio las familias compran el regalo de la profe: tazas, agendas, libros, plantas y detalles de diez euros, muchas veces entre varios padres. Cómo montar el expositor, cobrar el regalo compartido y guardar la lista para septiembre.",
+  title="Fin de Curso: los Regalos a Profesores en la Papelería",
+  desc="La última semana de junio las familias compran el regalo de la profe, a menudo entre varios. Expositor con precios redondos, etiquetas y colecta apuntada.",
   kw="regalos profesores fin de curso tienda, fin de curso papeleria ventas, regalo profe libreria junio, expositor fin de curso, papeleria junio campaña",
   h1="Fin de curso: la semana de los regalos a la profe",
   sub="Del 15 al 23 de junio entran madres con un grupo de WhatsApp abierto y una colecta de treinta euros. Quieren algo bonito, ya, y que se pueda envolver. La papelería que lo tiene en un expositor se lleva la colecta entera.",
@@ -61,8 +61,8 @@ BLOG_2027_06B = {
 
 # ------------------------------------------------------------------ 24 jun
 "cerrar-por-vacaciones-agosto-tienda-sin-perder-clientes": dict(
-  title="Cerrar por Vacaciones en Agosto sin Perder Clientes ni el Stock",
-  desc="Muchas tiendas de barrio cierran dos o tres semanas en agosto. Cómo hacerlo bien: avisar a los clientes con ficha, dejar el stock cuadrado, el ticket con QR listo para el día de vuelta y una copia de los datos fuera de la tienda.",
+  title="Cerrar por Vacaciones en Agosto sin Perder Clientes",
+  desc="Cerrar en agosto sin perder clientes: avisar con la ficha delante, stock cuadrado, copia de datos fuera de la tienda y ticket con QR listo para septiembre.",
   kw="cerrar tienda vacaciones agosto, cartel cerrado por vacaciones tienda, avisar clientes vacaciones comercio, cerrar comercio verano stock, tienda vuelta vacaciones septiembre",
   h1="Cerrar por vacaciones: tres semanas de agosto sin perder el hilo",
   sub="El cartel de «cerrado por vacaciones» es lo último que se hace. Antes van los clientes, el stock, los datos y el ticket con el que se abre en septiembre.",
