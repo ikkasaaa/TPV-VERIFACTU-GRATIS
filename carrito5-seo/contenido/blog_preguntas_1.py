@@ -20,8 +20,8 @@ BLOG_PREGUNTAS_1 = {
 
 # ------------------------------------------------------------------ 17 sep
 "cuanto-cuesta-un-tpv-para-una-tienda-pequena": dict(
-  title="¿Cuánto Cuesta un TPV para una Tienda Pequeña? Cuentas Reales",
-  desc="Un TPV para una tienda pequeña cuesta entre 0 y 600 euros de una vez si aprovechas el ordenador que tienes y usas un programa gratuito, y entre 1.500 y 4.000 a cinco años si pagas cuota. Las cuentas, partida por partida.",
+  title="¿Cuánto Cuesta un TPV para una Tienda Pequeña? Cuentas",
+  desc="De 0 a 600 euros de una vez con programa gratuito y el PC que ya tienes; de 1.500 a 4.000 a cinco años con cuota. Las cuentas, partida por partida.",
   kw="cuanto cuesta un tpv, precio tpv tienda pequeña, cuanto cuesta un tpv para comercio, precio software tpv, tpv barato tienda, coste tpv completo",
   h1="¿Cuánto cuesta un TPV para una tienda pequeña?",
   sub="Depende de una sola decisión: si pagas el programa cada mes o no. El hardware cuesta lo mismo en los dos casos y casi siempre menos de lo que la gente cree.",
@@ -78,8 +78,8 @@ BLOG_PREGUNTAS_1 = {
 
 # ------------------------------------------------------------------ 1 oct
 "que-impresora-de-tickets-comprar-para-un-tpv": dict(
-  title="¿Qué Impresora de Tickets Comprar para un TPV? Lo que Importa",
-  desc="Para un TPV de tienda, una impresora térmica de 80 mm con conexión USB o de red, corte automático y salida para cajón. Entre 60 y 150 euros. Lo que hay que mirar, lo que no, y por qué el QR de VeriFactu decide la calidad.",
+  title="¿Qué Impresora de Tickets Comprar para un TPV?",
+  desc="Térmica de 80 mm, USB, corte automático y conector para el cajón, de 60 a 150 euros. Qué mirar, qué no, y por qué el QR de VeriFactu decide.",
   kw="que impresora de tickets comprar, impresora tickets tpv, impresora termica 80mm tienda, impresora tickets usb tpv, impresora tickets qr verifactu, mejor impresora tickets comercio",
   h1="¿Qué impresora de tickets comprar para un TPV?",
   sub="Casi todas valen y casi todas se parecen. Las diferencias que importan son cuatro, y desde 2027 una de ellas es que imprima un QR que se pueda leer.",
@@ -136,8 +136,8 @@ BLOG_PREGUNTAS_1 = {
 
 # ------------------------------------------------------------------ 15 oct
 "se-puede-cobrar-sin-internet-con-un-tpv": dict(
-  title="¿Se Puede Cobrar sin Internet con un TPV? Sí, si el Programa es Local",
-  desc="Un TPV cobra sin internet si el programa y los datos están en el propio ordenador; si el programa vive en la nube, se para. El datáfono es aparte y depende del banco. Cómo saber cuál tienes y qué hacer el día que se cae la línea.",
+  title="¿Se Puede Cobrar sin Internet con un TPV?",
+  desc="Sí, si el programa y los datos están en el propio ordenador; no, si vive en la nube. El datáfono es aparte. Cómo saber cuál tienes.",
   kw="cobrar sin internet tpv, tpv sin conexion, tpv offline tienda, tpv funciona sin internet, se cae internet tienda cobrar, tpv local o nube",
   h1="¿Se puede cobrar sin internet con un TPV?",
   sub="Sí, con un programa que guarde los datos en tu ordenador. No, con uno que viva en el navegador. La diferencia se nota un sábado a las doce con la línea caída y la tienda llena.",
@@ -191,7 +191,7 @@ BLOG_PREGUNTAS_1 = {
 # ------------------------------------------------------------------ 29 oct
 "que-lector-de-codigos-de-barras-necesito-para-mi-tienda": dict(
   title="¿Qué Lector de Códigos de Barras Necesito para mi Tienda?",
-  desc="Para una tienda, un lector USB de mano que funcione como teclado, de 20 a 40 euros, lee cualquier código de barras de producto. Solo hace falta uno 2D, algo más caro, si vas a leer códigos QR o etiquetas muy pequeñas. Cómo elegirlo y conectarlo.",
+  desc="Uno USB de mano en modo teclado, de 20 a 40 euros, lee cualquier código de producto. El 2D solo hace falta para QR o etiquetas diminutas.",
   kw="que lector de codigos de barras comprar, lector codigo barras tienda, lector codigos usb tpv, lector 1d o 2d tienda, lector codigo barras precio, escaner codigo barras comercio",
   h1="¿Qué lector de códigos de barras necesito para mi tienda?",
   sub="Uno USB, de mano, de los de 30 euros. Se enchufa, funciona como un teclado y lee cualquier código de producto. El resto de opciones son para casos concretos.",
@@ -248,7 +248,7 @@ BLOG_PREGUNTAS_1 = {
 # ------------------------------------------------------------------ 12 nov
 "como-poner-codigo-de-barras-a-mis-productos": dict(
   title="¿Cómo Poner Código de Barras a mis Productos si No lo Traen?",
-  desc="Para vender en tu propia tienda no necesitas comprar códigos EAN: el programa de caja asigna un código interno a cada artículo y lo imprime en una etiqueta que el lector lee igual. Solo hace falta un EAN oficial si vas a vender a otras tiendas o en marketplaces.",
+  desc="Para vender en tu tienda no necesitas comprar códigos EAN: el programa asigna un código interno y lo imprime en una etiqueta que el lector lee igual.",
   kw="como poner codigo de barras a mis productos, crear codigo de barras propio tienda, codigo de barras interno tpv, necesito ean para vender en mi tienda, generar codigos de barras productos sin codigo, etiquetas codigo barras tienda",
   h1="¿Cómo pongo código de barras a productos que no lo traen?",
   sub="Con un código interno que asigna el programa y una etiqueta impresa. No hace falta comprar códigos EAN ni darse de alta en ningún sitio, salvo que vayas a vender fuera de tu tienda.",
@@ -310,8 +310,8 @@ BLOG_PREGUNTAS_1 = {
 
 # ------------------------------------------------------------------ 10 dic
 "sirve-un-tpv-gratis-para-una-tienda-de-ropa": dict(
-  title="¿Sirve un TPV Gratis para una Tienda de Ropa? Depende de Tres Cosas",
-  desc="Un TPV gratuito sirve para una tienda de ropa si lleva matriz de tallas y colores, si su límite de artículos cabe con las variantes contadas, y si hace devoluciones y vales sobre el ticket. Cómo comprobar las tres antes de instalar nada.",
+  title="¿Sirve un TPV Gratis para una Tienda de Ropa?",
+  desc="Sirve si tiene matriz de tallas y colores, si su límite cabe contando variantes y si hace devoluciones con vale. Cómo comprobarlo en diez minutos.",
   kw="tpv gratis tienda de ropa, tpv gratuito moda tallas, software gratis tienda ropa, programa tpv ropa gratis sirve, tpv gratis boutique, tpv ropa sin cuota",
   h1="¿Sirve un TPV gratis para una tienda de ropa?",
   sub="Muchos TPV gratuitos son para bares o para cualquier cosa, y en una tienda de ropa se rompen en la primera camiseta con seis tallas. Tres comprobaciones lo dicen en diez minutos.",

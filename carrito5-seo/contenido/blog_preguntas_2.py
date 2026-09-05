@@ -15,7 +15,7 @@ BLOG_PREGUNTAS_2 = {
 # ------------------------------------------------------------------ 14 ene
 "puedo-usar-mi-portatil-como-tpv": dict(
   title="¿Puedo Usar mi Portátil como TPV? Sí, y Suele Ser Mejor Idea",
-  desc="Un portátil con Windows sirve como TPV: se le conecta una impresora de tickets y un lector por USB y ya es una caja. Requisitos reales, lo que no hace falta, cómo protegerlo en el mostrador y cuándo conviene un equipo fijo.",
+  desc="Un portátil con Windows, una impresora de tickets y un lector USB son una caja completa. Requisitos reales y cuándo conviene un equipo fijo.",
   kw="usar portatil como tpv, portatil tpv tienda, ordenador portatil caja tienda, tpv en portatil windows, requisitos ordenador tpv, convertir portatil en tpv",
   h1="¿Puedo usar mi portátil como TPV?",
   sub="Sí. Un portátil con Windows, una impresora de tickets y un lector USB son una caja completa. Para una tienda pequeña es a menudo la mejor opción, y para la mesa de la calle, la única.",
@@ -70,7 +70,7 @@ BLOG_PREGUNTAS_2 = {
 # ------------------------------------------------------------------ 4 feb
 "que-pasa-cuando-paso-de-1000-articulos-en-carrito5": dict(
   title="¿Qué Pasa Cuando Paso de 1.000 Artículos en Carrito5?",
-  desc="El plan Inicio de Carrito5 es gratuito hasta 1.000 artículos en catálogo. Al llegar, el programa sigue funcionando y se amplía con la licencia comercial; si la tienda necesita mucho más o varias cajas, la salida es Caja 5. Cómo contar los artículos y cómo saber dónde estás.",
+  desc="El plan Inicio es gratuito hasta 1.000 artículos. Al llegar, el programa sigue y se amplía con licencia comercial o con Caja 5. Cómo se cuentan.",
   kw="carrito5 limite 1000 articulos, carrito5 plan inicio limite, que pasa al superar limite tpv gratis, carrito5 licencia comercial precio, carrito5 ampliar catalogo, tpv gratis limite articulos",
   h1="¿Qué pasa cuando paso de 1.000 artículos en Carrito5?",
   sub="Es la pregunta que más nos hacen por WhatsApp y la que menos webs de software contestan claro. Aquí va completa: qué cuenta como artículo, qué pasa al llegar y qué opciones hay.",
@@ -125,8 +125,8 @@ BLOG_PREGUNTAS_2 = {
 
 # ------------------------------------------------------------------ 4 mar
 "es-obligatorio-tener-tpv-en-una-tienda": dict(
-  title="¿Es Obligatorio Tener un TPV en una Tienda? Lo que Dice la Norma",
-  desc="Ninguna ley obliga a una tienda a tener un TPV o un programa de caja. Lo que sí exige la norma es que, si usas un sistema informático para facturar, cumpla VeriFactu desde 2027; y que cada venta lleve su factura simplificada. Lo que eso significa en la práctica para una tienda pequeña.",
+  title="¿Es Obligatorio Tener un TPV en una Tienda?",
+  desc="Ninguna ley obliga a tener TPV. La norma exige ticket por cada venta y, desde 2027, que el programa que uses cumpla VeriFactu. Qué significa en la tienda.",
   kw="es obligatorio tener tpv, tpv obligatorio tienda, obligatorio programa facturacion tienda, verifactu obligatorio tpv, se puede vender sin tpv, tienda sin tpv legal",
   h1="¿Es obligatorio tener un TPV en una tienda?",
   sub="No hay una ley que diga «toda tienda debe tener un TPV». Hay una que dice cómo tiene que comportarse el programa si lo tienes, y otra que dice que cada venta lleva su ticket. Entre las dos, la respuesta práctica.",
@@ -176,8 +176,8 @@ BLOG_PREGUNTAS_2 = {
 
 # ------------------------------------------------------------------ 8 abr
 "como-elegir-un-tpv-para-una-tienda-de-barrio-diez-preguntas": dict(
-  title="Cómo Elegir un TPV para una Tienda de Barrio: Diez Preguntas al Vendedor",
-  desc="Antes de instalar un TPV en una tienda pequeña, diez preguntas al que lo vende: por dónde cobra, si funciona sin internet, si lleva tallas, si hace devoluciones, cómo se sacan los datos, si tiene declaración responsable. Con la respuesta que debería dar.",
+  title="Cómo Elegir un TPV para una Tienda: Diez Preguntas",
+  desc="Diez preguntas al vendedor antes de instalar: por dónde cobra, si funciona sin internet, tallas, devoluciones, cómo sacar los datos y VeriFactu.",
   kw="como elegir un tpv, elegir tpv tienda pequeña, que tpv comprar para mi tienda, preguntas antes de comprar tpv, comparar tpv comercio, tpv tienda barrio cual elegir",
   h1="Cómo elegir un TPV para una tienda de barrio: diez preguntas",
   sub="El vendedor te va a enseñar veinte funciones. Tú hazle diez preguntas, y si alguna la contesta con rodeos, ya sabes lo que necesitas saber.",
@@ -238,8 +238,8 @@ BLOG_PREGUNTAS_2 = {
 
 # ------------------------------------------------------------------ 6 may
 "que-mantenimiento-necesita-un-tpv-copias-impresora-actualizaciones": dict(
-  title="¿Qué Mantenimiento Necesita un TPV? Copias, Impresora y Actualizaciones",
-  desc="Un TPV de tienda necesita poco mantenimiento, pero tres cosas no se pueden saltar: copia de los datos fuera del equipo cada semana, limpieza del cabezal de la impresora para que el QR se lea, y las actualizaciones del programa. Lo que se hace, cada cuánto y cuánto cuesta.",
+  title="¿Qué Mantenimiento Necesita un TPV? Tres Tareas",
+  desc="Tres tareas que no se saltan: copia de los datos cada semana fuera del equipo, cabezal de la impresora limpio para que el QR se lea, y actualizaciones.",
   kw="mantenimiento tpv, copia seguridad tpv, limpiar impresora tickets cabezal, actualizar programa tpv, mantenimiento caja tienda, que hacer si falla el tpv",
   h1="¿Qué mantenimiento necesita un TPV?",
   sub="Menos del que venden los contratos de mantenimiento y más del que hace la mayoría de tiendas. Tres tareas, ninguna de más de diez minutos.",
@@ -291,8 +291,8 @@ BLOG_PREGUNTAS_2 = {
 
 # ------------------------------------------------------------------ 10 jun
 "hay-tpv-gratis-para-tablet-o-movil": dict(
-  title="¿Hay TPV Gratis para Tablet o Móvil? Sí, y Carrito5 No Es Uno de Ellos",
-  desc="Existen TPV gratuitos para tablet Android y iPad, casi todos en la nube y muchos ligados a una pasarela de cobro con comisión. Carrito5 es un programa de escritorio para Windows y no funciona en tablet. Cuándo conviene la tablet, cuándo el PC, y cómo elegir con honestidad.",
+  title="¿Hay TPV Gratis para Tablet o Móvil? Sí, y No Es Este",
+  desc="Hay TPV gratuitos para tablet y móvil, casi todos en la nube y con comisión por cobro. Carrito5 es de escritorio para Windows. Cuándo conviene cada uno.",
   kw="tpv gratis tablet, tpv android gratis, tpv ipad gratis tienda, tpv movil gratis comercio, tpv tablet o pc, carrito5 tablet",
   h1="¿Hay TPV gratis para tablet o móvil?",
   sub="Sí los hay, y no es este. Lo decimos en el título para no hacerte perder tiempo, y después contamos cuándo la tablet es buena idea y cuándo el ordenador lo es más.",
