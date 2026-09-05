@@ -71,9 +71,9 @@ para añadir la trampa 6 (funciones confirmadas). No he tocado `motor/` ni
   media 0,24 / máx 0,34, validador 0 errores, 13.410 palabras visibles.
 - Capa técnica generada y comprobada: 5 redirecciones, 78 URLs en sitemap.
 - `PLAN_MAESTRO_SEO_GEO.md`.
-- **Blog completo**: `plantilla_blog.py`, `pipeline/generar_blog.py`, veinte
-  módulos `contenido/blog_2026_09.py` a `blog_2027_06b.py` con 57 posts
-  fechados (35 generales + 22 de sector), dos por semana, calendario en
-  `inventario/calendario-editorial-blog.tsv`. El sitemap y el `llms.txt` de
-  `seo_tecnico.py` incluyen `blog/`. Validador 0 errores sobre 68 páginas;
-  gate media 0,25 / máx 0,42.
+- **Blog completo**: `plantilla_blog.py`, `pipeline/generar_blog.py`,
+  veintidós módulos `contenido/blog_*.py` con 69 posts fechados (35
+  generales de campaña + 22 de sector + 12 de pregunta y respuesta para la
+  búsqueda generativa), calendario en `inventario/calendario-editorial-blog.tsv`.
+  El sitemap y el `llms.txt` de `seo_tecnico.py` incluyen `blog/`. Validador
+  0 errores sobre 80 páginas; gate media 0,25 / máx 0,42.

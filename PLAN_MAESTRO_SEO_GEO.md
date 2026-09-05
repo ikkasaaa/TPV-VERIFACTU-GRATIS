@@ -211,7 +211,7 @@ Agente:
 
 ---
 
-## 8 bis. El blog: 57 posts con fecha, de septiembre de 2026 a junio de 2027
+## 8 bis. El blog: 69 posts con fecha, de septiembre de 2026 a junio de 2027
 
 Un post por campaña comercial o fecha fiscal, escrito a mano y publicado
 cuando la gente empieza a buscar esa fecha, no cuando llega. Cada uno enlaza a
@@ -244,11 +244,22 @@ Fallas · gafas de sol en la óptica · moda flamenca · floristería con planta
 regalo de boda · Día de la Madre en floristería · tienda de deportes · fin de
 curso · cerrar por vacaciones.
 
+Tercera capa (módulos `blog_preguntas_*.py`, doce posts de pregunta y
+respuesta repartidos por el calendario, pensados para la búsqueda
+generativa): cuánto cuesta un TPV · qué impresora de tickets comprar · si se
+puede cobrar sin internet · qué lector de códigos hace falta · cómo poner
+código de barras a productos sin él · si sirve un TPV gratis para ropa · usar
+el portátil como TPV · qué pasa al pasar de 1.000 artículos · si es
+obligatorio tener TPV · cómo elegir uno (diez preguntas) · qué mantenimiento
+necesita · si hay TPV gratis para tablet. Evitan las preguntas que ya
+contesta abacosoftware (qué es un TPV, TPV o datáfono, táctil o teclado,
+cómo hacer una devolución, declaración responsable).
+
 Reglas del blog: sin bloque de venta común (cada cierre es distinto), solo
 funciones confirmadas, fechas verificadas (Black Friday 27-11-2026, Reyes en
 miércoles, Carnaval 6 al 9-2-2027, Semana Santa 21 al 28-3-2027, Día de la
 Madre 2-5-2027, VeriFactu 1-1-2027 y 1-7-2027), y aviso de «información
-general, no asesoramiento» en todo lo legal y fiscal. Gate interno de los 69
+general, no asesoramiento» en todo lo legal y fiscal. Gate interno de los 81
 ficheros generados: media 0,25, máximo 0,42.
 
 Lo que necesita el cliente: subir `blog/*.html`, pegar el fragmento de tarjetas
