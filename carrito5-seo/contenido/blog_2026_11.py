@@ -125,7 +125,7 @@ BLOG_2026_11 = {
 # ------------------------------------------------------------------ 17 nov
 "politica-devoluciones-campana-navidad": dict(
   title="Devoluciones de Navidad: la Política se Escribe en Noviembre",
-  desc="Qué obliga la ley en tienda física, qué decide la tienda, cómo escribirlo en el ticket y cómo registrar cada cambio y vale para que enero no sea un caos.",
+  desc="Qué obliga la ley en tienda física y qué decide la tienda; cómo ponerlo en el ticket y registrar cada cambio y cada vale para que enero no sea un caos.",
   kw="politica devoluciones tienda, devoluciones navidad tienda fisica, vale devolucion tienda, cambios navidad comercio, ley devoluciones tienda fisica, devoluciones reyes",
   h1="Devoluciones de Navidad: la política se escribe en noviembre",
   sub="Entre el 26 de diciembre y el 10 de enero una tienda de regalo hace más cambios que ventas. Si la regla no está escrita antes, cada cambio es una discusión.",
@@ -184,7 +184,7 @@ BLOG_2026_11 = {
 # ------------------------------------------------------------------ 24 nov
 "cyber-monday-tienda-sin-venta-online": dict(
   title="Cyber Monday sin Tienda Online: Qué Hacer el 30 de Noviembre",
-  desc="El Cyber Monday, 30 de noviembre de 2026, es de internet. Una tienda sin web puede usarlo para reservar diciembre por WhatsApp y llenar fichas de clientes.",
+  desc="El Cyber Monday (30 de noviembre de 2026) es de internet. Una tienda sin web puede usarlo para reservar diciembre por WhatsApp y llenar fichas de cliente.",
   kw="cyber monday tienda fisica, cyber monday 2026, cyber monday sin tienda online, cyber monday comercio local, reservar por whatsapp tienda",
   h1="Cyber Monday sin web: el lunes 30 también sirve para algo",
   sub="El Cyber Monday es de las plataformas. Pero el lunes después del Black Friday la gente sigue con ganas de comprar y tu tienda está abierta. Se puede aprovechar sin vender online.",

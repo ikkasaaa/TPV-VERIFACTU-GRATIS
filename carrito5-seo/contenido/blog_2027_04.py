@@ -10,7 +10,7 @@ BLOG_2027_04 = {
 # ------------------------------------------------------------------ 13 abr
 "sant-jordi-dia-del-libro-2027-libreria-floristeria": dict(
   title="Sant Jordi y Día del Libro 2027: Librería y Floristería",
-  desc="El 23 de abril de 2027 es viernes. En Cataluña, el día grande de librerías y floristerías; en el resto, el Día del Libro.",
+  desc="El 23 de abril de 2027 es viernes: día grande de librerías y floristerías en Cataluña y Día del Libro en el resto. ISBN como código y colas en la calle.",
   kw="sant jordi 2027, dia del libro 2027, sant jordi libreria ventas, dia del libro libreria, sant jordi floristeria rosas, vender libros sant jordi, tpv libreria",
   h1="Sant Jordi 2027: el viernes 23 de abril en la librería y la floristería",
   sub="En Cataluña, una librería vende el 23 de abril lo de un mes, en la calle, con cola y con la mitad del catálogo en una mesa. En el resto de España es el Día del Libro, más tranquilo pero con el mismo problema: cobrar rápido libros que no están en la caja.",
@@ -65,7 +65,7 @@ BLOG_2027_04 = {
 # ------------------------------------------------------------------ 27 abr
 "comuniones-2027-moda-ceremonia-calzado-regalo": dict(
   title="Comuniones 2027: Moda de Ceremonia, Calzado y Regalo",
-  desc="Las comuniones de 2027 se concentran en los fines de semana de mayo. El traje se reserva en febrero, el calzado en abril y el regalo la semana antes.",
+  desc="Las comuniones de 2027 se concentran en los fines de semana de mayo. Traje en febrero, calzado en abril y regalo la semana antes. Todo con talla.",
   kw="comuniones 2027 fechas, tienda trajes comunion, calzado comunion tienda, regalos comunion joyeria, campaña comuniones comercio, tpv moda ceremonia",
   h1="Comuniones 2027: el mes de mayo en cuatro tiendas distintas",
   sub="El traje lo compran los padres en febrero; el zapato y los complementos, en abril; el regalo, los abuelos y los padrinos la semana antes. Cuatro campañas en una, y todas con talla.",

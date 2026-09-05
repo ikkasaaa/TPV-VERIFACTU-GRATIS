@@ -12,7 +12,7 @@ BLOG_2027_03 = {
 # ------------------------------------------------------------------ 2 mar
 "semana-santa-2027-comercio-zonas-turisticas": dict(
   title="Semana Santa 2027: la Tienda en Zona Turística",
-  desc="Semana Santa 2027, del 21 al 28 de marzo: la primera campaña de turismo del año. Horarios de festivo.",
+  desc="Semana Santa 2027, del 21 al 28 de marzo: la primera campaña turística del año. Horarios de festivo, ticket al cliente de paso y cobrar sin red.",
   kw="semana santa 2027 fechas, semana santa comercio, tienda zona turistica semana santa, abrir festivo semana santa tienda, souvenirs semana santa, vender turistas tienda",
   h1="Semana Santa 2027: la primera campaña de turismo del año",
   sub="Del Domingo de Ramos, 21 de marzo, al Domingo de Resurrección, 28. Sevilla, Málaga, Valladolid, Zamora, la costa: gente de paso, horarios raros y un cliente que no va a volver a la tienda.",
@@ -67,7 +67,7 @@ BLOG_2027_03 = {
 # ------------------------------------------------------------------ 16 mar
 "verifactu-autonomos-100-dias-1-julio-2027": dict(
   title="VeriFactu: 100 Días para los Autónomos (1 de Julio de 2027)",
-  desc="El 23 de marzo quedan cien días para que los autónomos facturen con VeriFactu. Qué comprobar.",
+  desc="El 23 de marzo quedan cien días para que los autónomos facturen con VeriFactu. Qué comprobar, por qué cambiar en abril o mayo y qué no hace falta comprar.",
   kw="verifactu autonomos 1 julio 2027, verifactu autonomos quedan dias, verifactu autonomo tienda, adaptar tpv autonomo verifactu, verifactu julio 2027, verifactu autonomos plazo",
   h1="Quedan cien días: VeriFactu para autónomos, el 1 de julio de 2027",
   sub="Las sociedades ya llevan tres meses. Lo que les pasó en enero es lo que te va a pasar en julio, con la diferencia de que tú todavía puedes elegir el mes.",
@@ -128,7 +128,7 @@ BLOG_2027_03 = {
 # ------------------------------------------------------------------ 30 mar
 "dia-de-la-madre-2-mayo-2027-tienda-un-mes": dict(
   title="Día de la Madre 2027 (2 de Mayo): un Mes para la Campaña",
-  desc="El Día de la Madre de 2027 es el domingo 2 de mayo, en el puente del 1. Joyería, perfumería, floristería y moda: qué pedir.",
+  desc="El Día de la Madre de 2027 es el domingo 2 de mayo, en el puente del 1. Joyería, perfumería, floristería y moda: qué pedir y cuándo montar el escaparate.",
   kw="dia de la madre 2027, dia de la madre 2 mayo tienda, regalos dia de la madre comercio, campaña dia de la madre tienda, dia de la madre joyeria, dia de la madre floristeria",
   h1="Día de la Madre 2027: un mes, un puente y la ficha de cliente",
   sub="El 2 de mayo es domingo y el 1 es sábado y festivo. La compra se hace el jueves 29 y el viernes 30 de abril, y quien compra suele ser el mismo hijo que compró el año pasado.",

@@ -11,7 +11,7 @@ BLOG_2027_02 = {
 # ------------------------------------------------------------------ 2 feb
 "carnaval-2027-tienda-disfraces-segunda-campana": dict(
   title="Carnaval 2027 (6-9 Febrero): Segunda Campaña de Disfraces",
-  desc="Carnaval 2027 cae del 6 al 9 de febrero. Cómo sacar el género que sobró de Halloween sin darlo de alta otra vez.",
+  desc="Carnaval 2027 va del 6 al 9 de febrero. Cómo sacar lo que sobró de Halloween sin darlo de alta otra vez, qué tallas reponer y la política de cambios.",
   kw="carnaval 2027 fecha, carnaval 2027 tienda disfraces, vender disfraces carnaval, campaña carnaval comercio, disfraces carnaval tallas, tpv disfraces",
   h1="Carnaval 2027: la segunda campaña de la tienda de disfraces",
   sub="Del sábado 6 al martes 9 de febrero, con los colegios celebrándolo el viernes 5. Lo que sobró de Halloween ya está dado de alta; solo hay que sacarlo y reponer tallas.",

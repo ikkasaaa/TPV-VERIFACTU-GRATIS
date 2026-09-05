@@ -239,7 +239,7 @@ BLOG_2026_12 = {
 # ------------------------------------------------------------------ 29 dic
 "cambios-despues-de-reyes-semana-del-7-de-enero": dict(
   title="Cambios después de Reyes: la Semana del 7 de Enero",
-  desc="Del 7 al 10 de enero de 2027 la tienda de regalo hace más cambios que ventas. Cómo ordenar la cola de cambios, los vales y el arranque de rebajas a la vez.",
+  desc="Del 7 al 10 de enero de 2027 la tienda de regalo hace más cambios que ventas. Cómo ordenar la cola de cambios, los vales y el arranque de rebajas.",
   kw="cambios despues de reyes, devoluciones enero tienda, semana cambios reyes comercio, cambios regalos reyes tienda, 7 enero tienda cambios rebajas",
   h1="La semana del 7 de enero: cambios, vales y rebajas a la vez",
   sub="Reyes cae en miércoles. El jueves 7 abre la tienda con tres colas mezcladas: quien cambia, quien viene a las rebajas y quien quiere las dos cosas. Se puede ordenar.",

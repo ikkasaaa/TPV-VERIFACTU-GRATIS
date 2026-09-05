@@ -12,7 +12,7 @@ BLOG_2027_06 = {
 # ------------------------------------------------------------------ 8 jun
 "rebajas-verano-2027-preparar-1-julio": dict(
   title="Rebajas de Verano 2027: el 1 de Julio, Jueves y VeriFactu",
-  desc="Las rebajas de verano de 2027 arrancan el jueves 1 de julio, el mismo día que VeriFactu obliga a los autónomos. Qué rebajar.",
+  desc="Las rebajas de verano de 2027 arrancan el jueves 1 de julio, el mismo día que VeriFactu obliga a los autónomos. Qué rebajar, cómo etiquetar y en qué orden.",
   kw="rebajas verano 2027, cuando empiezan las rebajas de verano 2027, rebajas julio 2027, preparar rebajas verano tienda, rebajas verano ley, rebajas y verifactu",
   h1="Rebajas de verano 2027: preparar el jueves 1 de julio",
   sub="Dos cosas el mismo día: la mitad del comercio abre rebajas y todos los autónomos entran en VeriFactu. Las rebajas se preparan en la segunda quincena de junio; VeriFactu, en la primera.",
@@ -69,7 +69,7 @@ BLOG_2027_06 = {
 # ------------------------------------------------------------------ 15 jun
 "campana-escolar-2027-papeleria-pedido-en-junio": dict(
   title="Campaña Escolar 2027: la Papelería Pide en Junio",
-  desc="La vuelta al cole de septiembre se pide en junio, con lo vendido el año pasado por referencia.",
+  desc="La vuelta al cole se pide en junio, con lo vendido el año pasado por referencia, lo que sobró en octubre y las listas de los colegios de la zona.",
   kw="campaña escolar 2027 papeleria, pedido vuelta al cole papeleria, preparar vuelta al cole tienda, material escolar pedido junio, papeleria verano preparar septiembre",
   h1="Campaña escolar 2027: el pedido de la papelería se hace en junio",
   sub="Hace nueve meses el blog empezó con la vuelta al cole ya en marcha y lo que quedaba por hacer. Este año se llega a septiembre con el pedido hecho en junio y el sobrante de octubre contado.",
@@ -130,7 +130,7 @@ BLOG_2027_06 = {
 # ------------------------------------------------------------------ 22 jun
 "verifactu-1-julio-2027-lista-final-autonomos": dict(
   title="VeriFactu, 1 de Julio de 2027: la Lista Final para Autónomos",
-  desc="Nueve días. Lo que tiene que estar hecho el 30 de junio, lo que se revisa el 1 de julio antes del primer cliente y qué hacer la semana del 5 si algo falla.",
+  desc="Nueve días. Lo que tiene que estar hecho el 30 de junio, lo que se revisa el 1 de julio antes del primer cliente y qué hacer si algo falla la semana del 5.",
   kw="verifactu 1 julio 2027 autonomos, verifactu lista comprobacion, verifactu que hacer el 1 de julio, verifactu autonomos checklist, verifactu ya en vigor autonomos",
   h1="Nueve días: la lista final de VeriFactu para autónomos",
   sub="El jueves 1 de julio no hay que hacer nada especial si lo de esta lista está hecho el 30. Si no lo está, la lista dice qué hacer el 2.",

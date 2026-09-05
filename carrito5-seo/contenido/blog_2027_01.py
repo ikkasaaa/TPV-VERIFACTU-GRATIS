@@ -81,7 +81,7 @@ BLOG_2027_01 = {
 # ------------------------------------------------------------------ 12 ene
 "verifactu-en-vigor-primera-semana-comprobaciones": dict(
   title="VeriFactu en Vigor: Cinco Comprobaciones tras una Semana",
-  desc="Las sociedades llevan una semana con VeriFactu. Cinco cosas que revisar: QR legible, anulaciones, datos fiscales.",
+  desc="Las sociedades llevan una semana con VeriFactu. Cinco revisiones: QR legible, anulaciones, datos fiscales, ventas fuera del programa y la declaración.",
   kw="verifactu en vigor, verifactu enero 2027, comprobar verifactu, verifactu primera semana, verifactu revisar tickets, verifactu anulaciones",
   h1="Primera semana con VeriFactu: cinco cosas que revisar",
   sub="La semana del 2 al 9 de enero ha sido de rebajas y cambios, y nadie ha mirado los tickets. Es el momento de mirar cinco cosas antes de que se conviertan en costumbre.",
@@ -140,7 +140,7 @@ BLOG_2027_01 = {
 # ------------------------------------------------------------------ 19 ene
 "cuesta-de-enero-comercio-costes-fijos-revisar": dict(
   title="Cuesta de Enero: los Costes Fijos que la Tienda Puede Quitar",
-  desc="El tercer lunes de enero es el mejor día para revisar lo que la tienda paga cada mes sin mirarlo: cuotas de software.",
+  desc="El tercer lunes de enero es el mejor día para revisar lo que la tienda paga cada mes sin mirarlo: cuotas de software, comisiones y servicios sin uso.",
   kw="cuesta de enero comercio, reducir costes tienda, costes fijos tienda pequeña, blue monday comercio, ahorrar costes negocio enero, cuota software tienda",
   h1="Cuesta de enero: la revisión de costes fijos que la tienda no hace",
   sub="El 18 de enero de 2027 es el tercer lunes de enero. La caja está baja, las rebajas están en marcha y es el mejor día del año para mirar los recibos.",

@@ -10,7 +10,7 @@ BLOG_2027_05 = {
 # ------------------------------------------------------------------ 11 may
 "verano-2027-tienda-de-costa-preparar-temporada": dict(
   title="Verano 2027 en la Tienda de Costa: Preparar en Mayo",
-  desc="De junio a septiembre el comercio de costa factura el año. En mayo: género etiquetado.",
+  desc="De junio a septiembre el comercio de costa factura el año. En mayo: género etiquetado, refuerzo que cobre sin formación y caja que no dependa de la red.",
   kw="tienda temporada verano costa, preparar verano comercio, tienda de playa tpv, personal temporada tienda cobrar, abrir tienda verano costa, souvenirs verano tienda",
   h1="Verano 2027: la tienda de costa se prepara en mayo",
   sub="Cuatro meses de temporada, una persona nueva en la caja cada quincena y una red que se cae cuando el paseo se llena. Lo que se deje para junio, se hace en julio con la tienda llena.",
@@ -67,7 +67,7 @@ BLOG_2027_05 = {
 # ------------------------------------------------------------------ 25 may
 "verifactu-autonomos-ultimo-mes-junio-2027": dict(
   title="VeriFactu Autónomos: el Último Mes antes del 1 de Julio",
-  desc="Queda junio. Si tu programa ya está adaptado, dos comprobaciones. Si no.",
+  desc="Queda junio. Si tu programa ya está adaptado, dos comprobaciones. Si no, aún puedes cambiar en la primera quincena de junio sin coincidir con las rebajas.",
   kw="verifactu autonomos julio 2027, verifactu ultimo mes, verifactu autonomos junio, verifactu 1 julio que hacer, verifactu autonomo no llego, cambiar programa antes verifactu",
   h1="El último mes: VeriFactu para autónomos, 1 de julio de 2027",
   sub="El 1 de julio cae en jueves y es el primer día de rebajas de verano en media España. Cambiar de programa ese día es lo peor que se puede hacer; cambiar el 8 de junio, lo mejor que queda.",
