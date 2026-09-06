@@ -17,7 +17,7 @@ quitando el andamiaje generico lo que queda es el sector, y eso ya agrupa bien.
 Ademas el resultado es explicable: se puede ver POR QUE dos keywords cayeron
 juntas, que con un vector no se puede.
 """
-import itertools, re, unicodedata
+import itertools, math, re, unicodedata
 
 UMBRAL = 0.50
 
@@ -240,7 +240,6 @@ def cubre(kw, pagina, peso=None, umbral=UMBRAL):
 
 def pesos(nucleos, n=None):
     """log(N/df) por palabra, sobre los nucleos ya calculados."""
-    import math
     n = n or len(nucleos)
     df = {}
     for s in nucleos:
@@ -295,4 +294,7 @@ def etiqueta(claves, nuc):
     mitad = max(1, len(claves) // 2)
     comunes = sorted((p for p, n in cuenta.items() if n >= mitad),
                      key=lambda p: (-cuenta[p], p))
-    return " ".join(comunes[:3]) or sorted(nuc[claves[0]])[0] if nuc[claves[0]] else "generico"
+    if comunes:
+        return " ".join(comunes[:3])
+    # nada compartido por la mitad: la primera palabra del primer miembro que tenga alguna
+    return next((sorted(nuc[k])[0] for k in claves if nuc[k]), "generico")

@@ -38,7 +38,7 @@ CAB_NUM = {"impressions": "impresiones", "impresiones": "impresiones",
            "volumen": "volumen", "search volume": "volumen",
            "position": "posicion", "posicion": "posicion",
            "posición media": "posicion", "kd": "dificultad",
-           "difficulty": "dificultad"}
+           "difficulty": "dificultad", "keyword difficulty": "dificultad"}
 
 
 def leer_inventarios(rutas):
@@ -78,15 +78,39 @@ def leer_keywords(ruta):
     for f in filas[1:]:
         if len(f) <= i_kw or not f[i_kw].strip():
             continue
-        m = {}
-        for i, nombre in nums.items():
-            if i < len(f):
-                try:
-                    m[nombre] = float(f[i].replace(".", "").replace(",", ".").strip("% "))
-                except ValueError:
-                    pass
-        out.append((f[i_kw].strip(), m))
+        m = {nombre: numero(f[i]) for i, nombre in nums.items() if i < len(f)}
+        out.append((f[i_kw].strip(), {k: v for k, v in m.items() if v is not None}))
     return out
+
+
+def numero(txt):
+    """Cifra de una exportacion, venga en formato español o ingles.
+
+    "1.234,5" y "1,234.5" son el mismo numero; "12,3" y "12.3" tambien. La
+    version anterior quitaba todos los puntos y cambiaba la coma por punto, asi
+    que una posicion media "12.3" de Search Console en ingles se leia como 123.
+    Regla: con dos separadores distintos, el ultimo es el decimal. Con uno solo,
+    es de millares si va seguido de exactamente tres digitos ("2.800") y decimal
+    en cualquier otro caso ("8,4", "0.45"). Devuelve int cuando no hay decimales
+    y None cuando no hay cifra.
+    """
+    t = txt.strip().strip("% ").replace(" ", "")
+    if not t:
+        return None
+    if "." in t and "," in t:
+        dec = "," if t.rfind(",") > t.rfind(".") else "."
+        t = t.replace("." if dec == "," else ",", "").replace(dec, ".")
+    else:
+        sep = "." if "." in t else "," if "," in t else ""
+        if sep:
+            partes = t.split(sep)
+            millares = all(len(p) == 3 for p in partes[1:]) and partes[0].isdigit()
+            t = "".join(partes) if millares else partes[0] + "." + "".join(partes[1:])
+    try:
+        v = float(t)
+    except ValueError:
+        return None
+    return int(v) if v.is_integer() else v
 
 
 def modo_paginas(rutas):
@@ -122,41 +146,41 @@ def modo_paginas(rutas):
     return 0
 
 
-def modo_keywords(ruta_kw, rutas_inv):
-    kws = leer_keywords(ruta_kw)
-    if not kws:
-        print("  no se han leido keywords")
-        return 1
-    paginas = leer_inventarios(rutas_inv)
-    # El tema de una pagina se decide por su SLUG, no por su titulo. El slug lo
-    # eligio alguien a proposito y dice de que va; el titulo añade detalle
-    # comercial ("Gestion de Tallas y Colores") que, tratado como si acotara,
-    # hacia que tpv-tienda-ropa.html dejara de cubrir "tpv tienda de ropa".
-    # El titulo entra solo como respaldo cuando el slug no aporta nada.
-    nuc_pag = {}
-    for s_, sl, ti in paginas:
-        n = C.nucleo(sl)
-        if not n:
-            n = C.nucleo(C.sin_marca(ti))
-        nuc_pag[f"{s_}|{sl}"] = n
+def cruzar(kws, paginas):
+    """[(etiqueta, [keywords], [paginas que cubren], volumen)] por grupo de intencion.
 
-    items = {k: k for k, _ in kws}
-    metricas = {k: m for k, m in kws}
-    grupos, nuc = C.agrupar(items)
+    El tema de una pagina se decide por su SLUG, no por su titulo. El slug lo
+    eligio alguien a proposito y dice de que va; el titulo añade detalle
+    comercial ("Gestion de Tallas y Colores") que, tratado como si acotara,
+    hacia que tpv-tienda-ropa.html dejara de cubrir "tpv tienda de ropa".
+    El titulo entra solo como respaldo cuando el slug no aporta nada.
+    """
+    nuc_pag = {f"{s_}|{sl}": C.nucleo(sl) or C.nucleo(C.sin_marca(ti)) for s_, sl, ti in paginas}
+    metricas = dict(kws)
+    grupos, nuc = C.agrupar({k: k for k in metricas})
     w = C.pesos(list(nuc_pag.values()))
-
     filas = []
     for g in grupos:
         n = C.nucleo(" ".join(g))
         casan = [p for p, np_ in nuc_pag.items() if C.cubre(n, np_, w)]
         vol = sum(metricas[k].get("volumen", metricas[k].get("impresiones", 0)) for k in g)
         filas.append((C.etiqueta(g, nuc), g, casan, vol))
+    return filas
+
+
+def modo_keywords(ruta_kw, rutas_inv):
+    kws = leer_keywords(ruta_kw)
+    if not kws:
+        print("  no se han leido keywords")
+        return 1
+    filas = cruzar(kws, leer_inventarios(rutas_inv))
+    grupos, items = [f[1] for f in filas], kws
 
     huecos = [f for f in filas if not f[2]]
     canib = [f for f in filas if len(f[2]) > 1]
     ok = [f for f in filas if len(f[2]) == 1]
 
-    print(f"  keywords: {len(items)}   grupos: {len(grupos)}   paginas: {len(nuc_pag)}")
+    print(f"  keywords: {len(items)}   grupos: {len(grupos)}")
     print(f"  CUBIERTO {len(ok)}   CANIBALIZADO {len(canib)}   HUECO {len(huecos)}\n")
 
     orden = lambda f: (-f[3], -len(f[1]))
