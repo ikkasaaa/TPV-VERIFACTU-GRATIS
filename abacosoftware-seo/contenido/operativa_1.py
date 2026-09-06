@@ -6,7 +6,7 @@ OPERATIVA_1 = {
 "como-hacer-una-devolucion-tpv.asp": dict(
   nom="devoluciones y cambios", crumb="Devoluciones y cambios", icono="fa-rotate-left",
   title="Cómo Hacer una Devolución o Cambio en el TPV",
-  desc="Cómo registrar devoluciones y cambios en el TPV: localizar el ticket, devolver el stock, emitir vale o factura rectificativa y qué dice la ley sobre devoluciones.",
+  desc="Cómo registrar devoluciones y cambios en el TPV: localizar el ticket, devolver el stock, emitir vale o factura rectificativa y qué dice la ley.",
   kw="como hacer una devolucion tpv, cambio sin ticket, vale de devolucion, factura rectificativa tienda, politica de devoluciones comercio",
   h1="Cómo hacer una devolución o un cambio en el TPV",
   sub="La devolución mal hecha descuadra el stock, descuadra la caja y a veces genera un vale que se canjea dos veces. Se arregla haciéndola siempre sobre el ticket original.",
@@ -154,7 +154,7 @@ OPERATIVA_1 = {
 "cerrar-temporada-liquidar-stock.asp": dict(
   nom="el cierre de temporada", crumb="Cierre de temporada", icono="fa-calendar-check",
   title="Cómo Cerrar Temporada y Liquidar Stock",
-  desc="Cómo cerrar temporada en una tienda: identificar el stock muerto, escalonar los descuentos, calcular hasta dónde puedes bajar y qué hacer con lo que no se vende.",
+  desc="Cómo cerrar temporada en una tienda: identificar el stock muerto, escalonar los descuentos, hasta dónde puedes bajar y qué hacer con lo que no se vende.",
   kw="cerrar temporada tienda, liquidar stock temporada, stock muerto tienda, escalonar descuentos rebajas, que hacer con genero que no se vende",
   h1="Cómo cerrar temporada y liquidar el stock que sobra",
   sub="El género de la temporada pasada no vale lo que costó: vale lo que alguien pague hoy. Cuanto más tardes en asumirlo, menos vale.",

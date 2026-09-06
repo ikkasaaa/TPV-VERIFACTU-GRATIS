@@ -30,18 +30,11 @@ FICHAS = {
  "que_nos_diferencia.asp": ("Qué diferencia a Ábaco Software: licencia en propiedad sin cuotas, soporte telefónico directo y 28 años trabajando con el pequeño comercio español.", "Qué nos diferencia"),
 }
 
-# titulos recortados a <=62 caracteres para que no se corten en Google
+# titulos recortados a <=62 caracteres para que no se corten en Google.
+# Las comparativas (*-vs-caja5.asp) NO van aqui: sus titulos viven en
+# contenido/vs_*.py y son distintos entre si a proposito; esta tabla los
+# estuvo pisando con "Alternativa a X: comparativa con Caja 5" diez veces.
 TITULOS = {
- "catinfog-vs-caja5.asp": "Alternativa a Catinfog: comparativa con Caja 5 TPV",
- "gesio-vs-caja5.asp": "Alternativa a Gesio TPV: comparativa con Caja 5",
- "glop-vs-caja5.asp": "Alternativa a Glop TPV: comparativa con Caja 5",
- "simplygest-vs-caja5.asp": "Alternativa a SimplyGest Tallas y Colores | Caja 5",
- "stmoda-vs-caja5.asp": "Alternativa a STMODA (Status2) | Comparativa Caja 5",
- "stockagile-vs-caja5.asp": "Alternativa a Stockagile: comparativa con Caja 5",
- "square-vs-caja5.asp": "Alternativa a Square TPV sin comisión por venta",
- "ofitienda-vs-caja5.asp": "Alternativa a OfiTienda: comparativa con Caja 5",
- "solvermedia-vs-caja5.asp": "Alternativa a Solvermedia TPV Moda | Caja 5",
- "noproblem-vs-caja5.asp": "Alternativa a No Problem Moda | Comparativa Caja 5",
  "funciones-tpv.asp": "Funciones del software TPV Caja 5, una a una",
  "comparativas-tpv.asp": "Comparativas de software TPV 2026 | Ábaco Software",
  "hardware-tpv-compatible.asp": "Hardware compatible con el TPV: qué necesitas",

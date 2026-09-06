@@ -36,7 +36,7 @@ PAGINAS = {
 # =========================================================== cuando entra en vigor
 "verifactu-cuando-entra-en-vigor.asp": dict(
   title="VeriFactu: cuándo entra en vigor. Fechas 2027 actualizadas | Caja 5",
-  desc="Calendario VeriFactu actualizado: 1 de enero de 2027 para sociedades y 1 de julio de 2027 para autónomos, tras el aplazamiento del RD-ley 15/2025. Qué hacer en 2026.",
+  desc="Calendario VeriFactu: 1 de enero de 2027 para sociedades y 1 de julio de 2027 para autónomos, tras el aplazamiento del RD-ley 15/2025. Qué hacer en 2026.",
   kw="verifactu entrada en vigor, verifactu cuando entra en vigor, verifactu 2027, cuando entra en vigor verifactu, verifactu aplazamiento, calendario verifactu",
   h1="VeriFactu: cuándo entra en vigor y qué cambia en 2027",
   sub="El calendario se ha aplazado dos veces. Estas son las fechas que están vigentes ahora mismo y lo que conviene hacer durante 2026, que es un año voluntario.",
@@ -80,12 +80,13 @@ PAGINAS = {
        ("Programas VeriFactu gratis: lo que hay de verdad", "/verifactu-gratis.asp"),
        ("Software TPV homologado VeriFactu", "/verifactu-tpv.asp"),
        ("Ley Antifraude 11/2021 y TPV", "/ley-antifraude-tpv.asp"),
-       ("Preguntas frecuentes sobre TPV", "/preguntas-frecuentes-tpv.asp")]),
+       ("Preguntas frecuentes sobre TPV", "/preguntas-frecuentes-tpv.asp"),
+       ("Factura electrónica obligatoria (Crea y Crece)", "/factura-electronica-obligatoria-crea-y-crece.asp")]),
 
 # ======================================================================= que es
 "que-es-verifactu.asp": dict(
   title="Qué es VeriFactu y a quién afecta, explicado claro | Caja 5",
-  desc="Qué es VeriFactu, qué obliga a hacer a tu programa de facturación, qué es el QR del ticket y a quién afecta. Explicado sin tecnicismos, con las fechas de 2027.",
+  desc="Qué es VeriFactu, qué obliga a hacer a tu programa de facturación, qué es el QR del ticket y a quién afecta. Sin tecnicismos y con las fechas de 2027.",
   kw="que es verifactu, verifactu que es, que es el verifactu, sistema verifactu, verifactu explicado, verifactu aeat",
   h1="Qué es VeriFactu, explicado como se lo explicaríamos a un comerciante",
   sub="Ni es un programa que tengas que comprar a Hacienda, ni te vigila en tiempo real. Es un conjunto de requisitos que debe cumplir tu software de facturación.",
@@ -127,7 +128,8 @@ PAGINAS = {
        ("Programas VeriFactu gratis", "/verifactu-gratis.asp"),
        ("Software TPV homologado VeriFactu", "/verifactu-tpv.asp"),
        ("Ley Antifraude 11/2021", "/ley-antifraude-tpv.asp"),
-       ("Arqueo de caja y cierre diario", "/arqueo-de-caja-cierre-diario.asp")]),
+       ("Arqueo de caja y cierre diario", "/arqueo-de-caja-cierre-diario.asp"),
+       ("Declaración responsable del fabricante", "/declaracion-responsable-software-facturacion.asp")]),
 
 # ==================================================================== autonomos
 "verifactu-autonomos.asp": dict(
@@ -224,7 +226,7 @@ PAGINAS = {
 # ============================================================ datafono vs software
 "tpv-software-o-datafono.asp": dict(
   title="TPV: ¿software o datáfono? Diferencias y comisiones | Caja 5",
-  desc="La palabra TPV significa dos cosas distintas: el datáfono del banco y el software de punto de venta. Qué es cada uno, cuál necesitas y cómo se comparan las comisiones.",
+  desc="TPV significa dos cosas: el datáfono del banco y el software de punto de venta. Qué es cada uno, cuál necesitas y cómo se comparan las comisiones.",
   kw="tpv o datafono, diferencia tpv y datafono, tpv banco comision, que banco cobra menos por el tpv, tpv sin comision, datafono comercio comisiones",
   h1="TPV: ¿te refieres al datáfono del banco o al software de caja?",
   sub="Es la confusión más común del sector y cuesta dinero: son dos productos distintos, con dos proveedores distintos y dos formas de cobrarte muy distintas.",
@@ -269,7 +271,8 @@ PAGINAS = {
        ("Hardware compatible con el TPV", "/hardware-tpv-compatible.asp"),
        ("Pago único frente a cuotas mensuales", "/tpv-pago-unico-vs-cuotas-mensuales.asp"),
        ("Qué es un TPV", "/que_es_tpv.asp"),
-       ("Comparativas de TPV", "/comparativas-tpv.asp")]),
+       ("Comparativas de TPV", "/comparativas-tpv.asp"),
+       ("Alternativa a Square: la cuenta de las comisiones", "/square-vs-caja5.asp")]),
 
 # =================================================================== tpv gratis
 "tpv-gratis-para-comercio.asp": dict(

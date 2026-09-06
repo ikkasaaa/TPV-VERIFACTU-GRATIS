@@ -10,7 +10,7 @@ OPERATIVA_VS1 = {
 
 "stockagile-vs-caja5.asp": dict(
   nom="Stockagile", crumb="Stockagile vs Caja 5", icono="fa-cloud",
-  title="Alternativa a Stockagile: comparativa con Caja 5",
+  title="Alternativa a Stockagile: cuando la cuota deja de compensar",
   desc="Stockagile cuesta 79 €/mes: 4.740 € a cinco años. Comparativa honesta con Caja 5, licencia de 333 €, y en qué casos Stockagile sigue siendo mejor opción.",
   kw="alternativa a stockagile, stockagile precio, stockagile opiniones, stockagile vs caja 5, tpv moda sin cuotas",
   h1="Alternativa a Stockagile: cuando la cuota deja de compensar",
@@ -63,12 +63,13 @@ OPERATIVA_VS1 = {
        ("Alternativa a Catinfog","/catinfog-vs-caja5.asp"),
        ("Software TPV para tiendas de ropa","/negocio_moda.asp"),
        ("Pago único frente a cuotas mensuales","/tpv-pago-unico-vs-cuotas-mensuales.asp"),
-       ("Cómo cambiar de programa TPV","/migrar-de-tpv-cambiar-programa.asp")]),
+       ("Cómo cambiar de programa TPV","/migrar-de-tpv-cambiar-programa.asp"),
+       ("Alternativa a Square", "/square-vs-caja5.asp")]),
 
 "square-vs-caja5.asp": dict(
   nom="Square", crumb="Square vs Caja 5", icono="fa-percent",
   title="Alternativa a Square: la cuenta de las comisiones",
-  desc="Square cobra entre 1,25 % y 2,5 % por transacción. Qué supone eso al año según tu facturación, comparado con una licencia sin comisión, y cuándo Square compensa.",
+  desc="Square cobra entre 1,25 % y 2,5 % por transacción. Qué supone al año según tu facturación, comparado con una licencia sin comisión, y cuándo compensa.",
   kw="alternativa a square tpv, square comisiones españa, square opiniones, square vs caja 5, tpv sin comision por venta",
   h1="Alternativa a Square: cuánto te cuesta la comisión al año",
   sub="Square tiene el mejor hardware del mercado y la interfaz más fácil que existe. Toda la discusión está en el porcentaje que se lleva de cada venta.",
@@ -233,7 +234,8 @@ OPERATIVA_VS1 = {
        ("Software TPV para tiendas de ropa","/negocio_moda.asp"),
        ("Caja 5 Nube","/caja5_nube.asp"),
        ("Matriz de tallas y colores","/matriz-tallas-y-colores.asp"),
-       ("Preguntas frecuentes sobre TPV","/preguntas-frecuentes-tpv.asp")]),
+       ("Preguntas frecuentes sobre TPV","/preguntas-frecuentes-tpv.asp"),
+       ("Alternativa a No Problem Moda", "/noproblem-vs-caja5.asp")]),
 
 "catinfog-vs-caja5.asp": dict(
   nom="Catinfog", crumb="Catinfog vs Caja 5", icono="fa-arrow-up-right-dots",

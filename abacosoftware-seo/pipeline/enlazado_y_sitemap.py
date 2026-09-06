@@ -114,6 +114,21 @@ def menu():
     return 1
 
 
+def bonito(fn):
+    """negocio_textil_hogar.asp -> Textil hogar"""
+    t = fn.replace("negocio_", "").replace(".asp", "").replace("_", " ")
+    return t[:1].upper() + t[1:]
+
+
+LI = 'style="padding:9px 0; border-bottom:1px solid #e9e4db;"'
+A = 'style="color:#8c2d19; font-weight:600; text-decoration:none;"'
+
+
+def enlace(url, texto):
+    return (f'\n\t\t\t\t\t<li {LI}><a href="{url}" {A}>'
+            f'<i class="fa-solid fa-angle-right" style="margin-right:7px;"></i>{texto}</a></li>')
+
+
 # --------------------------------- 2. hub de sectores: recuperar huerfanas
 def hub_sectores():
     p = os.path.join(OUT, "tpv_negocios.asp")
@@ -126,10 +141,6 @@ def hub_sectores():
     faltan = sorted(todas - enlazadas)
     if not faltan:
         return 0
-
-    def bonito(fn):
-        t = fn.replace("negocio_", "").replace(".asp", "").replace("_", " ")
-        return t[:1].upper() + t[1:]
 
     cards = "".join(f"""
 					<a href="/{fn}" class="card-sector-editorial" data-keywords="{bonito(fn).lower()}">
@@ -162,30 +173,37 @@ def hub_sectores():
     return len(faltan)
 
 
-# ----------------------------- 3. enlaces contextuales sector -> funciones
+# ------------------ 3. enlaces contextuales sector -> funciones y sectores vecinos
 def enlaces_contextuales():
+    """A cada pagina de sector: tres funciones relevantes, dos hubs y dos sectores.
+
+    Los dos sectores son los vecinos en la lista alfabetica (anillo): asi cada
+    pagina de sector recibe exactamente dos enlaces desde otras de su cluster,
+    y ninguna queda sostenida solo por el hub. Antes siete de las nuevas no
+    tenian ningun enlace entrante fuera de tpv_negocios.asp.
+    """
     n = 0
-    for f in sorted(glob.glob(os.path.join(OUT, "negocio_*.asp"))):
+    todos = sorted(os.path.basename(f) for f in glob.glob(os.path.join(OUT, "negocio_*.asp")))
+    todos = [t for t in todos if t != "negocio_antiguedad.asp"]           # duplicado canonicalizado
+    for i, base in enumerate(todos):
+        f = os.path.join(OUT, base)
         s = leer(f)
         if "bloque-funciones-rel" in s:
             continue
-        base = os.path.basename(f)
         clave = next((k for k in POR_SECTOR if k in base), None)
         slugs = POR_SECTOR.get(clave, GENERICO)[:3]
         if len(slugs) < 3:
             slugs = slugs + [g for g in GENERICO if g not in slugs][:3 - len(slugs)]
-        lis = "".join(
-            f'\n\t\t\t\t\t<li style="padding:9px 0; border-bottom:1px solid #e9e4db;">'
-            f'<a href="/{sl}.asp" style="color:#8c2d19; font-weight:600; text-decoration:none;">'
-            f'<i class="fa-solid fa-angle-right" style="margin-right:7px;"></i>{TITULOS[sl]}</a></li>'
-            for sl in slugs)
+        vecinos = [todos[(i + d) % len(todos)] for d in (1, 2)] if len(todos) > 2 else []
+        lis = ("".join(enlace(f"/{sl}.asp", TITULOS[sl]) for sl in slugs)
+               + enlace("/comparativas-tpv.asp", "Comparativas con otros TPV")
+               + enlace("/preguntas-frecuentes-tpv.asp", "Preguntas frecuentes sobre TPV")
+               + "".join(enlace(f"/{v}", f"TPV para {bonito(v).lower()}") for v in vecinos))
         bloque = f"""
 	<section class="bloque-funciones-rel" style="padding:40px 0; background:#faf8f4; border-top:1px solid #e9e4db;">
 		<div class="container">
 			<h2 style="font-size:22px; font-weight:800; color:#1e293b; margin-top:0; margin-bottom:12px;">Funciones del TPV que más se usan en este sector</h2>
 			<ul style="list-style:none; padding:0; margin:0; column-count:2; column-gap:34px;">{lis}
-				<li style="padding:9px 0; border-bottom:1px solid #e9e4db;"><a href="/comparativas-tpv.asp" style="color:#8c2d19; font-weight:600; text-decoration:none;"><i class="fa-solid fa-angle-right" style="margin-right:7px;"></i>Comparativas con otros TPV</a></li>
-				<li style="padding:9px 0; border-bottom:1px solid #e9e4db;"><a href="/preguntas-frecuentes-tpv.asp" style="color:#8c2d19; font-weight:600; text-decoration:none;"><i class="fa-solid fa-angle-right" style="margin-right:7px;"></i>Preguntas frecuentes sobre TPV</a></li>
 			</ul>
 		</div>
 	</section>

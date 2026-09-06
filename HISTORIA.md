@@ -350,3 +350,15 @@ es hasta 50 tickets al mes, como decía su dossier. La sesión que lo cambió a
 17 textos de carrito5 y los 2 de abacosoftware que remiten a Carrito5; las dos
 entradas anteriores de este fichero que hablan de «1.000 artículos» quedan como
 lo que fueron, un error de fuente. Trampas 3 y 7 de CLAUDE.md actualizadas.
+
+### abacosoftware: títulos de sector, descriptions, enlazado y auditoría
+
+Una auditoría sobre la construcción sintética sacó lo que `validate` no mide:
+los 21 títulos de sector eran la misma fórmula («Software TPV para Tiendas de
+X | Caja 5», similitud 0,78), los 10 de comparativas eran buenos en el
+contenido pero `fix_metadatos.py` los pisaba con «Alternativa a X: comparativa
+con Caja 5», 21 descriptions pasaban de 158 caracteres y 7 páginas de sector no
+tenían ningún enlace entrante fuera del hub. Todo reescrito a mano; el anillo
+de sectores vecinos en `enlazado_y_sitemap.py` garantiza dos entrantes por
+sector; las cuatro páginas de hardware, las más cortas, ganan dos FAQ cada una.
+`driver.py audit` deja la comprobación repetible y `smoke` la ejecuta al final.

@@ -26,6 +26,13 @@ Sesión cerrada. Toqué `motor/` (compartida), `abacosoftware-seo/` y
   `test_clusters.py` como orden de referencia; `test_clusters.py` sigue
   funcionando solo.
 
+- **abacosoftware, contenido**: 21 títulos de sector reescritos (eran «Software
+  TPV para Tiendas de X | Caja 5» los 21, similitud 0,78); 10 títulos de
+  comparativas dejaban de ser plantilla en cuanto `fix_metadatos.py` dejó de
+  pisarlos; 21 descriptions acortadas a ≤158; 8 FAQ nuevas en las páginas de
+  hardware (las más cortas); 14 enlaces cruzados y anillo de sectores vecinos.
+  `driver.py audit` lo mide todo; `smoke` lo lanza al final.
+
 ## Para el otro agente
 - **El límite del plan gratuito es «50 tickets al mes»**, confirmado por el
   cliente el 6-9-2026. Da la vuelta a lo que decía CLAUDE.md (1.000 artículos,
@@ -41,6 +48,11 @@ Sesión cerrada. Toqué `motor/` (compartida), `abacosoftware-seo/` y
   Si tienes un informe de huecos anterior hecho con GSC en inglés, rehazlo.
 - Las tres herramientas de `carrito5-seo/pipeline/` ya se pueden canalizar a
   `head` (SIGPIPE), igual que `analizar_clusters` y el driver.
+- **Si tocas títulos o descriptions de abacosoftware, pasa `audit`.** Umbrales:
+  título ≤60, description ≤158, Jaccard entre títulos <0,6, ≥2 enlaces
+  entrantes por página. La web real tiene ~70 `negocio_*.asp` más que el smoke
+  no ve: el anillo de vecinos y el hub los cubren igual, pero sus títulos
+  originales no se han auditado (no están en el repo).
 - Los números de referencia no han cambiado: build sintético 83 páginas nuevas,
   gate media 0,24 / máx 0,41 / 0 pares; `informes/clusters_cruzados.txt` sale
   idéntico con el motor nuevo.
@@ -51,5 +63,6 @@ Sesión cerrada. Toqué `motor/` (compartida), `abacosoftware-seo/` y
 - abacosoftware: sitio.py, maqueta.py, driver sobre el motor, smoke (aee2873)
 - motor/consola.py: SIGPIPE en un solo sitio (da8fed9)
 - carrito5: páginas vivas desde el inventario (c49e8ca)
-- plan gratuito: «50 tickets al mes» en todos los textos, por indicación del cliente
+- plan gratuito: «50 tickets al mes» en todos los textos, por indicación del cliente (89607a4)
+- abacosoftware: títulos, descriptions, FAQ de hardware, enlazado y `audit` (este commit)
 - documentación: CLAUDE.md, READMEs, SKILL.md, HISTORIA.md (este commit)

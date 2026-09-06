@@ -57,7 +57,8 @@ ABRIR_1 = {
        ("Matriz de tallas y colores","/matriz-tallas-y-colores.asp"),
        ("Cómo abrir una zapatería","/abrir-zapateria.asp"),
        ("Pack TPV completo para comercio","/pack-tpv-completo-comercio.asp"),
-       ("Qué es VeriFactu","/que-es-verifactu.asp")]),
+       ("Qué es VeriFactu","/que-es-verifactu.asp"),
+       ("Obligaciones legales al abrir una tienda", "/obligaciones-legales-abrir-tienda.asp")]),
 
 "abrir-zapateria.asp": dict(
   nom="una zapatería", crumb="Zapatería", icono="fa-shoe-prints",

@@ -63,7 +63,7 @@ def main():
     # ---------------------------------------------------------- hub funciones
     hub("funciones-tpv.asp",
         "Funciones del Software TPV Caja 5: todo lo que hace | Ábaco Software",
-        "Todas las funciones del TPV Caja 5 explicadas una a una: matriz de tallas y colores, stock multialmacén, fidelización, vales, etiquetas, rebajas y arqueo de caja.",
+        "Todas las funciones del TPV Caja 5 explicadas una a una: matriz de tallas y colores, stock multialmacén, fidelización, vales, etiquetas, rebajas y arqueo.",
         "funciones software tpv, que hace un tpv, caracteristicas programa tpv, funcionalidades tpv comercio, software gestion tienda funciones",
         "Funciones del TPV: qué hace Caja 5, explicado una a una",
         "Cada función con su página, con el detalle práctico de cómo se usa en el mostrador y qué problema concreto resuelve en una tienda de verdad.",
@@ -99,7 +99,7 @@ def main():
     from gen_competidores import COMP
     hub("comparativas-tpv.asp",
         "Comparativas de Software TPV 2026: Caja 5 frente a otros | Ábaco",
-        "Comparativas honestas entre Caja 5 y los principales TPV del mercado español: precio real a 5 años, funciones, VeriFactu y comisiones. Con lo bueno de cada uno.",
+        "Comparativas honestas entre Caja 5 y los principales TPV del mercado español: precio real a 5 años, funciones, VeriFactu y comisiones. Lo bueno de cada uno.",
         "comparativa software tpv, mejor tpv para tienda, comparar programas tpv, alternativas tpv españa, tpv moda comparativa, que tpv elegir",
         "Comparativas de TPV: Caja 5 frente a las alternativas del mercado",
         "Comparativas con datos, no con adjetivos. Qué hace bien cada competidor, qué le critican sus usuarios y en qué escenario concreto conviene cada uno.",

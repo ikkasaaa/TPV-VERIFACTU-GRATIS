@@ -11,6 +11,7 @@ para poder abrirlo en Chromium y hacerle una captura.
     python3 driver.py validate --base <dir-web>      auditoria SEO
     python3 driver.py preview  --base <dir-web> --page negocio_ferreteria.asp
     python3 driver.py stats    --base <dir-web>
+    python3 driver.py audit    --base <dir-web> [--original <dir>]   calidad: titulos, longitud, enlazado
     python3 driver.py package  --base <dir-web> --out sitio.zip
     python3 driver.py smoke                          build+gate+validate sobre una web sintetica
 
@@ -236,6 +237,71 @@ def cmd_package(a):
     return 0
 
 
+# --------------------------------------------------------------------- audit
+def cmd_audit(a):
+    """Lo que validate no mira: paginas cortas, titulos y descriptions que se
+    parecen entre si, coletillas repetidas, enlazado entrante y enlaces rotos.
+    Informa; no falla. Con --original se limita a las paginas nuevas."""
+    import collections, itertools, re
+    fs = sitio.paginas(a.base)
+    if a.original:
+        viejas = {os.path.basename(f) for f in glob.glob(os.path.join(a.original, "*.asp"))}
+        fs = [f for f in fs if os.path.basename(f) not in viejas]
+    todas = {os.path.basename(f) for f in sitio.paginas(a.base)}
+    # La web real tiene 198 paginas que en una construccion parcial (smoke) no
+    # estan: el inventario del repositorio cuenta como existente.
+    inv = os.path.join(os.path.dirname(UNIT), "inventarios", "abacosoftware.tsv")
+    if os.path.exists(inv):
+        todas |= {l.split("\t")[1] for l in M.leer(inv).splitlines()[1:] if "\t" in l}
+    d = {}
+    for f in fs:
+        s = M.leer(f)
+        lds = [o for _, _, o in M.bloques_ld(s) if o]
+        d[os.path.basename(f)] = dict(
+            t=M.titulo(s), desc=M.meta(s, "description"), n=len(M.texto_visible(s).split()),
+            faqs=sum(len(o.get("mainEntity", [])) for o in lds if o.get("@type") == "FAQPage"),
+            enlaces=set(re.findall(r'href="/?([a-z0-9_\-]+\.asp)', s)))
+    if not d:
+        print("  nada que auditar")
+        return 0
+    voc = lambda t: frozenset(re.findall(r"[a-záéíóúüñ0-9]+", t.lower()))
+    print(f"  paginas auditadas: {len(d)}\n")
+    print("  mas cortas (palabras visibles, el menu y el pie suman unas 250):")
+    for b, x in sorted(d.items(), key=lambda kv: kv[1]["n"])[:8]:
+        print(f"   {x['n']:5}  faqs={x['faqs']:2}  {b}")
+    for campo, etiqueta, umbral in (("t", "titulos", 0.6), ("desc", "descriptions", 0.45)):
+        sims = sorted(((gate.jaccard(voc(d[x][campo]), voc(d[y][campo])), x, y)
+                       for x, y in itertools.combinations(d, 2)), reverse=True)
+        malos = [s for s in sims if s[0] >= umbral]
+        media = sum(s[0] for s in sims) / len(sims) if sims else 0
+        print(f"\n  {'!!' if malos else 'ok'} {etiqueta}: media {media:.2f}, "
+              f"{len(malos)} pares con {umbral} o mas")
+        for j, x, y in malos[:5]:
+            print(f"     {j:.2f}  {x} <-> {y}\n           {d[x][campo][:80]}\n           {d[y][campo][:80]}")
+    for etiqueta, corte in (("cierres de description repetidos", lambda t: " ".join(t.lower().split()[-4:])),
+                            ("arranques de title repetidos (3 palabras)", lambda t: " ".join(t.lower().split()[:3]))):
+        campo = "desc" if "description" in etiqueta else "t"
+        rep = [(c, n) for c, n in collections.Counter(corte(x[campo]) for x in d.values()).most_common(5) if n > 2]
+        # informativo: "como abrir una" x9 es la intencion de las guias, no una plantilla
+        print(f"\n  {'--' if rep else 'ok'} {etiqueta}: {len(rep)}")
+        for c, n in rep:
+            print(f"     {n}x  {c}")
+    largos = [(b, len(x["t"]), len(x["desc"])) for b, x in d.items() if len(x["t"]) > 60 or len(x["desc"]) > 158]
+    print(f"\n  {'!!' if largos else 'ok'} title > 60 o description > 158 (Google corta ahi): {len(largos)}")
+    for b, lt, ld in sorted(largos)[:8]:
+        print(f"     title={lt} desc={ld}  {b}")
+    entrantes = collections.Counter(e for b, x in d.items() for e in x["enlaces"] if e in d and e != b)
+    solas = [b for b in sorted(d) if entrantes[b] <= 1]
+    print(f"\n  {'!!' if solas else 'ok'} con un enlace entrante o ninguno desde las demas: {len(solas)}")
+    for b in solas[:10]:
+        print(f"     {entrantes[b]}  {b}")
+    rotos = collections.Counter(e for x in d.values() for e in x["enlaces"] if e not in todas)
+    print(f"\n  {'!!' if rotos else 'ok'} enlaces a .asp que no existen en la web: {len(rotos)}")
+    for e, n in rotos.most_common(10):
+        print(f"     {n}x  {e}")
+    return 0
+
+
 # --------------------------------------------------------------------- smoke
 SINTETICO = {
     "index.asp": """<!DOCTYPE html><html lang="es"><head><title>Caja 5 TPV | Ábaco Software</title>
@@ -275,6 +341,8 @@ def cmd_smoke(a):
         g = cmd_gate(a)
         print("== validate ==")
         v = cmd_validate(a)
+        print("== audit ==")
+        cmd_audit(a)
         print(f"\n  smoke {'OK' if not (g or v) else 'FALLA'}: gate={g} validate={v}")
         return 1 if (g or v) else 0
     finally:
@@ -285,8 +353,8 @@ def cmd_smoke(a):
         shutil.rmtree(orig, ignore_errors=True)
 
 
-CMDS = {"build": cmd_build, "gate": cmd_gate, "validate": cmd_validate, "preview": cmd_preview,
-        "stats": cmd_stats, "package": cmd_package, "smoke": cmd_smoke}
+CMDS = {"build": cmd_build, "gate": cmd_gate, "validate": cmd_validate, "audit": cmd_audit,
+        "preview": cmd_preview, "stats": cmd_stats, "package": cmd_package, "smoke": cmd_smoke}
 
 
 def main():

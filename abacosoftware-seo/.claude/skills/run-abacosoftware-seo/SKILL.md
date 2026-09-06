@@ -101,6 +101,21 @@ Comprueba title, description, canonical, OpenGraph, breadcrumb, un solo H1,
 longitudes de SERP, validez de todo el JSON-LD y que el sitemap no apunte a
 ficheros inexistentes. Todo debe salir `ok`; devuelve 1 si algo falla.
 
+### Auditoría de calidad
+
+```bash
+python3 .claude/skills/run-abacosoftware-seo/driver.py audit --base /tmp/prueba --original <dir-web-original>
+```
+
+Lo que `validate` no mira: páginas cortas, títulos y descriptions que se
+parecen entre sí (la regla anti-plantilla también va para ellos), coletillas
+repetidas, longitud real de SERP (60 / 158), páginas con menos de dos enlaces
+entrantes y enlaces a `.asp` que no existen. Informa, no falla. `smoke` la
+ejecuta al final. Lo que sacó la primera vez: 21 títulos de sector con la misma
+fórmula, 10 títulos de comparativas pisados por `fix_metadatos.py`, 21
+descriptions de 159-172 caracteres y 7 páginas de sector sin ningún enlace
+entrante. Todo corregido; si vuelve a salir «!!», algo se ha vuelto a colar.
+
 ### Ver una página (captura)
 
 ```bash
@@ -186,6 +201,15 @@ páginas escritas a mano se quedan en 0,28–0,41. El `gate` las rechazará.
 - **`aggregateRating` en 34 páginas sin reseñas visibles.** Riesgo de acción
   manual de Google. Se dejó intacto a propósito: es decisión del cliente
   publicar las reseñas o retirar el schema. No lo toques sin preguntar.
+
+- **`fix_metadatos.py` sobreescribe títulos.** Su tabla `TITULOS` existe para
+  acortar los que pasaban de 62 caracteres, pero pisó durante meses los diez de
+  comparativas con una fórmula idéntica. Si escribes un título bueno en
+  `contenido/`, comprueba que no esté en esa tabla.
+
+- **Cada página de sector enlaza a dos sectores vecinos** (anillo alfabético,
+  en `enlazado_y_sitemap.py`). Es lo que garantiza que ninguna quede sostenida
+  solo por el hub. No lo quites para «limpiar» el bloque de funciones.
 
 - **El recorte de títulos deja finales colgantes.** «...sin Cerrar al» es peor
   que un título largo. `recortar_titulos.py` tiene una lista `MANUALES` para los

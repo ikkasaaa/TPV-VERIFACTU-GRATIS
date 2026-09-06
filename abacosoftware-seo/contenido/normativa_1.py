@@ -10,7 +10,7 @@ NORMATIVA_1 = {
 "sanciones-ley-antifraude.asp": dict(
   nom="las sanciones de la Ley Antifraude", crumb="Sanciones", icono="fa-gavel",
   title="Sanciones de la Ley Antifraude: qué dice la norma",
-  desc="Qué régimen sancionador establece la Ley 11/2021 sobre software de facturación, a quién afecta (fabricante y usuario) y cómo se acredita que tu programa cumple.",
+  desc="Qué régimen sancionador fija la Ley 11/2021 sobre software de facturación, a quién afecta (fabricante y usuario) y cómo se acredita que tu programa cumple.",
   kw="sanciones ley antifraude, multa software doble uso, ley 11/2021 sanciones, declaracion responsable software, sancion tpv no homologado",
   h1="Sanciones de la Ley Antifraude: lo que dice la norma y lo que no",
   sub="Circula mucho miedo y pocas cifras contrastadas. Esto es lo que establece la ley, dicho sin exagerar y remitiendo a tu asesor donde toca.",
@@ -69,12 +69,13 @@ NORMATIVA_1 = {
        ("Cuándo entra en vigor VeriFactu","/verifactu-cuando-entra-en-vigor.asp"),
        ("VeriFactu para autónomos","/verifactu-autonomos.asp"),
        ("Normativa del comercio","/normativa-comercio.asp"),
-       ("Preguntas frecuentes sobre TPV","/preguntas-frecuentes-tpv.asp")]),
+       ("Preguntas frecuentes sobre TPV","/preguntas-frecuentes-tpv.asp"),
+       ("Declaración responsable del fabricante", "/declaracion-responsable-software-facturacion.asp")]),
 
 "ticketbai-pais-vasco.asp": dict(
   nom="ticketBAI", crumb="ticketBAI", icono="fa-receipt",
   title="ticketBAI: qué es y en qué se diferencia de VeriFactu",
-  desc="ticketBAI es el sistema de las haciendas forales vascas, distinto de VeriFactu. Qué exige, a quién afecta en Álava, Bizkaia y Gipuzkoa, y cómo convive con el estatal.",
+  desc="ticketBAI es el sistema de las haciendas forales vascas, distinto de VeriFactu. Qué exige, a quién afecta en Álava, Bizkaia y Gipuzkoa y cómo convive con él.",
   kw="ticketbai, ticket bai que es, ticketbai vs verifactu, ticketbai bizkaia gipuzkoa alava, tpv ticketbai homologado",
   h1="ticketBAI: qué es y por qué no es lo mismo que VeriFactu",
   sub="Si tu comercio está en Álava, Bizkaia o Gipuzkoa, tu sistema no es VeriFactu. Y lleva más tiempo en marcha que el estatal.",
@@ -130,7 +131,8 @@ NORMATIVA_1 = {
        ("Software TPV homologado VeriFactu","/verifactu-tpv.asp"),
        ("Cuándo entra en vigor VeriFactu","/verifactu-cuando-entra-en-vigor.asp"),
        ("Normativa del comercio","/normativa-comercio.asp"),
-       ("Preguntas frecuentes sobre TPV","/preguntas-frecuentes-tpv.asp")]),
+       ("Preguntas frecuentes sobre TPV","/preguntas-frecuentes-tpv.asp"),
+       ("Factura electrónica obligatoria (Crea y Crece)", "/factura-electronica-obligatoria-crea-y-crece.asp")]),
 
 "factura-electronica-obligatoria-crea-y-crece.asp": dict(
   nom="la factura electrónica obligatoria", crumb="Factura electrónica", icono="fa-file-invoice",

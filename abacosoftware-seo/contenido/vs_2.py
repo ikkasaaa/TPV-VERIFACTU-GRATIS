@@ -62,8 +62,8 @@ OPERATIVA_VS2 = {
 
 "simplygest-vs-caja5.asp": dict(
   nom="SimplyGest", crumb="SimplyGest vs Caja 5", icono="fa-triangle-exclamation",
-  title="Alternativa a SimplyGest Tallas y Colores",
-  desc="SimplyGest cuesta 149 € en licencia perpetua. Qué dicen sus usuarios sobre estabilidad tras actualizaciones y soporte de pago, y qué comprobar antes de decidir.",
+  title="Alternativa a SimplyGest: estabilidad y soporte de pago",
+  desc="SimplyGest cuesta 149 € en licencia perpetua. Qué dicen sus usuarios sobre la estabilidad tras actualizaciones y el soporte de pago, y qué comprobar antes.",
   kw="alternativa a simplygest, simplygest tallas y colores precio, simplygest opiniones, simplygest vs caja 5",
   h1="Alternativa a SimplyGest: la cuestión es la estabilidad",
   sub="La relación calidad-precio de entrada es buena y nadie lo discute. Lo que hay que mirar es qué pasa después de cada actualización y quién te atiende cuando algo falla.",
@@ -115,7 +115,8 @@ OPERATIVA_VS2 = {
        ("Alternativa a Solvermedia","/solvermedia-vs-caja5.asp"),
        ("Matriz de tallas y colores","/matriz-tallas-y-colores.asp"),
        ("Vender online y en tienda con un solo stock","/vender-online-y-tienda-fisica-stock.asp"),
-       ("Software TPV para zapaterías","/negocio_calzado.asp")]),
+       ("Software TPV para zapaterías","/negocio_calzado.asp"),
+       ("Alternativa a No Problem Moda", "/noproblem-vs-caja5.asp")]),
 
 "gesio-vs-caja5.asp": dict(
   nom="Gesio", crumb="Gesio vs Caja 5", icono="fa-diagram-project",

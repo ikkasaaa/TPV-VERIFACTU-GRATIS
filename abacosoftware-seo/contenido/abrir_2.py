@@ -61,7 +61,7 @@ ABRIR_2 = {
 "abrir-papeleria.asp": dict(
   nom="una papelería", crumb="Papelería", icono="fa-pen-ruler", page="negocio_papeleria.asp",
   title="Cómo Abrir una Papelería: campaña y colegios",
-  desc="Cómo abrir una papelería: por qué septiembre lo decide todo, cómo conseguir las listas de los colegios, márgenes por familia, servicios de copistería e inversión.",
+  desc="Cómo abrir una papelería: por qué septiembre lo decide todo, cómo conseguir las listas de los colegios, márgenes por familia, copistería e inversión.",
   kw="abrir papeleria, montar papeleria, cuanto cuesta abrir una papeleria, papeleria colegio listas, negocio papeleria",
   h1="Cómo abrir una papelería",
   sub="Una papelería factura en tres semanas de septiembre lo que en cuatro meses normales. Si no llegas preparado a esa campaña, ya no hay año.",
@@ -164,7 +164,9 @@ ABRIR_2 = {
        ("Vales y tarjetas regalo","/vales-y-tarjetas-regalo-tpv.asp"),
        ("Rebajas y promociones","/rebajas-y-promociones-tpv.asp"),
        ("Cómo hacer el inventario de una tienda","/como-hacer-un-inventario-tienda.asp"),
-       ("Qué es VeriFactu","/que-es-verifactu.asp")]),
+       ("Qué es VeriFactu","/que-es-verifactu.asp"),
+       ("Obligaciones legales al abrir una tienda", "/obligaciones-legales-abrir-tienda.asp"),
+       ("Cómo abrir una papelería", "/abrir-papeleria.asp")]),
 
 "abrir-centro-estetica.asp": dict(
   nom="un centro de estética", crumb="Centro de estética", icono="fa-spa", page="negocio_estetica.asp",

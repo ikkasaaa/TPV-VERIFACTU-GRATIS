@@ -54,7 +54,8 @@ OPERATIVA_2 = {
        ("TPV para supermercados","/negocio_supermercado.asp"),
        ("Preguntas frecuentes sobre TPV","/preguntas-frecuentes-tpv.asp"),
        ("Copias de seguridad del TPV","/copia-seguridad-tpv.asp"),
-       ("Operativa diaria del TPV","/operativa-tpv.asp")]),
+       ("Operativa diaria del TPV","/operativa-tpv.asp"),
+       ("Qué informes del TPV mirar", "/informes-tpv-que-mirar.asp")]),
 
 "migrar-de-tpv-cambiar-programa.asp": dict(
   nom="el cambio de programa", crumb="Migrar de TPV", icono="fa-right-left",
@@ -111,7 +112,7 @@ OPERATIVA_2 = {
 "vender-online-y-tienda-fisica-stock.asp": dict(
   nom="la venta online con tienda física", crumb="Online y tienda física", icono="fa-globe",
   title="Vender Online y en Tienda con el Mismo Stock",
-  desc="Cómo sincronizar el stock entre tu tienda física y la online: sobreventa, reservas, plazos de sincronización, devoluciones cruzadas y qué mirar antes de conectar.",
+  desc="Cómo sincronizar el stock entre tienda física y online: sobreventa, reservas, plazos de sincronización, devoluciones cruzadas y qué mirar antes de conectar.",
   kw="sincronizar stock tienda online, vender online y tienda fisica, sobreventa ecommerce stock, conectar tpv con tienda online, stock unificado",
   h1="Vender online y en tienda física con un solo stock",
   sub="El problema no es técnico: es que la última unidad se puede vender dos veces, una en el mostrador y otra en la web, con quince minutos de diferencia.",
