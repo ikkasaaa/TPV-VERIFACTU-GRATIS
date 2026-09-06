@@ -11,7 +11,13 @@ puede posicionar: nadie busca "TPV Madrid" y encuentra un menu.
 La lista CIUDADES sale del texto del menu recogido del sitio vivo, no de una
 suposicion sobre que ciudades deberian estar.
 """
-import os, re, sys
+import re
+import os, sys
+
+sys.path.insert(0, os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), os.pardir, "motor"))
+import consola                                          # noqa: E402
+
+consola.tuberias()
 
 # Plazas que el propio sitio enumera en su menu.
 CIUDADES = ["madrid", "barcelona", "valencia", "sevilla", "malaga", "bilbao",

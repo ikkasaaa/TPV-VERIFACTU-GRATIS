@@ -22,12 +22,7 @@ ficheros que el pipeline espera encontrar, construye encima y pasa gate y
 validate. Es la forma de saber que un cambio en los generadores no ha roto
 nada antes de tocar material real.
 """
-import argparse, functools, glob, http.server, os, shutil, signal, socketserver, subprocess, sys, tempfile, threading
-
-try:                                   # canalizar a `head` sin BrokenPipeError
-    signal.signal(signal.SIGPIPE, signal.SIG_DFL)
-except (AttributeError, ValueError):
-    pass
+import argparse, functools, glob, http.server, os, shutil, socketserver, subprocess, sys, tempfile, threading
 
 RAIZ = os.path.dirname(os.path.realpath(__file__))
 UNIT = os.path.abspath(os.path.join(RAIZ, "..", "..", ".."))       # abacosoftware-seo/
@@ -35,7 +30,9 @@ PIPE = os.path.join(UNIT, "pipeline")
 CONT = os.path.join(UNIT, "contenido")
 sys.path.insert(0, PIPE)
 import sitio                                              # noqa: E402  (deja motor/ en sys.path)
-import gate, marcado as M                                 # noqa: E402
+import consola, gate, marcado as M                        # noqa: E402
+
+consola.tuberias()
 
 CHROME_GLOB = "/opt/pw-browsers/chromium*/chrome-linux/chrome"
 MAX_TITLE, MAX_DESC = 65, 165

@@ -16,7 +16,13 @@ busqueda y que delatan una pagina generada en serie:
 
 Tambien mide la longitud: por encima de 60 caracteres Google suele cortar.
 """
-import collections, os, re, sys
+import collections, re
+import os, sys
+
+sys.path.insert(0, os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), os.pardir, "motor"))
+import consola                                          # noqa: E402
+
+consola.tuberias()
 
 # Palabras del sector que llevan tilde en castellano. Si aparecen sin ella en
 # un titulo, es que el titulo se genero desde el slug (los slugs no llevan tildes).
@@ -43,13 +49,10 @@ def defectos(url, titulo, completo=True):
     fallos = []
     palabras = re.findall(r"[A-Za-zÁÉÍÓÚÜÑáéíóúüñ]+", titulo)
 
-    sin_tilde = []
-    for p in palabras:
-        b = p.lower()
-        if b in CON_TILDE and CON_TILDE[b] and b == p.lower():
-            # solo cuenta si la version escrita no lleva ninguna tilde
-            if not re.search(r"[áéíóúüñ]", p, re.I):
-                sin_tilde.append((p, CON_TILDE[b]))
+    # Solo cuenta la palabra escrita sin ninguna tilde: "Música" ya lleva la
+    # suya y no aparece en CON_TILDE como clave (las claves van sin tilde).
+    sin_tilde = [(p, CON_TILDE[p.lower()]) for p in palabras
+                 if CON_TILDE.get(p.lower()) and not re.search(r"[áéíóúüñ]", p, re.I)]
     if sin_tilde:
         fallos.append(("ACENTOS", ", ".join(f"{a} -> {b}" for a, b in sin_tilde)))
 

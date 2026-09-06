@@ -14,7 +14,13 @@ La normalizacion quita el prefijo comercial (tpv-, software-tpv-, programa-),
 pasa a singular las palabras que solo cambian en la -s final, y ordena lo que
 queda. Dos URLs con la misma huella compiten.
 """
-import collections, os, re, sys
+import collections, re
+import os, sys
+
+sys.path.insert(0, os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), os.pardir, "motor"))
+import consola                                          # noqa: E402
+
+consola.tuberias()
 
 # Palabras que no distinguen una pagina de otra en este sitio.
 RUIDO = {"tpv", "software", "programa", "gratis", "de", "del", "la", "el",
