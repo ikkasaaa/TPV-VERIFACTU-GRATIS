@@ -93,9 +93,11 @@ otro no la tenga ya.
 2. **No se puede descargar carrito5.com desde el entorno**: el proxy de salida
    lo bloquea. El inventario está reconstruido desde el índice de búsqueda y es
    un suelo, no el total.
-3. **El plan gratuito es «Plan Inicio, hasta 1.000 artículos».** El «50 tickets
-   al mes» que aparece en el dossier interno del cliente **es falso** y
-   contradice su propia web. No publicarlo.
+3. **El plan gratuito es «Plan Inicio, hasta 50 tickets al mes».** Lo ha
+   confirmado el cliente el 6-9-2026. Una sesión anterior lo había cambiado a
+   «hasta 1.000 artículos» leyendo la web viva, y esa versión estuvo en 17
+   textos; están todos reescritos. Si la web viva sigue diciendo 1.000
+   artículos, es la web la que va atrasada, no el dossier.
 4. **Nunca se sobrescribe una página viva** sin comprobar que existe. Hubo un
    intento que iba a machacar `descargar-tpv-gratis.html`, que es la página de
    descargas. Lo que colisione va a `_propuestas/`.
@@ -107,9 +109,10 @@ otro no la tenga ya.
    La lista a mano tenía cuatro; el inventario cazó una quinta que se estaba
    sobrescribiendo (`verifactu-aeat-descargar.html`). Si descubres una página
    viva nueva, va al inventario, y `generar.py` la respeta sola.
-7. **El «50 al mes» falso sobrevivió en una tarjeta lateral** después de haber
-   corregido 16 apariciones. Antes de entregar carrito5:
-   `grep -rn "50 al mes" carrito5-seo/contenido/` tiene que salir vacío.
+7. **El límite del plan gratuito ha cambiado dos veces de versión** y la
+   segunda vez quedó un texto sin tocar. Antes de entregar carrito5:
+   `grep -rn "1\.000 art" carrito5-seo/contenido/ abacosoftware-seo/pipeline/`
+   tiene que salir vacío; el dato vigente es el de la trampa 3.
 8. **Una sola expresión regular para cada cosa.** El `<title>`, el H1, las
    metas y el texto visible se leen y escriben desde `motor/marcado.py`. Había
    seis copias que divergían; si necesitas leer marcado, mira ahí antes de

@@ -341,3 +341,12 @@ falso, después de haber corregido 16.
 
 El arreglo del SIGPIPE, que se había hecho tres veces a mano, en un solo sitio
 y aplicado a los cinco scripts de línea de órdenes.
+
+### El límite del plan gratuito es «50 tickets al mes» (corrección del cliente)
+
+El 6 de septiembre de 2026 el cliente confirma que el plan gratuito de Carrito5
+es hasta 50 tickets al mes, como decía su dossier. La sesión que lo cambió a
+«1.000 artículos» se guió por la web viva, que va atrasada. Se reescriben los
+17 textos de carrito5 y los 2 de abacosoftware que remiten a Carrito5; las dos
+entradas anteriores de este fichero que hablan de «1.000 artículos» quedan como
+lo que fueron, un error de fuente. Trampas 3 y 7 de CLAUDE.md actualizadas.

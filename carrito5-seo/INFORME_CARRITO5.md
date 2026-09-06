@@ -116,11 +116,14 @@ No todas son un error. `tpv-zapateria.html` + `tpv-zapateria-hardware.html` +
 `programa-stock-zapateria.html` **sí** están bien: una por intención distinta
 (producto, hardware, control de stock). Ese es el patrón a copiar en el resto.
 
-## 6. Confirmado por fuente independiente
+## 6. El límite del plan gratuito (corregido el 6-9-2026)
 
-El plan gratuito es **Plan Inicio, hasta 1.000 artículos**. Lo dicen las propias
-páginas vivas recogidas en el índice. Queda confirmada la corrección que ya hice: el
-«50 tickets al mes» del dossier interno **es incorrecto** y no debe publicarse.
+Las páginas vivas recogidas en el índice decían «Plan Inicio, hasta 1.000
+artículos», y sobre eso se reescribieron los textos. **El cliente ha corregido
+el dato: el plan gratuito es hasta 50 tickets al mes**, como decía su dossier.
+Todos los textos del repositorio (carrito5 y la página de abacosoftware que
+remite a Carrito5) dicen ya 50 tickets al mes. Lo que conviene revisar es la
+web viva, que sigue publicando el límite antiguo.
 
 ## 7. Madrid: la plaza más grande de España no tiene página
 

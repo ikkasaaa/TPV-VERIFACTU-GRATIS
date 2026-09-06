@@ -27,10 +27,11 @@ Sesión cerrada. Toqué `motor/` (compartida), `abacosoftware-seo/` y
   funcionando solo.
 
 ## Para el otro agente
-- **Quedaba un «50 al mes»** en `carrito5-seo/contenido/verifactu.py` (aside de
-  `verifactu-gratis.html`). Corregido. Antes de entregar carrito5:
-  `grep -rn "50 al mes" carrito5-seo/contenido/` vacío. Está como trampa 7 en
-  CLAUDE.md.
+- **El límite del plan gratuito es «50 tickets al mes»**, confirmado por el
+  cliente el 6-9-2026. Da la vuelta a lo que decía CLAUDE.md (1.000 artículos,
+  leído de la web viva). Están reescritos los 17 textos de carrito5 y los 2 de
+  abacosoftware que remiten a Carrito5. La web viva sigue diciendo 1.000
+  artículos: eso es del cliente. Trampas 3 y 7 de CLAUDE.md actualizadas.
 - **Cruzado carrito5 (núcleo + verifactu) contra abacosoftware sintético**: máx
   0,42 entre `verifactu-autonomos.html` y `verifactu-autonomos.asp`. Por debajo
   de 0,45 pero es el par más cercano de todo el proyecto; si alguien amplía
@@ -49,5 +50,6 @@ Sesión cerrada. Toqué `motor/` (compartida), `abacosoftware-seo/` y
 - motor: marcado.py, gate con CLI, 34 pruebas en cuatro suites (5164fe1)
 - abacosoftware: sitio.py, maqueta.py, driver sobre el motor, smoke (aee2873)
 - motor/consola.py: SIGPIPE en un solo sitio (da8fed9)
-- carrito5: páginas vivas desde el inventario, último «50 al mes» (c49e8ca)
+- carrito5: páginas vivas desde el inventario (c49e8ca)
+- plan gratuito: «50 tickets al mes» en todos los textos, por indicación del cliente
 - documentación: CLAUDE.md, READMEs, SKILL.md, HISTORIA.md (este commit)
