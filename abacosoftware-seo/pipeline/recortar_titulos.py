@@ -9,15 +9,25 @@ El recorte por palabras deja a veces la frase colgando de una preposicion o un
 articulo ("... sin Cerrar al"). Esa comprobacion es la parte que de verdad
 importa: un titulo cortado a mitad se ve peor que uno largo.
 """
-import glob, os, re, sys
+import os, re
 
-OUT = sys.argv[1] if len(sys.argv) > 1 else "site"
+import sitio, marcado as M
+
+OUT = sitio.salida()
 MAX = 65
 MIN = 22
 
 SUFIJOS = (" | Caja 5", " | Ábaco Software", " | Abaco Software", " - Caja 5", " | Caja5")
 COLGANTE = re.compile(r"\b(al|el|la|lo|los|las|de|del|en|con|sin|por|para|y|o|a|un|una|"
                       r"que|su|sus|es|se|te|le|mi|tu|más|mas|como|desde|hasta|entre)$", re.I)
+# Finales que parecen colgantes y no lo son: "explicado una a una" acaba en
+# articulo, pero es una locucion entera. Sin esto, cada build avisaba de un
+# colgante que no existia.
+LOCUCIONES = ("una a una", "uno a uno", "paso a paso", "cara a cara")
+
+
+def colgante(t):
+    return bool(COLGANTE.search(t)) and not t.lower().endswith(LOCUCIONES)
 
 # titulos que el recorte automatico deja mal y se resuelven a mano
 MANUALES = {
@@ -53,41 +63,31 @@ def acortar(t):
     # 4) cortar por palabra y limpiar finales colgantes
     while len(t) > MAX and " " in t:
         t = t[: t.rfind(" ")].rstrip(" ,;:|-·")
-    while COLGANTE.search(t) and " " in t:
+    while colgante(t) and " " in t:
         t = t[: t.rfind(" ")].rstrip(" ,;:|-·")
     return t
 
 
 def main():
     n = colgantes = 0
-    for f in sorted(glob.glob(os.path.join(OUT, "*.asp"))):
-        b = os.path.basename(f)
-        s = open(f, encoding="utf-8").read()
-        m = re.search(r"<title>(.*?)</title>", s, re.S)
-        if not m:
-            continue
-        t = re.sub(r"\s+", " ", m.group(1)).strip()
-        nuevo = MANUALES.get(b) or (acortar(t) if len(t) > MAX else t)
-        if nuevo == t or not (MIN <= len(nuevo) <= MAX):
-            continue
-        s = s[: m.start(1)] + nuevo + s[m.end(1):]
-        for prop in ("og:title", "twitter:title"):
-            s = re.sub(rf'((?:property|name)="{prop}" content=")[^"]*(")',
-                       lambda x: x.group(1) + nuevo + x.group(2), s)
-        open(f, "w", encoding="utf-8").write(s)
-        n += 1
-
-    # verificacion final
     largos = []
-    for f in glob.glob(os.path.join(OUT, "*.asp")):
-        m = re.search(r"<title>(.*?)</title>", open(f, encoding="utf-8").read(), re.S)
-        if m:
-            t = re.sub(r"\s+", " ", m.group(1)).strip()
-            if len(t) > MAX:
-                largos.append(os.path.basename(f))
-            if COLGANTE.search(t):
-                colgantes += 1
-    print(f"titulos recortados: {n} | quedan >65: {len(largos)} | finales colgantes: {colgantes}")
+    for f in sitio.paginas(OUT):
+        b = os.path.basename(f)
+        s = M.leer(f)
+        t = M.titulo(s)
+        if not t:
+            continue
+        nuevo = MANUALES.get(b) or (acortar(t) if len(t) > MAX else t)
+        if nuevo != t and MIN <= len(nuevo) <= MAX:
+            M.escribir(f, M.poner_title(s, nuevo))
+            t = nuevo
+            n += 1
+        # verificacion sobre lo que queda escrito
+        if len(t) > MAX:
+            largos.append(b)
+        if colgante(t):
+            colgantes += 1
+    print(f"titulos recortados: {n} | quedan >{MAX}: {len(largos)} | finales colgantes: {colgantes}")
     if largos:
         print("  revisar a mano:", ", ".join(largos[:6]))
 

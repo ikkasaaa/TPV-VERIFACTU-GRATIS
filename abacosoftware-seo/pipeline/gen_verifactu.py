@@ -11,50 +11,25 @@ Fechas verificadas contra el RD-ley 15/2025 (2-dic-2025), que aplaza la obligaci
 Todo el contenido remite al asesor fiscal para el caso concreto.
 """
 import os, sys
-import plantilla as P
 
-OUT = sys.argv[1] if len(sys.argv) > 1 else "site"
+import sitio, maqueta as Q, plantilla as P
+
+OUT = sitio.salida()
 
 AVISO = ('<div style="background:#fffbeb; border-left:4px solid #b45309; padding:15px 18px; margin:22px 0; '
          'border-radius:0 7px 7px 0;"><p style="margin:0; font-size:14px; line-height:1.7; color:#78350f;">'
          '<strong>Aviso.</strong> Esta página es información general, no asesoramiento fiscal. Los plazos de '
          'VeriFactu se han modificado varias veces y pueden volver a cambiar. Antes de tomar decisiones, '
          'confirma tu situación concreta con tu asesor fiscal o en la sede electrónica de la Agencia Tributaria.</p></div>')
-
-
-def bloque(titulo, parrafos, lista=None):
-    ps = "".join(f'\n\t\t\t\t\t<p style="font-size:15.5px; line-height:1.8; color:#3f3f46;">{p}</p>'
-                 for p in parrafos)
-    li = ""
-    if lista:
-        li = '\n\t\t\t\t\t<ul style="list-style:none; padding:0; margin:16px 0;">' + "".join(
-            f'\n\t\t\t\t\t\t<li style="padding:10px 0; border-bottom:1px solid #f0ebe2; font-size:14.6px; line-height:1.65;">'
-            f'<i class="fa-solid fa-angle-right" style="color:#8c2d19; margin-right:9px;"></i>{x}</li>'
-            for x in lista) + "\n\t\t\t\t\t</ul>"
-    return f'\n\t\t\t\t\t<h2 style="font-size:25px; font-weight:800; color:#1e293b; margin-top:34px;">{titulo}</h2>{ps}{li}'
+ASIDE = ("Caja 5 ya está adaptado",
+         "Emite facturas simplificadas con QR reglamentario y registro encadenado e inalterable. Licencia en propiedad de 333 €, sin cuota obligatoria.")
+PIE = f"O llama al <strong>{sitio.TEL}</strong>. Te atiende una persona que lleva 28 años tratando con comercios."
+WA_MSG = "Hola,%20tengo%20dudas%20sobre%20VeriFactu"
 
 
 def envolver(bloques, aviso=True):
-    return f"""
-	<section style="padding:48px 0 40px; background:#ffffff;">
-		<div class="container">
-			<div class="row">
-				<div class="col-md-8">{AVISO if aviso else ''}{''.join(bloques)}
-				</div>
-				<div class="col-md-4">
-					<div style="background:#faf8f4; border:1.5px solid #e4dfd5; border-radius:10px; padding:24px; position:sticky; top:20px;">
-						<h3 style="font-size:18px; font-weight:800; color:#1e293b; margin-top:0;">Caja 5 ya está adaptado</h3>
-						<p style="font-size:14px; line-height:1.7; color:#52525b;">Emite facturas simplificadas con QR reglamentario y registro encadenado e inalterable. Licencia en propiedad de 333 €, sin cuota obligatoria.</p>
-						<a href="descargar.asp?origen=descargas&amp;link=www.abacosoftware.com/eutpv.exe" class="btn-hero-primary" style="display:block; text-align:center; margin-bottom:10px;"><i class="fa-solid fa-download"></i> Descargar demo</a>
-						<a href="https://wa.me/34611500052?text=Hola,%20tengo%20dudas%20sobre%20VeriFactu" style="display:block; text-align:center; background:#ffffff; color:#8c2d19; border:2px solid #8c2d19; border-radius:6px; font-weight:700; font-size:15px; padding:11px 18px; text-decoration:none;"><i class="fa-brands fa-whatsapp"></i> Preguntar por WhatsApp</a>
-						<hr style="border-color:#e4dfd5; margin:18px 0;">
-						<p style="font-size:13px; color:#71717a; margin:0;">O llama al <strong>953 050 112</strong>. Te atiende una persona que lleva 28 años tratando con comercios.</p>
-					</div>
-				</div>
-			</div>
-		</div>
-	</section>
-"""
+    return Q.dos_columnas((AVISO if aviso else "") + Q.bloques(bloques, ico="fa-angle-right"),
+                          Q.aside(*ASIDE, Q.boton_wa(mensaje=WA_MSG), PIE))
 
 
 PAGINAS = {
@@ -344,15 +319,12 @@ PAGINAS = {
 
 def main():
     for fichero, d in PAGINAS.items():
-        cuerpo = envolver([bloque(t, ps, li[0] if li else None)
-                           for t, ps, *li in d["bloques"]],
-                          aviso=d.get("aviso", True))
         html_ = P.pagina(
             fichero=fichero, title=d["title"], description=d["desc"], keywords=d["kw"],
             h1=d["h1"], subtitulo=d["sub"], badge=d["badge"],
             trail=[("Inicio", "/"), ("Normativa y guías", "/verifactu-tpv.asp"),
                    (d["crumb"], "/" + fichero)],
-            cuerpo=cuerpo, faqs=d["faqs"],
+            cuerpo=envolver(d["bloques"], aviso=d.get("aviso", True)), faqs=d["faqs"],
             faq_titulo=f"Preguntas frecuentes sobre {d['crumb'].lower()}",
             cta=("¿Dudas sobre cómo te afecta a ti?",
                  "Llámanos o escríbenos por WhatsApp y te decimos con franqueza qué necesitas y qué no. Sin vender miedo."),

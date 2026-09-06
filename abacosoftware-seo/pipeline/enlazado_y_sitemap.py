@@ -1,10 +1,17 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-"""Malla de enlazado interno, sitemap y redirecciones 301."""
-import re, os, sys, glob, datetime, json
+"""Malla de enlazado interno, sitemap y redirecciones 301.
 
-OUT = sys.argv[1] if len(sys.argv) > 1 else "site"
-BASE = "https://www.abacosoftware.com"
+Va el ultimo del pipeline: recorre las paginas que existen en ese momento.
+Cada paso es idempotente y, si el fichero que tiene que tocar no esta (una web
+de prueba sin menu_nav.asp o sin web.config), lo dice y sigue.
+"""
+import datetime, glob, os, re
+
+import sitio, marcado as M
+
+OUT = sitio.salida()
+BASE = sitio.BASE
 HOY = datetime.date.today().isoformat()
 
 NUEVOS_HUBS = [
@@ -54,12 +61,11 @@ TITULOS = {
     "gestion-de-proveedores-y-pedidos": "Proveedores y pedidos de compra",
 }
 
-NO_INDEX = {
-    "conexion.asp", "conexion_visitas.asp", "menu_nav.asp", "footer_comun.asp",
-    "tpv_consultas_desde_web_med.asp", "tpv_consultas_desde_web_medNO.asp",
-    "tpv_consultas_desde_web_med -09-10-2023.asp", "vercarrito.asp", "carrito5.asp",
-    "descargar.asp", "comprar_tpv.asp", "recuento5.asp", "negocio_antiguedad.asp",
-    "resolucion_litigios.asp", "index.html", "Condiciones.htm",
+# Lo que no es pagina mas lo que es pagina pero no debe indexarse: carrito,
+# formularios de compra y descarga, y el duplicado singular/plural canonicalizado.
+NO_INDEX = sitio.NO_PAGINA | {
+    "vercarrito.asp", "carrito5.asp", "descargar.asp", "comprar_tpv.asp", "recuento5.asp",
+    "negocio_antiguedad.asp", "resolucion_litigios.asp", "index.html", "Condiciones.htm",
 }
 PRIORIDAD = {
     "index.asp": ("1.0", "daily"), "caja5_pc.asp": ("0.9", "weekly"),
@@ -70,17 +76,21 @@ PRIORIDAD = {
 }
 
 
-def leer(p):
-    return open(p, encoding="utf-8").read()
+leer, escribir = M.leer, M.escribir
 
 
-def escribir(p, s):
-    open(p, "w", encoding="utf-8").write(s)
+def falta(p):
+    if os.path.exists(p):
+        return False
+    print(f"  (no existe {os.path.basename(p)}: paso saltado)")
+    return True
 
 
 # ------------------------------------------------- 1. menu: nuevos hubs
 def menu():
     p = os.path.join(OUT, "menu_nav.asp")
+    if falta(p):
+        return 0
     s = leer(p)
     if "funciones-tpv.asp" in s:
         return 0
@@ -107,6 +117,8 @@ def menu():
 # --------------------------------- 2. hub de sectores: recuperar huerfanas
 def hub_sectores():
     p = os.path.join(OUT, "tpv_negocios.asp")
+    if falta(p):
+        return 0
     s = leer(p)
     todas = {os.path.basename(f) for f in glob.glob(os.path.join(OUT, "negocio_*.asp"))}
     todas.discard("negocio_antiguedad.asp")          # duplicado canonicalizado
@@ -199,8 +211,8 @@ def sitemap():
         if re.search(r'<meta[^>]+name="robots"[^>]+noindex', s, re.I):
             continue
         # respetar canonical hacia otra pagina
-        m = re.search(r'<link rel="canonical" href="([^"]+)"', s)
-        if m and not m.group(1).rstrip("/").endswith(b) and m.group(1).rstrip("/") != BASE:
+        canon = M.canonical(s).rstrip("/")
+        if canon and not canon.endswith(b) and canon != BASE:
             continue
         pri, chg = PRIORIDAD.get(b, ("0.7", "monthly"))
         loc = BASE + "/" if b == "index.asp" else BASE + "/" + b
@@ -224,8 +236,10 @@ def sitemap():
 # --------------------------------------------------------- 5. web.config 301
 def redirecciones():
     p = os.path.join(OUT, "web.config")
+    if falta(p):
+        return 0
     s = leer(p)
-    if "Redirect index.html" in s:
+    if "Redirect index.html" in s or "<rules>" not in s:
         return 0
     reglas = """
                 <rule name="Redirect index.html a raiz" stopProcessing="true">

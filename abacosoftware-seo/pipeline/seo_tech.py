@@ -1,21 +1,17 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-"""
-Capa tecnica SEO para abacosoftware.com (ASP clasico).
-Idempotente: puede ejecutarse varias veces sin duplicar etiquetas.
-"""
-import re, os, glob, json, sys
+"""Capa tecnica SEO para abacosoftware.com (ASP clasico).
 
-WEB = sys.argv[1] if len(sys.argv) > 1 else "site"
-BASE = "https://www.abacosoftware.com"
-OG_IMAGE = BASE + "/img/og-caja5-tpv.png"
+Idempotente: puede ejecutarse varias veces sin duplicar etiquetas. Cada paso
+mira si su marca ya esta antes de tocar nada.
+"""
+import glob, json, os, re
 
-NOT_PAGES = {
-    "conexion.asp", "conexion_visitas.asp", "menu_nav.asp", "footer_comun.asp",
-    "tpv_consultas_desde_web_med.asp", "tpv_consultas_desde_web_medNO.asp",
-    "tpv_consultas_desde_web_med -09-10-2023.asp",
-    "contenido_copyr-footer.html", "info_asp.aspx", "ventas.aspx",
-}
+import sitio, marcado as M
+from marcado import esc
+
+WEB = sitio.salida()
+BASE, OG_IMAGE = sitio.BASE, sitio.OG_IMAGE
 MARK = "<!-- SEO-TECH -->"
 
 stats = {k: 0 for k in ("files", "charset", "og", "breadcrumb", "org", "lazy",
@@ -24,29 +20,18 @@ stats = {k: 0 for k in ("files", "charset", "og", "breadcrumb", "org", "lazy",
 
 def is_page(fn):
     b = os.path.basename(fn)
-    return b not in NOT_PAGES and not b.endswith("_")
+    return b not in sitio.NO_PAGINA and not b.endswith("_")
 
 
 def read(p):
+    """Texto y si llevaba BOM: se quita al escribir, porque ASP lo sirve como bytes visibles."""
     raw = open(p, "rb").read()
     bom = raw.startswith(b"\xef\xbb\xbf")
-    if bom:
-        raw = raw[3:]
-    return raw.decode("utf-8"), bom
+    return raw[3:].decode("utf-8") if bom else raw.decode("utf-8"), bom
 
 
 def write(p, s):
     open(p, "wb").write(s.encode("utf-8"))
-
-
-def first(pat, s, g=1, flags=re.S | re.I):
-    m = re.search(pat, s, flags)
-    return re.sub(r"\s+", " ", m.group(g)).strip() if m else ""
-
-
-def esc(t):
-    return (t.replace("&", "&amp;").replace('"', "&quot;")
-             .replace("<", "&lt;").replace(">", "&gt;"))
 
 
 # ------------------------------------------------------------------ 1. CHARSET
@@ -240,10 +225,8 @@ def main():
         orig = s
         stats["bom"] += bom
 
-        title = first(r"<title>(.*?)</title>", s)
-        desc = first(r'<meta\s+name=["\']description["\']\s+content=["\'](.*?)["\']', s)
-        canon = first(r'<link\s+rel=["\']canonical["\']\s+href=["\'](.*?)["\']', s) \
-            or BASE + "/" + os.path.basename(fn)
+        title, desc = M.titulo(s), M.meta(s, "description")
+        canon = M.canonical(s) or BASE + "/" + os.path.basename(fn)
 
         if fn.endswith(".asp"):
             s, ok = fix_charset(s); stats["charset"] += ok

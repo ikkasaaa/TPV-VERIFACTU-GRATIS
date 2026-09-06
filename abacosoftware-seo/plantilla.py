@@ -5,35 +5,22 @@
 Reutiliza el CSS y los includes existentes (menu_nav.asp, css/abaco-moderno.css)
 para que las paginas nuevas sean indistinguibles de las actuales.
 """
-import json, re
+import os, sys
 
-BASE = "https://www.abacosoftware.com"
-OG_IMAGE = BASE + "/img/og-caja5-tpv.png"
+sys.path.insert(0, os.path.join(os.path.dirname(os.path.realpath(__file__)), "pipeline"))
+import sitio                                            # noqa: E402  (deja motor/ en sys.path)
+import marcado as M                                     # noqa: E402
+from marcado import esc, faq_ld                         # noqa: E402,F401
 
-
-def esc(t):
-    return (t.replace("&", "&amp;").replace('"', "&quot;")
-             .replace("<", "&lt;").replace(">", "&gt;"))
+BASE, OG_IMAGE = sitio.BASE, sitio.OG_IMAGE
 
 
 def ld(obj):
-    return ('\t<script type="application/ld+json">\n\t'
-            + json.dumps(obj, ensure_ascii=False, indent=2).replace("\n", "\n\t")
-            + "\n\t</script>\n")
-
-
-def faq_ld(faqs):
-    return {"@context": "https://schema.org", "@type": "FAQPage",
-            "mainEntity": [{"@type": "Question", "name": q,
-                            "acceptedAnswer": {"@type": "Answer", "text": a}}
-                           for q, a in faqs]}
+    return M.ld(obj, sangria="\t")
 
 
 def breadcrumb_ld(trail):
-    return {"@context": "https://schema.org", "@type": "BreadcrumbList",
-            "itemListElement": [{"@type": "ListItem", "position": i + 1,
-                                 "name": n, "item": BASE + u}
-                                for i, (n, u) in enumerate(trail)]}
+    return M.breadcrumb_ld(trail, BASE)
 
 
 FOOTER = """	<footer>

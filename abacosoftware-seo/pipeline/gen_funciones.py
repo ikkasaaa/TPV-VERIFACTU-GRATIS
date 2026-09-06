@@ -1,51 +1,27 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """Genera el cluster de funciones, el de hardware y las tres paginas hub."""
-import os, sys, glob, re, html
-import plantilla as P
+import os, sys
+
+import sitio, maqueta as Q, plantilla as P
 from contenido_funciones import FUNCIONES, HARDWARE
 
-OUT = sys.argv[1] if len(sys.argv) > 1 else "site"
+OUT = sitio.salida()
+
+ASIDE = ("Pruébalo con tus datos",
+         "La demo es completa y no pide tarjeta. La forma honesta de saber si te sirve es instalarla y meter tus propios artículos.")
+PIE = f"<strong>Licencia {sitio.PRECIO}</strong> en pago único para PC. Sin cuota obligatoria ni comisión por venta."
+OL = 'style="padding:10px 0 10px 4px; font-size:14.5px; line-height:1.7; color:#3f3f46;"'
 
 
 def cuerpo(d):
-    intro = "".join(f'\n\t\t\t\t\t<p style="font-size:15.5px; line-height:1.8; color:#3f3f46;">{p}</p>'
-                    for p in d["intro"])
-    bull = "".join(
-        f'\n\t\t\t\t\t\t<li style="padding:11px 0; border-bottom:1px solid #f0ebe2; font-size:14.5px; line-height:1.6;">'
-        f'<i class="fa-solid fa-check" style="color:#8c2d19; margin-right:9px;"></i>'
-        f'<strong>{t}.</strong> {x}</li>' for t, x in d["bullets"])
-    pasos = "".join(
-        f'\n\t\t\t\t\t\t<li style="padding:10px 0 10px 4px; font-size:14.5px; line-height:1.7; color:#3f3f46;">{p}</li>'
-        for p in d["como"])
-    return f"""
-	<section style="padding:50px 0 40px; background:#ffffff;">
-		<div class="container">
-			<div class="row">
-				<div class="col-md-8">{intro}
-
-					<h2 style="font-size:25px; font-weight:800; color:#1e293b; margin-top:34px;">Qué resuelve exactamente</h2>
-					<ul style="list-style:none; padding:0; margin:16px 0;">{bull}
-					</ul>
-
-					<h2 style="font-size:25px; font-weight:800; color:#1e293b; margin-top:34px;">Cómo se hace paso a paso en Caja 5</h2>
-					<ol style="padding-left:20px; margin:16px 0;">{pasos}
-					</ol>
-				</div>
-				<div class="col-md-4">
-					<div style="background:#faf8f4; border:1.5px solid #e4dfd5; border-radius:10px; padding:24px; position:sticky; top:20px;">
-						<h3 style="font-size:18px; font-weight:800; color:#1e293b; margin-top:0;">Pruébalo con tus datos</h3>
-						<p style="font-size:14px; line-height:1.7; color:#52525b;">La demo es completa y no pide tarjeta. La forma honesta de saber si te sirve es instalarla y meter tus propios artículos.</p>
-						<a href="descargar.asp?origen=descargas&amp;link=www.abacosoftware.com/eutpv.exe" class="btn-hero-primary" style="display:block; text-align:center; margin-bottom:10px;"><i class="fa-solid fa-download"></i> Descargar demo</a>
-						<a href="tel:953050112" style="display:block; text-align:center; background:#ffffff; color:#8c2d19; border:2px solid #8c2d19; border-radius:6px; font-weight:700; font-size:15px; padding:11px 18px; text-decoration:none;"><i class="fa-solid fa-phone"></i> 953 050 112</a>
-						<hr style="border-color:#e4dfd5; margin:18px 0;">
-						<p style="font-size:13px; color:#71717a; margin:0;"><strong>Licencia 333 €</strong> en pago único para PC. Sin cuota obligatoria ni comisión por venta.</p>
-					</div>
-				</div>
-			</div>
-		</div>
-	</section>
-"""
+    bull = Q.lista([f"<strong>{t}.</strong> {x}" for t, x in d["bullets"]])
+    pasos = "".join(f"{Q.S5}\t<li {OL}>{p}</li>" for p in d["como"])
+    principal = (Q.parrafos(d["intro"])
+                 + f"{Q.S5}<h2 {Q.H2}>Qué resuelve exactamente</h2>{bull}"
+                 + f"{Q.S5}<h2 {Q.H2}>Cómo se hace paso a paso en Caja 5</h2>"
+                 + f'{Q.S5}<ol style="padding-left:20px; margin:16px 0;">{pasos}{Q.S5}</ol>')
+    return Q.dos_columnas(principal, Q.aside(*ASIDE, Q.boton_tel(), PIE), padding="50px 0 40px")
 
 
 def genera(slug, d, seccion, hub_nom, hub_url, badge_pre):
@@ -64,39 +40,9 @@ def genera(slug, d, seccion, hub_nom, hub_url, badge_pre):
 
 
 # ------------------------------------------------------------------ HUB PAGES
-def tarjetas(items):
-    out = []
-    for titulo, url, texto in items:
-        out.append(f"""
-					<div class="col-md-4 col-sm-6" style="margin-bottom:22px;">
-						<div style="background:#ffffff; border:1.5px solid #e4dfd5; border-radius:9px; padding:22px; height:100%;">
-							<h3 style="font-size:17px; font-weight:800; margin-top:0; margin-bottom:9px; line-height:1.35;">
-								<a href="{url}" style="color:#8c2d19; text-decoration:none;">{titulo}</a></h3>
-							<p style="font-size:13.8px; line-height:1.65; color:#52525b; margin:0;">{texto}</p>
-						</div>
-					</div>""")
-    return "".join(out)
-
-
 def hub(fichero, title, desc, kw, h1, sub, badge, bloques, faqs, faq_tit, links, intro_txt):
-    secciones = ""
-    for nombre, items in bloques:
-        secciones += f"""
-	<section style="padding:44px 0; background:#faf8f4; border-top:1px solid #e9e4db;">
-		<div class="container">
-			<h2 style="font-size:26px; font-weight:800; color:#1e293b; margin-top:0; margin-bottom:20px;">{nombre}</h2>
-			<div class="row">{tarjetas(items)}
-			</div>
-		</div>
-	</section>
-"""
-    cuerpo_ = f"""
-	<section style="padding:46px 0 30px; background:#ffffff;">
-		<div class="container">
-			<div style="max-width:860px;">{"".join(f'<p style="font-size:15.5px; line-height:1.8; color:#3f3f46;">{p}</p>' for p in intro_txt)}</div>
-		</div>
-	</section>
-{secciones}"""
+    cuerpo_ = Q.intro(intro_txt, ancho=860, padding="46px 0 30px") + "".join(
+        Q.seccion_tarjetas(n, [(u, t, d) for t, u, d in items]) for n, items in bloques)
     html_ = P.pagina(fichero=fichero, title=title, description=desc, keywords=kw,
                      h1=h1, subtitulo=sub, badge=badge,
                      trail=[("Inicio", "/"), (h1.split(":")[0], "/" + fichero)],

@@ -2,10 +2,12 @@
 # -*- coding: utf-8 -*-
 """Cierra los huecos de metadatos que quedaban: canonical, H1, description
 y titulos/descripciones demasiado largos para la SERP."""
-import re, os, glob, sys
+import os, re
 
-OUT = sys.argv[1] if len(sys.argv) > 1 else "site"
-BASE = "https://www.abacosoftware.com"
+import sitio, marcado as M
+
+OUT = sitio.salida()
+BASE = sitio.BASE
 
 # description + H1 para las paginas que no tenian
 FICHAS = {
@@ -70,9 +72,9 @@ TITULOS = {
 
 def main():
     n_can = n_h1 = n_desc = n_tit = n_dsc = 0
-    for f in sorted(glob.glob(os.path.join(OUT, "*.asp"))):
+    for f in sitio.paginas(OUT):
         b = os.path.basename(f)
-        s = open(f, encoding="utf-8").read()
+        s = M.leer(f)
         orig = s
 
         # --- canonical
@@ -103,11 +105,7 @@ def main():
 
         # --- titulo recortado
         if b in TITULOS:
-            nuevo = TITULOS[b]
-            s = re.sub(r"<title>.*?</title>", f"<title>{nuevo}</title>", s, count=1, flags=re.S)
-            for p in ("og:title", "twitter:title"):
-                s = re.sub(rf'((?:property|name)="{p}" content=")[^"]*(")',
-                           lambda m: m.group(1) + nuevo + m.group(2), s)
+            s = M.poner_title(s, TITULOS[b])
             n_tit += 1
 
         # --- description demasiado larga: recortar en limite de palabra
@@ -115,14 +113,11 @@ def main():
         if m and len(m.group(2)) > 165:
             corto = m.group(2)[:162]
             corto = corto[:corto.rfind(" ")].rstrip(" ,;:") + "."
-            s = s[:m.start(2)] + corto + s[m.end(2):]
-            for p in ("og:description", "twitter:description"):
-                s = re.sub(rf'((?:property|name)="{p}" content=")[^"]*(")',
-                           lambda mm: mm.group(1) + corto + mm.group(2), s)
+            s = M.poner_description(s, corto)
             n_dsc += 1
 
         if s != orig:
-            open(f, "w", encoding="utf-8").write(s)
+            M.escribir(f, s)
 
     print(f"canonical anadidos: {n_can} | H1 anadidos: {n_h1} | descriptions anadidas: {n_desc}")
     print(f"titulos recortados: {n_tit} | descriptions recortadas: {n_dsc}")

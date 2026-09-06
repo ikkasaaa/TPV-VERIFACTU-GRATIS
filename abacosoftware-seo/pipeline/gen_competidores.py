@@ -7,8 +7,9 @@ Las quejas se atribuyen SIEMPRE como opinion de usuarios en foros y resenas
 (que es lo que recoge el CSV), nunca como afirmacion propia: publicidad
 comparativa licita bajo el art. 10 de la Ley 3/1991 de Competencia Desleal.
 """
-import csv, os, sys, io, re
-import plantilla as P
+import csv, os, re, sys
+
+import sitio, maqueta as Q, plantilla as P
 
 CSV = sys.argv[1] if len(sys.argv) > 1 else ""
 OUT = sys.argv[2] if len(sys.argv) > 2 else "site"
@@ -252,15 +253,10 @@ def cuerpo(row, meta, nom):
 					</ul>
 					<p style="font-size:15.5px; line-height:1.8; color:#3f3f46;">Y donde <strong>no</strong> es la mejor opción, dicho igual de claro: si necesitas sincronización en tiempo real con marketplaces internacionales, contabilidad financiera completa dentro del mismo programa o gestionas decenas de tiendas con equipo de sistemas propio, hay soluciones más orientadas a ese escenario y {nom} puede ser una de ellas.</p>
 				</div>
-				<div class="col-md-4">
-					<div style="background:#faf8f4; border:1.5px solid #e4dfd5; border-radius:10px; padding:24px; position:sticky; top:20px;">
-						<h3 style="font-size:18px; font-weight:800; color:#1e293b; margin-top:0;">Prueba antes de decidir</h3>
-						<p style="font-size:14px; line-height:1.7; color:#52525b;">La demo de Caja 5 es completa y no pide tarjeta. Instálala, mete veinte artículos con tallas y colores reales y comprueba si te cuadra.</p>
-						<a href="descargar.asp?origen=descargas&amp;link=www.abacosoftware.com/eutpv.exe" class="btn-hero-primary" style="display:block; text-align:center; margin-bottom:10px;"><i class="fa-solid fa-download"></i> Descargar demo</a>
-						<a href="tel:953050112" style="display:block; text-align:center; background:#ffffff; color:#8c2d19; border:2px solid #8c2d19; border-radius:6px; font-weight:700; font-size:15px; padding:11px 18px; text-decoration:none;"><i class="fa-solid fa-phone"></i> 953 050 112</a>
-						<hr style="border-color:#e4dfd5; margin:18px 0;">
-						<p style="font-size:13px; color:#71717a; margin:0;"><strong>Migración desde {nom}:</strong> te ayudamos a importar artículos, stock y clientes desde un Excel o CSV.</p>
-					</div>
+				<div class="col-md-4">{Q.aside("Prueba antes de decidir",
+                                  "La demo de Caja 5 es completa y no pide tarjeta. Instálala, mete veinte artículos con tallas y colores reales y comprueba si te cuadra.",
+                                  Q.boton_tel(),
+                                  f"<strong>Migración desde {nom}:</strong> te ayudamos a importar artículos, stock y clientes desde un Excel o CSV.")}
 				</div>
 			</div>
 		</div>
