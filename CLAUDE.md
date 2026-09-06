@@ -38,20 +38,27 @@ estado **antes**, no después.
 `motor/` es lo delicado: un cambio ahí afecta a los dos sitios. Regla dura:
 
 ```bash
-python3 motor/test_clusters.py     # 10/10 antes de empujar nada de motor/
+python3 motor/test.py              # 34/34 antes de empujar nada de motor/
 ```
 
-Si añades un comportamiento a `motor/`, añades su prueba. Las diez que hay
-salieron de fallos reales; sin ellas volverían.
+Si añades un comportamiento a `motor/`, añades su prueba en la suite que
+toque (`test_clusters`, `test_gate`, `test_marcado`, `test_analizar`; el
+harness está en `motor/prueba.py`). Las 34 que hay salieron de fallos reales;
+sin ellas volverían.
 
 ### 3. Antes de empujar, se rebasa
 
 ```bash
 git fetch origin main
 git rebase origin/main
-python3 motor/test_clusters.py
+python3 motor/test.py
+python3 abacosoftware-seo/.claude/skills/run-abacosoftware-seo/driver.py smoke   # si tocaste abacosoftware-seo/
 git push -u origin <tu-rama>
 ```
+
+`smoke` construye el pipeline entero sobre una web sintética (no hace falta el
+material del cliente) y pasa gate y validate. Tarda diez segundos y es la única
+forma de saber que un generador sigue funcionando sin tener la web a mano.
 
 Commits pequeños y frecuentes. Una sesión que trabaja tres horas y empuja un
 commit de 40 ficheros garantiza el conflicto.
@@ -95,11 +102,30 @@ otro no la tenga ya.
 5. **El `aggregateRating` de 4,9 sobre 318 valoraciones** se declara sin reseñas
    visibles. Es riesgo de acción manual de Google. Decisión pendiente del
    cliente: no tocarlo por cuenta propia.
+6. **La lista de páginas vivas de carrito5 se saca del inventario**
+   (`carrito5-seo/inventario/urls_descubiertas.txt`), no de una lista a mano.
+   La lista a mano tenía cuatro; el inventario cazó una quinta que se estaba
+   sobrescribiendo (`verifactu-aeat-descargar.html`). Si descubres una página
+   viva nueva, va al inventario, y `generar.py` la respeta sola.
+7. **El «50 al mes» falso sobrevivió en una tarjeta lateral** después de haber
+   corregido 16 apariciones. Antes de entregar carrito5:
+   `grep -rn "50 al mes" carrito5-seo/contenido/` tiene que salir vacío.
+8. **Una sola expresión regular para cada cosa.** El `<title>`, el H1, las
+   metas y el texto visible se leen y escriben desde `motor/marcado.py`. Había
+   seis copias que divergían; si necesitas leer marcado, mira ahí antes de
+   escribir un `re.search`.
 
 ### La regla de calidad
 
 Nada de plantillas. El filtro está en `motor/gate.py` y el umbral es **0,45** de
-similitud de Jaccard sobre el texto visible.
+similitud de Jaccard sobre el texto visible. Se pasa sin escribir Python:
+
+```bash
+python3 motor/gate.py interno <dir-web> --original <dir-web-sin-tocar>   # dentro de un sitio
+python3 motor/gate.py cruzado <dir-carrito5> <dir-abacosoftware>          # entre los dos
+```
+
+Sale con 1 si algún par supera el umbral.
 
 Está medido: generar páginas desde una base de hechos con andamiaje común da
 **0,75–0,91**, porque el texto propio del tema apenas pesa un 23 %. Escritas a

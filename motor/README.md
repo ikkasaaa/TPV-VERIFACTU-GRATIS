@@ -5,11 +5,14 @@ usan, y sirve para cualquier web en castellano del mismo estilo.
 
 | Fichero | Para qué |
 |---|---|
-| `gate.py` | Filtro anti-plantilla. Similitud de Jaccard sobre el texto visible. Umbral 0,45. |
+| `marcado.py` | Leer y escribir HTML/ASP: texto visible, title, H1, metas, canonical, JSON-LD; `poner_title` sincroniza og/twitter. Todo lo demás se apoya aquí. |
+| `gate.py` | Filtro anti-plantilla. Jaccard sobre el vocabulario visible, umbral 0,45. Tiene línea de órdenes. |
 | `clusters.py` | Agrupador de intenciones de búsqueda. |
 | `analizar_clusters.py` | Cruza keywords y páginas contra los clusters. |
 | `inventario.py` | Vuelca un sitio a TSV (slug, título, H1, palabras). |
-| `test_clusters.py` | 10 pruebas. Cada una salió de un fallo real. |
+| `consola.py` | Que `| head` no reviente con BrokenPipeError. |
+| `prueba.py` | Harness de pruebas de 40 líneas, sin dependencias. |
+| `test.py` | Lanza las cuatro suites: `test_clusters`, `test_marcado`, `test_gate`, `test_analizar`. 34 casos. |
 
 ## Cómo se usan
 
@@ -23,13 +26,35 @@ python3 motor/analizar_clusters.py paginas inventarios/*.tsv
 # Con keywords: qué está cubierto, qué está canibalizado y qué falta
 python3 motor/analizar_clusters.py keywords export_gsc.csv -- inventarios/*.tsv
 
-python3 motor/test_clusters.py
+# Filtro anti-plantilla: dentro de un sitio (solo lo nuevo) y entre los dos
+python3 motor/gate.py interno /ruta/construida --original /ruta/original
+python3 motor/gate.py cruzado /ruta/carrito5 /ruta/abacosoftware
+
+python3 motor/test.py
 ```
+
+Desde Python, `gate.filtrar({fichero: html}, previas)` devuelve qué candidatas
+no deben publicarse; es lo que usan los generadores de los dos sitios.
+
+## marcado.py: por qué existe
+
+Había seis expresiones regulares distintas para leer el `<title>`, tres para
+quitar etiquetas y dos para sincronizar `og:title`. Cuando una se corregía las
+demás no. Ahora la lectura (`titulo`, `h1`, `h1s`, `meta`, `canonical`,
+`bloques_ld`, `texto_visible`) y la escritura (`poner_title`,
+`poner_description`, `esc`, `ld`, `faq_ld`, `breadcrumb_ld`) están aquí y las
+dos plantillas y todas las herramientas las importan.
+
+Dos detalles que importan: `h1s()` no cuenta un `h1{}` dentro de `<style>` como
+encabezado, y las funciones de escritura no re-escapan lo que reciben, porque
+un `&amp;` que pasa dos veces por `esc()` acaba como `&amp;amp;` en la SERP.
 
 El fichero de keywords puede ser una exportación de **Search Console**, **Semrush**
 o **Ahrefs**, o una lista a pelo. Detecta el separador (`,` `;` tab) y la columna
 de la búsqueda por el nombre de cabecera. Si además trae impresiones o volumen,
-ordena los huecos por tamaño.
+ordena los huecos por tamaño. Las cifras se leen tanto en formato español
+(`2.800`, `8,4`) como inglés (`2800`, `8.4`): antes una posición media «12.3»
+se leía como 123.
 
 ## Cómo agrupa, y por qué no usa embeddings
 

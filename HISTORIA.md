@@ -299,3 +299,45 @@ head, which is what the other agent will do within five minutes.
 
 ---
 
+
+## A partir de aquí, la historia está en git
+
+El ZIP se descomprimió en la raíz del repositorio (commit «Descomprimir tpv-seo
+en la raíz del repositorio») y desde entonces cada cambio tiene su commit con su
+porqué. Lo que sigue es el resumen de esa primera sesión sobre el árbol
+descomprimido, para quien lea este fichero antes que `git log`.
+
+### motor: un solo núcleo de marcado, gate con CLI y cuatro suites de pruebas
+
+`marcado.py` concentra lo que estaba copiado en seis ficheros: texto visible,
+lectura de title/H1/meta/canonical/JSON-LD y escritura de title y description
+sincronizando og/twitter. `gate.py` se reescribe encima y gana línea de órdenes
+(`interno`, `cruzado`, `--original`) con código de salida. `analizar_clusters`
+lee cifras en formato español e inglés (antes «12.3» se leía como 123) y
+reconoce la cabecera «Keyword Difficulty» de Semrush. `clusters.etiqueta` tenía
+un fallo de precedencia (`a or b if c else d`) que devolvía «generico» en grupos
+con el primer núcleo vacío. Pruebas: de 10 a 34, en cuatro suites, con
+`python3 motor/test.py`.
+
+### abacosoftware: maqueta y constantes compartidas, driver sobre el motor, smoke
+
+`pipeline/sitio.py` (dominio, teléfono, descarga, NO_PAGINA, ruta de `motor/`)
+y `pipeline/maqueta.py` (párrafo, lista, bloque, tarjeta lateral, dos columnas,
+rejilla) sustituyen a seis copias del mismo HTML en línea. Verificado
+construyendo la misma web sintética con el código anterior y el nuevo: 88
+ficheros, cero diferencias en texto visible, title, description, H1 y JSON-LD.
+Nuevo `driver.py smoke`: build, gate y validate sobre una web sintética, sin
+material del cliente. `enlazado_y_sitemap` avisa y sigue si faltan ficheros.
+
+### carrito5: páginas vivas desde el inventario, y cae el último «50 al mes»
+
+`generar.py` saca las páginas vivas de `inventario/urls_descubiertas.txt` en vez
+de una lista a mano. El cambio cazó al momento una quinta página que se estaba
+sobrescribiendo: `verifactu-aeat-descargar.html`. Y la tarjeta lateral de
+`verifactu-gratis.html` aún decía «hasta 50 al mes»: la aparición 17 del dato
+falso, después de haber corregido 16.
+
+### motor/consola.py
+
+El arreglo del SIGPIPE, que se había hecho tres veces a mano, en un solo sitio
+y aplicado a los cinco scripts de línea de órdenes.

@@ -40,6 +40,19 @@ No está en el repo: es material del cliente y pesa 8 MB.
 
 ## Camino del agente
 
+### Antes de nada: smoke
+
+```bash
+python3 .claude/skills/run-abacosoftware-seo/driver.py smoke
+```
+
+No necesita la web del cliente. Monta en un temporal los cuatro ficheros que el
+pipeline espera (portada, `menu_nav.asp`, `tpv_negocios.asp`, `web.config`),
+construye encima las ~83 páginas y pasa `gate` y `validate`. Diez segundos.
+Salida esperada: `smoke OK: gate=0 validate=0` con media 0,24 y máxima 0,41.
+Si tocas un generador, la maqueta o la plantilla, esto va antes del commit.
+`--keep` conserva el directorio para mirarlo.
+
 ### Construir todo
 
 ```bash
@@ -127,7 +140,13 @@ Es la operación más frecuente. Las páginas se escriben a mano en un módulo d
    `sub`, `icono`, `crumb`, `bloques`, `faqs` y `rel`.
 2. Añade el módulo a la lista `gen_generico.py` dentro de `GENERADORES` en
    `driver.py`.
-3. `build`, luego `gate`, luego `preview` de una de las nuevas.
+3. `smoke`, luego `build`, luego `gate`, luego `preview` de una de las nuevas.
+
+Si necesitas un generador nuevo, no copies HTML de otro: las piezas (párrafo,
+lista, bloque, tarjeta lateral, dos columnas, rejilla de tarjetas) están en
+`pipeline/maqueta.py`, y las constantes del sitio (dominio, teléfono, ruta de
+descarga, ficheros que no son página) en `pipeline/sitio.py`. Un generador
+debería ser texto más tres llamadas a `maqueta`.
 
 **No generes páginas a partir de una base de hechos con plantilla.** Se probó y
 da 0,75–0,91 de similitud: el andamiaje compartido pesa el 77 % del texto. Las
@@ -139,6 +158,11 @@ páginas escritas a mano se quedan en 0,28–0,41. El `gate` las rechazará.
   temporal con enlaces simbólicos y un `site` que apunta a `--base`. Como Python
   resuelve el enlace para fijar `sys.path[0]`, hay que forzar `PYTHONPATH`, o
   todos los generadores fallan con `ModuleNotFoundError: plantilla`.
+
+- **`motor/` entra en `sys.path` al importar `sitio`.** Todo script del pipeline
+  empieza por `import sitio` (o por `import plantilla`, que lo hace por dentro) y
+  después ya puede importar `gate`, `marcado` o `consola`. Funciona igual desde
+  el temporal de enlaces porque la ruta se calcula con `realpath`.
 
 - **Nunca pongas `Response.CodePage = 65001`.** Los `.asp` están guardados en
   UTF-8 pero no declaran `@CODEPAGE`, así que ASP los lee con la codepage ANSI
@@ -176,4 +200,6 @@ páginas escritas a mano se quedan en 0,28–0,41. El `gate` las rechazará.
 | `gate` sale con código 1 | Hay páginas demasiado parecidas. Reescribe la que se repite dando a cada una la estructura de su propio tema, no un esquema común. |
 | `preview` no genera captura | Chromium no está donde espera el glob. Comprueba con `ls /opt/pw-browsers/*/chrome-linux/chrome`. |
 | `IndexError: list index out of range` al importar `gen_competidores` | Lee `sys.argv[2]` al importarse. Ya está guardado con `if len(sys.argv) > 2`. |
+| `ModuleNotFoundError: No module named 'marcado'` (o `gate`, `consola`) | El script no ha importado `sitio` antes. Ponlo como primer import del pipeline. |
+| `smoke` falla en `validate` con `sin breadcrumb` o `H1 != 1` | Un generador ha dejado de pasar `trail` o ha metido un segundo `<h1>`. Mira la página con `--keep`. |
 | La captura sale con el banner de cookies tapando el contenido | Es el comportamiento real del sitio. Para ver lo de debajo, recorta la imagen o sube `--height`. |

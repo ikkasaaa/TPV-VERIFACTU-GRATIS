@@ -10,7 +10,7 @@ nada**, y después `estado/`.
 ## Qué hay
 
 ```
-motor/               herramientas compartidas por los dos sitios
+motor/               herramientas compartidas: marcado, gate, clusters, pruebas
 abacosoftware-seo/   generadores y contenido de abacosoftware.com
 carrito5-seo/        generadores y contenido de carrito5.com
 inventarios/         volcado de las páginas de cada sitio (TSV)
@@ -22,10 +22,15 @@ estado/              un fichero por agente: el canal entre sesiones
 ## Empezar
 
 ```bash
-python3 motor/test_clusters.py                          # 10/10
+python3 motor/test.py                                   # 34/34
+python3 abacosoftware-seo/.claude/skills/run-abacosoftware-seo/driver.py smoke
 python3 motor/analizar_clusters.py paginas inventarios/*.tsv
 python3 motor/analizar_clusters.py keywords export.csv -- inventarios/*.tsv
+python3 motor/gate.py cruzado <dir-carrito5> <dir-abacosoftware>
 ```
+
+`smoke` construye abacosoftware entero sobre una web sintética y pasa gate y
+validate: no necesita el material del cliente.
 
 `motor/README.md` explica cómo agrupa y, sobre todo, las cinco cosas que se
 aprendieron rompiéndolo.
