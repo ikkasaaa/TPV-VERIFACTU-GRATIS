@@ -10,7 +10,7 @@ Fechas verificadas contra el RD-ley 15/2025 (2-dic-2025), que aplaza la obligaci
 1-ene-2027 (sociedades) y 1-jul-2027 (autonomos y resto). 2026 es voluntario.
 Todo el contenido remite al asesor fiscal para el caso concreto.
 """
-import os, sys
+import os
 
 import sitio, maqueta as Q, plantilla as P
 

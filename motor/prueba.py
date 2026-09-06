@@ -13,7 +13,7 @@
 Cada caso lleva como titulo el comportamiento que protege, no el nombre de la
 funcion: cuando falla, la linea que sale ya dice que se ha roto.
 """
-import sys, traceback
+import traceback
 
 
 class Suite:

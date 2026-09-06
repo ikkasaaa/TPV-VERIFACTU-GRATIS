@@ -5,7 +5,7 @@
 Se ejecuta despues de gen_generico: lee el H1 y el subtitulo de las paginas ya
 escritas en site/ para montar las tarjetas, asi que si va antes sale vacio.
 """
-import glob, os, re, sys
+import glob, os, re
 
 import sitio, maqueta as Q, marcado as M, plantilla as P
 

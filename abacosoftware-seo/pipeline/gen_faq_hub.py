@@ -5,7 +5,7 @@
 Ademas de la FAQPage, cada bloque tematico es una seccion con su H2, de forma que
 la pagina puede posicionar por consultas de cola larga formuladas como pregunta.
 """
-import os, sys, json
+import os, sys
 import plantilla as P
 
 OUT = sys.argv[1] if len(sys.argv) > 1 else "site"

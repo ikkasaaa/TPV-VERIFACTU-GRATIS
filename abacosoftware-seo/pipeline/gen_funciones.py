@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """Genera el cluster de funciones, el de hardware y las tres paginas hub."""
-import os, sys
+import os
 
 import sitio, maqueta as Q, plantilla as P
 from contenido_funciones import FUNCIONES, HARDWARE
