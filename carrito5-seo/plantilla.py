@@ -12,7 +12,11 @@ Paleta tomada del CSS inline de sus paginas:
   #38bdf8 azul acento     #25d366 verde WhatsApp
 Tipografias: Outfit (titulares) e Inter (texto).
 """
-import json
+import os, sys
+
+sys.path.insert(0, os.path.join(os.path.dirname(os.path.realpath(__file__)), os.pardir, "motor"))
+from marcado import esc, faq_ld, ld                     # noqa: E402,F401
+import marcado as M                                     # noqa: E402
 
 DOMINIO = "https://www.carrito5.com"
 MARCA = "Carrito5"
@@ -21,28 +25,8 @@ WA = "https://wa.me/34611500052"
 OG = DOMINIO + "/og_image_carrito5.jpg"
 
 
-def esc(t):
-    return (t.replace("&", "&amp;").replace('"', "&quot;")
-             .replace("<", "&lt;").replace(">", "&gt;"))
-
-
-def ld(obj):
-    return ('<script type="application/ld+json">\n'
-            + json.dumps(obj, ensure_ascii=False, indent=2) + "\n</script>\n")
-
-
-def faq_ld(faqs):
-    return {"@context": "https://schema.org", "@type": "FAQPage",
-            "mainEntity": [{"@type": "Question", "name": q,
-                            "acceptedAnswer": {"@type": "Answer", "text": a}}
-                           for q, a in faqs]}
-
-
 def breadcrumb_ld(trail):
-    return {"@context": "https://schema.org", "@type": "BreadcrumbList",
-            "itemListElement": [{"@type": "ListItem", "position": i + 1, "name": n,
-                                 "item": DOMINIO + "/" + u.lstrip("/")}
-                                for i, (n, u) in enumerate(trail)]}
+    return M.breadcrumb_ld(trail, DOMINIO)
 
 
 CSS = """

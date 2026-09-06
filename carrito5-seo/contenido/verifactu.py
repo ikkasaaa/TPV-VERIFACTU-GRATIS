@@ -26,7 +26,7 @@ VERIFACTU = {
   crumb="VeriFactu gratis",
   trail=[("Inicio", "index.html"), ("VeriFactu gratis", "verifactu-gratis.html")],
   aside=("Carrito5 ya está adaptado",
-         "El plan gratuito emite tickets conformes hasta 50 al mes. Descarga, pruébalo y sal de dudas sin poner tarjeta."),
+         "El plan Inicio, gratuito hasta 1.000 artículos, ya emite tickets conformes. Descarga, pruébalo y sal de dudas sin poner tarjeta."),
   cta=("Sal de dudas descargando",
        "Instala Carrito5, emite un ticket de prueba y comprueba tú mismo cómo sale el QR."),
   bloques=[
